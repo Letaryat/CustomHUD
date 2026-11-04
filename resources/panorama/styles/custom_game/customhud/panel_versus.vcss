@@ -1,0 +1,125 @@
+/*
+	Team-vs-team bar (Panels profile "versus"). Variables: team1, team2, score1,
+	score2, status, detail. Requires customhud_tokens.vcss.
+*/
+
+.chud-root
+{
+	width: 100%;
+	height: 100%;
+	flow-children: none;
+}
+
+.chud-versus
+{
+	width: fit-children;
+	height: fit-children;
+	horizontal-align: center;
+	vertical-align: top;
+	margin-top: 96px;
+	flow-children: down;
+	opacity: 1;
+	transform: translateY( 0px );
+	transition-property: opacity, transform;
+	transition-duration: 0.2s;
+	transition-timing-function: ease-in-out;
+}
+
+.chud-versus.hidden
+{
+	opacity: 0;
+	transform: translateY( -10px );
+}
+
+.chud-versus__bar
+{
+	height: 52px;
+	flow-children: right;
+	background-color: chudSurfaceBase;
+	border-radius: 6px;
+	box-shadow: fill chudShadowDrop 0px 0px 8px 0px;
+}
+
+.chud-versus__side
+{
+	width: 260px;
+	height: 100%;
+	flow-children: right;
+}
+
+.chud-versus__side--left
+{
+	border-left: 4px solid chudRarity02;
+	border-radius: 6px 0px 0px 6px;
+}
+
+.chud-versus__side--right
+{
+	border-right: 4px solid chudTextCream;
+	border-radius: 0px 6px 6px 0px;
+}
+
+.chud-versus__team
+{
+	width: fill-parent-flow( 1.0 );
+	margin: 0px 14px 0px 14px;
+	vertical-align: center;
+	font-family: chudFontMedium;
+	font-size: 20px;
+	color: chudTextMain;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.chud-versus__side--left .chud-versus__team
+{
+	text-align: left;
+}
+
+.chud-versus__side--right .chud-versus__team
+{
+	text-align: right;
+}
+
+.chud-versus__score
+{
+	width: 56px;
+	height: 100%;
+	padding-top: 8px;
+	background-color: chudSurfaceRow;
+	font-family: chudDigitsBold;
+	font-size: 30px;
+	color: chudTextMain;
+	text-align: center;
+}
+
+.chud-versus__status
+{
+	width: 96px;
+	vertical-align: center;
+	font-family: chudFontCondensed;
+	font-size: 16px;
+	color: chudAccentBase;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	text-align: center;
+}
+
+.chud-versus__detail
+{
+	horizontal-align: center;
+	margin-top: 6px;
+	font-family: chudFontBody;
+	font-size: 14px;
+	color: chudTextMuted;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	text-shadow: 1px 1px 2px 2 chudShadowText;
+}
+
+.chud-versus.live .chud-versus__status
+{
+	color: chudDangerBase;
+}

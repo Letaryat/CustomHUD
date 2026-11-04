@@ -1,0 +1,154 @@
+{
+  // Chat replies to !setnav and !hudscale, each sent after customhud.prefix.
+  // [green] and [default] are SwiftlyS2 chat colour tags.
+  "customhud.prefix": "[green][CustomHUD][default]",
+  "customhud.nav.usage": "Usage: !setnav wasd | buttons | numbers | mouse (current: {0})",
+  "customhud.nav.set": "Navigation set to [green]{0}[default].",
+  "customhud.scale.usage": "Usage: !hudscale {0}",
+  "customhud.scale.set": "Menu scale set to [green]{0}%[default].",
+
+  // Menu footer per nav mode; ".view" is a menu with nothing to select. {up} {down}
+  // {select} {close} name the menu's keys. A "Hints" entry in config.jsonc overrides
+  // a key in every language. The footer is one uppercase line, so keep them short.
+  "customhud.hint.wasd": "W/S move · E select · R close",
+  "customhud.hint.buttons": "{up}/{down} move · {select} select · {close} close",
+  "customhud.hint.numbers": "1-6 select · 7/8 page · 9 close",
+  "customhud.hint.mouse": "Click to select",
+  "customhud.hint.chat": "!N select · !0 close",
+  "customhud.hint.wasd.view": "R close",
+  "customhud.hint.buttons.view": "{close} close",
+  "customhud.hint.numbers.view": "9 close",
+  "customhud.hint.mouse.view": "Click {close} to close",
+  "customhud.hint.chat.view": "!0 close",
+
+  // Page lockers (menu_locker): the gold line above a plugin's title when its menu
+  // has no root title of its own, and the tag on the row holding the most votes.
+  "customhud.eyebrow.shop": "Shop",
+  "customhud.eyebrow.maps": "Map vote",
+  "customhud.eyebrow.ranks": "Ranks",
+  "customhud.eyebrow.vip": "VIP",
+  "customhud.eyebrow.admins": "Admin",
+  "customhud.eyebrow.mix": "Mix",
+  "customhud.lead": "Leading",
+
+  // The list's footer (menu_list): the word beside each key. Shown upper case.
+  "customhud.legend.move": "Move",
+  "customhud.legend.select": "Select",
+  "customhud.legend.pick": "Pick",
+  "customhud.legend.open": "Open",
+  "customhud.legend.switch": "Switch",
+  "customhud.legend.edit": "Edit",
+  "customhud.legend.change": "Change",
+  "customhud.legend.vote": "Vote",
+  "customhud.legend.apply": "Apply",
+  "customhud.legend.page": "Page",
+  "customhud.legend.back": "Back",
+  "customhud.legend.close": "Close",
+
+  // ---- Provider pages --------------------------------------------------------------------------
+  //
+  // Captions CustomHUD adds when it draws another plugin's menus from that plugin's API (Ranks and
+  // its modules, WeaponSkins, ShopCore, MapChooser). Names, figures and the provider's own lines
+  // still come from the provider. Plain text, no colour tags, and no ';', which ends a value.
+
+  "customhud.ranks.xp": "XP",
+  "customhud.ranks.cs_rating": "CS Rating",
+  "customhud.ranks.current_rank": "Current rank",
+  "customhud.ranks.band": "Band {0} of {1}",
+  "customhud.ranks.position": "Rank {0} of {1}",
+  // {0} the XP still needed, {1} the next rank.
+  "customhud.ranks.to_next": "{0} XP to {1}",
+  "customhud.ranks.top_band": "Highest rank reached",
+  "customhud.ranks.road": "Rank road",
+  "customhud.ranks.road_count": "{0} ranks",
+  // A ladder too long for one line shows the ranks around the player's own: {0}-{1} of them.
+  "customhud.ranks.road_shown": "{0}–{1} shown",
+  "customhud.ranks.you": "You",
+  "customhud.ranks.kills": "Kills",
+  "customhud.ranks.deaths": "Deaths",
+  "customhud.ranks.kd": "K/D",
+  "customhud.ranks.kd_sub": "Kills per death",
+  "customhud.ranks.assists": "Assists",
+  "customhud.ranks.headshots": "Headshots",
+  "customhud.ranks.headshots_sub": "{0}% of kills",
+  "customhud.ranks.accuracy": "Accuracy",
+  "customhud.ranks.accuracy_sub": "{0} hit · {1} missed",
+  "customhud.ranks.rounds": "Rounds",
+  "customhud.ranks.matches": "Matches",
+  // Beside a count: "1 210 won".
+  "customhud.ranks.won": "won",
+  "customhud.ranks.lost": "{0} lost",
+  "customhud.ranks.lost_share": "{0} lost · {1}% won",
+  "customhud.ranks.bombs": "Bombs",
+  "customhud.ranks.planted": "planted",
+  "customhud.ranks.defused": "{0} defused",
+  "customhud.ranks.col_rank": "Rank",
+  "customhud.ranks.col_player": "Player",
+  "customhud.ranks.col_tier": "Tier",
+  "customhud.ranks.notifications": "Notifications",
+  "customhud.ranks.xp_messages_sub": "A chat line each time you gain or lose XP",
+  "customhud.ranks.reset_sub": "Wipes your XP and every statistic. It cannot be undone.",
+  "customhud.ranks.reset_button": "Reset…",
+  // A page's footer line for a mouse player, in place of "Click to select".
+  "customhud.ranks.hint.myrank": "Your progress to the next rank",
+  "customhud.ranks.hint.stats": "Your lifetime statistics",
+  "customhud.ranks.hint.top": "Click a player for their statistics",
+  "customhud.ranks.hint.settings": "Change how Ranks behaves for you",
+
+  // Beside a weapon's kill count: "812 kills".
+  "customhud.weaponstats.kills": "kills",
+  "customhud.weaponstats.headshots": "Headshots",
+  "customhud.weaponstats.accuracy": "Accuracy",
+  // The keyboard list's line for the two meters a mouse card draws: {0} headshot share, {1} accuracy.
+  "customhud.weaponstats.shares": "{0}% headshots · {1}% accuracy",
+  "customhud.weaponstats.most_kills": "Most kills",
+  "customhud.weaponstats.hint": "Click a weapon to see where its hits landed",
+  // Beside a hit count: "29 hits".
+  "customhud.weaponstats.hits": "hits",
+  // {0} the share of all hits, {1} the damage dealt there.
+  "customhud.weaponstats.hit_share": "{0}% of hits · {1} damage",
+  "customhud.weaponstats.hitgroup.generic": "Generic",
+  "customhud.weaponstats.hitgroup.head": "Head",
+  "customhud.weaponstats.hitgroup.chest": "Chest",
+  "customhud.weaponstats.hitgroup.stomach": "Stomach",
+  "customhud.weaponstats.hitgroup.left_arm": "Left arm",
+  "customhud.weaponstats.hitgroup.right_arm": "Right arm",
+  "customhud.weaponstats.hitgroup.left_leg": "Left leg",
+  "customhud.weaponstats.hitgroup.right_leg": "Right leg",
+  "customhud.weaponstats.hitgroup.neck": "Neck",
+  "customhud.weaponstats.hitgroup.gear": "Gear",
+  "customhud.weaponstats.hitgroup.special": "Special",
+  "customhud.weaponstats.hitgroup.unknown": "Hitbox {0}",
+
+  "customhud.prestige.level": "Prestige level",
+  "customhud.prestige.next": "Next prestige",
+  "customhud.prestige.max": "Max",
+
+  // Captions above an item's name. Rarities are the game's own grade names.
+  "customhud.weaponskins.ct_agent": "CT Agent",
+  "customhud.weaponskins.t_agent": "T Agent",
+  "customhud.weaponskins.music_kit": "Music Kit",
+  "customhud.weaponskins.sticker": "Sticker",
+  "customhud.weaponskins.charm": "Charm",
+  "customhud.weaponskins.rarity.common": "Consumer Grade",
+  "customhud.weaponskins.rarity.uncommon": "Industrial Grade",
+  "customhud.weaponskins.rarity.rare": "Mil-Spec Grade",
+  "customhud.weaponskins.rarity.mythical": "Restricted",
+  "customhud.weaponskins.rarity.legendary": "Classified",
+  "customhud.weaponskins.rarity.ancient": "Covert",
+  "customhud.weaponskins.rarity.immortal": "Contraband",
+  "customhud.weaponskins.rarity.extraordinary": "Extraordinary",
+
+  // Only when a ShopCore button's own label cannot be told apart from its price.
+  "customhud.shop.buy": "Buy",
+  "customhud.shop.sell": "Sell",
+  "customhud.shop.hint.items": "Click an item for details",
+  "customhud.shop.hint.item": "Buy or preview",
+  // An item with no preview.
+  "customhud.shop.hint.item_buy": "Click Buy to purchase",
+
+  // The read-only tally CustomHUD shows after a player votes, until the vote ends.
+  "customhud.maps.tally": "Vote for the next map",
+  "customhud.maps.extend": "Extend the current map",
+  "customhud.maps.hint": "Click a map to vote"
+}

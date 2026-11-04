@@ -1,0 +1,223 @@
+<root>
+	<styles>
+		<include src="s2r://panorama/styles/custom_game/customhud/customhud_tokens.vcss_c" />
+		<include src="s2r://panorama/styles/custom_game/customhud/menu.vcss_c" />
+		<include src="s2r://panorama/styles/custom_game/customhud/menu_shop.vcss_c" />
+	</styles>
+	<Panel class="chud-root" hittest="false">
+		<Panel id="shell" class="chud-menu chud-menu--shop hidden">
+			<Panel id="title" class="chud-menu__title" hittest="false">
+				<Label class="chud-menu__heading" text="{s:title}" hittest="false" />
+			</Panel>
+			<Panel id="options" class="chud-menu__options">
+				<Button id="option_0" class="chud-row hidden">
+					<Panel class="chud-row__bar" hittest="false" />
+					<Label class="chud-row__key" text="{s:option_0_key}" hittest="false" />
+					<Panel class="chud-row__clip" hittest="false">
+						<Label class="chud-row__label" text="{s:option_0}" hittest="false" />
+						<Panel class="chud-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
+					</Panel>
+					<Label class="chud-row__value" text="{s:option_0_right}" hittest="false" />
+					<Panel id="icon_0" class="chud-row__icon hidden" hittest="false" />
+				</Button>
+				<Button id="option_1" class="chud-row hidden">
+					<Panel class="chud-row__bar" hittest="false" />
+					<Label class="chud-row__key" text="{s:option_1_key}" hittest="false" />
+					<Panel class="chud-row__clip" hittest="false">
+						<Label class="chud-row__label" text="{s:option_1}" hittest="false" />
+						<Panel class="chud-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
+					</Panel>
+					<Label class="chud-row__value" text="{s:option_1_right}" hittest="false" />
+					<Panel id="icon_1" class="chud-row__icon hidden" hittest="false" />
+				</Button>
+				<Button id="option_2" class="chud-row hidden">
+					<Panel class="chud-row__bar" hittest="false" />
+					<Label class="chud-row__key" text="{s:option_2_key}" hittest="false" />
+					<Panel class="chud-row__clip" hittest="false">
+						<Label class="chud-row__label" text="{s:option_2}" hittest="false" />
+						<Panel class="chud-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
+					</Panel>
+					<Label class="chud-row__value" text="{s:option_2_right}" hittest="false" />
+					<Panel id="icon_2" class="chud-row__icon hidden" hittest="false" />
+				</Button>
+				<Button id="option_3" class="chud-row hidden">
+					<Panel class="chud-row__bar" hittest="false" />
+					<Label class="chud-row__key" text="{s:option_3_key}" hittest="false" />
+					<Panel class="chud-row__clip" hittest="false">
+						<Label class="chud-row__label" text="{s:option_3}" hittest="false" />
+						<Panel class="chud-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
+					</Panel>
+					<Label class="chud-row__value" text="{s:option_3_right}" hittest="false" />
+					<Panel id="icon_3" class="chud-row__icon hidden" hittest="false" />
+				</Button>
+				<Button id="option_4" class="chud-row hidden">
+					<Panel class="chud-row__bar" hittest="false" />
+					<Label class="chud-row__key" text="{s:option_4_key}" hittest="false" />
+					<Panel class="chud-row__clip" hittest="false">
+						<Label class="chud-row__label" text="{s:option_4}" hittest="false" />
+						<Panel class="chud-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
+					</Panel>
+					<Label class="chud-row__value" text="{s:option_4_right}" hittest="false" />
+					<Panel id="icon_4" class="chud-row__icon hidden" hittest="false" />
+				</Button>
+				<Button id="option_5" class="chud-row hidden">
+					<Panel class="chud-row__bar" hittest="false" />
+					<Label class="chud-row__key" text="{s:option_5_key}" hittest="false" />
+					<Panel class="chud-row__clip" hittest="false">
+						<Label class="chud-row__label" text="{s:option_5}" hittest="false" />
+						<Panel class="chud-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
+					</Panel>
+					<Label class="chud-row__value" text="{s:option_5_right}" hittest="false" />
+					<Panel id="icon_5" class="chud-row__icon hidden" hittest="false" />
+				</Button>
+				<Button id="option_6" class="chud-row hidden">
+					<Panel class="chud-row__bar" hittest="false" />
+					<Label class="chud-row__key" text="{s:option_6_key}" hittest="false" />
+					<Panel class="chud-row__clip" hittest="false">
+						<Label class="chud-row__label" text="{s:option_6}" hittest="false" />
+						<Panel class="chud-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
+					</Panel>
+					<Label class="chud-row__value" text="{s:option_6_right}" hittest="false" />
+					<Panel id="icon_6" class="chud-row__icon hidden" hittest="false" />
+				</Button>
+				<Button id="option_7" class="chud-row hidden">
+					<Panel class="chud-row__bar" hittest="false" />
+					<Label class="chud-row__key" text="{s:option_7_key}" hittest="false" />
+					<Panel class="chud-row__clip" hittest="false">
+						<Label class="chud-row__label" text="{s:option_7}" hittest="false" />
+						<Panel class="chud-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
+					</Panel>
+					<Label class="chud-row__value" text="{s:option_7_right}" hittest="false" />
+					<Panel id="icon_7" class="chud-row__icon hidden" hittest="false" />
+				</Button>
+				<Button id="option_8" class="chud-row hidden">
+					<Panel class="chud-row__bar" hittest="false" />
+					<Label class="chud-row__key" text="{s:option_8_key}" hittest="false" />
+					<Panel class="chud-row__clip" hittest="false">
+						<Label class="chud-row__label" text="{s:option_8}" hittest="false" />
+						<Panel class="chud-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
+					</Panel>
+					<Label class="chud-row__value" text="{s:option_8_right}" hittest="false" />
+					<Panel id="icon_8" class="chud-row__icon hidden" hittest="false" />
+				</Button>
+				<Button id="option_9" class="chud-row hidden">
+					<Panel class="chud-row__bar" hittest="false" />
+					<Label class="chud-row__key" text="{s:option_9_key}" hittest="false" />
+					<Panel class="chud-row__clip" hittest="false">
+						<Label class="chud-row__label" text="{s:option_9}" hittest="false" />
+						<Panel class="chud-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
+					</Panel>
+					<Label class="chud-row__value" text="{s:option_9_right}" hittest="false" />
+					<Panel id="icon_9" class="chud-row__icon hidden" hittest="false" />
+				</Button>
+				<Button id="option_10" class="chud-row hidden">
+					<Panel class="chud-row__bar" hittest="false" />
+					<Label class="chud-row__key" text="{s:option_10_key}" hittest="false" />
+					<Panel class="chud-row__clip" hittest="false">
+						<Label class="chud-row__label" text="{s:option_10}" hittest="false" />
+						<Panel class="chud-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
+					</Panel>
+					<Label class="chud-row__value" text="{s:option_10_right}" hittest="false" />
+					<Panel id="icon_10" class="chud-row__icon hidden" hittest="false" />
+				</Button>
+				<Button id="option_11" class="chud-row hidden">
+					<Panel class="chud-row__bar" hittest="false" />
+					<Label class="chud-row__key" text="{s:option_11_key}" hittest="false" />
+					<Panel class="chud-row__clip" hittest="false">
+						<Label class="chud-row__label" text="{s:option_11}" hittest="false" />
+						<Panel class="chud-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
+					</Panel>
+					<Label class="chud-row__value" text="{s:option_11_right}" hittest="false" />
+					<Panel id="icon_11" class="chud-row__icon hidden" hittest="false" />
+				</Button>
+				<Button id="option_12" class="chud-row hidden">
+					<Panel class="chud-row__bar" hittest="false" />
+					<Label class="chud-row__key" text="{s:option_12_key}" hittest="false" />
+					<Panel class="chud-row__clip" hittest="false">
+						<Label class="chud-row__label" text="{s:option_12}" hittest="false" />
+						<Panel class="chud-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
+					</Panel>
+					<Label class="chud-row__value" text="{s:option_12_right}" hittest="false" />
+					<Panel id="icon_12" class="chud-row__icon hidden" hittest="false" />
+				</Button>
+				<Button id="option_13" class="chud-row hidden">
+					<Panel class="chud-row__bar" hittest="false" />
+					<Label class="chud-row__key" text="{s:option_13_key}" hittest="false" />
+					<Panel class="chud-row__clip" hittest="false">
+						<Label class="chud-row__label" text="{s:option_13}" hittest="false" />
+						<Panel class="chud-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
+					</Panel>
+					<Label class="chud-row__value" text="{s:option_13_right}" hittest="false" />
+					<Panel id="icon_13" class="chud-row__icon hidden" hittest="false" />
+				</Button>
+				<Button id="option_14" class="chud-row hidden">
+					<Panel class="chud-row__bar" hittest="false" />
+					<Label class="chud-row__key" text="{s:option_14_key}" hittest="false" />
+					<Panel class="chud-row__clip" hittest="false">
+						<Label class="chud-row__label" text="{s:option_14}" hittest="false" />
+						<Panel class="chud-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
+					</Panel>
+					<Label class="chud-row__value" text="{s:option_14_right}" hittest="false" />
+					<Panel id="icon_14" class="chud-row__icon hidden" hittest="false" />
+				</Button>
+				<Button id="option_15" class="chud-row hidden">
+					<Panel class="chud-row__bar" hittest="false" />
+					<Label class="chud-row__key" text="{s:option_15_key}" hittest="false" />
+					<Panel class="chud-row__clip" hittest="false">
+						<Label class="chud-row__label" text="{s:option_15}" hittest="false" />
+						<Panel class="chud-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
+					</Panel>
+					<Label class="chud-row__value" text="{s:option_15_right}" hittest="false" />
+					<Panel id="icon_15" class="chud-row__icon hidden" hittest="false" />
+				</Button>
+				<Button id="option_16" class="chud-row hidden">
+					<Panel class="chud-row__bar" hittest="false" />
+					<Label class="chud-row__key" text="{s:option_16_key}" hittest="false" />
+					<Panel class="chud-row__clip" hittest="false">
+						<Label class="chud-row__label" text="{s:option_16}" hittest="false" />
+						<Panel class="chud-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
+					</Panel>
+					<Label class="chud-row__value" text="{s:option_16_right}" hittest="false" />
+					<Panel id="icon_16" class="chud-row__icon hidden" hittest="false" />
+				</Button>
+				<Button id="option_17" class="chud-row hidden">
+					<Panel class="chud-row__bar" hittest="false" />
+					<Label class="chud-row__key" text="{s:option_17_key}" hittest="false" />
+					<Panel class="chud-row__clip" hittest="false">
+						<Label class="chud-row__label" text="{s:option_17}" hittest="false" />
+						<Panel class="chud-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
+					</Panel>
+					<Label class="chud-row__value" text="{s:option_17_right}" hittest="false" />
+					<Panel id="icon_17" class="chud-row__icon hidden" hittest="false" />
+				</Button>
+				<Button id="option_18" class="chud-row hidden">
+					<Panel class="chud-row__bar" hittest="false" />
+					<Label class="chud-row__key" text="{s:option_18_key}" hittest="false" />
+					<Panel class="chud-row__clip" hittest="false">
+						<Label class="chud-row__label" text="{s:option_18}" hittest="false" />
+						<Panel class="chud-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
+					</Panel>
+					<Label class="chud-row__value" text="{s:option_18_right}" hittest="false" />
+					<Panel id="icon_18" class="chud-row__icon hidden" hittest="false" />
+				</Button>
+				<Button id="option_19" class="chud-row hidden">
+					<Panel class="chud-row__bar" hittest="false" />
+					<Label class="chud-row__key" text="{s:option_19_key}" hittest="false" />
+					<Panel class="chud-row__clip" hittest="false">
+						<Label class="chud-row__label" text="{s:option_19}" hittest="false" />
+						<Panel class="chud-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
+					</Panel>
+					<Label class="chud-row__value" text="{s:option_19_right}" hittest="false" />
+					<Panel id="icon_19" class="chud-row__icon hidden" hittest="false" />
+				</Button>
+			</Panel>
+			<Panel class="chud-bar chud-bar--list">
+				<Button id="nav_back" class="chud-nav chud-nav--back hidden"><Label text="&lt;" hittest="false" /></Button>
+				<Label id="footer" class="chud-menu__footer" text="{s:footer}" hittest="false" />
+				<Label id="page" class="chud-bar__page hidden" text="{s:page}" hittest="false" />
+				<Button id="nav_previous" class="chud-nav chud-nav--page hidden"><Label text="&lt;&lt;" hittest="false" /></Button>
+				<Button id="nav_next" class="chud-nav chud-nav--page hidden"><Label text="&gt;&gt;" hittest="false" /></Button>
+			</Panel>
+		</Panel>
+	</Panel>
+</root>

@@ -1,0 +1,135 @@
+using SwiftlyS2.Shared.Menu;
+using SwiftlyS2.Shared.Players;
+using SwiftlyS2.Shared.Translation;
+
+namespace CustomHUD.Integrations;
+
+// One page as an integration draws it. The provider's components keep their places, so focus,
+// keys and clicks still reach them: an integration changes how a row draws, drops a row nobody
+// can focus, and adds rows nobody can focus. Game thread only.
+internal sealed class PageDraw
+{
+    private readonly IntegrationHost _host;
+    private readonly ILocalizer _strings;
+    private readonly MenuNode[] _rendered;
+    private readonly MenuNode?[] _nodes;
+    private readonly bool[] _redrawn;
+    private readonly List<(int Before, MenuNode Node)> _added = [];
+    private readonly List<MenuNode> _header = [];
+
+    public PageDraw(
+        IntegrationHost host,
+        IMenuSession session,
+        string rendererId,
+        IReadOnlyList<IMenuComponent> components,
+        MenuNode[] rendered,
+        int pageIndex,
+        int pageCount,
+        ILocalizer strings,
+        IReadOnlySet<string> regions,
+        int mainSlots)
+    {
+        _host = host;
+        _strings = strings;
+        _rendered = rendered;
+        _nodes = (MenuNode?[])rendered.Clone();
+        _redrawn = new bool[rendered.Length];
+        Session = session;
+        RendererId = rendererId;
+        Components = components;
+        PageIndex = pageIndex;
+        PageCount = pageCount;
+        Regions = regions;
+        MainSlots = mainSlots;
+    }
+
+    public IMenuSession Session { get; }
+    public IMenu Menu => Session.Menu;
+    public IPlayer Player => Session.Player;
+    public string RendererId { get; }
+    public IReadOnlyList<IMenuComponent> Components { get; }
+    public int PageIndex { get; }
+    public int PageCount { get; }
+    public bool LastPage => PageIndex >= PageCount - 1;
+
+    // Regions the layout draws (menu_locker's banner, foot ...): a row sent to one takes no main-list slot.
+    public IReadOnlySet<string> Regions { get; }
+
+    // What the main list holds; a row added past it is cut.
+    public int MainSlots { get; }
+
+    public object? ItemOf(int index) => CollectionItems.Of(Components[index]);
+
+    // What the player chose to open this page, or an ancestor page (Openers).
+    public object? Opener => _host.Openers.Of(Menu, Player.PlayerID);
+
+    public bool TryOpener<T>(out T value) => _host.Openers.TryOf(Menu, Player.PlayerID, out value);
+
+    public void Decorate(int index, string payload)
+    {
+        if (_nodes[index] is { } node) _nodes[index] = Append(node, payload);
+    }
+
+    // Draws the component as other text: its row, key and click stay its own.
+    public void Draw(int index, string text, string payload)
+    {
+        _nodes[index] = Row(text, payload);
+        _redrawn[index] = true;
+    }
+
+    // Only a row the cursor never lands on: dropping a focusable one would hide where focus is.
+    public void Hide(int index)
+    {
+        if (!Components[index].IsFocusable) _nodes[index] = null;
+    }
+
+    public void Add(string text, string payload, int? before = null)
+        => _added.Add((Math.Clamp(before ?? Components.Count, 0, Components.Count), Row(text, payload)));
+
+    public void AddHeader(string text, string payload) => _header.Add(Row(text, payload));
+
+    // The page's footer line for a mouse player: what clicking does here. Empty keeps the default.
+    public void Hint(string text)
+    {
+        if (text.Length > 0) _header.Add(Row(text, "hint"));
+    }
+
+    // A provider's async read, kept for this session; false until it lands, when the page redraws.
+    public bool TryLoad<T>(string key, Func<Task<T>> load, out T value) => _host.TryLoad(Session, key, load, out value);
+
+    // CustomHUD's own string in the player's language, safe as directive text.
+    public string Text(string key, params object[] args)
+    {
+        var value = args.Length == 0 ? _strings[key] : _strings[key, args];
+        return value.EndsWith(key, StringComparison.Ordinal) ? string.Empty : Directive.Clean(value);
+    }
+
+    internal MenuNode? NodeAt(int index) => _nodes[index];
+
+    internal bool Redrawn(int index) => _redrawn[index];
+
+    internal IEnumerable<MenuNode> AddedBefore(int index) => _added.Where(a => a.Before == index).Select(a => a.Node);
+
+    internal IReadOnlyList<MenuNode> Header => _header;
+
+    // A throwing integration leaves nothing half-drawn: the page falls back to the provider's own rows.
+    internal void Reset()
+    {
+        Array.Copy(_rendered, _nodes, _rendered.Length);
+        Array.Clear(_redrawn);
+        _added.Clear();
+        _header.Clear();
+    }
+
+    private MenuNode Row(string text, string payload)
+        => payload.Length == 0
+            ? new MenuTextNode(text)
+            : MenuLineNode.Of(new MenuTextNode(text), new MenuRawNode(RendererId, payload));
+
+    private MenuNode Append(MenuNode node, string payload)
+    {
+        // Into the component's own line: the composer splits a value off its first text node.
+        var raw = new MenuRawNode(RendererId, payload);
+        return node is MenuLineNode line ? line with { Children = [.. line.Children, raw] } : MenuLineNode.Of(node, raw);
+    }
+}

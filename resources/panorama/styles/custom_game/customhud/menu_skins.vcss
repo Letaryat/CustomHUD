@@ -1,0 +1,27 @@
+/*
+	Weapon-skin picker (WeaponSkins). Layered over menu.vcss; same ids. Row text:
+	"Skin\tWear\t6" -- the third field is the rarity tier, drawn as a full-height stripe.
+*/
+
+.chud-menu--skins
+{
+	width: 500px;
+}
+
+.chud-menu--skins .chud-row__value
+{
+	font-family: chudFontBody;
+	font-size: 12px;
+	color: chudTextMuted;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+
+/* Rarity stripe along the row's right edge, coloured by the lvl-N ladder in menu.vcss. */
+.chud-menu--skins .chud-row__icon
+{
+	width: 5px;
+	height: 34px;
+	margin-right: 0px;
+	border-radius: 0px 3px 3px 0px;
+}

@@ -1,0 +1,406 @@
+using System.Globalization;
+using CustomHUD.Config;
+using CustomHUD.Navigation;
+using CustomHUD.Rendering;
+using CustomHUD.Services;
+using Microsoft.Extensions.Logging;
+using SwiftlyS2.Shared;
+using SwiftlyS2.Shared.Events;
+using SwiftlyS2.Shared.Menu;
+using SwiftlyS2.Shared.Menu.Components;
+using SwiftlyS2.Shared.Players;
+
+namespace CustomHUD.Input;
+
+// Feeds the input methods core has no concept of into a core menu session:
+// mouse clicks, numbers, and the wasd keys.
+//
+// Keyboard input is handled only for players in wasd mode, and only for keys
+// the menu's keymap does not already own -- a key bound in menus.jsonc is
+// dispatched by core, and dispatching it here as well would act twice.
+//
+// MenuActionContext is a public readonly record struct with required init
+// properties, and IMenuComponent.HandleActionAsync is on the public interface,
+// so synthesizing an activation is a supported seam rather than a trick. Its
+// Translate is core's translator, as core's router passes: components look up
+// core's keys through it ("menu.input.chat_hint"), which CustomHUD's files lack.
+internal sealed class MenuInputBridge(
+    ISwiftlyCore core,
+    CustomHudConfigProvider config,
+    PanoramaMenuRenderer renderer,
+    NavModeResolver navModes,
+    SteamIdCache steamIds,
+    CoreTranslations translations,
+    ILogger logger)
+{
+    private EventDelegates.OnCustomHudClicked? _onClicked;
+    private EventDelegates.OnClientKeyStateChanged? _onKey;
+    private EventDelegates.OnTick? _onTick;
+
+    private const int MaxSlots = 128;
+    // Slots whose Tab this tick's OnTick removed: a Tab event for one means the mask did not hold.
+    private readonly bool[] _tabMasked = new bool[MaxSlots];
+
+    public void Subscribe()
+    {
+        _onClicked = OnClicked;
+        core.Event.OnCustomHudClicked += _onClicked;
+        _onKey = OnKey;
+        core.Event.OnClientKeyStateChanged += _onKey;
+        _onTick = OnTick;
+        core.Event.OnTick += _onTick;
+    }
+
+    public void Unsubscribe()
+    {
+        if (_onClicked is not null) core.Event.OnCustomHudClicked -= _onClicked;
+        if (_onKey is not null) core.Event.OnClientKeyStateChanged -= _onKey;
+        if (_onTick is not null) core.Event.OnTick -= _onTick;
+        _onClicked = null;
+        _onKey = null;
+        _onTick = null;
+    }
+
+    private void OnTick()
+    {
+        Array.Clear(_tabMasked);
+        foreach (var player in core.PlayerManager.GetAllPlayers())
+        {
+            if (!BlocksTab(player)) continue;
+
+            // SW2's OnGameFramePlayerHook runs OnTick after simulation, BEFORE
+            // CPlayer::Think samples ButtonPressed for menu key events.
+            // Pawn matches that sampler, including the spectator pawn.
+            if (player.Pawn is { IsValid: true, MovementServices: { } movement })
+            {
+                movement.Buttons.ButtonPressed &= ~GameButtonFlags.Tab;
+                if ((uint)player.PlayerID < MaxSlots) _tabMasked[player.PlayerID] = true;
+            }
+        }
+    }
+
+    // Tab is a close key only in wasd and buttons; mouse and numbers have their own.
+    private bool BlocksTab(IPlayer player)
+        => GetOwnSession(player) is { Menu.InputMethod: MenuInputMethod.Buttons }
+           && player is { IsValid: true, IsFakeClient: false }
+           && navModes.Resolve(player.PlayerID, steamIds.Get(player.PlayerID)) is NavMode.Mouse or NavMode.Numbers;
+
+    private void OnKey(IOnClientKeyStateChangedEvent e)
+    {
+        if (!e.Pressed) return;
+        if (e.Key is not (KeyKind.W or KeyKind.S or KeyKind.E or KeyKind.R or KeyKind.Tab)) return;
+
+        if (e.Key == KeyKind.Tab && (uint)e.PlayerId < MaxSlots && _tabMasked[e.PlayerId])
+        {
+            logger.LogWarning("Tab reached the menu router for player {PlayerId} although CustomHUD removed it this tick, so core closed their menu. Please report this with your SwiftlyS2 version.", e.PlayerId);
+            return;
+        }
+
+        var mode = navModes.Resolve(e.PlayerId, steamIds.Get(e.PlayerId));
+        if (mode != NavMode.Wasd) return;
+
+        var player = core.PlayerManager.GetPlayer(e.PlayerId);
+        if (player is null || player.IsFakeClient) return;
+
+        var session = GetOwnSession(player);
+        if (session is null) return;
+
+        if (session.Menu.InputMethod == MenuInputMethod.Buttons
+            && session.Menu.Keymap.TryResolve(MenuKeys.FromKeyKind(e.Key), out _))
+            return;
+
+        switch (e.Key)
+        {
+            case KeyKind.W:
+                session.MoveFocus(-1);
+                break;
+            case KeyKind.S:
+                session.MoveFocus(1);
+                break;
+            case KeyKind.E:
+                if (session.FocusedComponent is { } component)
+                    MenuActivation.Select(component, session, MenuKey.E, translations.For(player.PlayerID), logger);
+                break;
+            default:
+                // A plugin that unbound Close (MixScrims' picks) meant the menu to have no way out.
+                if (FrameComposer.Closable(session.Menu)) session.Close();
+                break;
+        }
+    }
+
+    private void OnClicked(IOnCustomHudClickedEvent e)
+    {
+        var player = core.PlayerManager.GetPlayer(e.PlayerId);
+        if (player is null || player.IsFakeClient) return;
+
+        var session = GetOwnSession(player);
+        if (session is null) return;
+        if (navModes.Resolve(player.PlayerID, steamIds.Get(player.PlayerID)) != NavMode.Mouse) return;
+
+        // The prefix comes off the frame the renderer actually composed, never
+        // from a fresh profile lookup here: this code cannot know which
+        // nav-mode profile or per-menu override the renderer resolved, and
+        // guessing rejects every click against the wrong prefix.
+        var rows = renderer.GetRows(player.PlayerID);
+        if (rows is null || !ReferenceEquals(rows.Session, session)) return;
+
+        // Hidden on a menu without Close, but a click can be a tick older than the frame.
+        var closable = FrameComposer.Closable(session.Menu);
+        if (rows.BackButton.Length > 0 && e.ButtonId == rows.BackButton)
+        {
+            if (closable) session.Close();
+            return;
+        }
+        if (rows.CloseButton.Length > 0 && e.ButtonId == rows.CloseButton)
+        {
+            if (closable) CloseStack(player, session);
+            return;
+        }
+        if (e.ButtonId == rows.PreviousButton || e.ButtonId == rows.NextButton)
+        {
+            MovePage(player, e.ButtonId == rows.PreviousButton ? -1 : 1);
+            return;
+        }
+        if (rows.RootMenu is { } root)
+        {
+            if (e.ButtonId == rows.RootButton)
+            {
+                if (!ReferenceEquals(root, session.Menu)) root.Open(player);
+                return;
+            }
+            if (e.ButtonId.StartsWith(rows.SidebarPrefix, StringComparison.Ordinal)
+                && int.TryParse(e.ButtonId.AsSpan(rows.SidebarPrefix.Length), out var category)
+                && category >= 0 && category < rows.SidebarItems.Length)
+            {
+                // A divider slot holds a DividerComponent and falls out here; a root action
+                // (a Help button) runs on the root's session as it would on the root's page.
+                var target = rows.SidebarItems[category];
+                if (target is not (SwiftlyS2.Shared.Menu.Components.SubmenuComponent
+                        { Visible: true, Enabled: true, VisibleWhen: null, EnabledWhen: null, TextProvider: null }
+                    or SwiftlyS2.Shared.Menu.Components.ButtonComponent
+                        { Visible: true, Enabled: true, VisibleWhen: null, EnabledWhen: null, TextProvider: null }))
+                    return;
+                var rootSession = ReferenceEquals(root, session.Menu) ? session : root.Open(player);
+                renderer.KeepRootOpen(player.PlayerID, rootSession,
+                    target is SwiftlyS2.Shared.Menu.Components.SubmenuComponent ? category : -1);
+                if (target.IsVisible(rootSession) && target.IsEnabled(rootSession))
+                    MenuActivation.Select(target, rootSession, MenuKey.Mouse1, translations.For(player.PlayerID), logger);
+                return;
+            }
+        }
+
+        if (rows.TabHost is { } host && rows.TabPrefix.Length > 0
+            && e.ButtonId.StartsWith(rows.TabPrefix, StringComparison.Ordinal)
+            && int.TryParse(e.ButtonId.AsSpan(rows.TabPrefix.Length), NumberStyles.None, CultureInfo.InvariantCulture, out var tab)
+            && tab < rows.TabItems.Length)
+        {
+            // From any depth under the host: reopen it and pick the tab there, as the sidebar does with the root.
+            var item = rows.TabItems[tab];
+            var hostSession = ReferenceEquals(host, session.Menu) ? session : host.Open(player);
+            renderer.KeepTabOpen(player.PlayerID, hostSession, tab);
+            if (item.IsVisible(hostSession) && item.IsEnabled(hostSession))
+                MenuActivation.Select(item, hostSession, MenuKey.Mouse1, translations.For(player.PlayerID), logger);
+            return;
+        }
+
+        if (rows.Controls.TryGetValue(e.ButtonId, out var control))
+        {
+            if (control.Step != 0) NavigateRow(player, session, rows, control.Row, control.Step);
+            else SetTrack(session, rows, control.Row, control.Segment, control.Segments);
+            return;
+        }
+
+        if (rows.Targets.TryGetValue(e.ButtonId, out var targetRow))
+        {
+            if (targetRow is RowMap.PreviousPageTarget or RowMap.NextPageTarget)
+                MovePage(player, targetRow == RowMap.PreviousPageTarget ? -1 : 1);
+            else
+                ActivateRow(player, session, rows, targetRow, MenuKey.Mouse1);
+            return;
+        }
+
+        if (rows.Card is { } card)
+        {
+            ClickCard(player, session, rows, card, e.ButtonId);
+            return;
+        }
+
+        if (rows.RowPrefix.Length == 0) return;
+        if (!e.ButtonId.StartsWith(rows.RowPrefix, StringComparison.Ordinal)) return;
+        if (!int.TryParse(e.ButtonId.AsSpan(rows.RowPrefix.Length), out var row)) return;
+        if (row == rows.PreviousTileRow || row == rows.NextTileRow)
+        {
+            MovePage(player, row == rows.PreviousTileRow ? -1 : 1);
+            return;
+        }
+
+        ActivateRow(player, session, rows, row, MenuKey.Mouse1);
+    }
+
+    // Core's Close() returns to the parent menu, so leaving a stack of
+    // submenus takes one Close per level; each reopens the next one up.
+    private void CloseStack(IPlayer player, IMenuSession session)
+    {
+        for (var depth = 0; depth < 32 && session.IsOpen; depth++)
+        {
+            var parent = session.Menu.Parent;
+            session.Close();
+            if (parent is null || core.Menu.GetSession(player) is not { } next
+                || !ReferenceEquals(next.Menu, parent))
+                break;
+            session = next;
+        }
+        renderer.ForgetReturn(player.PlayerID);
+    }
+
+    // Numbers nav: ordinal is 1-based among the page's SELECTABLE rows, which
+    // is what the layout's key hint shows.
+    public void SelectByNumber(IPlayer player, int ordinal)
+    {
+        var session = GetOwnSession(player);
+        if (session is null) return;
+
+        var rows = renderer.GetRows(player.PlayerID);
+        if (rows is null || !ReferenceEquals(rows.Session, session)) return;
+
+        var seen = 0;
+        for (var row = 0; row < rows.Focusable.Length; row++)
+        {
+            if (!rows.IsKeyed(row)) continue;
+            if (++seen != ordinal) continue;
+            ActivateRow(player, session, rows, row, MenuKey.E);
+            return;
+        }
+    }
+
+    public void MovePage(IPlayer player, int delta)
+    {
+        var session = GetOwnSession(player);
+        if (session is null) return;
+
+        var rows = renderer.GetRows(player.PlayerID);
+        if (rows is null || !ReferenceEquals(rows.Session, session)) return;
+
+        // Core exposes no page API, so a page key moves focus onto the target
+        // page; the renderer draws whichever page holds focus.
+        var target = delta < 0 ? rows.PreviousPageFocus : rows.NextPageFocus;
+        if (target >= 0)
+        {
+            session.SetFocus(target);
+            return;
+        }
+
+        // Core's own window (a Chat menu) slides once focus passes its edge.
+        var selectable = CountSelectable(rows, 0, rows.Focusable.Length);
+        session.MoveFocus(delta * Math.Max(1, selectable));
+    }
+
+    public void Close(IPlayer player)
+    {
+        if (GetOwnSession(player) is { } session && FrameComposer.Closable(session.Menu)) session.Close();
+    }
+
+    // A player may have a menu open that belongs to another renderer -- a
+    // plugin that forced centerhtml, or a server-wide override. Acting on it
+    // would move a cursor nothing of ours is drawing.
+    private IMenuSession? GetOwnSession(IPlayer player)
+    {
+        var session = core.Menu.GetSession(player);
+        if (session is null || !session.IsOpen) return null;
+        return string.Equals(session.Menu.Renderer.Id, config.Current.RendererId, StringComparison.OrdinalIgnoreCase)
+            ? session
+            : null;
+    }
+
+    private void ActivateRow(IPlayer player, IMenuSession session, RowMap rows, int row, MenuKey key)
+    {
+        if (!FocusRow(session, rows, row)) return;
+
+        var component = session.FocusedComponent;
+        if (component is null) return;
+
+        MenuActivation.Select(component, session, key, translations.For(player.PlayerID), logger);
+    }
+
+    // A stepper beside a slider's or selector's value: the same NavigateLeft / NavigateRight A and D send.
+    private void NavigateRow(IPlayer player, IMenuSession session, RowMap rows, int row, int step)
+    {
+        if (!FocusRow(session, rows, row)) return;
+        if (session.FocusedComponent is not { } component) return;
+        if (!component.IsVisible(session) || !component.IsEnabled(session)) return;
+
+        MenuActivation.Run(component, session, step < 0 ? MenuActions.NavigateLeft : MenuActions.NavigateRight,
+            MenuKey.Mouse1, translations.For(player.PlayerID), logger);
+    }
+
+    private static bool FocusRow(IMenuSession session, RowMap rows, int row)
+    {
+        if (row < 0 || row >= rows.Focusable.Length) return false;
+        if (!rows.Focusable[row]) return false;   // a spacer or plain label
+        if (rows.FocusedRow < 0) return false;
+
+        // SetFocus indexes the visible FOCUSABLE components, while a click
+        // reports a PHYSICAL row -- and body rows include non-focusable
+        // entries, so the two are different numbers. Counting the selectable
+        // rows between the cursor and the target turns one into the other
+        // without depending on how core numbers focus across pages.
+        var steps = row > rows.FocusedRow
+            ? CountSelectable(rows, rows.FocusedRow + 1, row + 1)
+            : -CountSelectable(rows, row, rows.FocusedRow);
+
+        // The map describes the last COMPOSED frame, which may be a tick or
+        // two behind the session -- a keyboard press between compose and click
+        // moves core's cursor without the map knowing. Correcting by the drift
+        // in FocusedIndex keeps the landing row right instead of off by that
+        // much.
+        steps -= session.FocusedIndex - rows.FocusedIndex;
+
+        if (steps != 0) session.MoveFocus(steps);
+        return true;
+    }
+
+    // `field_3_hit`, `field_3_aside` or `field_3_seg17`: the field, then which of its targets.
+    private void ClickCard(IPlayer player, IMenuSession session, RowMap rows, CardMap card, string buttonId)
+    {
+        if (!buttonId.StartsWith(rows.RowPrefix, StringComparison.Ordinal)) return;
+        var rest = buttonId.AsSpan(rows.RowPrefix.Length);
+        var digits = 0;
+        while (digits < rest.Length && char.IsAsciiDigit(rest[digits])) digits++;
+        if (!int.TryParse(rest[..digits], NumberStyles.None, CultureInfo.InvariantCulture, out var field)
+            || field >= card.Main.Length)
+            return;
+
+        var target = rest[digits..];
+        if (target.SequenceEqual(card.HitSuffix))
+            ActivateRow(player, session, rows, card.Main[field], MenuKey.Mouse1);
+        else if (target.SequenceEqual(card.AsideSuffix))
+            ActivateRow(player, session, rows, card.Aside[field], MenuKey.Mouse1);
+        else if (target.StartsWith(card.SegmentSuffix, StringComparison.Ordinal)
+                 && int.TryParse(target[card.SegmentSuffix.Length..], NumberStyles.None, CultureInfo.InvariantCulture, out var segment))
+            SetTrack(session, rows, card.Track[field], segment, card.Segments);
+    }
+
+    // Segment n of `segments` is n / (segments - 1) of the way along, snapped
+    // to the slider's Step. SetValue runs OnChanged exactly as a key press does.
+    private static void SetTrack(IMenuSession session, RowMap rows, int row, int segment, int segments)
+    {
+        if (segment < 0 || segment >= segments) return;
+        if (!FocusRow(session, rows, row)) return;
+        if (session.FocusedComponent is not SliderComponent slider) return;
+        if (!slider.IsVisible(session) || !slider.IsEnabled(session)) return;
+
+        var min = MathF.Min(slider.Min, slider.Max);
+        var max = MathF.Max(slider.Min, slider.Max);
+        var target = min + (max - min) * segment / Math.Max(1, segments - 1);
+        var snapped = min + MathF.Round((target - min) / slider.Step) * slider.Step;
+        slider.SetValue(session, MathF.Round(Math.Clamp(snapped, min, max), 6));
+    }
+
+    private static int CountSelectable(RowMap rows, int start, int endExclusive)
+    {
+        var count = 0;
+        for (var i = Math.Max(0, start); i < Math.Min(endExclusive, rows.Focusable.Length); i++)
+            if (rows.Focusable[i]) count++;
+        return count;
+    }
+}

@@ -1,0 +1,99 @@
+/*
+	Tactical timeout (Panels profile "timeout"). Variables: title, team, timer,
+	detail. Classes: team-ct / team-t on the shell. Requires customhud_tokens.vcss.
+*/
+
+.chud-root
+{
+	width: 100%;
+	height: 100%;
+	flow-children: none;
+}
+
+.chud-timeout
+{
+	width: 360px;
+	height: fit-children;
+	horizontal-align: center;
+	vertical-align: top;
+	margin-top: 170px;
+	padding: 14px 20px 14px 20px;
+	flow-children: down;
+	background-color: chudSurfaceBase;
+	border-top: 3px solid chudAccentBase;
+	border-radius: 6px;
+	box-shadow: fill chudShadowDrop 0px 0px 10px 0px;
+	opacity: 1;
+	transform: translateY( 0px );
+	transition-property: opacity, transform;
+	transition-duration: 0.2s;
+	transition-timing-function: ease-in-out;
+}
+
+.chud-timeout.hidden
+{
+	opacity: 0;
+	transform: translateY( -10px );
+}
+
+.chud-timeout.team-ct
+{
+	border-top: 3px solid chudRarity02;
+}
+
+.chud-timeout.team-t
+{
+	border-top: 3px solid chudTextCream;
+}
+
+.chud-timeout__title
+{
+	horizontal-align: center;
+	font-family: chudFontCondensed;
+	font-size: 16px;
+	color: chudTextMuted;
+	text-transform: uppercase;
+	letter-spacing: 3px;
+}
+
+.chud-timeout__team
+{
+	horizontal-align: center;
+	margin-top: 2px;
+	font-family: chudFontMedium;
+	font-size: 22px;
+	color: chudTextMain;
+	text-transform: uppercase;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.chud-timeout.team-ct .chud-timeout__team
+{
+	color: chudRarity02;
+}
+
+.chud-timeout.team-t .chud-timeout__team
+{
+	color: chudTextCream;
+}
+
+.chud-timeout__timer
+{
+	horizontal-align: center;
+	margin-top: 4px;
+	font-family: chudDigitsBold;
+	font-size: 44px;
+	color: chudTextMain;
+}
+
+.chud-timeout__detail
+{
+	horizontal-align: center;
+	margin-top: 2px;
+	font-family: chudFontBody;
+	font-size: 13px;
+	color: chudTextFaint;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}

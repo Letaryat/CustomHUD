@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="CustomHUD.csproj" />
+  <Project Path="CustomHUD.Contract/CustomHUD.Contract.csproj" />
+</Solution>

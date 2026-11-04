@@ -1,0 +1,14 @@
+<root>
+	<styles>
+		<include src="s2r://panorama/styles/custom_game/customhud/customhud_tokens.vcss_c" />
+		<include src="s2r://panorama/styles/custom_game/customhud/panel_timeout.vcss_c" />
+	</styles>
+	<Panel class="chud-root" hittest="false">
+		<Panel id="shell" class="chud-timeout hidden" hittest="false">
+			<Label class="chud-timeout__title" text="{s:title}" hittest="false" />
+			<Label class="chud-timeout__team" text="{s:team}" hittest="false" />
+			<Label class="chud-timeout__timer" text="{s:timer}" hittest="false" />
+			<Label class="chud-timeout__detail" text="{s:detail}" hittest="false" />
+		</Panel>
+	</Panel>
+</root>

@@ -1,0 +1,49 @@
+/*
+	Shop menu. Layered over menu.vcss; same ids. Row text: "Item\tPrice" -- the
+	value column is styled as a price tag. Third field lvl-N tints by rarity.
+*/
+
+.chud-menu--shop
+{
+	width: 460px;
+	border-left: 3px solid chudGoldBase;
+}
+
+.chud-menu--shop .chud-row.selected
+{
+	background-color: chudGoldSoft;
+}
+
+.chud-menu--shop .chud-row.selected .chud-row__bar
+{
+	background-color: chudGoldBase;
+}
+
+.chud-menu--shop .chud-row.selected .chud-row__key
+{
+	color: chudGoldBase;
+}
+
+.chud-menu--shop .chud-row__value
+{
+	padding: 2px 8px 2px 8px;
+	border-radius: 3px;
+	background-color: chudGoldSoft;
+	font-family: chudDigitsBold;
+	font-size: 13px;
+	color: chudGoldBase;
+}
+
+.chud-menu--shop .chud-row.disabled .chud-row__value
+{
+	background-color: chudDangerSoft;
+	color: chudDangerBase;
+}
+
+.chud-menu--shop .chud-row__icon
+{
+	width: 4px;
+	height: 22px;
+	margin-right: 8px;
+	border-radius: 2px;
+}

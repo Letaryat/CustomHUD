@@ -1,0 +1,17 @@
+bin/
+obj/
+build/
+*.user
+.vs/
+
+# Decompiled third-party Panorama assets kept locally for study only.
+# Never commit these: they are someone else's copyrighted layouts and
+# sponsor artwork, and this repository is AGPL-3.0.
+references/
+references-possible-duplicates/
+
+# Third-party screenshots used as design direction only (see docs/DesignLanguage.md).
+deisng-reference-images/
+
+# Build output of CustomHUD.Contract (see its csproj).
+resources/exports/

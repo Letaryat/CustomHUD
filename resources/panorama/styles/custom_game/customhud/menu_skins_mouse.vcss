@@ -1,0 +1,956 @@
+/*
+	WeaponSkins locker: sidebar + five-column card grid that scrolls past three
+	rows. Overrides .chud-tile from
+	menu_mouse.vcss, so it must be included after it. Cards keep that rule's
+	flow-children: none -- every child is placed by margin from the card top.
+*/
+
+.ws-locker
+{
+	width: 1140px;
+	padding: 16px;
+	/* Panorama draws every side of a panel in one colour, so the frame is all accent. */
+	border-top: 2px solid chudAccentBase;
+	border-right: 1px solid chudAccentBase;
+	border-bottom: 1px solid chudAccentBase;
+	border-left: 1px solid chudAccentBase;
+	border-radius: 6px;
+	background-color: gradient( linear, 0% 0%, 0% 100%, from( chudSurfaceRaised ), to( chudSurfaceDeep ) );
+}
+
+.ws-header
+{
+	width: 100%;
+	height: 56px;
+	flow-children: down;
+}
+
+.ws-heading
+{
+	width: 100%;
+	margin-top: 4px;
+	font-family: chudFontBody;
+	font-size: 26px;
+	font-weight: bold;
+	color: chudTextMain;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+/* Three visible card rows of 192px (184px card + 2 x 4px margin). */
+.ws-content
+{
+	width: 100%;
+	height: 576px;
+	flow-children: right;
+}
+
+/* 5 x 176px (card width + 2 x 4px margin) = 880px, plus the 16px scrollbar gutter. */
+.ws-grid
+{
+	width: 896px;
+	height: 100%;
+	overflow: clip scroll;
+}
+
+.ws-grid__items
+{
+	width: 880px;
+	flow-children: down;
+}
+
+/* Five cards per line panel, for the reason given at .chud-locker__line in menu_mouse.vcss. */
+.ws-line
+{
+	width: 100%;
+	flow-children: right;
+}
+
+.ws-card
+{
+	width: 168px;
+	height: 184px;
+	margin: 4px;
+}
+
+/* chosen: the item the player has on now. Twice the hover edge, so the two never read alike. */
+
+/* Rarity rises from the card's foot instead of underlining it. */
+.ws-card .chud-tile__rarity
+{
+	border-bottom: 0px solid transparent;
+	background-color: gradient( linear, 0% 0%, 0% 100%, from( transparent ), color-stop( 0.4, transparent ), to( chudTint01 ) );
+}
+
+.ws-card .chud-tile__rarity.lvl-1 { background-color: gradient( linear, 0% 0%, 0% 100%, from( transparent ), color-stop( 0.4, transparent ), to( chudTint01 ) ); }
+.ws-card .chud-tile__rarity.lvl-2 { background-color: gradient( linear, 0% 0%, 0% 100%, from( transparent ), color-stop( 0.4, transparent ), to( chudTint02 ) ); }
+.ws-card .chud-tile__rarity.lvl-3 { background-color: gradient( linear, 0% 0%, 0% 100%, from( transparent ), color-stop( 0.4, transparent ), to( chudTint03 ) ); }
+.ws-card .chud-tile__rarity.lvl-4 { background-color: gradient( linear, 0% 0%, 0% 100%, from( transparent ), color-stop( 0.4, transparent ), to( chudTint04 ) ); }
+.ws-card .chud-tile__rarity.lvl-5 { background-color: gradient( linear, 0% 0%, 0% 100%, from( transparent ), color-stop( 0.4, transparent ), to( chudTint05 ) ); }
+.ws-card .chud-tile__rarity.lvl-6 { background-color: gradient( linear, 0% 0%, 0% 100%, from( transparent ), color-stop( 0.4, transparent ), to( chudTint06 ) ); }
+.ws-card .chud-tile__rarity.lvl-7 { background-color: gradient( linear, 0% 0%, 0% 100%, from( transparent ), color-stop( 0.4, transparent ), to( chudTint07 ) ); }
+.ws-card .chud-tile__rarity.lvl-8 { background-color: gradient( linear, 0% 0%, 0% 100%, from( transparent ), color-stop( 0.4, transparent ), to( chudTint08 ) ); }
+.ws-card .chud-tile__rarity.lvl-9 { background-color: gradient( linear, 0% 0%, 0% 100%, from( transparent ), color-stop( 0.4, transparent ), to( chudTint09 ) ); }
+.ws-card .chud-tile__rarity.lvl-10 { background-color: gradient( linear, 0% 0%, 0% 100%, from( transparent ), color-stop( 0.4, transparent ), to( chudTint10 ) ); }
+
+.ws-card__bar
+{
+	width: 72px;
+	height: 2px;
+	horizontal-align: center;
+	vertical-align: top;
+	margin-top: 116px;
+	background-color: chudRarity01;
+}
+
+/* Crisp, never glowing: Panorama draws a box-shadow blur round a 2px line as a thick halo. */
+.chud-tile__rarity.lvl-1 .ws-card__bar { background-color: chudRarity01; }
+.chud-tile__rarity.lvl-2 .ws-card__bar { background-color: chudRarity02; }
+.chud-tile__rarity.lvl-3 .ws-card__bar { background-color: chudRarity03; }
+.chud-tile__rarity.lvl-4 .ws-card__bar { background-color: chudRarity04; }
+.chud-tile__rarity.lvl-5 .ws-card__bar { background-color: chudRarity05; }
+.chud-tile__rarity.lvl-6 .ws-card__bar { background-color: chudRarity06; }
+.chud-tile__rarity.lvl-7 .ws-card__bar { background-color: chudRarity07; }
+.chud-tile__rarity.lvl-8 .ws-card__bar { background-color: chudRarity08; }
+.chud-tile__rarity.lvl-9 .ws-card__bar { background-color: chudRarity09; }
+.chud-tile__rarity.lvl-10 .ws-card__bar { background-color: chudRarity10; }
+
+/* The bar sits under the image, so a card without one has nothing to underline. */
+.ws-card .ws-card__bar
+{
+	visibility: collapse;
+}
+
+.ws-card.has-thumb .ws-card__bar
+{
+	visibility: visible;
+}
+
+/* The image itself comes from an econ-* class in econ_thumbs.vcss. */
+.ws-card__thumb
+{
+	width: 152px;
+	height: 104px;
+	horizontal-align: center;
+	vertical-align: top;
+	margin-top: 8px;
+	background-size: contain;
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+	transform: scale3d( 1, 1, 1 );
+	transition-property: transform;
+	transition-duration: 0.12s;
+	transition-timing-function: ease-in-out;
+}
+
+.ws-card:hover .ws-card__thumb
+{
+	transform: scale3d( 1.06, 1.06, 1 );
+}
+
+.ws-card__thumb.hidden
+{
+	visibility: collapse;
+}
+
+.ws-card__type
+{
+	width: 154px;
+	horizontal-align: center;
+	vertical-align: top;
+	margin-top: 124px;
+	font-family: chudFontMedium;
+	font-size: 15px;
+	color: chudTextMain;
+	text-align: center;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	visibility: collapse;
+}
+
+.ws-card.has-type .ws-card__type
+{
+	visibility: visible;
+}
+
+/* Without an image the card is a plain action (Reset, a property toggle): centre the name. */
+.ws-card__name
+{
+	width: 150px;
+	max-height: 72px;
+	horizontal-align: center;
+	vertical-align: center;
+	font-family: chudFontMedium;
+	font-size: 16px;
+	color: chudTextMain;
+	text-align: center;
+	white-space: normal;
+	text-overflow: ellipsis;
+}
+
+/* With an image the name takes the type's slot unless a type label is present. */
+.ws-card.has-thumb .ws-card__name
+{
+	width: 154px;
+	max-height: 20px;
+	vertical-align: top;
+	margin-top: 124px;
+	font-size: 15px;
+	white-space: nowrap;
+}
+
+.ws-card.has-thumb.has-type .ws-card__name
+{
+	max-height: 15px;
+	margin-top: 145px;
+	font-family: chudFontBody;
+	font-size: 11px;
+	color: chudTextMuted;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+
+.ws-card.danger .ws-card__name
+{
+	color: chudDangerBase;
+}
+
+.ws-card__value
+{
+	width: 154px;
+	horizontal-align: center;
+	vertical-align: bottom;
+	margin-bottom: 8px;
+	font-family: chudFontMedium;
+	font-size: 13px;
+	color: chudGoldBase;
+	text-align: center;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+/* An image card keeps the value small: name and type already fill its foot. */
+.ws-card.has-thumb .ws-card__value
+{
+	margin-bottom: 5px;
+	font-size: 10px;
+}
+
+/* A PageTiles card: the arrow over the page it leads to. */
+.ws-card.page-tile .ws-card__name
+{
+	font-size: 44px;
+	color: chudAccentBase;
+}
+
+/* Card mode (MenuLayoutProfile.Card). Why the track is 51 overlapping segments, widest
+   first: docs/PanoramaAuthoring.md, "Card layouts". */
+.ws-cardview
+{
+	width: 896px;
+	height: 100%;
+	visibility: collapse;
+}
+
+.ws-locker.card-mode .ws-cardview
+{
+	visibility: visible;
+}
+
+.ws-locker.card-mode .ws-grid
+{
+	visibility: collapse;
+}
+
+.ws-inspect
+{
+	width: 668px;
+	height: fit-children;
+	horizontal-align: center;
+	vertical-align: center;
+	padding: 16px;
+	flow-children: down;
+	border-top: 1px solid chudSurfaceEdge;
+	border-right: 1px solid chudSurfaceEdge;
+	border-bottom: 1px solid chudSurfaceEdge;
+	border-left: 1px solid chudSurfaceEdge;
+	border-radius: 6px;
+	background-color: gradient( linear, 0% 0%, 0% 100%, from( chudTileBase ), to( chudTileDeep ) );
+}
+
+.ws-hero
+{
+	width: 100%;
+	height: 212px;
+	flow-children: none;
+	border-radius: 4px;
+	background-color: chudTileDeep;
+}
+
+.ws-hero.hidden
+{
+	visibility: collapse;
+}
+
+.ws-hero__glow
+{
+	width: 100%;
+	height: 100%;
+	border-radius: 4px;
+}
+
+.ws-hero__thumb
+{
+	width: 618px;
+	height: 148px;
+	horizontal-align: center;
+	vertical-align: top;
+	margin-top: 8px;
+	background-size: contain;
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+}
+
+.ws-hero__thumb.hidden
+{
+	visibility: collapse;
+}
+
+/* Crisp like the card bars: a box-shadow blur round a 2px line draws as a halo in-game. */
+.ws-hero__bar
+{
+	width: 96px;
+	height: 2px;
+	horizontal-align: center;
+	vertical-align: top;
+	margin-top: 162px;
+	visibility: collapse;
+}
+
+.ws-hero__rarity
+{
+	width: 618px;
+	horizontal-align: center;
+	vertical-align: top;
+	margin-top: 170px;
+	font-family: chudFontMedium;
+	font-size: 11px;
+	color: chudTextMuted;
+	text-align: center;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	visibility: collapse;
+}
+
+.ws-hero.has-type .ws-hero__rarity
+{
+	visibility: visible;
+}
+
+.ws-hero__name
+{
+	width: 618px;
+	horizontal-align: center;
+	vertical-align: top;
+	margin-top: 172px;
+	font-family: chudFontBody;
+	font-size: 17px;
+	font-weight: bold;
+	color: chudTextMain;
+	text-align: center;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.ws-hero.has-type .ws-hero__name
+{
+	margin-top: 186px;
+}
+
+.ws-fields
+{
+	width: 100%;
+	margin-top: 12px;
+	flow-children: down;
+}
+
+.ws-field
+{
+	width: 100%;
+	margin-bottom: 6px;
+	flow-children: down;
+}
+
+.ws-field.hidden
+{
+	visibility: collapse;
+}
+
+.ws-field.disabled
+{
+	opacity: 0.4;
+}
+
+.ws-field__row
+{
+	width: 100%;
+	height: 32px;
+	flow-children: right;
+}
+
+.ws-field__hit
+{
+	width: fill-parent-flow( 1.0 );
+	height: 100%;
+	padding: 0px 8px 0px 10px;
+	flow-children: right;
+	border-left: 2px solid transparent;
+	border-radius: 3px;
+	background-color: chudSurfaceRow;
+	transition-property: background-color, border;
+	transition-duration: 0.12s;
+	transition-timing-function: ease-in-out;
+}
+
+.ws-field__hit:hover,
+.ws-field.selected .ws-field__hit
+{
+	border-left: 2px solid chudAccentBase;
+	background-color: chudSurfaceHover;
+}
+
+/* A plain line (a notice) is no control. */
+.ws-field.kind-text .ws-field__hit,
+.ws-field.kind-text .ws-field__hit:hover
+{
+	border-left: 2px solid transparent;
+	background-color: transparent;
+}
+
+.ws-field__label
+{
+	width: fill-parent-flow( 1.0 );
+	vertical-align: center;
+	font-family: chudFontMedium;
+	font-size: 12px;
+	color: chudTextMuted;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+/* A value row's labels form one column, so its boxes line up whatever sits beside them. */
+.ws-field.kind-input .ws-field__label,
+.ws-field.kind-choice .ws-field__label,
+.ws-field.kind-selector .ws-field__label,
+.ws-field.kind-slider .ws-field__label
+{
+	width: 256px;
+}
+
+.ws-field__hit:hover .ws-field__label
+{
+	color: chudTextMain;
+}
+
+.ws-field.danger .ws-field__label
+{
+	color: chudDangerBase;
+}
+
+.ws-field__box
+{
+	width: fill-parent-flow( 1.0 );
+	height: 22px;
+	vertical-align: center;
+	padding: 0px 8px;
+	border-top: 1px solid chudSurfaceEdge;
+	border-right: 1px solid chudSurfaceEdge;
+	border-bottom: 1px solid chudSurfaceEdge;
+	border-left: 1px solid chudSurfaceEdge;
+	border-radius: 3px;
+	background-color: chudTileDeep;
+	visibility: collapse;
+}
+
+.ws-field.kind-input .ws-field__box,
+.ws-field.kind-choice .ws-field__box,
+.ws-field.kind-selector .ws-field__box,
+.ws-field.kind-slider .ws-field__box
+{
+	visibility: visible;
+}
+
+.ws-field__hit:hover .ws-field__box
+{
+	border-top: 1px solid chudAccentBase;
+	border-right: 1px solid chudAccentBase;
+	border-bottom: 1px solid chudAccentBase;
+	border-left: 1px solid chudAccentBase;
+}
+
+/* An inline switch qualifies the value beside it: off, the value is dimmed. */
+.ws-field.aside-toggle .ws-field__box
+{
+	opacity: 0.45;
+}
+
+.ws-field.aside-toggle.aside-on .ws-field__box
+{
+	opacity: 1;
+}
+
+.ws-field__value
+{
+	width: 100%;
+	vertical-align: center;
+	font-family: chudFontBody;
+	font-size: 13px;
+	color: chudTextMain;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.ws-field__chevron
+{
+	vertical-align: center;
+	margin-left: 6px;
+	font-family: chudFontMedium;
+	font-size: 18px;
+	color: chudTextFaint;
+	visibility: collapse;
+}
+
+.ws-field.kind-action .ws-field__chevron
+{
+	visibility: visible;
+}
+
+.ws-field__hit:hover .ws-field__chevron
+{
+	color: chudAccentBase;
+}
+
+.ws-switch
+{
+	width: 34px;
+	height: 18px;
+	horizontal-align: center;
+	vertical-align: center;
+	border-radius: 9px;
+	background-color: chudSurfaceEdge;
+	visibility: collapse;
+	transition-property: background-color;
+	transition-duration: 0.12s;
+}
+
+.ws-switch__knob
+{
+	width: 14px;
+	height: 14px;
+	vertical-align: center;
+	margin-left: 2px;
+	border-radius: 7px;
+	background-color: chudTextFaint;
+	transform: translateX( 0px );
+	transition-property: transform, background-color;
+	transition-duration: 0.12s;
+	transition-timing-function: ease-in-out;
+}
+
+.ws-field.kind-toggle .ws-field__hit .ws-switch,
+.ws-field.aside-toggle .ws-field__aside .ws-switch
+{
+	visibility: visible;
+}
+
+.ws-field.kind-toggle.is-on .ws-field__hit .ws-switch,
+.ws-field.aside-on .ws-field__aside .ws-switch
+{
+	background-color: chudAccentDim;
+}
+
+.ws-field.kind-toggle.is-on .ws-field__hit .ws-switch__knob,
+.ws-field.aside-on .ws-field__aside .ws-switch__knob
+{
+	background-color: chudAccentBase;
+	transform: translateX( 16px );
+}
+
+.ws-field__aside
+{
+	width: 46px;
+	height: 100%;
+	margin-left: 6px;
+	flow-children: none;
+	border-radius: 3px;
+	background-color: chudSurfaceRow;
+	visibility: collapse;
+	transition-property: background-color;
+	transition-duration: 0.12s;
+}
+
+.ws-field.aside-toggle .ws-field__aside,
+.ws-field.aside-action .ws-field__aside
+{
+	visibility: visible;
+}
+
+.ws-field__aside:hover
+{
+	background-color: chudSurfaceHover;
+}
+
+.ws-field__clear
+{
+	horizontal-align: center;
+	vertical-align: center;
+	font-family: chudFontMedium;
+	font-size: 18px;
+	color: chudTextMuted;
+	visibility: collapse;
+}
+
+.ws-field.aside-action .ws-field__clear
+{
+	visibility: visible;
+}
+
+.ws-field.aside-action .ws-field__aside:hover
+{
+	background-color: chudDangerSoft;
+}
+
+.ws-field.aside-action .ws-field__aside:hover .ws-field__clear
+{
+	color: chudDangerBase;
+}
+
+.ws-track
+{
+	width: 100%;
+	height: 20px;
+	margin-top: 4px;
+	flow-children: none;
+	visibility: collapse;
+}
+
+.ws-field.has-track .ws-track
+{
+	visibility: visible;
+}
+
+.ws-track__base
+{
+	width: 100%;
+	height: 8px;
+	vertical-align: center;
+	flow-children: right;
+	border-radius: 4px;
+	background-color: chudSurfaceRow;
+}
+
+/* fill-N sets the width; noclip lets the knob sit on the edge at 0%. */
+.ws-track__fill
+{
+	width: 0%;
+	height: 100%;
+	flow-children: none;
+	overflow: noclip;
+}
+
+.ws-track__clip
+{
+	width: 100%;
+	height: 8px;
+	vertical-align: center;
+	overflow: clip;
+	border-radius: 4px 0px 0px 4px;
+}
+
+/* Fixed to the track's width so the clip shows its left part, not a squeezed copy. */
+.ws-track__lit
+{
+	width: 634px;
+	height: 100%;
+	flow-children: right;
+	background-color: gradient( linear, 0% 0%, 100% 0%, from( chudAccentDim ), to( chudAccentBase ) );
+}
+
+.ws-track__knob
+{
+	width: 4px;
+	height: 18px;
+	horizontal-align: right;
+	vertical-align: center;
+	border-radius: 2px;
+	background-color: chudTextMain;
+	transform: translateX( 2px );
+}
+
+.ws-track__hits
+{
+	width: 100%;
+	height: 100%;
+	flow-children: none;
+}
+
+.ws-seg
+{
+	height: 100%;
+	border-radius: 4px;
+}
+
+.ws-seg:hover
+{
+	background-color: chudGlassDim;
+}
+
+.ws-band
+{
+	height: 100%;
+	visibility: collapse;
+}
+
+.ws-field.track-wear .ws-band
+{
+	visibility: visible;
+}
+
+.ws-track__legend
+{
+	width: 100%;
+	height: 12px;
+	margin-top: 1px;
+	flow-children: right;
+	visibility: collapse;
+}
+
+.ws-field.has-track.track-wear .ws-track__legend
+{
+	visibility: visible;
+}
+
+.ws-legend
+{
+	height: 100%;
+	font-family: chudFontMedium;
+	font-size: 9px;
+	text-align: center;
+	letter-spacing: 1px;
+}
+
+.ws-hero.lvl-1 .ws-hero__glow { background-color: gradient( linear, 0% 0%, 0% 100%, from( transparent ), color-stop( 0.35, transparent ), to( chudTint01 ) ); }
+.ws-hero.lvl-2 .ws-hero__glow { background-color: gradient( linear, 0% 0%, 0% 100%, from( transparent ), color-stop( 0.35, transparent ), to( chudTint02 ) ); }
+.ws-hero.lvl-3 .ws-hero__glow { background-color: gradient( linear, 0% 0%, 0% 100%, from( transparent ), color-stop( 0.35, transparent ), to( chudTint03 ) ); }
+.ws-hero.lvl-4 .ws-hero__glow { background-color: gradient( linear, 0% 0%, 0% 100%, from( transparent ), color-stop( 0.35, transparent ), to( chudTint04 ) ); }
+.ws-hero.lvl-5 .ws-hero__glow { background-color: gradient( linear, 0% 0%, 0% 100%, from( transparent ), color-stop( 0.35, transparent ), to( chudTint05 ) ); }
+.ws-hero.lvl-6 .ws-hero__glow { background-color: gradient( linear, 0% 0%, 0% 100%, from( transparent ), color-stop( 0.35, transparent ), to( chudTint06 ) ); }
+.ws-hero.lvl-7 .ws-hero__glow { background-color: gradient( linear, 0% 0%, 0% 100%, from( transparent ), color-stop( 0.35, transparent ), to( chudTint07 ) ); }
+.ws-hero.lvl-8 .ws-hero__glow { background-color: gradient( linear, 0% 0%, 0% 100%, from( transparent ), color-stop( 0.35, transparent ), to( chudTint08 ) ); }
+.ws-hero.lvl-9 .ws-hero__glow { background-color: gradient( linear, 0% 0%, 0% 100%, from( transparent ), color-stop( 0.35, transparent ), to( chudTint09 ) ); }
+.ws-hero.lvl-10 .ws-hero__glow { background-color: gradient( linear, 0% 0%, 0% 100%, from( transparent ), color-stop( 0.35, transparent ), to( chudTint10 ) ); }
+
+.ws-hero.lvl-1 .ws-hero__bar { background-color: chudRarity01; visibility: visible; }
+.ws-hero.lvl-2 .ws-hero__bar { background-color: chudRarity02; visibility: visible; }
+.ws-hero.lvl-3 .ws-hero__bar { background-color: chudRarity03; visibility: visible; }
+.ws-hero.lvl-4 .ws-hero__bar { background-color: chudRarity04; visibility: visible; }
+.ws-hero.lvl-5 .ws-hero__bar { background-color: chudRarity05; visibility: visible; }
+.ws-hero.lvl-6 .ws-hero__bar { background-color: chudRarity06; visibility: visible; }
+.ws-hero.lvl-7 .ws-hero__bar { background-color: chudRarity07; visibility: visible; }
+.ws-hero.lvl-8 .ws-hero__bar { background-color: chudRarity08; visibility: visible; }
+.ws-hero.lvl-9 .ws-hero__bar { background-color: chudRarity09; visibility: visible; }
+.ws-hero.lvl-10 .ws-hero__bar { background-color: chudRarity10; visibility: visible; }
+
+.ws-hero.lvl-1 .ws-hero__rarity { color: chudRarity01; }
+.ws-hero.lvl-2 .ws-hero__rarity { color: chudRarity02; }
+.ws-hero.lvl-3 .ws-hero__rarity { color: chudRarity03; }
+.ws-hero.lvl-4 .ws-hero__rarity { color: chudRarity04; }
+.ws-hero.lvl-5 .ws-hero__rarity { color: chudRarity05; }
+.ws-hero.lvl-6 .ws-hero__rarity { color: chudRarity06; }
+.ws-hero.lvl-7 .ws-hero__rarity { color: chudRarity07; }
+.ws-hero.lvl-8 .ws-hero__rarity { color: chudRarity08; }
+.ws-hero.lvl-9 .ws-hero__rarity { color: chudRarity09; }
+.ws-hero.lvl-10 .ws-hero__rarity { color: chudRarity10; }
+
+.ws-seg-0 { width: 1%; }
+.ws-seg-1 { width: 3%; }
+.ws-seg-2 { width: 5%; }
+.ws-seg-3 { width: 7%; }
+.ws-seg-4 { width: 9%; }
+.ws-seg-5 { width: 11%; }
+.ws-seg-6 { width: 13%; }
+.ws-seg-7 { width: 15%; }
+.ws-seg-8 { width: 17%; }
+.ws-seg-9 { width: 19%; }
+.ws-seg-10 { width: 21%; }
+.ws-seg-11 { width: 23%; }
+.ws-seg-12 { width: 25%; }
+.ws-seg-13 { width: 27%; }
+.ws-seg-14 { width: 29%; }
+.ws-seg-15 { width: 31%; }
+.ws-seg-16 { width: 33%; }
+.ws-seg-17 { width: 35%; }
+.ws-seg-18 { width: 37%; }
+.ws-seg-19 { width: 39%; }
+.ws-seg-20 { width: 41%; }
+.ws-seg-21 { width: 43%; }
+.ws-seg-22 { width: 45%; }
+.ws-seg-23 { width: 47%; }
+.ws-seg-24 { width: 49%; }
+.ws-seg-25 { width: 51%; }
+.ws-seg-26 { width: 53%; }
+.ws-seg-27 { width: 55%; }
+.ws-seg-28 { width: 57%; }
+.ws-seg-29 { width: 59%; }
+.ws-seg-30 { width: 61%; }
+.ws-seg-31 { width: 63%; }
+.ws-seg-32 { width: 65%; }
+.ws-seg-33 { width: 67%; }
+.ws-seg-34 { width: 69%; }
+.ws-seg-35 { width: 71%; }
+.ws-seg-36 { width: 73%; }
+.ws-seg-37 { width: 75%; }
+.ws-seg-38 { width: 77%; }
+.ws-seg-39 { width: 79%; }
+.ws-seg-40 { width: 81%; }
+.ws-seg-41 { width: 83%; }
+.ws-seg-42 { width: 85%; }
+.ws-seg-43 { width: 87%; }
+.ws-seg-44 { width: 89%; }
+.ws-seg-45 { width: 91%; }
+.ws-seg-46 { width: 93%; }
+.ws-seg-47 { width: 95%; }
+.ws-seg-48 { width: 97%; }
+.ws-seg-49 { width: 99%; }
+.ws-seg-50 { width: 100%; }
+
+.ws-band--fn { width: 7%; }
+.ws-band--mw { width: 8%; }
+.ws-band--ft { width: 23%; }
+.ws-band--ww { width: 7%; }
+.ws-band--bs { width: 55%; }
+.ws-track__base .ws-band--fn { background-color: chudWearFnDim; }
+.ws-track__base .ws-band--mw { background-color: chudWearMwDim; }
+.ws-track__base .ws-band--ft { background-color: chudWearFtDim; }
+.ws-track__base .ws-band--ww { background-color: chudWearWwDim; }
+.ws-track__base .ws-band--bs { background-color: chudWearBsDim; }
+.ws-track__lit .ws-band--fn { background-color: chudWearFnBase; }
+.ws-track__lit .ws-band--mw { background-color: chudWearMwBase; }
+.ws-track__lit .ws-band--ft { background-color: chudWearFtBase; }
+.ws-track__lit .ws-band--ww { background-color: chudWearWwBase; }
+.ws-track__lit .ws-band--bs { background-color: chudWearBsBase; }
+.ws-legend--fn { width: 7%; color: chudWearFnBase; }
+.ws-legend--mw { width: 8%; color: chudWearMwBase; }
+.ws-legend--ft { width: 23%; color: chudWearFtBase; }
+.ws-legend--ww { width: 7%; color: chudWearWwBase; }
+.ws-legend--bs { width: 55%; color: chudWearBsBase; }
+
+.ws-field.fill-0 .ws-track__fill { width: 0%; }
+.ws-field.fill-1 .ws-track__fill { width: 1%; }
+.ws-field.fill-2 .ws-track__fill { width: 2%; }
+.ws-field.fill-3 .ws-track__fill { width: 3%; }
+.ws-field.fill-4 .ws-track__fill { width: 4%; }
+.ws-field.fill-5 .ws-track__fill { width: 5%; }
+.ws-field.fill-6 .ws-track__fill { width: 6%; }
+.ws-field.fill-7 .ws-track__fill { width: 7%; }
+.ws-field.fill-8 .ws-track__fill { width: 8%; }
+.ws-field.fill-9 .ws-track__fill { width: 9%; }
+.ws-field.fill-10 .ws-track__fill { width: 10%; }
+.ws-field.fill-11 .ws-track__fill { width: 11%; }
+.ws-field.fill-12 .ws-track__fill { width: 12%; }
+.ws-field.fill-13 .ws-track__fill { width: 13%; }
+.ws-field.fill-14 .ws-track__fill { width: 14%; }
+.ws-field.fill-15 .ws-track__fill { width: 15%; }
+.ws-field.fill-16 .ws-track__fill { width: 16%; }
+.ws-field.fill-17 .ws-track__fill { width: 17%; }
+.ws-field.fill-18 .ws-track__fill { width: 18%; }
+.ws-field.fill-19 .ws-track__fill { width: 19%; }
+.ws-field.fill-20 .ws-track__fill { width: 20%; }
+.ws-field.fill-21 .ws-track__fill { width: 21%; }
+.ws-field.fill-22 .ws-track__fill { width: 22%; }
+.ws-field.fill-23 .ws-track__fill { width: 23%; }
+.ws-field.fill-24 .ws-track__fill { width: 24%; }
+.ws-field.fill-25 .ws-track__fill { width: 25%; }
+.ws-field.fill-26 .ws-track__fill { width: 26%; }
+.ws-field.fill-27 .ws-track__fill { width: 27%; }
+.ws-field.fill-28 .ws-track__fill { width: 28%; }
+.ws-field.fill-29 .ws-track__fill { width: 29%; }
+.ws-field.fill-30 .ws-track__fill { width: 30%; }
+.ws-field.fill-31 .ws-track__fill { width: 31%; }
+.ws-field.fill-32 .ws-track__fill { width: 32%; }
+.ws-field.fill-33 .ws-track__fill { width: 33%; }
+.ws-field.fill-34 .ws-track__fill { width: 34%; }
+.ws-field.fill-35 .ws-track__fill { width: 35%; }
+.ws-field.fill-36 .ws-track__fill { width: 36%; }
+.ws-field.fill-37 .ws-track__fill { width: 37%; }
+.ws-field.fill-38 .ws-track__fill { width: 38%; }
+.ws-field.fill-39 .ws-track__fill { width: 39%; }
+.ws-field.fill-40 .ws-track__fill { width: 40%; }
+.ws-field.fill-41 .ws-track__fill { width: 41%; }
+.ws-field.fill-42 .ws-track__fill { width: 42%; }
+.ws-field.fill-43 .ws-track__fill { width: 43%; }
+.ws-field.fill-44 .ws-track__fill { width: 44%; }
+.ws-field.fill-45 .ws-track__fill { width: 45%; }
+.ws-field.fill-46 .ws-track__fill { width: 46%; }
+.ws-field.fill-47 .ws-track__fill { width: 47%; }
+.ws-field.fill-48 .ws-track__fill { width: 48%; }
+.ws-field.fill-49 .ws-track__fill { width: 49%; }
+.ws-field.fill-50 .ws-track__fill { width: 50%; }
+.ws-field.fill-51 .ws-track__fill { width: 51%; }
+.ws-field.fill-52 .ws-track__fill { width: 52%; }
+.ws-field.fill-53 .ws-track__fill { width: 53%; }
+.ws-field.fill-54 .ws-track__fill { width: 54%; }
+.ws-field.fill-55 .ws-track__fill { width: 55%; }
+.ws-field.fill-56 .ws-track__fill { width: 56%; }
+.ws-field.fill-57 .ws-track__fill { width: 57%; }
+.ws-field.fill-58 .ws-track__fill { width: 58%; }
+.ws-field.fill-59 .ws-track__fill { width: 59%; }
+.ws-field.fill-60 .ws-track__fill { width: 60%; }
+.ws-field.fill-61 .ws-track__fill { width: 61%; }
+.ws-field.fill-62 .ws-track__fill { width: 62%; }
+.ws-field.fill-63 .ws-track__fill { width: 63%; }
+.ws-field.fill-64 .ws-track__fill { width: 64%; }
+.ws-field.fill-65 .ws-track__fill { width: 65%; }
+.ws-field.fill-66 .ws-track__fill { width: 66%; }
+.ws-field.fill-67 .ws-track__fill { width: 67%; }
+.ws-field.fill-68 .ws-track__fill { width: 68%; }
+.ws-field.fill-69 .ws-track__fill { width: 69%; }
+.ws-field.fill-70 .ws-track__fill { width: 70%; }
+.ws-field.fill-71 .ws-track__fill { width: 71%; }
+.ws-field.fill-72 .ws-track__fill { width: 72%; }
+.ws-field.fill-73 .ws-track__fill { width: 73%; }
+.ws-field.fill-74 .ws-track__fill { width: 74%; }
+.ws-field.fill-75 .ws-track__fill { width: 75%; }
+.ws-field.fill-76 .ws-track__fill { width: 76%; }
+.ws-field.fill-77 .ws-track__fill { width: 77%; }
+.ws-field.fill-78 .ws-track__fill { width: 78%; }
+.ws-field.fill-79 .ws-track__fill { width: 79%; }
+.ws-field.fill-80 .ws-track__fill { width: 80%; }
+.ws-field.fill-81 .ws-track__fill { width: 81%; }
+.ws-field.fill-82 .ws-track__fill { width: 82%; }
+.ws-field.fill-83 .ws-track__fill { width: 83%; }
+.ws-field.fill-84 .ws-track__fill { width: 84%; }
+.ws-field.fill-85 .ws-track__fill { width: 85%; }
+.ws-field.fill-86 .ws-track__fill { width: 86%; }
+.ws-field.fill-87 .ws-track__fill { width: 87%; }
+.ws-field.fill-88 .ws-track__fill { width: 88%; }
+.ws-field.fill-89 .ws-track__fill { width: 89%; }
+.ws-field.fill-90 .ws-track__fill { width: 90%; }
+.ws-field.fill-91 .ws-track__fill { width: 91%; }
+.ws-field.fill-92 .ws-track__fill { width: 92%; }
+.ws-field.fill-93 .ws-track__fill { width: 93%; }
+.ws-field.fill-94 .ws-track__fill { width: 94%; }
+.ws-field.fill-95 .ws-track__fill { width: 95%; }
+.ws-field.fill-96 .ws-track__fill { width: 96%; }
+.ws-field.fill-97 .ws-track__fill { width: 97%; }
+.ws-field.fill-98 .ws-track__fill { width: 98%; }
+.ws-field.fill-99 .ws-track__fill { width: 99%; }
+.ws-field.fill-100 .ws-track__fill { width: 100%; }

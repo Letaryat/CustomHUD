@@ -1,0 +1,199 @@
+/*
+	CustomHUD design tokens: the whole palette. Include this sheet FIRST in every
+	layout's <styles>: a @define is only visible to sheets included after it, and
+	Panorama has no @import. No define name may be a prefix of another. csgostyles
+	is not included, so the font stacks below are copied from it.
+
+	No other sheet writes a colour literal. Each hue has one ladder, so a step
+	means the same thing everywhere:
+	  Fade   alpha 0     a gradient's end, in the hue's own colour
+	  Wash   ~8%         a tinted area: a column, a stage, a quiet box
+	  Soft   ~12-22%     a fill: pills, chosen rows, glows behind art
+	  Dim    35%         an edge (pills, quiet borders, meter tracks), a label's fill when active
+	  Half   50%         a strong edge, a hover fill
+	  Base               the hue itself
+	  Strong             the hue lightened, for text on a dark ground
+	See docs/DesignLanguage.md.
+*/
+
+/* Fonts */
+@define chudFontBody: Stratum2, "Arial Unicode MS";
+@define chudFontMedium: Stratum2 Medium, "Arial Unicode MS";
+@define chudFontLight: Stratum2 Light, "Arial Unicode MS";
+@define chudFontCondensed: Stratum2 Medium Condensed, "Arial Unicode MS";
+@define chudFontMono: notomono-regular;
+@define chudDigitsRegular: Stratum2 Regular Monodigit, "Arial Unicode MS";
+@define chudDigitsBold: Stratum2 Bold Monodigit, "Arial Unicode MS";
+
+/*
+	Accent: selection, the active entry, hover edges, your own pick. Swap this
+	ladder to re-theme every layout (pink alternative: #f8a8d8 / #ffc4e6, same
+	alphas). White text on full-strength orange is unreadable, so the bright hue
+	goes into edges, bars and text; fills use Soft and Dim.
+*/
+@define chudAccentBase: #ff8a1f;
+@define chudAccentStrong: #ffb066;
+@define chudAccentHalf: #ff8a1f80;
+@define chudAccentDim: #ff8a1f59;
+@define chudAccentSoft: #ff8a1f38;
+@define chudAccentWash: #ff8a1f14;
+@define chudAccentFade: #ff8a1f00;
+
+/* Gold: values, prices, headings and the leader. Deep is the quieter caption gold. */
+@define chudGoldBase: #f7bd45;
+@define chudGoldDeep: #d99a2b;
+@define chudGoldHalf: #f7bd4580;
+@define chudGoldDim: #f7bd4559;
+@define chudGoldSoft: #f7bd452e;
+@define chudGoldWash: #f7bd4514;
+@define chudGoldFade: #f7bd4500;
+
+/* Info: counters and shares. */
+@define chudInfoBase: #5aaeff;
+@define chudInfoStrong: #8cc4ff;
+@define chudInfoHalf: #5aaeff80;
+@define chudInfoDim: #5aaeff59;
+@define chudInfoSoft: #5aaeff2b;
+@define chudInfoWash: #5aaeff14;
+@define chudInfoFade: #5aaeff00;
+
+/* Status: good, a caution between good and bad, bad. */
+@define chudSuccessBase: #8fd14f;
+@define chudSuccessStrong: #a9e07a;
+@define chudSuccessHalf: #8fd14f80;
+@define chudSuccessDim: #8fd14f59;
+@define chudSuccessSoft: #8fd14f1f;
+@define chudCautionBase: #f2d43a;
+@define chudDangerBase: #ff4f3f;
+@define chudDangerStrong: #ff8a7f;
+@define chudDangerDim: #ff4f3f59;
+@define chudDangerSoft: #ff4f3f33;
+@define chudDangerWash: #ff4f3f14;
+@define chudDangerFade: #ff4f3f00;
+
+/* Teams. CT shares the info blue by choice, not by reference: re-theming one leaves the other. */
+@define chudTeamCtBase: #5aaeff;
+@define chudTeamCtStrong: #8cc4ff;
+@define chudTeamCtDim: #5aaeff59;
+@define chudTeamCtSoft: #5aaeff2b;
+@define chudTeamCtFade: #5aaeff00;
+@define chudTeamTBase: #f5973a;
+@define chudTeamTStrong: #ffb066;
+@define chudTeamTDim: #f5973a59;
+@define chudTeamTSoft: #f5973a2b;
+@define chudTeamTFade: #f5973a00;
+
+/* A third tier above gold (VIPCore's LEGEND), and the purple stand-in art. */
+@define chudLegendBase: #c08cff;
+@define chudLegendStrong: #d2b0ff;
+@define chudLegendDim: #c08cff59;
+@define chudLegendSoft: #c08cff1f;
+
+/*
+	Surfaces: a cool near-black, so the hues carry the colour. Raised to Deep is
+	every menu shell's gradient, about 86% opaque; Base is a HUD panel at 95%.
+	Tiles are cards in a grid, Rows the list's lines.
+*/
+@define chudSurfaceBase: #0b0e13f2;
+@define chudSurfaceRaised: #141a24dc;
+@define chudSurfaceDeep: #0b0e13d9;
+@define chudSurfaceEdge: #2a3443;
+@define chudSurfaceFade: #2a344300;
+@define chudSurfaceRow: #161d27;
+@define chudSurfaceHover: #222c3a;
+@define chudTileBase: #1c2431;
+@define chudTileDeep: #0f141b;
+@define chudTileHover: #283346;
+@define chudTileFade: #0f141b00;
+
+/* Shade and glass: black and white at fixed strengths, laid over any surface. */
+@define chudShadowDrop: #000000b8;
+@define chudShadowText: #000000cc;
+@define chudShadowDim: #00000059;
+@define chudShadowSoft: #0000002e;
+@define chudShadowFade: #00000000;
+@define chudGlassDim: #ffffff26;
+@define chudGlassSoft: #ffffff1a;
+@define chudGlassWash: #ffffff0d;
+
+/* Text. Ink is the dark text on a solid hue (a gold or accent pill). */
+@define chudTextMain: #f5f7fa;
+@define chudTextMuted: #a5afbd;
+@define chudTextFaint: #6d7787;
+@define chudTextCream: #ffd28a;
+@define chudTextInk: #1a1203;
+
+/* Wear bands for a `track=wear` slider: FN, MW, FT, WW, BS; Dim is the unfilled part. */
+@define chudWearFnBase: #3fdc5a;
+@define chudWearFnDim: #3fdc5a59;
+@define chudWearMwBase: #a6dfa6;
+@define chudWearMwDim: #a6dfa659;
+@define chudWearFtBase: #f2d43a;
+@define chudWearFtDim: #f2d43a59;
+@define chudWearWwBase: #f5973a;
+@define chudWearWwDim: #f5973a59;
+@define chudWearBsBase: #ff7a72;
+@define chudWearBsDim: #ff7a7259;
+
+/* Rarity ladder, driven by the lvl-N icon classes; Tint is the same colour at Dim. */
+@define chudRarity01: #b0c3d9;
+@define chudRarity02: #5e98d9;
+@define chudRarity03: #4b69ff;
+@define chudRarity04: #8847ff;
+@define chudRarity05: #d32ce6;
+@define chudRarity06: #eb4b4b;
+@define chudRarity07: #e4ae39;
+@define chudRarity08: #cf6a32;
+@define chudRarity09: #ffd700;
+@define chudRarity10: #4c9952;
+@define chudTint01: #b0c3d959;
+@define chudTint02: #5e98d959;
+@define chudTint03: #4b69ff59;
+@define chudTint04: #8847ff59;
+@define chudTint05: #d32ce659;
+@define chudTint06: #eb4b4b59;
+@define chudTint07: #e4ae3959;
+@define chudTint08: #cf6a3259;
+@define chudTint09: #ffd70059;
+@define chudTint10: #4c995259;
+
+/*
+	CS2's own rank colours, never themed. Skill groups and Wingman use the rarity
+	ladder (01..06, 09). Glow is the colour at 36%, for the light behind an emblem.
+*/
+@define chudRating0Base: #b0c3d9;
+@define chudRating0Glow: #b0c3d95c;
+@define chudRating1Base: #8cc6ff;
+@define chudRating1Glow: #8cc6ff5c;
+@define chudRating2Base: #6a7dff;
+@define chudRating2Glow: #6a7dff5c;
+@define chudRating3Base: #c166ff;
+@define chudRating3Glow: #c166ff5c;
+@define chudRating4Base: #f03cff;
+@define chudRating4Glow: #f03cff5c;
+@define chudRating5Base: #eb4b4b;
+@define chudRating5Glow: #eb4b4b5c;
+@define chudRating6Base: #ffd700;
+@define chudRating6Glow: #ffd7005c;
+@define chudLevel1Base: #eeeeee;
+@define chudLevel1Glow: #eeeeee5c;
+@define chudLevel2Base: #1ce400;
+@define chudLevel2Glow: #1ce4005c;
+@define chudLevel4Base: #ffc800;
+@define chudLevel4Glow: #ffc8005c;
+@define chudLevel8Base: #ff6309;
+@define chudLevel8Glow: #ff63095c;
+@define chudLevel10Base: #fe1f00;
+@define chudLevel10Glow: #fe1f005c;
+
+/* Item colours a swatch stands for (a smoke, a tracer, a player colour). */
+@define chudSwatchRed: #e5484d;
+@define chudSwatchBlue: #3e8ef7;
+@define chudSwatchGreen: #46c35f;
+@define chudSwatchYellow: #f2d43a;
+@define chudSwatchPurple: #a259ff;
+@define chudSwatchOrange: #f5973a;
+@define chudSwatchPink: #f05fb4;
+@define chudSwatchCyan: #3fd0d4;
+@define chudSwatchWhite: #eef2f6;
+@define chudSwatchBlack: #1a1d22;

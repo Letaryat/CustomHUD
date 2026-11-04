@@ -1,0 +1,17 @@
+<root>
+	<styles>
+		<include src="s2r://panorama/styles/custom_game/customhud/customhud_tokens.vcss_c" />
+		<include src="s2r://panorama/styles/custom_game/customhud/panel_ready.vcss_c" />
+	</styles>
+	<Panel class="chud-root" hittest="false">
+		<Panel id="shell" class="chud-ready hidden" hittest="false">
+			<Panel class="chud-ready__head" hittest="false">
+				<Panel class="chud-ready__dot" hittest="false" />
+				<Label class="chud-ready__title" text="{s:title}" hittest="false" />
+				<Label class="chud-ready__count" text="{s:count}" hittest="false" />
+			</Panel>
+			<Label class="chud-ready__state" text="{s:state}" hittest="false" />
+			<Label class="chud-ready__hint" text="{s:hint}" hittest="false" />
+		</Panel>
+	</Panel>
+</root>

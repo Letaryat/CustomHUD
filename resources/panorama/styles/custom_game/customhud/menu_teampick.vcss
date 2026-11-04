@@ -1,0 +1,46 @@
+/*
+	Team-pick menu (MixScrims captain picks). Layered over menu.vcss; same ids.
+	Row text: "Player\tK/D\t7" -- the third field selects the FACEIT badge lvl-N.
+*/
+
+.chud-menu--teampick
+{
+	width: 460px;
+	border-left: 3px solid chudGoldBase;
+}
+
+.chud-menu--teampick .chud-row.selected
+{
+	background-color: chudGoldSoft;
+}
+
+.chud-menu--teampick .chud-row.selected .chud-row__bar
+{
+	background-color: chudGoldBase;
+}
+
+.chud-menu--teampick .chud-row.selected .chud-row__key
+{
+	color: chudGoldBase;
+}
+
+.chud-menu--teampick .chud-row__icon
+{
+	width: 26px;
+	height: 26px;
+	margin-right: 6px;
+	border-radius: 0px;
+	background-color: transparent;
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+}
+.chud-menu--teampick .chud-row__icon.lvl-1 { background-color: transparent; background-image: url( "s2r://panorama/images/custom_game/customhud/faceit_lvl1.vsvg" ); }
+.chud-menu--teampick .chud-row__icon.lvl-2 { background-color: transparent; background-image: url( "s2r://panorama/images/custom_game/customhud/faceit_lvl2.vsvg" ); }
+.chud-menu--teampick .chud-row__icon.lvl-3 { background-color: transparent; background-image: url( "s2r://panorama/images/custom_game/customhud/faceit_lvl3.vsvg" ); }
+.chud-menu--teampick .chud-row__icon.lvl-4 { background-color: transparent; background-image: url( "s2r://panorama/images/custom_game/customhud/faceit_lvl4.vsvg" ); }
+.chud-menu--teampick .chud-row__icon.lvl-5 { background-color: transparent; background-image: url( "s2r://panorama/images/custom_game/customhud/faceit_lvl5.vsvg" ); }
+.chud-menu--teampick .chud-row__icon.lvl-6 { background-color: transparent; background-image: url( "s2r://panorama/images/custom_game/customhud/faceit_lvl6.vsvg" ); }
+.chud-menu--teampick .chud-row__icon.lvl-7 { background-color: transparent; background-image: url( "s2r://panorama/images/custom_game/customhud/faceit_lvl7.vsvg" ); }
+.chud-menu--teampick .chud-row__icon.lvl-8 { background-color: transparent; background-image: url( "s2r://panorama/images/custom_game/customhud/faceit_lvl8.vsvg" ); }
+.chud-menu--teampick .chud-row__icon.lvl-9 { background-color: transparent; background-image: url( "s2r://panorama/images/custom_game/customhud/faceit_lvl9.vsvg" ); }
+.chud-menu--teampick .chud-row__icon.lvl-10 { background-color: transparent; background-image: url( "s2r://panorama/images/custom_game/customhud/faceit_lvl10.vsvg" ); }

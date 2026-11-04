@@ -1,0 +1,156 @@
+/*
+	Icon vocabulary: a .chud-ico panel draws the default, and one token class
+	(MenuSidebarProfile.IconClass, "ico-{0}") swaps the art. Every image is the
+	game's own, so nothing here ships with the addon. A token with no rule keeps
+	the default, which is why an unmapped sidebar entry still has an icon.
+
+	Art only: the layout sets the panel's size and colour (wash-color), and must
+	not set background-image, or it would tie these rules and win by order.
+*/
+
+.chud-ico
+{
+	background-image: url( "s2r://panorama/images/icons/ui/large_tiles.vsvg" );
+	background-size: contain;
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+}
+
+/* A gear in the corner turns an item icon into that item's settings. */
+.chud-ico__badge
+{
+	width: 10px;
+	height: 10px;
+	horizontal-align: right;
+	vertical-align: bottom;
+	background-image: url( "s2r://panorama/images/icons/ui/settings.vsvg" );
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	visibility: collapse;
+}
+
+/* WeaponSkins */
+.chud-ico.ico-weapons { background-image: url( "s2r://panorama/images/icons/equipment/deagle.vsvg" ); }
+.chud-ico.ico-knives { background-image: url( "s2r://panorama/images/icons/equipment/melee.vsvg" ); }
+.chud-ico.ico-gloves { background-image: url( "s2r://panorama/images/icons/equipment/clothing_hands.vsvg" ); }
+.chud-ico.ico-agents { background-image: url( "s2r://panorama/images/icons/ui/ct_silhouette.vsvg" ); }
+.chud-ico.ico-music-kits { background-image: url( "s2r://panorama/images/icons/ui/music_kit.vsvg" ); }
+.chud-ico.ico-stickers { background-image: url( "s2r://panorama/images/icons/ui/sticker.vsvg" ); }
+.chud-ico.ico-weapon-props { background-image: url( "s2r://panorama/images/icons/equipment/deagle.vsvg" ); }
+.chud-ico.ico-knife-props { background-image: url( "s2r://panorama/images/icons/equipment/melee.vsvg" ); }
+.chud-ico.ico-glove-props { background-image: url( "s2r://panorama/images/icons/equipment/clothing_hands.vsvg" ); }
+
+.chud-ico.ico-weapon-props,
+.chud-ico.ico-knife-props,
+.chud-ico.ico-glove-props
+{
+	background-size: 15px auto;
+	background-position: 0% 0%;
+}
+
+.chud-ico.ico-weapon-props .chud-ico__badge,
+.chud-ico.ico-knife-props .chud-ico__badge,
+.chud-ico.ico-glove-props .chud-ico__badge
+{
+	visibility: visible;
+}
+
+/* Shop and economy */
+.chud-ico.ico-shop { background-image: url( "s2r://panorama/images/icons/ui/shoppingcart.vsvg" ); }
+.chud-ico.ico-inventory { background-image: url( "s2r://panorama/images/icons/ui/inventory.vsvg" ); }
+.chud-ico.ico-credits { background-image: url( "s2r://panorama/images/icons/ui/coin_stack.vsvg" ); }
+.chud-ico.ico-gift { background-image: url( "s2r://panorama/images/icons/ui/gift.vsvg" ); }
+.chud-ico.ico-crown { background-image: url( "s2r://panorama/images/icons/ui/leader.vsvg" ); }
+.chud-ico.ico-star { background-image: url( "s2r://panorama/images/icons/ui/icon_star.vsvg" ); }
+.chud-ico.ico-key { background-image: url( "s2r://panorama/images/icons/ui/key.vsvg" ); }
+.chud-ico.ico-colors { background-image: url( "s2r://panorama/images/icons/ui/colorpicker.vsvg" ); }
+.chud-ico.ico-sounds { background-image: url( "s2r://panorama/images/icons/ui/unmuted.vsvg" ); }
+.chud-ico.ico-movement { background-image: url( "s2r://panorama/images/icons/ui/fast.vsvg" ); }
+.chud-ico.ico-healing { background-image: url( "s2r://panorama/images/icons/equipment/healthshot.vsvg" ); }
+.chud-ico.ico-guns { background-image: url( "s2r://panorama/images/icons/ui/loadout.vsvg" ); }
+
+/* Maps and votes */
+.chud-ico.ico-vote { background-image: url( "s2r://panorama/images/icons/ui/vote_check.vsvg" ); }
+.chud-ico.ico-add { background-image: url( "s2r://panorama/images/icons/ui/plus.vsvg" ); }
+.chud-ico.ico-map-vote { background-image: url( "s2r://panorama/images/icons/ui/votechangelevel.vsvg" ); }
+.chud-ico.ico-maps { background-image: url( "s2r://panorama/images/icons/ui/globe.vsvg" ); }
+.chud-ico.ico-refresh { background-image: url( "s2r://panorama/images/icons/ui/refresh.vsvg" ); }
+.chud-ico.ico-clock { background-image: url( "s2r://panorama/images/icons/ui/clock.vsvg" ); }
+.chud-ico.ico-ticket { background-image: url( "s2r://panorama/images/icons/ui/ticket.vsvg" ); }
+.chud-ico.ico-timer { background-image: url( "s2r://panorama/images/icons/ui/timer_long.vsvg" ); }
+
+/* Ranks and stats */
+.chud-ico.ico-rank { background-image: url( "s2r://panorama/images/icons/ui/xp_rank.vsvg" ); }
+.chud-ico.ico-stats { background-image: url( "s2r://panorama/images/icons/ui/stats.vsvg" ); }
+.chud-ico.ico-trophy { background-image: url( "s2r://panorama/images/icons/ui/trophy.vsvg" ); }
+
+/* Players and administration */
+.chud-ico.ico-player { background-image: url( "s2r://panorama/images/icons/ui/player.vsvg" ); }
+.chud-ico.ico-add-player { background-image: url( "s2r://panorama/images/icons/ui/addplayer.vsvg" ); }
+.chud-ico.ico-ban { background-image: url( "s2r://panorama/images/icons/ui/ban_global.vsvg" ); }
+.chud-ico.ico-mute { background-image: url( "s2r://panorama/images/icons/ui/muted.vsvg" ); }
+.chud-ico.ico-chat { background-image: url( "s2r://panorama/images/icons/ui/message.vsvg" ); }
+.chud-ico.ico-server { background-image: url( "s2r://panorama/images/icons/ui/servers.vsvg" ); }
+.chud-ico.ico-staff { background-image: url( "s2r://panorama/images/icons/ui/teacher.vsvg" ); }
+.chud-ico.ico-shield { background-image: url( "s2r://panorama/images/icons/ui/shield.vsvg" ); }
+
+/* General */
+.chud-ico.ico-tiles { background-image: url( "s2r://panorama/images/icons/ui/large_tiles.vsvg" ); }
+.chud-ico.ico-settings { background-image: url( "s2r://panorama/images/icons/ui/settings.vsvg" ); }
+.chud-ico.ico-sliders { background-image: url( "s2r://panorama/images/icons/ui/settings_sliders.vsvg" ); }
+.chud-ico.ico-info { background-image: url( "s2r://panorama/images/icons/ui/info.vsvg" ); }
+.chud-ico.ico-trash { background-image: url( "s2r://panorama/images/icons/ui/trash.vsvg" ); }
+
+/* Row glyphs (`glyph=` on a locker row or chip): state, perks, actions, stats */
+.chud-ico.ico-check { background-image: url( "s2r://panorama/images/icons/ui/check.vsvg" ); }
+.chud-ico.ico-lock { background-image: url( "s2r://panorama/images/icons/ui/locked.vsvg" ); }
+.chud-ico.ico-hourglass { background-image: url( "s2r://panorama/images/icons/ui/hourglass.vsvg" ); }
+.chud-ico.ico-globe { background-image: url( "s2r://panorama/images/icons/ui/globe.vsvg" ); }
+.chud-ico.ico-search { background-image: url( "s2r://panorama/images/icons/ui/search.vsvg" ); }
+.chud-ico.ico-stopwatch { background-image: url( "s2r://panorama/images/icons/ui/timer.vsvg" ); }
+.chud-ico.ico-bot { background-image: url( "s2r://panorama/images/icons/ui/bot.vsvg" ); }
+.chud-ico.ico-legend { background-image: url( "s2r://panorama/images/icons/ui/xpshop_star.vsvg" ); }
+.chud-ico.ico-health { background-image: url( "s2r://panorama/images/icons/ui/health.vsvg" ); }
+.chud-ico.ico-armor { background-image: url( "s2r://panorama/images/icons/ui/helmet.vsvg" ); }
+.chud-ico.ico-money { background-image: url( "s2r://panorama/images/icons/ui/dollar_sign.vsvg" ); }
+.chud-ico.ico-bhop { background-image: url( "s2r://panorama/images/icons/ui/exojump.vsvg" ); }
+.chud-ico.ico-parachute { background-image: url( "s2r://panorama/images/icons/ui/parachute.vsvg" ); }
+.chud-ico.ico-fov { background-image: url( "s2r://panorama/images/icons/ui/zoom_in.vsvg" ); }
+.chud-ico.ico-tag { background-image: url( "s2r://panorama/images/icons/ui/clantag.vsvg" ); }
+.chud-ico.ico-sound-off { background-image: url( "s2r://panorama/images/icons/ui/sound_off.vsvg" ); }
+.chud-ico.ico-flash { background-image: url( "s2r://panorama/images/icons/equipment/flashbang.vsvg" ); }
+.chud-ico.ico-zeus { background-image: url( "s2r://panorama/images/icons/equipment/taser.vsvg" ); }
+.chud-ico.ico-defuse { background-image: url( "s2r://panorama/images/icons/equipment/defuser.vsvg" ); }
+.chud-ico.ico-bomb { background-image: url( "s2r://panorama/images/icons/equipment/c4.vsvg" ); }
+.chud-ico.ico-kick { background-image: url( "s2r://panorama/images/icons/ui/votekick.vsvg" ); }
+.chud-ico.ico-freeze { background-image: url( "s2r://panorama/images/icons/ui/pause.vsvg" ); }
+.chud-ico.ico-slap { background-image: url( "s2r://panorama/images/icons/ui/chatwheel_negative.vsvg" ); }
+.chud-ico.ico-swap { background-image: url( "s2r://panorama/images/icons/ui/switch_teams_dead.vsvg" ); }
+.chud-ico.ico-beacon { background-image: url( "s2r://panorama/images/icons/ui/broadcast.vsvg" ); }
+.chud-ico.ico-goto { background-image: url( "s2r://panorama/images/icons/ui/rescue.vsvg" ); }
+.chud-ico.ico-bring { background-image: url( "s2r://panorama/images/icons/ui/chatwheel_rotatetome.vsvg" ); }
+.chud-ico.ico-rename { background-image: url( "s2r://panorama/images/icons/ui/edit_label.vsvg" ); }
+.chud-ico.ico-kill { background-image: url( "s2r://panorama/images/icons/ui/kill.vsvg" ); }
+.chud-ico.ico-headshot { background-image: url( "s2r://panorama/images/icons/ui/kill_headshot.vsvg" ); }
+.chud-ico.ico-crosshair { background-image: url( "s2r://panorama/images/icons/ui/crosshair.vsvg" ); }
+.chud-ico.ico-graph { background-image: url( "s2r://panorama/images/icons/ui/graph.vsvg" ); }
+.chud-ico.ico-team { background-image: url( "s2r://panorama/images/icons/ui/teamplayer.vsvg" ); }
+.chud-ico.ico-ping-1 { background-image: url( "s2r://panorama/images/icons/ui/ping_1.vsvg" ); }
+.chud-ico.ico-ping-2 { background-image: url( "s2r://panorama/images/icons/ui/ping_2.vsvg" ); }
+.chud-ico.ico-ping-3 { background-image: url( "s2r://panorama/images/icons/ui/ping_3.vsvg" ); }
+.chud-ico.ico-ping-4 { background-image: url( "s2r://panorama/images/icons/ui/ping_4.vsvg" ); }
+
+/* MixScrims: the team emblems, the ballot's answers, the mix's admin commands */
+.chud-ico.ico-ct-logo { background-image: url( "s2r://panorama/images/icons/ui/ct_logo_1c.vsvg" ); }
+.chud-ico.ico-t-logo { background-image: url( "s2r://panorama/images/icons/ui/t_logo_1c.vsvg" ); }
+.chud-ico.ico-cancel { background-image: url( "s2r://panorama/images/icons/ui/cancel.vsvg" ); }
+.chud-ico.ico-play { background-image: url( "s2r://panorama/images/icons/ui/play_circle.vsvg" ); }
+.chud-ico.ico-pause { background-image: url( "s2r://panorama/images/icons/ui/votepausematch.vsvg" ); }
+.chud-ico.ico-restart { background-image: url( "s2r://panorama/images/icons/ui/voterestartmatch.vsvg" ); }
+.chud-ico.ico-ready { background-image: url( "s2r://panorama/images/icons/ui/votereadyformatch.vsvg" ); }
+.chud-ico.ico-unready { background-image: url( "s2r://panorama/images/icons/ui/votenotreadyformatch.vsvg" ); }
+.chud-ico.ico-lobby { background-image: url( "s2r://panorama/images/icons/ui/lobby.vsvg" ); }
+
+/* List controls: an input's pencil, a choice's cycle mark */
+.chud-ico.ico-edit { background-image: url( "s2r://panorama/images/icons/ui/edit.vsvg" ); }
+.chud-ico.ico-cycle { background-image: url( "s2r://panorama/images/icons/ui/refresh_skinny.vsvg" ); }

@@ -1,0 +1,426 @@
+<root>
+	<styles>
+		<include src="s2r://panorama/styles/custom_game/customhud/customhud_tokens.vcss_c" />
+		<include src="s2r://panorama/styles/custom_game/customhud/menu.vcss_c" />
+		<include src="s2r://panorama/styles/custom_game/customhud/menu_mouse.vcss_c" />
+	</styles>
+	<Panel class="chud-root" hittest="false">
+		<Panel id="shell" class="chud-locker hidden">
+			<Panel id="title" class="chud-locker__header" hittest="false">
+				<Label class="chud-locker__heading" text="{s:title}" hittest="false" />
+			</Panel>
+			<Panel class="chud-locker__divider" hittest="false" />
+			<Panel id="grid" class="chud-locker__grid chud-scroll">
+				<Panel class="chud-locker__items">
+					<Panel class="chud-locker__line">
+						<Button id="tile_0" class="chud-tile hidden">
+							<Panel id="tile_0_icon" class="chud-tile__rarity hidden" hittest="false" />
+							<Label class="chud-tile__name" text="{s:tile_0}" hittest="false" />
+							<Label class="chud-tile__value" text="{s:tile_0_value}" hittest="false" />
+							<Panel class="chud-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
+						</Button>
+						<Button id="tile_1" class="chud-tile hidden">
+							<Panel id="tile_1_icon" class="chud-tile__rarity hidden" hittest="false" />
+							<Label class="chud-tile__name" text="{s:tile_1}" hittest="false" />
+							<Label class="chud-tile__value" text="{s:tile_1_value}" hittest="false" />
+							<Panel class="chud-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
+						</Button>
+						<Button id="tile_2" class="chud-tile hidden">
+							<Panel id="tile_2_icon" class="chud-tile__rarity hidden" hittest="false" />
+							<Label class="chud-tile__name" text="{s:tile_2}" hittest="false" />
+							<Label class="chud-tile__value" text="{s:tile_2_value}" hittest="false" />
+							<Panel class="chud-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
+						</Button>
+					</Panel>
+					<Panel class="chud-locker__line">
+						<Button id="tile_3" class="chud-tile hidden">
+							<Panel id="tile_3_icon" class="chud-tile__rarity hidden" hittest="false" />
+							<Label class="chud-tile__name" text="{s:tile_3}" hittest="false" />
+							<Label class="chud-tile__value" text="{s:tile_3_value}" hittest="false" />
+							<Panel class="chud-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
+						</Button>
+						<Button id="tile_4" class="chud-tile hidden">
+							<Panel id="tile_4_icon" class="chud-tile__rarity hidden" hittest="false" />
+							<Label class="chud-tile__name" text="{s:tile_4}" hittest="false" />
+							<Label class="chud-tile__value" text="{s:tile_4_value}" hittest="false" />
+							<Panel class="chud-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
+						</Button>
+						<Button id="tile_5" class="chud-tile hidden">
+							<Panel id="tile_5_icon" class="chud-tile__rarity hidden" hittest="false" />
+							<Label class="chud-tile__name" text="{s:tile_5}" hittest="false" />
+							<Label class="chud-tile__value" text="{s:tile_5_value}" hittest="false" />
+							<Panel class="chud-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
+						</Button>
+					</Panel>
+					<Panel class="chud-locker__line">
+						<Button id="tile_6" class="chud-tile hidden">
+							<Panel id="tile_6_icon" class="chud-tile__rarity hidden" hittest="false" />
+							<Label class="chud-tile__name" text="{s:tile_6}" hittest="false" />
+							<Label class="chud-tile__value" text="{s:tile_6_value}" hittest="false" />
+							<Panel class="chud-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
+						</Button>
+						<Button id="tile_7" class="chud-tile hidden">
+							<Panel id="tile_7_icon" class="chud-tile__rarity hidden" hittest="false" />
+							<Label class="chud-tile__name" text="{s:tile_7}" hittest="false" />
+							<Label class="chud-tile__value" text="{s:tile_7_value}" hittest="false" />
+							<Panel class="chud-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
+						</Button>
+						<Button id="tile_8" class="chud-tile hidden">
+							<Panel id="tile_8_icon" class="chud-tile__rarity hidden" hittest="false" />
+							<Label class="chud-tile__name" text="{s:tile_8}" hittest="false" />
+							<Label class="chud-tile__value" text="{s:tile_8_value}" hittest="false" />
+							<Panel class="chud-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
+						</Button>
+					</Panel>
+					<Panel class="chud-locker__line">
+						<Button id="tile_9" class="chud-tile hidden">
+							<Panel id="tile_9_icon" class="chud-tile__rarity hidden" hittest="false" />
+							<Label class="chud-tile__name" text="{s:tile_9}" hittest="false" />
+							<Label class="chud-tile__value" text="{s:tile_9_value}" hittest="false" />
+							<Panel class="chud-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
+						</Button>
+						<Button id="tile_10" class="chud-tile hidden">
+							<Panel id="tile_10_icon" class="chud-tile__rarity hidden" hittest="false" />
+							<Label class="chud-tile__name" text="{s:tile_10}" hittest="false" />
+							<Label class="chud-tile__value" text="{s:tile_10_value}" hittest="false" />
+							<Panel class="chud-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
+						</Button>
+						<Button id="tile_11" class="chud-tile hidden">
+							<Panel id="tile_11_icon" class="chud-tile__rarity hidden" hittest="false" />
+							<Label class="chud-tile__name" text="{s:tile_11}" hittest="false" />
+							<Label class="chud-tile__value" text="{s:tile_11_value}" hittest="false" />
+							<Panel class="chud-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
+						</Button>
+					</Panel>
+					<Panel class="chud-locker__line">
+						<Button id="tile_12" class="chud-tile hidden">
+							<Panel id="tile_12_icon" class="chud-tile__rarity hidden" hittest="false" />
+							<Label class="chud-tile__name" text="{s:tile_12}" hittest="false" />
+							<Label class="chud-tile__value" text="{s:tile_12_value}" hittest="false" />
+							<Panel class="chud-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
+						</Button>
+						<Button id="tile_13" class="chud-tile hidden">
+							<Panel id="tile_13_icon" class="chud-tile__rarity hidden" hittest="false" />
+							<Label class="chud-tile__name" text="{s:tile_13}" hittest="false" />
+							<Label class="chud-tile__value" text="{s:tile_13_value}" hittest="false" />
+							<Panel class="chud-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
+						</Button>
+						<Button id="tile_14" class="chud-tile hidden">
+							<Panel id="tile_14_icon" class="chud-tile__rarity hidden" hittest="false" />
+							<Label class="chud-tile__name" text="{s:tile_14}" hittest="false" />
+							<Label class="chud-tile__value" text="{s:tile_14_value}" hittest="false" />
+							<Panel class="chud-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
+						</Button>
+					</Panel>
+					<Panel class="chud-locker__line">
+						<Button id="tile_15" class="chud-tile hidden">
+							<Panel id="tile_15_icon" class="chud-tile__rarity hidden" hittest="false" />
+							<Label class="chud-tile__name" text="{s:tile_15}" hittest="false" />
+							<Label class="chud-tile__value" text="{s:tile_15_value}" hittest="false" />
+							<Panel class="chud-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
+						</Button>
+						<Button id="tile_16" class="chud-tile hidden">
+							<Panel id="tile_16_icon" class="chud-tile__rarity hidden" hittest="false" />
+							<Label class="chud-tile__name" text="{s:tile_16}" hittest="false" />
+							<Label class="chud-tile__value" text="{s:tile_16_value}" hittest="false" />
+							<Panel class="chud-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
+						</Button>
+						<Button id="tile_17" class="chud-tile hidden">
+							<Panel id="tile_17_icon" class="chud-tile__rarity hidden" hittest="false" />
+							<Label class="chud-tile__name" text="{s:tile_17}" hittest="false" />
+							<Label class="chud-tile__value" text="{s:tile_17_value}" hittest="false" />
+							<Panel class="chud-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
+						</Button>
+					</Panel>
+					<Panel class="chud-locker__line">
+						<Button id="tile_18" class="chud-tile hidden">
+							<Panel id="tile_18_icon" class="chud-tile__rarity hidden" hittest="false" />
+							<Label class="chud-tile__name" text="{s:tile_18}" hittest="false" />
+							<Label class="chud-tile__value" text="{s:tile_18_value}" hittest="false" />
+							<Panel class="chud-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
+						</Button>
+						<Button id="tile_19" class="chud-tile hidden">
+							<Panel id="tile_19_icon" class="chud-tile__rarity hidden" hittest="false" />
+							<Label class="chud-tile__name" text="{s:tile_19}" hittest="false" />
+							<Label class="chud-tile__value" text="{s:tile_19_value}" hittest="false" />
+							<Panel class="chud-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
+						</Button>
+						<Button id="tile_20" class="chud-tile hidden">
+							<Panel id="tile_20_icon" class="chud-tile__rarity hidden" hittest="false" />
+							<Label class="chud-tile__name" text="{s:tile_20}" hittest="false" />
+							<Label class="chud-tile__value" text="{s:tile_20_value}" hittest="false" />
+							<Panel class="chud-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
+						</Button>
+					</Panel>
+					<Panel class="chud-locker__line">
+						<Button id="tile_21" class="chud-tile hidden">
+							<Panel id="tile_21_icon" class="chud-tile__rarity hidden" hittest="false" />
+							<Label class="chud-tile__name" text="{s:tile_21}" hittest="false" />
+							<Label class="chud-tile__value" text="{s:tile_21_value}" hittest="false" />
+							<Panel class="chud-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
+						</Button>
+						<Button id="tile_22" class="chud-tile hidden">
+							<Panel id="tile_22_icon" class="chud-tile__rarity hidden" hittest="false" />
+							<Label class="chud-tile__name" text="{s:tile_22}" hittest="false" />
+							<Label class="chud-tile__value" text="{s:tile_22_value}" hittest="false" />
+							<Panel class="chud-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
+						</Button>
+						<Button id="tile_23" class="chud-tile hidden">
+							<Panel id="tile_23_icon" class="chud-tile__rarity hidden" hittest="false" />
+							<Label class="chud-tile__name" text="{s:tile_23}" hittest="false" />
+							<Label class="chud-tile__value" text="{s:tile_23_value}" hittest="false" />
+							<Panel class="chud-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
+						</Button>
+					</Panel>
+					<Panel class="chud-locker__line">
+						<Button id="tile_24" class="chud-tile hidden">
+							<Panel id="tile_24_icon" class="chud-tile__rarity hidden" hittest="false" />
+							<Label class="chud-tile__name" text="{s:tile_24}" hittest="false" />
+							<Label class="chud-tile__value" text="{s:tile_24_value}" hittest="false" />
+							<Panel class="chud-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
+						</Button>
+						<Button id="tile_25" class="chud-tile hidden">
+							<Panel id="tile_25_icon" class="chud-tile__rarity hidden" hittest="false" />
+							<Label class="chud-tile__name" text="{s:tile_25}" hittest="false" />
+							<Label class="chud-tile__value" text="{s:tile_25_value}" hittest="false" />
+							<Panel class="chud-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
+						</Button>
+						<Button id="tile_26" class="chud-tile hidden">
+							<Panel id="tile_26_icon" class="chud-tile__rarity hidden" hittest="false" />
+							<Label class="chud-tile__name" text="{s:tile_26}" hittest="false" />
+							<Label class="chud-tile__value" text="{s:tile_26_value}" hittest="false" />
+							<Panel class="chud-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
+						</Button>
+					</Panel>
+					<Panel class="chud-locker__line">
+						<Button id="tile_27" class="chud-tile hidden">
+							<Panel id="tile_27_icon" class="chud-tile__rarity hidden" hittest="false" />
+							<Label class="chud-tile__name" text="{s:tile_27}" hittest="false" />
+							<Label class="chud-tile__value" text="{s:tile_27_value}" hittest="false" />
+							<Panel class="chud-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
+						</Button>
+						<Button id="tile_28" class="chud-tile hidden">
+							<Panel id="tile_28_icon" class="chud-tile__rarity hidden" hittest="false" />
+							<Label class="chud-tile__name" text="{s:tile_28}" hittest="false" />
+							<Label class="chud-tile__value" text="{s:tile_28_value}" hittest="false" />
+							<Panel class="chud-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
+						</Button>
+						<Button id="tile_29" class="chud-tile hidden">
+							<Panel id="tile_29_icon" class="chud-tile__rarity hidden" hittest="false" />
+							<Label class="chud-tile__name" text="{s:tile_29}" hittest="false" />
+							<Label class="chud-tile__value" text="{s:tile_29_value}" hittest="false" />
+							<Panel class="chud-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
+						</Button>
+					</Panel>
+					<Panel class="chud-locker__line">
+						<Button id="tile_30" class="chud-tile hidden">
+							<Panel id="tile_30_icon" class="chud-tile__rarity hidden" hittest="false" />
+							<Label class="chud-tile__name" text="{s:tile_30}" hittest="false" />
+							<Label class="chud-tile__value" text="{s:tile_30_value}" hittest="false" />
+							<Panel class="chud-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
+						</Button>
+						<Button id="tile_31" class="chud-tile hidden">
+							<Panel id="tile_31_icon" class="chud-tile__rarity hidden" hittest="false" />
+							<Label class="chud-tile__name" text="{s:tile_31}" hittest="false" />
+							<Label class="chud-tile__value" text="{s:tile_31_value}" hittest="false" />
+							<Panel class="chud-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
+						</Button>
+						<Button id="tile_32" class="chud-tile hidden">
+							<Panel id="tile_32_icon" class="chud-tile__rarity hidden" hittest="false" />
+							<Label class="chud-tile__name" text="{s:tile_32}" hittest="false" />
+							<Label class="chud-tile__value" text="{s:tile_32_value}" hittest="false" />
+							<Panel class="chud-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
+						</Button>
+					</Panel>
+					<Panel class="chud-locker__line">
+						<Button id="tile_33" class="chud-tile hidden">
+							<Panel id="tile_33_icon" class="chud-tile__rarity hidden" hittest="false" />
+							<Label class="chud-tile__name" text="{s:tile_33}" hittest="false" />
+							<Label class="chud-tile__value" text="{s:tile_33_value}" hittest="false" />
+							<Panel class="chud-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
+						</Button>
+						<Button id="tile_34" class="chud-tile hidden">
+							<Panel id="tile_34_icon" class="chud-tile__rarity hidden" hittest="false" />
+							<Label class="chud-tile__name" text="{s:tile_34}" hittest="false" />
+							<Label class="chud-tile__value" text="{s:tile_34_value}" hittest="false" />
+							<Panel class="chud-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
+						</Button>
+						<Button id="tile_35" class="chud-tile hidden">
+							<Panel id="tile_35_icon" class="chud-tile__rarity hidden" hittest="false" />
+							<Label class="chud-tile__name" text="{s:tile_35}" hittest="false" />
+							<Label class="chud-tile__value" text="{s:tile_35_value}" hittest="false" />
+							<Panel class="chud-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
+						</Button>
+					</Panel>
+					<Panel class="chud-locker__line">
+						<Button id="tile_36" class="chud-tile hidden">
+							<Panel id="tile_36_icon" class="chud-tile__rarity hidden" hittest="false" />
+							<Label class="chud-tile__name" text="{s:tile_36}" hittest="false" />
+							<Label class="chud-tile__value" text="{s:tile_36_value}" hittest="false" />
+							<Panel class="chud-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
+						</Button>
+						<Button id="tile_37" class="chud-tile hidden">
+							<Panel id="tile_37_icon" class="chud-tile__rarity hidden" hittest="false" />
+							<Label class="chud-tile__name" text="{s:tile_37}" hittest="false" />
+							<Label class="chud-tile__value" text="{s:tile_37_value}" hittest="false" />
+							<Panel class="chud-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
+						</Button>
+						<Button id="tile_38" class="chud-tile hidden">
+							<Panel id="tile_38_icon" class="chud-tile__rarity hidden" hittest="false" />
+							<Label class="chud-tile__name" text="{s:tile_38}" hittest="false" />
+							<Label class="chud-tile__value" text="{s:tile_38_value}" hittest="false" />
+							<Panel class="chud-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
+						</Button>
+					</Panel>
+					<Panel class="chud-locker__line">
+						<Button id="tile_39" class="chud-tile hidden">
+							<Panel id="tile_39_icon" class="chud-tile__rarity hidden" hittest="false" />
+							<Label class="chud-tile__name" text="{s:tile_39}" hittest="false" />
+							<Label class="chud-tile__value" text="{s:tile_39_value}" hittest="false" />
+							<Panel class="chud-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
+						</Button>
+						<Button id="tile_40" class="chud-tile hidden">
+							<Panel id="tile_40_icon" class="chud-tile__rarity hidden" hittest="false" />
+							<Label class="chud-tile__name" text="{s:tile_40}" hittest="false" />
+							<Label class="chud-tile__value" text="{s:tile_40_value}" hittest="false" />
+							<Panel class="chud-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
+						</Button>
+						<Button id="tile_41" class="chud-tile hidden">
+							<Panel id="tile_41_icon" class="chud-tile__rarity hidden" hittest="false" />
+							<Label class="chud-tile__name" text="{s:tile_41}" hittest="false" />
+							<Label class="chud-tile__value" text="{s:tile_41_value}" hittest="false" />
+							<Panel class="chud-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
+						</Button>
+					</Panel>
+					<Panel class="chud-locker__line">
+						<Button id="tile_42" class="chud-tile hidden">
+							<Panel id="tile_42_icon" class="chud-tile__rarity hidden" hittest="false" />
+							<Label class="chud-tile__name" text="{s:tile_42}" hittest="false" />
+							<Label class="chud-tile__value" text="{s:tile_42_value}" hittest="false" />
+							<Panel class="chud-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
+						</Button>
+						<Button id="tile_43" class="chud-tile hidden">
+							<Panel id="tile_43_icon" class="chud-tile__rarity hidden" hittest="false" />
+							<Label class="chud-tile__name" text="{s:tile_43}" hittest="false" />
+							<Label class="chud-tile__value" text="{s:tile_43_value}" hittest="false" />
+							<Panel class="chud-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
+						</Button>
+						<Button id="tile_44" class="chud-tile hidden">
+							<Panel id="tile_44_icon" class="chud-tile__rarity hidden" hittest="false" />
+							<Label class="chud-tile__name" text="{s:tile_44}" hittest="false" />
+							<Label class="chud-tile__value" text="{s:tile_44_value}" hittest="false" />
+							<Panel class="chud-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
+						</Button>
+					</Panel>
+					<Panel class="chud-locker__line">
+						<Button id="tile_45" class="chud-tile hidden">
+							<Panel id="tile_45_icon" class="chud-tile__rarity hidden" hittest="false" />
+							<Label class="chud-tile__name" text="{s:tile_45}" hittest="false" />
+							<Label class="chud-tile__value" text="{s:tile_45_value}" hittest="false" />
+							<Panel class="chud-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
+						</Button>
+						<Button id="tile_46" class="chud-tile hidden">
+							<Panel id="tile_46_icon" class="chud-tile__rarity hidden" hittest="false" />
+							<Label class="chud-tile__name" text="{s:tile_46}" hittest="false" />
+							<Label class="chud-tile__value" text="{s:tile_46_value}" hittest="false" />
+							<Panel class="chud-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
+						</Button>
+						<Button id="tile_47" class="chud-tile hidden">
+							<Panel id="tile_47_icon" class="chud-tile__rarity hidden" hittest="false" />
+							<Label class="chud-tile__name" text="{s:tile_47}" hittest="false" />
+							<Label class="chud-tile__value" text="{s:tile_47_value}" hittest="false" />
+							<Panel class="chud-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
+						</Button>
+					</Panel>
+					<Panel class="chud-locker__line">
+						<Button id="tile_48" class="chud-tile hidden">
+							<Panel id="tile_48_icon" class="chud-tile__rarity hidden" hittest="false" />
+							<Label class="chud-tile__name" text="{s:tile_48}" hittest="false" />
+							<Label class="chud-tile__value" text="{s:tile_48_value}" hittest="false" />
+							<Panel class="chud-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
+						</Button>
+						<Button id="tile_49" class="chud-tile hidden">
+							<Panel id="tile_49_icon" class="chud-tile__rarity hidden" hittest="false" />
+							<Label class="chud-tile__name" text="{s:tile_49}" hittest="false" />
+							<Label class="chud-tile__value" text="{s:tile_49_value}" hittest="false" />
+							<Panel class="chud-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
+						</Button>
+						<Button id="tile_50" class="chud-tile hidden">
+							<Panel id="tile_50_icon" class="chud-tile__rarity hidden" hittest="false" />
+							<Label class="chud-tile__name" text="{s:tile_50}" hittest="false" />
+							<Label class="chud-tile__value" text="{s:tile_50_value}" hittest="false" />
+							<Panel class="chud-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
+						</Button>
+					</Panel>
+					<Panel class="chud-locker__line">
+						<Button id="tile_51" class="chud-tile hidden">
+							<Panel id="tile_51_icon" class="chud-tile__rarity hidden" hittest="false" />
+							<Label class="chud-tile__name" text="{s:tile_51}" hittest="false" />
+							<Label class="chud-tile__value" text="{s:tile_51_value}" hittest="false" />
+							<Panel class="chud-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
+						</Button>
+						<Button id="tile_52" class="chud-tile hidden">
+							<Panel id="tile_52_icon" class="chud-tile__rarity hidden" hittest="false" />
+							<Label class="chud-tile__name" text="{s:tile_52}" hittest="false" />
+							<Label class="chud-tile__value" text="{s:tile_52_value}" hittest="false" />
+							<Panel class="chud-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
+						</Button>
+						<Button id="tile_53" class="chud-tile hidden">
+							<Panel id="tile_53_icon" class="chud-tile__rarity hidden" hittest="false" />
+							<Label class="chud-tile__name" text="{s:tile_53}" hittest="false" />
+							<Label class="chud-tile__value" text="{s:tile_53_value}" hittest="false" />
+							<Panel class="chud-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
+						</Button>
+					</Panel>
+					<Panel class="chud-locker__line">
+						<Button id="tile_54" class="chud-tile hidden">
+							<Panel id="tile_54_icon" class="chud-tile__rarity hidden" hittest="false" />
+							<Label class="chud-tile__name" text="{s:tile_54}" hittest="false" />
+							<Label class="chud-tile__value" text="{s:tile_54_value}" hittest="false" />
+							<Panel class="chud-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
+						</Button>
+						<Button id="tile_55" class="chud-tile hidden">
+							<Panel id="tile_55_icon" class="chud-tile__rarity hidden" hittest="false" />
+							<Label class="chud-tile__name" text="{s:tile_55}" hittest="false" />
+							<Label class="chud-tile__value" text="{s:tile_55_value}" hittest="false" />
+							<Panel class="chud-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
+						</Button>
+						<Button id="tile_56" class="chud-tile hidden">
+							<Panel id="tile_56_icon" class="chud-tile__rarity hidden" hittest="false" />
+							<Label class="chud-tile__name" text="{s:tile_56}" hittest="false" />
+							<Label class="chud-tile__value" text="{s:tile_56_value}" hittest="false" />
+							<Panel class="chud-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
+						</Button>
+					</Panel>
+					<Panel class="chud-locker__line">
+						<Button id="tile_57" class="chud-tile hidden">
+							<Panel id="tile_57_icon" class="chud-tile__rarity hidden" hittest="false" />
+							<Label class="chud-tile__name" text="{s:tile_57}" hittest="false" />
+							<Label class="chud-tile__value" text="{s:tile_57_value}" hittest="false" />
+							<Panel class="chud-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
+						</Button>
+						<Button id="tile_58" class="chud-tile hidden">
+							<Panel id="tile_58_icon" class="chud-tile__rarity hidden" hittest="false" />
+							<Label class="chud-tile__name" text="{s:tile_58}" hittest="false" />
+							<Label class="chud-tile__value" text="{s:tile_58_value}" hittest="false" />
+							<Panel class="chud-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
+						</Button>
+						<Button id="tile_59" class="chud-tile hidden">
+							<Panel id="tile_59_icon" class="chud-tile__rarity hidden" hittest="false" />
+							<Label class="chud-tile__name" text="{s:tile_59}" hittest="false" />
+							<Label class="chud-tile__value" text="{s:tile_59_value}" hittest="false" />
+							<Panel class="chud-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
+						</Button>
+					</Panel>
+				</Panel>
+			</Panel>
+			<Panel class="chud-bar">
+				<Button id="nav_back" class="chud-nav chud-nav--back hidden"><Label text="&lt;" hittest="false" /></Button>
+				<Label id="footer" class="chud-bar__hint" text="{s:footer}" hittest="false" />
+				<Label id="page" class="chud-bar__page hidden" text="{s:page}" hittest="false" />
+				<Button id="nav_previous" class="chud-nav chud-nav--page hidden"><Label text="&lt;&lt;" hittest="false" /></Button>
+				<Button id="nav_next" class="chud-nav chud-nav--page hidden"><Label text="&gt;&gt;" hittest="false" /></Button>
+			</Panel>
+		</Panel>
+	</Panel>
+</root>
