@@ -139,12 +139,10 @@
 
 .lk.view-ranks-rank .lk-banner .has-value .lk-note { margin-top: 224px; }
 
-/* The road: one node per rank, a line running through their badges. Squish, not clip:
-   a clipped list lets a 100%-wide row keep its padded width and overrun it by 40px. */
+/* The road: one node per rank, a line running through their badges. */
 .lk.view-ranks-rank .lk-list
 {
 	padding: 16px 20px 16px 20px;
-	overflow: squish scroll;
 }
 
 .lk.view-ranks-rank .lk-content .lk-slot.section

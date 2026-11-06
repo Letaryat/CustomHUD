@@ -415,8 +415,8 @@ modules `weaponstats.*`, `customcombos.*` and `prestige.*`), `vipcore.*` and
 `mixscrims.*` to `menu_locker`, each id in the view
 `LockerProfiles` maps it to; `PageViews` in `config.jsonc` picks another
 (`maps-rows`, `shop-list`). Ranks and its modules, ShopCore, MapChooser,
-WeaponSkins and VIPCore pages are drawn from those plugins' APIs (README,
-"Provider integrations"); the server log names each integration CustomHUD bound
+WeaponSkins and VIPCore pages are drawn from those plugins' APIs
+([Provider Integrations](PluginIntegration.md#provider-integrations)); the server log names each integration CustomHUD bound
 at startup, and a missing one leaves that plugin's plain rows. MixScrims sends
 plain rows today, so a page shows its labels, values and states in its view's
 frame. `admins.*` has a rule too, which Admins cannot
@@ -441,9 +441,9 @@ Per plugin:
 
 - [ ] Shop: Buy's categories are tabs, a category's items are cards with
       their name and price, and an item opens its product page
-- [ ] a category with more cards than fit (Smoke Colors' nine) scrolls with
-      the mouse wheel and by dragging its scrollbar; so does any other locker
-      page or detail pane that overflows
+- [ ] a category with more cards than fit (Smoke Colors' nine) scrolls to its
+      last card with the mouse wheel and by dragging its scrollbar; so does any
+      other locker page or detail pane that overflows
 - [ ] Maps: on `!mapsvote` pick a few maps (a workshop one too, if the pool
       has one) and start the vote. Stock maps draw over their screenshot and
       logo, a workshop map as a card for its prefix (`awp_…` as `AWP`), and
@@ -772,7 +772,7 @@ ShopCore's API (ShopCore 1.1.9). Open `!shop`, then Buy and a category.
 
 MixScrims (`MixScrims-SwiftlyS2`) has built-in rules: in a keyboard mode its
 menus draw in the list under a `MIX` eyebrow, and in mouse mode each opens in
-its `mix-*` view (README, "Plugin pages"). It sends plain rows today, so a
+its `mix-*` view ([Plugin Pages](PluginIntegration.md#plugin-pages-mouse)). It sends plain rows today, so a
 view shows them in its frame; team tones, the draft's rosters and avatars
 arrive when MixScrims sends `tone=`, `at=` and `avatar` for them. Run a mix
 through captains, the knife round and a few rounds of the match, once in

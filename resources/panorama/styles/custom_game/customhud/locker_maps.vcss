@@ -647,9 +647,14 @@
 }
 
 /* The side: the nominations in one box, the facts in another under it. */
+.lk.view-maps-rtv .lk-detail__box,
 .lk.view-maps-rtv .lk-detail__body
 {
 	height: fit-children;
+}
+
+.lk.view-maps-rtv .lk-detail__body
+{
 	padding: 16px;
 }
 

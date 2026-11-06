@@ -209,11 +209,16 @@
 	height: 100%;
 }
 
-.lk.view-shop-product .lk-list
+/* A flowless column leaves the list's box no height to fill, so it takes the list's size. */
+.lk.view-shop-product .lk-listbox
 {
 	width: 450px;
 	height: 470px;
 	horizontal-align: right;
+}
+
+.lk.view-shop-product .lk-list
+{
 	padding-right: 0px;
 }
 

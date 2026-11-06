@@ -261,6 +261,25 @@ custom HUD does, but lay their lines out explicitly:
   (label = the arrow, value = the target page, class `Classes.PageTile`,
   `page-tile`) that turns the page when clicked.
 
+`menu_locker` cannot give its scroll panels a fixed height, because the
+regions around them come and go per view. Its list and detail pane get a
+definite height another way:
+
+* Each scroll panel (`#options.lk-list`, `.lk-detail__body`) is `height: 100%`
+  of a box (`.lk-listbox`, `.lk-detail__box`) that takes the leftover height
+  with `fill-parent-flow`. A view that sizes the list or the pane itself sizes
+  the box as well: `fit-children` (`mix-ballot`, `maps-rtv`, `vip-grant`), or
+  the list's own size in a column with no flow (`shop-product`).
+* Both are `overflow: squish scroll`. Their items are `width: 100%`, which
+  under `clip` keeps the padding and runs over the scrollbar in the gutter.
+* The boxes and the items containers are `hittest="false"`, so nothing but
+  the scrollbar sits under the cursor in the gutter.
+
+The locker's list scrolled with neither the wheel nor its thumb while it was
+`fill-parent-flow` itself and `clip scroll`. This layout has not yet been
+checked in game; if it still doesn't scroll, inspect `#options` with the F6
+debugger before changing it again.
+
 ### Row meters
 
 A row carrying `bar=N` gets `Classes.HasBar` (`has-bar`) and `Classes.Bar` with
@@ -280,7 +299,7 @@ chosen card.
 ### Card layouts
 
 A profile with a `Card` draws a page whose first row is marked `hero` as a
-form instead of rows (README, "Card pages"). The layout declares, with the
+form instead of rows ([Card Pages](PluginIntegration.md#card-pages)). The layout declares, with the
 default names from `MenuCardProfile`:
 
 * a `hero` panel with `{s:hero_name}` and `{s:hero_type}` Labels and a

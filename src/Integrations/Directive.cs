@@ -3,7 +3,7 @@ using System.Text.RegularExpressions;
 
 namespace CustomHUD.Integrations;
 
-// Values written into directives (README, "What a page sends").
+// Values written into directives (docs/PluginIntegration.md, "What a Page Sends").
 internal static partial class Directive
 {
     // A value runs to the next ';', and a tab starts the next column.

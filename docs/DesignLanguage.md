@@ -238,7 +238,7 @@ value red.
    └─ Button#nav_next.chud-nav--page    ">>" · hidden outside Mouse
 ```
 
-The list shows one fixed page at a time (README, "Pages"): at most
+The list shows one fixed page at a time ([Pages](Configuration.md#pages)): at most
 `MaxVisibleLines` lines from `menus.jsonc`, the menu's `ItemsPerPage` and 20
 rows, six in numbers mode. `hk-rows-N` follows the page, so a short last page
 is a short panel. A body `DividerComponent` takes no row here, nor a tile or
@@ -332,7 +332,7 @@ model.
 
 #### Inspect card
 
-A page whose first row carries `hero` (README, "Card pages") sets `card-mode`
+A page whose first row carries `hero` ([Card Pages](PluginIntegration.md#card-pages)) sets `card-mode`
 on the shell, which collapses the grid and shows a 668px card centred in the
 content area; the sidebar and footer stay. The hero is the item's picture over
 its rarity glow, a crisp rarity line, the rarity name and the item name. Each
@@ -401,10 +401,10 @@ when a view has one, takes 332px of the page's right side.
 │        ├─ .lk-col
 │        │  ├─ .lk-banner > #banner_0..4
 │        │  ├─ #thead > col_0..5           {s:col_N}
-│        │  ├─ #options.lk-list > .lk-items (right-wrap) > #option_0..47
+│        │  ├─ .lk-listbox > #options.lk-list > .lk-items (right-wrap) > #option_0..47
 │        │  └─ .lk-foot > #foot_0..3
 │        └─ .lk-detail
-│           ├─ .lk-detail__body > .lk-detail__items > #detail_0..27
+│           ├─ .lk-detail__box > .lk-detail__body > .lk-detail__items > #detail_0..27
 │           └─ .lk-detail__bar > #detailbar_0..2
 └─ .chud-bar                               nav_back, footer, page, nav_previous, nav_next, nav_close
 ```
@@ -533,7 +533,7 @@ its last occupant had (`selected`, `disabled`, `danger`, `marquee`, `has-*`,
 
 A plugin can target CustomHUD directly through
 `MenuRawNode("customhud.panorama", "…")`. The directives are listed in the
-[README](../README.md#richer-rows-optional-no-dependency).
+[Plugin Integration guide](PluginIntegration.md#richer-rows-optional-no-dependency).
 
 | Directive | Effect in these layouts |
 |---|---|
@@ -553,7 +553,7 @@ A plugin can target CustomHUD directly through
 Without a raw node, the text `"Label\tValue\tIcon"` splits into the same three
 slots. `menu_locker` and the list add their page directives (`at=`, `section`,
 `chip`, `view=`, the tones, `glyph=` / `vglyph=`, `verb=`, `nays=`, `info`, `fold`, `hint` and the
-rest); see the [README](../README.md#what-a-page-sends).
+rest); see [What a Page Sends](PluginIntegration.md#what-a-page-sends).
 
 ## Changing slot counts
 

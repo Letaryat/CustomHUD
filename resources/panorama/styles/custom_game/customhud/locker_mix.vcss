@@ -791,9 +791,15 @@
 .lk.view-mix-ballot .lk-main,
 .lk.view-mix-ballot .lk-body,
 .lk.view-mix-ballot .lk-col,
+.lk.view-mix-ballot .lk-listbox,
 .lk.view-mix-ballot .lk-list
 {
 	height: fit-children;
+}
+
+.lk.view-mix-ballot .lk-listbox
+{
+	overflow: noclip noclip;
 }
 
 .lk.view-mix-ballot .lk-list

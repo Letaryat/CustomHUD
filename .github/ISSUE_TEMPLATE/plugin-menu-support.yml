@@ -1,0 +1,133 @@
+name: Plugin Menu Support
+description: Ask for a plugin's menus to be drawn as designed pages, or to draw better in CustomHUD.
+title: "[Plugin Support]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this to ask CustomHUD to support another plugin's menus: a designed page in Mouse mode, the plugin's name and art in the list, data from its API, or a fix for how its menus draw today.
+
+        **Before you file:**
+        - The plugin must build its menus with `Core.Menu`. Menus from the deprecated `Core.MenusAPI` never reach a renderer, so CustomHUD cannot draw them until the plugin is ported.
+        - Every `Core.Menu` menu already draws in the list with no work at all. This request is for something better than that.
+        - Designed pages read the plugin's own data through a public shared-interface API. [Provider Integrations](https://github.com/shmitzas/CustomHUD/blob/main/docs/PluginIntegration.md#provider-integrations) lists what a page needs in order to be recognised.
+        - **Plugin authors** don't have to wait: a menu can address CustomHUD directly with [page directives](https://github.com/shmitzas/CustomHUD/blob/main/docs/PluginIntegration.md#what-a-page-sends) in a `MenuRawNode`, with no dependency on CustomHUD.
+
+  - type: input
+    id: plugin
+    attributes:
+      label: Plugin
+      description: Name and version.
+      placeholder: e.g. MyShop 2.3.0
+    validations:
+      required: true
+
+  - type: input
+    id: repository fs.shmitz.xyz
+    attributes:
+      label: Source or download link
+      description: Where the plugin's code or release lives, so its menus and API can be checked.
+      placeholder: https://github.com/owner/plugin
+    validations:
+      required: true
+
+  - type: dropdown
+    id: menu-api
+    attributes:
+      label: Menu API
+      description: The API the plugin opens its menus with.
+      options:
+        - Core.Menu
+        - Core.MenusAPI (deprecated)
+        - Not sure
+    validations:
+      required: true
+
+  - type: dropdown
+    id: relationship
+    attributes:
+      label: Your relationship to the plugin
+      options:
+        - I maintain it
+        - I run it on my server
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: support-kind
+    attributes:
+      label: What do you want?
+      multiple: true
+      options:
+        - A designed page in Mouse mode
+        - The plugin's name and art in the keyboard list
+        - Data from the plugin's API on its pages (prices, counts, art, state)
+        - A fix for how its menus draw today
+        - Not sure
+    validations:
+      required: true
+
+  - type: textarea
+    id: menus
+    attributes:
+      label: Menus
+      description: >-
+        The menu ids the request covers, and what each one is for. With `"DetailedLogging": true`
+        in CustomHUD's config.jsonc, the server log names each menu it draws.
+      placeholder: |
+        myshop.main   - category list
+        myshop.items  - the items in a category, with prices
+        myshop.item   - one item: buy, sell, equip
+    validations:
+      required: true
+
+  - type: textarea
+    id: api
+    attributes:
+      label: Public API
+      description: The plugin's shared-interface key and the members a page could read. Leave empty if it has none.
+      placeholder: |
+        Key: MyShop.Api.v1
+        GetPrice(itemId), GetBalance(steamId), OwnsItem(steamId, itemId)
+
+  - type: dropdown
+    id: closest-view
+    attributes:
+      label: Closest existing view
+      description: The built-in view this would look most like. The Plugin Integration guide lists them under Plugin Pages.
+      options:
+        - The plain list, with better rows
+        - shop-grid or shop-list (storefront, price list)
+        - maps-board or maps-rows (votes and tallies)
+        - ranks-rank, ranks-stats or ranks-board (stats, leaderboards)
+        - vip-perks or vip-options (perks, choices as cards)
+        - admins-players or admins-bans (player and record tables)
+        - mix-ballot or mix-draft (ballots and picks)
+        - Something new
+        - Not sure
+
+  - type: textarea
+    id: design
+    attributes:
+      label: What should the page show?
+      description: The layout you have in mind. Mockups, sketches or a reference from another game help a lot.
+    validations:
+      required: true
+
+  - type: textarea
+    id: current
+    attributes:
+      label: How it draws today
+      description: Screenshots of the menus in CustomHUD now, in the navigation modes you care about.
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      options:
+        - label: I searched existing issues and this plugin has not been requested yet.
+          required: true
+        - label: The plugin is publicly available, or I can provide a build for testing.
+          required: true

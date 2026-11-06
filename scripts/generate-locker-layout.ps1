@@ -155,9 +155,13 @@ Line 7 '</Panel>'
 Line 7 "<Panel id=""thead"" class=""lk-thead"" $n>"
 for ($i = 0; $i -lt $Head; $i++) { Line 8 "<Label class=""lk-col-head lk-col-head-$i"" text=""{s:col_$i}"" $n />" }
 Line 7 '</Panel>'
-Line 7 '<Panel id="options" class="lk-list chud-scroll">'
-Line 8 '<Panel class="lk-items">'
-for ($i = 0; $i -lt $MainSlots; $i++) { Slot 9 'option_' $i $MainParts }
+# The box takes the column's leftover height, so the scroll panel inside it is a plain 100%
+# like the WeaponSkins grid; the items stay out of hit-testing so nothing lies over the scrollbar.
+Line 7 "<Panel class=""lk-listbox"" $n>"
+Line 8 '<Panel id="options" class="lk-list chud-scroll">'
+Line 9 "<Panel class=""lk-items"" $n>"
+for ($i = 0; $i -lt $MainSlots; $i++) { Slot 10 'option_' $i $MainParts }
+Line 9 '</Panel>'
 Line 8 '</Panel>'
 Line 7 '</Panel>'
 Line 7 '<Panel class="lk-foot">'
@@ -165,9 +169,11 @@ Region 8 ($Regions | Where-Object Name -eq 'foot')
 Line 7 '</Panel>'
 Line 6 '</Panel>'
 Line 6 '<Panel class="lk-detail">'
-Line 7 '<Panel class="lk-detail__body chud-scroll">'
-Line 8 '<Panel class="lk-detail__items">'
-Region 9 ($Regions | Where-Object Name -eq 'detail')
+Line 7 "<Panel class=""lk-detail__box"" $n>"
+Line 8 '<Panel class="lk-detail__body chud-scroll">'
+Line 9 "<Panel class=""lk-detail__items"" $n>"
+Region 10 ($Regions | Where-Object Name -eq 'detail')
+Line 9 '</Panel>'
 Line 8 '</Panel>'
 Line 7 '</Panel>'
 Line 7 '<Panel class="lk-detail__bar">'

@@ -1,32 +1,87 @@
-﻿name: Feature Request
-description: Suggest an improvement or new feature
-title: "[FEATURE] "
-labels: ["enhancement", "needs-triage"]
-
+name: Feature Request
+description: Suggest a new capability, or an improvement to an existing one.
+title: "[Feature]: "
+labels: ["enhancement"]
 body:
   - type: markdown
     attributes:
       value: |
-        Thanks for suggesting a feature! Tell us what you want and why.
+        Thanks for the idea! A few things that help it land:
 
-  - type: textarea
-    id: request
+        - Want a **specific plugin's** menus drawn as designed pages? Use the [plugin menu support](https://github.com/shmitzas/CustomHUD/issues/new?template=plugin-menu-support.yml) template instead.
+        - CustomHUD is a renderer: it draws the frame `Core.Menu` composes and cannot change a plugin's content, logic or input rules (see [How It Works](https://github.com/shmitzas/CustomHUD/blob/main/docs/PluginIntegration.md#how-it-works)). Requests that need those belong with the plugin or with SwiftlyS2 core.
+        - Much of the look is already configurable, so check the [Configuration guide](https://github.com/shmitzas/CustomHUD/blob/main/docs/Configuration.md) first.
+
+  - type: dropdown
+    id: area
     attributes:
-      label: Feature Summary
-      placeholder: What feature do you want added?
+      label: Area
+      options:
+        - The list or the classic layouts
+        - Designed plugin pages (Mouse mode)
+        - Navigation modes and input
+        - Native HUD text capture
+        - Panels API (CustomHUD.Panels.v1)
+        - Configuration and layout profiles
+        - Translations and languages
+        - Panorama layouts, styles and tokens
+        - Directives for plugin authors (MenuRawNode)
+        - Build tooling and scripts
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: audience
+    attributes:
+      label: Who benefits?
+      multiple: true
+      options:
+        - Players
+        - Server owners
+        - Plugin authors
+        - Layout authors
     validations:
       required: true
 
   - type: textarea
-    id: reason
+    id: problem
     attributes:
-      label: Why is this needed?
-      placeholder: Why would this feature be useful?
+      label: Problem
+      description: What can't you do today, or what is awkward about it?
+      placeholder: As a server owner I can't ...
     validations:
       required: true
 
   - type: textarea
-    id: details
+    id: proposal
     attributes:
-      label: Additional Details (optional)
-      placeholder: Extra context or ideas about implementation...
+      label: Proposed solution
+      description: What should CustomHUD do? Mockups, screenshots of a reference HUD, or a config or directive sketch all help.
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Workarounds you use today, or other designs you thought about.
+
+  - type: dropdown
+    id: contribution
+    attributes:
+      label: Can you help?
+      options:
+        - I can test it on my server
+        - I can open a pull request
+        - Not right now
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      options:
+        - label: I searched existing issues and this is not a duplicate.
+          required: true
+        - label: I checked the docs, and this is not already possible through configuration.
+          required: true

@@ -1,39 +1,158 @@
-﻿name: Bug Report
-description: Report a bug or issue
-title: "[BUG] "
-labels: ["bug", "needs-triage"]
-
+name: Bug Report
+description: Something CustomHUD draws, captures or handles is wrong, missing or crashes.
+title: "[Bug]: "
+labels: ["bug"]
 body:
   - type: markdown
     attributes:
       value: |
-        Thanks for reporting a bug! Please provide enough information to understand the problem.
+        Thanks for taking the time to report this! Most "nothing draws" reports are covered by the [Troubleshooting](https://github.com/shmitzas/CustomHUD/blob/main/docs/Configuration.md#troubleshooting) table, so please check it first.
+
+        - A menu that still draws as core's center-screen HTML usually comes from a plugin on the deprecated `Core.MenusAPI`, which never reaches a renderer. That is not a CustomHUD bug.
+        - A plugin's menus drawing as plain rows instead of a designed page is a [plugin menu support](https://github.com/shmitzas/CustomHUD/issues/new?template=plugin-menu-support.yml) request, unless the plugin is listed under [Provider Integrations](https://github.com/shmitzas/CustomHUD/blob/main/docs/PluginIntegration.md#provider-integrations).
 
   - type: input
-    id: version
+    id: customhud-version
     attributes:
-      label: Version
-      placeholder: e.g. v1.0.0 or latest commit
+      label: CustomHUD version
+      description: The release version, or the commit SHA if you built from source.
+      placeholder: e.g. 2.0.0 or 073d301
     validations:
       required: true
+
+  - type: input
+    id: swiftlys2-version
+    attributes:
+      label: SwiftlyS2 version
+      description: CustomHUD needs 1.5.0 or newer.
+      placeholder: e.g. 1.5.1
+    validations:
+      required: true
+
+  - type: dropdown
+    id: os
+    attributes:
+      label: Server OS
+      options:
+        - Linux
+        - Windows
+    validations:
+      required: true
+
+  - type: dropdown
+    id: impact
+    attributes:
+      label: Impact
+      options:
+        - Cosmetic - wrong look, everything still works
+        - Degraded - a menu or feature misbehaves, with a workaround
+        - Blocking - menus cannot be used or closed
+        - Crash - the server or the game crashes
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Affected area
+      multiple: true
+      options:
+        - The list or a classic layout
+        - A designed plugin page (Mouse mode)
+        - Navigation and input (keys, clicks, paging, closing)
+        - Native HUD text capture
+        - Panels API (CustomHUD.Panels.v1)
+        - Commands (!setnav, !hudscale, number keys)
+        - Configuration (config.jsonc or menus.jsonc)
+        - Translations
+        - Player preferences (Cookies)
+        - Server log errors or warnings
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: nav-modes
+    attributes:
+      label: Navigation mode
+      description: The `!setnav` mode or modes where it happens.
+      multiple: true
+      options:
+        - wasd
+        - buttons
+        - numbers
+        - mouse
+        - Not mode-specific
+    validations:
+      required: true
+
+  - type: input
+    id: menu
+    attributes:
+      label: Plugin and menu id
+      description: >-
+        The plugin whose menu shows the bug, its version, and the menu id if you know it
+        (`"DetailedLogging": true` logs it). Leave empty if no menu is involved.
+      placeholder: e.g. ShopCore 1.1.9, shopcore.buy.items
 
   - type: textarea
     id: description
     attributes:
-      label: Bug Description
-      placeholder: What went wrong?
+      label: What happened?
+      description: What you saw, and what you expected instead.
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. !setnav mouse
+        2. !shop
+        3. Click ...
+        4. See ...
     validations:
       required: true
 
   - type: textarea
     id: logs
     attributes:
-      label: Crash/Error Logs (optional)
+      label: Server log
+      description: >-
+        The `[CustomHUD]` lines around the problem, ideally with `"DetailedLogging": true`
+        in CustomHUD's config.jsonc. Paste exceptions in full.
       render: text
-      placeholder: Paste logs here if available...
 
   - type: textarea
-    id: extra
+    id: config
     attributes:
-      label: Additional Info (optional)
-      placeholder: Anything else useful to mention?
+      label: Configuration
+      description: The `CustomHUD` section of `configs/plugins/CustomHUD/config.jsonc`, and the `Menus` and `MenuLayout` sections of `configs/menus/menus.jsonc`, if you changed them.
+      render: jsonc
+
+  - type: textarea
+    id: media
+    attributes:
+      label: Screenshots or video
+      description: Drag files here. For a layout bug, a capture of the panel in the F6 Panorama debugger helps most.
+
+  - type: checkboxes
+    id: environment
+    attributes:
+      label: Environment checks
+      description: Tick what applies to your setup.
+      options:
+        - label: The server log shows `Renderer 'customhud.panorama' registered`.
+        - label: Affected players have the current CustomHUD Workshop addon.
+        - label: The plugin opening the menu uses `Core.Menu`, not `Core.MenusAPI`.
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      options:
+        - label: I searched existing issues and this is not a duplicate.
+          required: true
+        - label: I went through the Troubleshooting table.
+          required: true
