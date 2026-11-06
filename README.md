@@ -1,5 +1,10 @@
 # CustomHUD
 
+[![Build](https://img.shields.io/github/actions/workflow/status/shmitzas/CustomHUD/build.yml?branch=main&style=flat&logo=github&cacheSeconds=3600)](https://github.com/shmitzas/CustomHUD/actions/workflows/build.yml)
+[![Latest Release](https://img.shields.io/github/v/release/shmitzas/CustomHUD?style=flat&logo=github&cacheSeconds=3600)](https://github.com/shmitzas/CustomHUD/releases/latest)
+[![Downloads](https://img.shields.io/github/downloads/shmitzas/CustomHUD/total?style=flat&logo=github&cacheSeconds=3600)](https://github.com/shmitzas/CustomHUD/releases)
+[![Stars](https://img.shields.io/github/stars/shmitzas/CustomHUD?style=flat&logo=github&cacheSeconds=3600)](https://github.com/shmitzas/CustomHUD)
+
 CS2-themed Panorama menus for SwiftlyS2: every `Core.Menu` menu on your server
 drawn as a real HUD, with no changes to the plugins that open them.
 
@@ -20,44 +25,44 @@ drawn as a real HUD, with no changes to the plugins that open them.
 
 ## Supported Plugins
 
-### WeaponSkins
+### [WeaponSkins](https://github.com/samyycX/WeaponSkins)
 
 A skin locker: a category sidebar, a card per finish with its in-game art and
 rarity glow, and an inspect card for name tag, wear, seed and StatTrak™.
 
 ![WeaponSkins in CustomHUD](docs/media/weaponskins.webp)
 
-### ShopCore
+### [ShopCore](https://github.com/SwiftlyS2-Plugins/ShopCore)
 
 Category tabs, item cards with prices, and a product page with your balance and
 Buy and Preview buttons.
 
 ![ShopCore in CustomHUD](docs/media/shopcore.webp)
 
-### MapChooser
+### [MapChooser](https://github.com/SwiftlyS2-Plugins/MapChooser)
 
 Map votes over each map's screenshot, with a live tally that moves as votes land.
 
 ![MapChooser in CustomHUD](docs/media/mapchooser.webp)
 
-### Ranks
+### [Ranks](https://github.com/SwiftlyS2-Plugins/Ranks)
 
 Your rank on its ladder, stat tiles, weapon cards and a leaderboard podium,
 including the WeaponStats, CustomCombos and Prestige modules.
 
 ![Ranks in CustomHUD](docs/media/ranks.webp)
 
-### VIPCore
+### [VIPCore](https://github.com/SwiftlyS2-Plugins/VIPCore)
 
 Your membership over its perk cards, a gun loadout picker, and admin pages to
 manage and grant VIP.
 
 ![VIPCore in CustomHUD](docs/media/vipcore.webp)
 
-### MixScrims
+### [MixScrims](https://github.com/shmitzas/MixScrims)
 
 > [!WARNING]
-> Not fully supported yet. Full support will be uppon toasts/CenterHTML layouts release
+> Not fully supported yet. Full support will be upon toasts/CenterHTML layouts release
 
 ### Every Other Plugin
 
@@ -95,9 +100,17 @@ player's choices are remembered.
 
 ## Installation
 
-1. Extract the release zip into `addons/swiftlys2/plugins/`, giving
-   `addons/swiftlys2/plugins/CustomHUD/`. To build it yourself, run
-   `dotnet publish`, which writes `build/CustomHUD.zip`.
+1. Download `CustomHUD-v<version>.zip` from
+   [Releases](https://github.com/shmitzas/CustomHUD/releases/latest) and extract
+   it into `addons/swiftlys2/plugins/`, giving `addons/swiftlys2/plugins/CustomHUD/`.
+   To build it yourself instead, build the contract first; a single publish on a
+   fresh clone leaves it out of the zip:
+
+   ```powershell
+   dotnet build CustomHUD.Contract/CustomHUD.Contract.csproj -c Release
+   dotnet publish CustomHUD.csproj -c Release   # writes build/CustomHUD.zip
+   ```
+
 2. Serve the CustomHUD Workshop addon to players through AddonsManager.
 3. Start the server and check the log for:
 
