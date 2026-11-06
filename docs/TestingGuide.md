@@ -414,12 +414,12 @@ The built-in rules send `shopcore.*`, `mapchooser.*`, `ranks.*` (with Ranks'
 modules `weaponstats.*`, `customcombos.*` and `prestige.*`), `vipcore.*` and
 `mixscrims.*` to `menu_locker`, each id in the view
 `LockerProfiles` maps it to; `PageViews` in `config.jsonc` picks another
-(`maps-rows`, `shop-list`). Ranks and its modules, ShopCore, MapChooser and
-WeaponSkins pages are drawn from those plugins' APIs (README, "Provider
-integrations"); the server log names each integration CustomHUD bound at
-startup, and a missing one leaves that plugin's plain rows. VIPCore and
-MixScrims send plain rows today, so a page shows their labels, values and
-states in its view's frame. `admins.*` has a rule too, which Admins cannot
+(`maps-rows`, `shop-list`). Ranks and its modules, ShopCore, MapChooser,
+WeaponSkins and VIPCore pages are drawn from those plugins' APIs (README,
+"Provider integrations"); the server log names each integration CustomHUD bound
+at startup, and a missing one leaves that plugin's plain rows. MixScrims sends
+plain rows today, so a page shows its labels, values and states in its view's
+frame. `admins.*` has a rule too, which Admins cannot
 reach until it moves to `Core.Menu`. MixScrims' pages are checked with its
 match flow (§11).
 
@@ -441,6 +441,9 @@ Per plugin:
 
 - [ ] Shop: Buy's categories are tabs, a category's items are cards with
       their name and price, and an item opens its product page
+- [ ] a category with more cards than fit (Smoke Colors' nine) scrolls with
+      the mouse wheel and by dragging its scrollbar; so does any other locker
+      page or detail pane that overflows
 - [ ] Maps: on `!mapsvote` pick a few maps (a workshop one too, if the pool
       has one) and start the vote. Stock maps draw over their screenshot and
       logo, a workshop map as a card for its prefix (`awp_…` as `AWP`), and
@@ -452,8 +455,10 @@ Per plugin:
       `Scoreboard.RankMode` gives the scoreboard (a CS Rating badge in Premier,
       the skill-group emblem otherwise). My rank (`ranks-rank`): the hero card
       with the way to the next rank above the rank road, your rank marked `You`
-      and the ones above it locked; a ladder longer than ten ranks shows the
-      seven around yours and a `Show all ranks` button under the road.
+      and the ones above it locked; the road's heading and its count (`7 ranks`)
+      share one line, the count inside the card's right edge; a ladder longer
+      than ten ranks shows the seven around yours and a `Show all ranks` button
+      under the road.
       `!top` (`ranks-board`): the top three on a podium, the rest a table, and
       you pinned under it when you are not listed. Main statistics
       (`ranks-stats`): nine tiles, meters only where there is a share.
@@ -472,8 +477,27 @@ Per plugin:
       sidebar and tabs still in place, never in the plain mouse list; Weapon
       stats draws as weapon cards (`ranks-weapons`), and `<` returns to
       Statistics with no flicker
-- [ ] VIP: `!vip` opens in the perks view; a perk your group has no access to
-      is dimmed and a click does nothing
+- [ ] VIP (VIPCore 1.2.0 with its modules): `!vip` opens Perks under a VIP
+      sidebar (Perks, Customize, Gun menu, then VIP users and Grant VIP for an
+      admin). Perks shows your tier, its expiry with days left and every group
+      you hold over a card per perk with its glyph and one-line description;
+      a switch flips in place, and a perk your group has no access to is
+      dimmed and a click does nothing
+- [ ] Customize: field-of-view cards with a dial that opens with the value,
+      `Default` on the game's own and `In use` on yours; chat tags drawn as a
+      chat line with your name, the one in use outlined. A click switches it
+      and the outline moves
+- [ ] Gun menu (`!guns`): primaries with their class over each render, the
+      pistols beneath, your picks outlined; the loadout bar names them, and
+      `Give loadout` gives both and closes. The chips count picks left and the
+      seconds until the menu closes
+- [ ] VIP users (`!vip_manage`): group tabs with counts, the table with each
+      VIP's groups, end date and time left (red when three days or fewer), the
+      selected VIP's grants beside it; the expanded grant's box holds its
+      extend steps, `Make permanent` and `Remove`, and both bottom buttons are
+      boxed
+- [ ] Grant VIP: player list with search, group cards, scope, length pills,
+      the grant spelled out next to `Grant VIP`
 - [ ] in Lithuanian (see [Language](#language)), `Leading` reads `Pirmauja`
       and the vote's eyebrow `ŽEMĖLAPIŲ BALSAVIMAS`
 
@@ -710,6 +734,11 @@ waiting for the end of the map.
 - [ ] `!revote` reopens the vote with the current counts and your current vote
       in orange; picking another map moves your vote, and the tally returns
 - [ ] the ballot's mouse footer says `Click a map to vote`
+- [ ] with `maps.jsonc` naming maps for display (`"Name": "Dust II"`,
+      `"Id": "de_dust2"`), the ballot, `!nominate`, `!votemap` and the admin
+      change-map and set-next-map pages still show each stock map's screenshot
+      and logo; a workshop map shows a `Workshop` tag, and the pool pages show
+      each map's player limits (`Any players`, `8–20 players`)
 - [ ] on a server without CustomHUD the vote menu shows map names only and
       closes once you vote, as before
 
@@ -724,6 +753,20 @@ ShopCore's API (ShopCore 1.1.9). Open `!shop`, then Buy and a category.
       refund at the right
 - [ ] in mouse mode the item list's footer says `Click an item for details`,
       and an item's page `Buy or preview`
+- [ ] the balance shows as a gold chip beside the title on every shop page,
+      and each price has a gold coin before it
+- [ ] item cards: an agent model shows its render, a healthshot or decoy item
+      its grenade's, and any other item its category's icon (Bhop, Parachute,
+      a hit sound); each card says how long it lasts (`1 hour`, or
+      `Permanent` in gold) and a team-only item carries `CT only` / `T only`
+- [ ] an item you have on is outlined with `Equipped`, one you own reads
+      `✓ Owned` with its price struck through, and one you cannot afford
+      reads `need N` in red
+- [ ] an item's page shows its art large on the left with the name under it;
+      badges, the price with the balance it leaves, and the facts on the
+      right; Preview and Buy at the foot
+- [ ] Inventory lists each owned item with its art, `Equipped` on the one you
+      have on, and the time a timed item has left over a draining meter
 - [ ] on a server without CustomHUD the same rows read `name [price]`,
       `Buy [price]` and `Sell [+refund]`, as before
 

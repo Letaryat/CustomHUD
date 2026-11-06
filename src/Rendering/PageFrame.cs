@@ -169,7 +169,7 @@ internal static class PageFrame
         if (integration is { } owner)
         {
             draw = new PageDraw(owner.Host, session, rendererId, components, rendered, index, Math.Max(1, reachable.Count),
-                owner.Strings, owner.Regions, owner.RowSlots);
+                owner.Strings, owner.Regions, owner.RowSlots, owner.Icons);
             owner.Host.Draw(owner.Integration, draw);
         }
 
@@ -255,6 +255,7 @@ internal sealed record DeferredCompose(
 
 // The integration drawing a page, with what it draws through: the layout's regions with slots
 // (menu_locker's banner, foot ...), where a row routed there takes no main-list slot, and the
-// main list's slot count.
+// main list's slot count. Icons is the layout's label-to-glyph map (MenuSidebarProfile.Icons).
 internal sealed record PageIntegrationContext(
-    IntegrationHost Host, IPageIntegration Integration, ILocalizer Strings, IReadOnlySet<string> Regions, int RowSlots);
+    IntegrationHost Host, IPageIntegration Integration, ILocalizer Strings, IReadOnlySet<string> Regions, int RowSlots,
+    IReadOnlyDictionary<string, string> Icons);

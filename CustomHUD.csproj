@@ -72,6 +72,7 @@
     <Reference Include="WeaponSkins.Shared" HintPath="lib/WeaponSkins.Shared.dll" Private="false" />
     <Reference Include="ShopCore.Contract" HintPath="lib/ShopCore.Contract.dll" Private="false" />
     <Reference Include="MapChooser.Contract" HintPath="lib/MapChooser.Contract.dll" Private="false" />
+    <Reference Include="VIPCore.Contract" HintPath="lib/VIPCore.Contract.dll" Private="false" />
   </ItemGroup>
 
   <Target Name="CreateZip" AfterTargets="Publish">

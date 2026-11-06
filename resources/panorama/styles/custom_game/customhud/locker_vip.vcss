@@ -313,11 +313,11 @@
 
 .lk.view-vip-options .grp-fov .lk-glyph
 {
-	width: 40px;
-	height: 40px;
+	width: 72px;
+	height: 44px;
 	horizontal-align: center;
 	vertical-align: top;
-	margin: 38px 0px 0px 0px;
+	margin: 34px 0px 0px 0px;
 }
 
 .lk.view-vip-options .grp-fov.chosen .lk-glyph
@@ -951,6 +951,17 @@
 	border-radius: 2px;
 }
 
+/* Time left reads the same on the selected row; only an ending one turns red (metertone). */
+.lk.view-vip-users .lk-slot.chosen .chud-meter__fill
+{
+	background-color: chudInfoBase;
+}
+
+.lk.view-vip-users .lk-slot.chosen.meter-bad .chud-meter__fill
+{
+	background-color: chudDangerBase;
+}
+
 /* The detail pane: one card holding its buttons, its items wrapping so the extend steps share a line. */
 .lk.view-vip-users .lk-detail
 {
@@ -1013,6 +1024,52 @@
 .lk.view-vip-users .lk-detail .lk-slot.section .lk-name
 {
 	font-size: 10px;
+}
+
+/* The expanded group's card reaches down around its extend steps and links: the negative
+   margin starts their lines inside it, and as later siblings they draw over it. */
+.lk.view-vip-users .grp-gcard.chosen
+{
+	height: 132px;
+	margin-bottom: -58px;
+}
+
+.lk.view-vip-users .lk-detail .grp-gcard.chosen .lk-hit,
+.lk.view-vip-users .lk-detail .grp-gcard.chosen .lk-hit:hover
+{
+	border: 1px solid chudAccentDim;
+}
+
+/* The pane's own rule clears every row inside it, which caught these buttons too. */
+.lk.view-vip-users .lk-detail .lk-detail__bar .lk-hit
+{
+	border: 1px solid chudSurfaceEdge;
+	border-radius: 4px;
+	background-color: chudSurfaceRow;
+}
+
+.lk.view-vip-users .lk-detail .lk-detail__bar .lk-hit:hover
+{
+	border: 1px solid chudAccentBase;
+	background-color: chudSurfaceHover;
+}
+
+.lk.view-vip-users .lk-detail .lk-detail__bar .danger .lk-hit
+{
+	border: 1px solid chudDangerBase;
+	background-color: chudDangerSoft;
+}
+
+.lk.view-vip-users .lk-detail .lk-detail__bar .danger .lk-hit:hover
+{
+	border: 1px solid chudDangerBase;
+	background-color: chudDangerDim;
+}
+
+/* The count at the box's right edge. */
+.lk.view-vip-users .lk-detail .lk-slot.section .lk-text
+{
+	width: fill-parent-flow( 1.0 );
 }
 
 /* A group: tier, scope, end date and days left, its bar. */
@@ -1099,10 +1156,10 @@
 	border-radius: 3px;
 }
 
-/* Extend: a caption and five steps on one line, 84 + 5 x 40 = 284 of 300. */
+/* Extend: a caption and five steps on one line, 76 + 5 x 42 = 286 of 300. */
 .lk.view-vip-users .grp-caption
 {
-	width: 84px;
+	width: 76px;
 	height: 30px;
 	margin: 0px;
 }
@@ -1124,7 +1181,7 @@
 
 .lk.view-vip-users .grp-step
 {
-	width: 36px;
+	width: 38px;
 	height: 26px;
 	margin: 2px 4px 0px 0px;
 }
@@ -1199,6 +1256,18 @@
 .lk.view-vip-grant .lk-list .lk-slot .lk-text
 {
 	width: 200px;
+}
+
+/* The list's heading outranks the two rules above, which size player rows; with them it stood
+   20px taller than the detail's headings and pushed its count to the far edge. */
+.lk.view-vip-grant .lk-list .lk-slot.section
+{
+	height: 30px;
+}
+
+.lk.view-vip-grant .lk-list .lk-slot.section .lk-text
+{
+	width: fit-children;
 }
 
 .lk.view-vip-grant .lk-list .lk-tags

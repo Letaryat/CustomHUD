@@ -139,10 +139,12 @@
 
 .lk.view-ranks-rank .lk-banner .has-value .lk-note { margin-top: 224px; }
 
-/* The road: one node per rank, a line running through their badges. */
+/* The road: one node per rank, a line running through their badges. Squish, not clip:
+   a clipped list lets a 100%-wide row keep its padded width and overrun it by 40px. */
 .lk.view-ranks-rank .lk-list
 {
 	padding: 16px 20px 16px 20px;
+	overflow: squish scroll;
 }
 
 .lk.view-ranks-rank .lk-content .lk-slot.section
@@ -157,13 +159,21 @@
 	border-bottom: 0px solid transparent;
 }
 
+/* Heading and count on one line; the nodes' text rule would align only the heading. */
 .lk.view-ranks-rank .lk-content .lk-slot.section .lk-text
 {
 	width: fill-parent-flow( 1.0 );
+	vertical-align: top;
 	margin: 0px;
 }
 
-/* 7 x (118 + 3) = 847 of 854; a ladder of 8 to 10 narrows to fit, so it is never cut. */
+.lk.view-ranks-rank .lk-content .lk-slot.section .lk-end
+{
+	vertical-align: top;
+	margin: 0px 0px 0px 8px;
+}
+
+/* 7 x (118 + 3) = 847 of 858; a ladder of 8 to 10 narrows to fit, so it is never cut. */
 .lk.view-ranks-rank .lk-slot
 {
 	width: 118px;

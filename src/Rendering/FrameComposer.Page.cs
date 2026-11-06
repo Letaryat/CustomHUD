@@ -53,7 +53,8 @@ internal sealed partial class FrameComposer
             else if (piece.Hint) hint ??= piece.Text.Length > 0 ? piece.Text : null;
             else if (piece.Text.Length > 0) titleParts.Add(piece.Text);
         }
-        vars.Add(new VarWrite(profile.Variables.TitlePanel, profile.Variables.TitleVar, CleanTitle(string.Join(' ', titleParts))));
+        vars.Add(new VarWrite(profile.Variables.TitlePanel, profile.Variables.TitleVar,
+            WithoutCrumb(CleanTitle(string.Join(' ', titleParts)), CrumbOf(context.Menu))));
 
         // A page's own hint says what clicking does there; keys still need the mode's line.
         var entries = frame.Body.Select(node => Flatten(node, reportUnsupported)).Where(e => !e.Divider).ToArray();
@@ -457,15 +458,17 @@ internal sealed partial class FrameComposer
             classes.Add(new ClassWrite(picture, cls.Hidden, token is null));
         }
 
-        foreach (var glyphPanel in new[] { spec.Glyph(i), spec.ValueGlyph(i) })
+        // Without `vglyph=` the value shows the entry's own glyph, as before it existed.
+        var glyphPanel = spec.Glyph(i);
+        var valueGlyphPanel = spec.ValueGlyph(i);
+        var valueGlyph = entry.ValueGlyph ?? entry.Glyph;
+        if (entry.Glyph is not null && (glyphPanel ?? valueGlyphPanel) is not null) classes.Add(new ClassWrite(panel, pc.HasGlyph, true));
+        if (entry.ValueGlyph is not null && valueGlyphPanel is not null) classes.Add(new ClassWrite(panel, pc.HasValueGlyph, true));
+        foreach (var (glyphTarget, glyph) in new[] { (glyphPanel, entry.Glyph), (valueGlyphPanel, valueGlyph) })
         {
-            if (glyphPanel is null) continue;
-            if (entry.Glyph is { } glyph)
-            {
-                classes.Add(new ClassWrite(glyphPanel, Format(pc.Glyph, glyph), true));
-                classes.Add(new ClassWrite(panel, pc.HasGlyph, true));
-            }
-            classes.Add(new ClassWrite(glyphPanel, cls.Hidden, entry.Glyph is null));
+            if (glyphTarget is null) continue;
+            if (glyph is not null) classes.Add(new ClassWrite(glyphTarget, Format(pc.Glyph, glyph), true));
+            classes.Add(new ClassWrite(glyphTarget, cls.Hidden, glyph is null));
         }
 
         if (spec.Inline(i) is { } inlinePanel)
@@ -556,10 +559,7 @@ internal sealed partial class FrameComposer
         ImmutableArray<VarWrite>.Builder vars, ImmutableArray<ClassWrite>.Builder classes)
     {
         var root = SidebarRoot(context.Menu);
-        var parent = context.Menu.Parent;
-        var crumb = parent is not null && !ReferenceEquals(parent, root) ? CleanTitle(MenuTitle(parent)) : string.Empty;
-        // A tab page usually repeats its host's title; "Bans › Bans" says nothing twice.
-        if (string.Equals(crumb, CleanTitle(MenuTitle(context.Menu)), StringComparison.OrdinalIgnoreCase)) crumb = string.Empty;
+        var crumb = CrumbOf(context.Menu);
         var titlePanel = profile.Variables.TitlePanel;
         if (page.CrumbVar.Length > 0) vars.Add(new VarWrite(titlePanel, page.CrumbVar, crumb));
         if (crumb.Length > 0) classes.Add(new ClassWrite(titlePanel, page.Classes.HasCrumb, true));
@@ -571,6 +571,30 @@ internal sealed partial class FrameComposer
         vars.Add(new VarWrite(titlePanel, page.EyebrowVar, eyebrow));
         if (eyebrow.Length > 0) classes.Add(new ClassWrite(titlePanel, page.Classes.HasEyebrow, true));
     }
+
+    // The parent's title, shown before the page's own, less what its own crumb already says; empty
+    // under the root. The depth cap only guards a Parent cycle.
+    private static string CrumbOf(IMenu menu, int depth = 0)
+    {
+        var parent = menu.Parent;
+        if (parent is null || depth > 8 || ReferenceEquals(parent, SidebarRoot(menu))) return string.Empty;
+        var crumb = WithoutCrumb(CleanTitle(MenuTitle(parent)), CrumbOf(parent, depth + 1));
+        // A tab page usually repeats its host's title; "Bans › Bans" says nothing twice.
+        return string.Equals(crumb, CleanTitle(MenuTitle(menu)), StringComparison.OrdinalIgnoreCase) ? string.Empty : crumb;
+    }
+
+    // A title that is a path from its parent ("Visuals > Player Models" under "Visuals") keeps only
+    // what the crumb does not already say.
+    private static string WithoutCrumb(string title, string crumb)
+    {
+        if (crumb.Length == 0 || !title.StartsWith(crumb, StringComparison.OrdinalIgnoreCase)) return title;
+        var rest = title.AsSpan(crumb.Length).TrimStart();
+        if (rest.Length < 2 || !PathSeparators.Contains(rest[0])) return title;
+        var tail = rest[1..].Trim();
+        return tail.Length > 0 ? tail.ToString() : title;
+    }
+
+    private const string PathSeparators = ">›»/|:";
 
     // The built-in profiles' eyebrows in the player's language. Literal keys, so the
     // translation check sees each one; any other eyebrow is shown as configured.
@@ -896,6 +920,7 @@ internal sealed partial class FrameComposer
             case "notetone": if (Plain(value)) content.NoteTone = value; break;
             case "metertone": if (Plain(value)) content.MeterTone = value; break;
             case "glyph": if (Plain(value)) content.Glyph = value; break;
+            case "vglyph": if (Plain(value)) content.ValueGlyph = value; break;
             case "swatch": if (Plain(value)) content.Swatch = value; break;
             case "rating":
                 if (int.TryParse(value, NumberStyles.None, CultureInfo.InvariantCulture, out var rating))

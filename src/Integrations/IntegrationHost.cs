@@ -5,6 +5,7 @@ using CustomHUD.Integrations.MapPages;
 using CustomHUD.Integrations.RankPages;
 using CustomHUD.Integrations.ShopPages;
 using CustomHUD.Integrations.SkinPages;
+using CustomHUD.Integrations.VipPages;
 using CustomHUD.Rendering;
 using Microsoft.Extensions.Logging;
 using SwiftlyS2.Shared;
@@ -50,7 +51,8 @@ internal sealed class IntegrationHost(
                 Create("Ranks_Prestige", "Ranks.Prestige.Api.v1", interfaces, i => PrestigeIntegration.TryCreate(i, chips)),
                 Create("WeaponSkins", "WeaponSkins.API", interfaces, WeaponSkinsIntegration.TryCreate),
                 Create("ShopCore", "ShopCore.API.v2", interfaces, ShopIntegration.TryCreate),
-                Create("MapChooser", "MapChooser.Api.v1", interfaces, i => MapVoteIntegration.TryCreate(i, core, this)),
+                Create("MapChooser", "MapChooser.Api.v1", interfaces, i => MapChooserIntegration.TryCreate(i, core, this)),
+                Create("VIPCore", "VIPCore.Api.v1", interfaces, VipIntegration.TryCreate),
             ];
             Replace([.. next.OfType<IPageIntegration>()]);
         }

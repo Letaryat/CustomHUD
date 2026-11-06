@@ -4,7 +4,7 @@
 # interface would never resolve.
 #
 # Run after a provider's contract changes. Providers are expected next to this repository:
-#   ..\Ranks, ..\WeaponSkins, ..\ShopCore, ..\MapChooser
+#   ..\Ranks, ..\WeaponSkins, ..\ShopCore, ..\MapChooser, ..\VIPCore
 param(
     [string]$Root = (Resolve-Path (Join-Path $PSScriptRoot '..\..')).Path
 )
@@ -19,7 +19,8 @@ $contracts = @(
     @{ Project = 'Ranks\Modules\Ranks_Prestige\Ranks_Prestige.Contract\Ranks_Prestige.Contract.csproj'; License = 'Ranks\LICENSE' },
     @{ Project = 'WeaponSkins\WeaponSkins.Shared\WeaponSkins.Shared.csproj'; License = 'WeaponSkins\LICENSE' },
     @{ Project = 'ShopCore\ShopCore.Contract\ShopCore.Contract.csproj'; License = 'ShopCore\LICENSE' },
-    @{ Project = 'MapChooser\MapChooser.Contract\MapChooser.Contract.csproj'; License = 'MapChooser\LICENSE' }
+    @{ Project = 'MapChooser\MapChooser.Contract\MapChooser.Contract.csproj'; License = 'MapChooser\LICENSE' },
+    @{ Project = 'VIPCore\VIPCore.Contract\VIPCore.Contract.csproj'; License = 'VIPCore\LICENSE.MIT' }
 )
 
 foreach ($contract in $contracts) {

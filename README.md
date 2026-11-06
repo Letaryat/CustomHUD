@@ -366,7 +366,7 @@ Built-in mouse rules (`shopcore.*`, `mapchooser.*`, `ranks.*`, `vipcore.*`,
 | ShopCore | `shop-grid` (storefront cards), `shop-list` (a price list), `shop-product`, `shop-inventory` |
 | MapChooser | `maps-board` (vote cards), `maps-rows` (poll rows), `maps-pool`, `maps-rtv` |
 | Ranks | `ranks-rank`, `ranks-stats`, `ranks-weapons`, `ranks-board`, `ranks-settings` |
-| VIPCore | `vip-perks`, `vip-options`, `vip-guns`, `vip-tiers`, `vip-users`, `vip-grant` |
+| VIPCore | `vip-perks`, `vip-options`, `vip-guns`, `vip-users`, `vip-grant` (and `vip-tiers`, which no VIPCore menu opens yet) |
 | Admins | `admins-players`, `admins-ban`, `admins-bans`, `admins-votes`, `admins-staff` |
 | MixScrims | `mix-captains`, `mix-draft` (the team pick), `mix-sides` (the knife round's side), `mix-ballot` (the timeout, surrender and kick votes, docked at the side), `mix-control` |
 
@@ -380,14 +380,16 @@ keep them on the Ranks page: `weaponstats.weapons` draws as `ranks-weapons`,
 the modules' other pages as `ranks-stats`, and so does another player's
 statistics opened from the leaderboard (`ranks.top.player`).
 
-Ranks (and its modules), ShopCore, MapChooser and WeaponSkins send no
+Ranks (and its modules), ShopCore, MapChooser, WeaponSkins and VIPCore send no
 directives: CustomHUD recognises their menus and draws the designed pages from
 each plugin's public API (see [Provider integrations](#provider-integrations)):
 the rank as a hero card with its road through the ladder, the counters as
 tiles, a podium with the player's own row pinned under the table, weapon cards
 with the game's renders, the settings as a form with the reset fenced off,
-prices in a value column and a live map tally. Every other renderer still
-draws those plugins' plain rows.
+prices in a value column, a live map tally, the VIP membership over its perk
+cards, a module's choices as cards (field-of-view dials, chat tags as chat
+lines, a gun loadout), and the VIP admin pages as a table beside the selected
+player's grants. Every other renderer still draws those plugins' plain rows.
 
 An id no rule names gets `list`, the plain list. Pick another view in config
 `PageViews`, by exact id or trailing-`*` prefix; it wins over the built-in
@@ -417,6 +419,7 @@ token: up to 24 lowercase letters, digits and `-`.
 | `sub=`, `unit=`, `tag=`, `tag2=`, `note=`, `mark=` | more text: a line under the name, a small word with it (`kills`), two pills, a note at the right, and the text in the mark square |
 | `tone=`, `subtone=`, `tagtone=`, `tag2tone=`, `notetone=`, `metertone=` | colours, from the table below |
 | `glyph=<icon>` | an icon from `customhud_icons.vcss` (`ico-<icon>`) |
+| `vglyph=<icon>` | the value's own icon, such as a price's coin, so `glyph=` can be the entry's. Without it the value shows `glyph=` |
 | `swatch=<colour>` | a colour dot: `red`, `blue`, `green`, `yellow`, `purple`, `orange`, `pink`, `cyan`, `white`, `black`, `team` or `random` |
 | `avatar[=text]` | the mark square with the name's initial in a colour fixed per name, or the given text |
 | `rating=N` | a CS Rating badge in its band colour |
@@ -476,19 +479,23 @@ the plugin built. Any other custom renderer can read the same API.
 | Ranks_CustomCombos | `Ranks.CustomCombos.Api.v1` | 1.0.2 | `customcombos.*` |
 | Ranks_Prestige | `Ranks.Prestige.Api.v1` | 1.0.1 | `prestige.*` |
 | WeaponSkins | `WeaponSkins.API` | a build whose API has `Agents`, `MusicKits`, `GetImageKey` | `weaponskins.*` |
-| ShopCore | `ShopCore.API.v2` | 1.1.9 | `shopcore.buy.items`, `shopcore.buy.item`, `shopcore.inventory.item` |
-| MapChooser | `MapChooser.Api.v1` | 1.4.0 | `mapchooser.eof-vote*` |
+| ShopCore | `ShopCore.API.v2` | 1.1.9 | `shopcore.*` |
+| MapChooser | `MapChooser.Api.v1` | 1.4.0 | `mapchooser.*` |
+| VIPCore | `VIPCore.Api.v1` | 1.2.0 (contract 1.1.0) | `vipcore.*` |
 
 What a page needs to be recognised is renderer-agnostic, and the plugins
 above follow it:
 
 - **A row's `Tag` is the item it stands for**: a leaderboard entry, a weapon's
-  definition index, a finish's paint kit, a shop item, a ballot option.
+  definition index, a finish's paint kit, a shop item, a map's name, a ballot
+  option, a VIP perk, choice, user or grant (VIPCore's records name what each
+  row is, since its pages are made of plain buttons).
 - **An item's own page carries that item as `IMenu.Tag`.** A page opened from
   a row without one (a weapon's finishes) is matched to the row it was opened
   from.
 - **The API exposes what a page shows** as read-only members: the ladder and a
-  player's snapshot, a sell price, the live vote counts.
+  player's snapshot, a sell price, an item's art and whether the player owns
+  it, a map's pool entry, the live vote counts.
 
 A plugin that is missing, older than the table says, or publishes another
 contract under the same key is skipped with one log line, and its menus draw
@@ -534,11 +541,22 @@ of all votes as `bar=`, and `chosen` on the player's vote, all read from
 `IMapChooserApi`, so the menu reads as a live tally that redraws as votes land.
 MapChooser closes the ballot once the player votes; CustomHUD then opens a
 read-only tally (`mapchooser.eof-vote.tally`) in its place until the vote ends.
+On every MapChooser page a map shows its art: menus list a map by the name in
+`maps.jsonc` ("Dust II"), and `GetMap` gives the map the server loads
+(`de_dust2`), whose screenshot and logo a stock map has. Another installed map
+shows its prefix in the mark, a workshop map a `Workshop` tag, and the pool
+pages each map's player limits.
 
 ShopCore's prices go the same way, as `text=\t500`, on its buy list and its
 Buy and Sell rows; every other renderer still reads them in brackets, as
 `Neon Tracer [500]`. The price sits outside the label, so a long item name is
-shortened at the row's edge but its price never is.
+shortened at the row's edge but its price never is. The cards add the coin
+(`vglyph=credits`), the item's duration and team, and whether the player has
+it on, owns it or cannot afford it, under the balance as a chip. An item's
+picture is its `ShopItemDefinition.ImageKey`, which a module sets where the
+game ships one (agents, the healthshot, the decoy); any other item shows its
+category's icon from `Sidebar.Icons`, so a server with its own categories
+maps them there.
 
 `image=` takes a CS2 econ image key — the game's own
 `panorama/images/econ/<key>_png.vtex_c` path without prefix and suffix, e.g.

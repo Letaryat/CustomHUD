@@ -474,6 +474,14 @@ parent is sizing to its children while the child is sizing to its parent, and
 Panorama resolves that circular dependency as nothing. Give one of the two a
 concrete size.
 
+`width: 100%` is a share of the parent's **whole** width, padding included. A
+parent left at the default `overflow: squish` shrinks the child back inside its
+padding; a `clip` or `scroll` parent lets it keep that width, so the child
+starts after the left padding and ends both paddings past the padded edge
+(measured in game: the Ranks road's count sat 40px past a list padded 20px each
+side). Give a padded scroll panel `overflow: squish scroll`, or put the padding
+on a panel inside it.
+
 ### Why Panorama silently eats mistakes
 
 An unrecognised property is **dropped with no error and no warning** — the rule

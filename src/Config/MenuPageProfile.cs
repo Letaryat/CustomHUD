@@ -193,6 +193,8 @@ public sealed class PageClasses
     public string HasNote { get; set; } = "has-note";
     public string HasValue { get; set; } = "has-value";
     public string HasGlyph { get; set; } = "has-glyph";
+    // `vglyph=`: the value's own glyph (a currency), leaving `glyph=` for the entry's icon.
+    public string HasValueGlyph { get; set; } = "has-vglyph";
     public string HasMark { get; set; } = "has-mark";
     public string HasInline { get; set; } = "has-inline";
     public string HasRating { get; set; } = "has-rating";

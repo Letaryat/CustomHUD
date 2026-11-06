@@ -188,7 +188,7 @@ internal sealed partial class FrameComposer(CustomHudConfigProvider config, HudT
             string.Join(',', c.View, c.Region, c.HasTabs, c.HasHead, c.NoSidebar, c.Mode, c.HasCrumb, c.HasEyebrow, c.Tone, c.SubTone,
                 c.TagTone, c.Tag2Tone, c.NoteTone, c.MeterTone, c.Swatch, c.Avatar, c.AvatarColors, c.Rarity, c.Kind,
                 c.On, c.Track, c.Rating, c.Pips, c.Lit, c.Yes, c.Section, c.Group, c.Lead, c.Primary, c.HasKey, c.HasSub, c.HasUnit,
-                c.HasTag, c.HasTag2, c.HasNote, c.HasValue, c.HasGlyph, c.HasMark, c.HasInline, c.HasRating, c.HasPips, c.HasCount,
+                c.HasTag, c.HasTag2, c.HasNote, c.HasValue, c.HasGlyph, c.HasValueGlyph, c.HasMark, c.HasInline, c.HasRating, c.HasPips, c.HasCount,
                 c.Glyph, c.InlineState, c.HasBar2, c.Bar2));
     }
 
@@ -920,6 +920,8 @@ internal sealed partial class FrameComposer(CustomHudConfigProvider config, HudT
         public string? NoteTone;
         public string? MeterTone;
         public string? Glyph;
+        // `vglyph=`: the value's glyph, where it differs from the entry's own.
+        public string? ValueGlyph;
         public string? Swatch;
         public int? Rating;
         public int PipsLit;

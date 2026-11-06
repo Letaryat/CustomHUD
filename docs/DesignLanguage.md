@@ -552,7 +552,7 @@ A plugin can target CustomHUD directly through
 
 Without a raw node, the text `"Label\tValue\tIcon"` splits into the same three
 slots. `menu_locker` and the list add their page directives (`at=`, `section`,
-`chip`, `view=`, the tones, `verb=`, `nays=`, `info`, `fold`, `hint` and the
+`chip`, `view=`, the tones, `glyph=` / `vglyph=`, `verb=`, `nays=`, `info`, `fold`, `hint` and the
 rest); see the [README](../README.md#what-a-page-sends).
 
 ## Changing slot counts

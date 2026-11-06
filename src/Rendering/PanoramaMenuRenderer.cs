@@ -42,6 +42,7 @@ internal sealed class PanoramaMenuRenderer(
     // Game thread. Survives Drop; cleared when the player disconnects.
     private readonly ConcurrentDictionary<int, NavMemory> _memory = new();
     private readonly FrameComposer _composer = new(config, strings);
+    private static readonly IReadOnlyDictionary<string, string> EmptyIcons = new Dictionary<string, string>();
 
     // Set before unload tears anything down. Checked on both threads so an
     // in-flight render cannot repopulate _states and respawn an entity after
@@ -186,7 +187,8 @@ internal sealed class PanoramaMenuRenderer(
                     integrations.Openers.Capture(session, state.Rows?.Session);
                     var regions = deferred.Profile.Page?.Regions.Where(r => r.Slots > 0).Select(r => r.Name)
                         .ToHashSet(StringComparer.OrdinalIgnoreCase) ?? [];
-                    hook = new PageIntegrationContext(integrations, integration, strings.For(slot), regions, deferred.Profile.RowSlots);
+                    hook = new PageIntegrationContext(integrations, integration, strings.For(slot), regions, deferred.Profile.RowSlots,
+                        deferred.Profile.Sidebar?.Icons ?? EmptyIcons);
                 }
                 var (frame, page) = PageFrame.Build(deferred.Context, core.Menu.Renderers, core.PlayerManager,
                     translations.For(slot), deferred.Budget, ReportRowRenderError, hook);

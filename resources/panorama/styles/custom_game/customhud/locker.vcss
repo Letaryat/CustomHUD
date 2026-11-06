@@ -364,10 +364,12 @@
 	visibility: visible;
 }
 
+/* Flows for the reason given at .lk-list. */
 .lk-detail__body
 {
 	width: 100%;
 	height: fill-parent-flow( 1.0 );
+	flow-children: down;
 	overflow: clip scroll;
 }
 
@@ -466,12 +468,14 @@
 	white-space: nowrap;
 }
 
-/* The gutter on the right holds the scrollbar; the items fill the rest and wrap. */
+/* The gutter on the right holds the scrollbar; the items fill the rest and wrap. The flow is
+   kept: at none this fill-height panel drew a scrollbar neither the wheel nor its thumb moved. */
 .lk-list
 {
 	width: 100%;
 	height: fill-parent-flow( 1.0 );
 	padding-right: 14px;
+	flow-children: down;
 	overflow: clip scroll;
 }
 

@@ -1,7 +1,7 @@
 /*
 	ShopCore's views on menu_locker; locker.vcss draws the frame and the plain list.
-	An item's glyph is its currency, so prices show it inside the value's group
-	(lk-vglyph); only the inventory keeps it as the item's own icon.
+	A price's coin is `vglyph=`, inside the value's group (lk-vglyph); `glyph=` is the item's
+	own icon, shown where an item without a picture would show its art.
 */
 
 /* ---- shop-grid: storefront cards, four to a line ---- */
@@ -67,9 +67,28 @@
 	visibility: collapse;
 }
 
-.lk.view-shop-grid .has-glyph .lk-vglyph
+.lk.view-shop-grid .has-glyph .lk-vglyph,
+.lk.view-shop-grid .has-vglyph .lk-vglyph
 {
 	visibility: visible;
+}
+
+/* An item without a picture shows its icon in the picture's place: `vglyph=` carries the price's
+   coin, which leaves `glyph=` free for the item. */
+.lk.view-shop-grid .has-glyph.has-vglyph .lk-glyph
+{
+	visibility: visible;
+	width: 64px;
+	height: 64px;
+	horizontal-align: center;
+	vertical-align: top;
+	margin: 36px 0px 0px 0px;
+	wash-color: chudTextMuted;
+}
+
+.lk.view-shop-grid .has-vglyph.has-thumb .lk-glyph
+{
+	visibility: collapse;
 }
 
 .lk.view-shop-grid .lk-end
@@ -165,7 +184,14 @@
 	visibility: collapse;
 }
 
-.lk.view-shop-list .has-glyph .lk-vglyph
+.lk.view-shop-list .has-glyph .lk-vglyph,
+.lk.view-shop-list .has-vglyph .lk-vglyph
+{
+	visibility: visible;
+}
+
+/* With the coin in `vglyph=`, `glyph=` is the item's icon, in the left gutter. */
+.lk.view-shop-list .has-glyph.has-vglyph .lk-glyph
 {
 	visibility: visible;
 }
@@ -219,6 +245,17 @@
 	vertical-align: bottom;
 	margin: 0px 0px 96px 0px;
 	background-position: 50% 100%;
+}
+
+/* An item without a picture: its icon, large, where the picture would stand. */
+.lk.view-shop-product .lk-banner .lk-glyph
+{
+	width: 150px;
+	height: 150px;
+	horizontal-align: center;
+	vertical-align: center;
+	margin: 0px 0px 96px 0px;
+	wash-color: chudTextMuted;
 }
 
 .lk.view-shop-product .lk-banner .lk-slot .lk-text
@@ -352,10 +389,11 @@
 .lk.view-shop-product .grp-fact.tone-good .lk-value { color: chudSuccessBase; }
 .lk.view-shop-product .grp-fact.tone-bad .lk-value { color: chudDangerBase; }
 
-/* The actions: a secondary button and the primary filling the rest. */
+/* The actions: a secondary button and the primary filling the rest. Wide enough for ShopCore's
+   own "Preview item". */
 .lk.view-shop-product .lk-foot .lk-slot
 {
-	width: 132px;
+	width: 174px;
 	height: 46px;
 	margin: 0px;
 }
@@ -506,6 +544,13 @@
 .lk.view-shop-inventory .lk-slot.kind-toggle.is-on .lk-value
 {
 	color: chudAccentStrong;
+}
+
+/* A row that opens the item's page has no switch, so its state reads in the switch's column. */
+.lk.view-shop-inventory .lk-tags
+{
+	horizontal-align: left;
+	margin: 0px 0px 0px 360px;
 }
 
 .lk.view-shop-inventory .lk-meter

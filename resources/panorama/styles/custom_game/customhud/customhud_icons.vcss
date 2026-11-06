@@ -1,7 +1,8 @@
 /*
 	Icon vocabulary: a .chud-ico panel draws the default, and one token class
 	(MenuSidebarProfile.IconClass, "ico-{0}") swaps the art. Every image is the
-	game's own, so nothing here ships with the addon. A token with no rule keeps
+	game's own except the field-of-view dials, which ship in this addon's
+	images/custom_game/customhud. A token with no rule keeps
 	the default, which is why an unmapped sidebar entry still has an icon.
 
 	Art only: the layout sets the panel's size and colour (wash-color), and must
@@ -116,6 +117,13 @@
 .chud-ico.ico-bhop { background-image: url( "s2r://panorama/images/icons/ui/exojump.vsvg" ); }
 .chud-ico.ico-parachute { background-image: url( "s2r://panorama/images/icons/ui/parachute.vsvg" ); }
 .chud-ico.ico-fov { background-image: url( "s2r://panorama/images/icons/ui/zoom_in.vsvg" ); }
+/* A field-of-view choice: the dial opens with the value (VipIntegration picks the nearest). */
+.chud-ico.ico-fov-80 { background-image: url( "s2r://panorama/images/custom_game/customhud/fov_80.vsvg" ); }
+.chud-ico.ico-fov-90 { background-image: url( "s2r://panorama/images/custom_game/customhud/fov_90.vsvg" ); }
+.chud-ico.ico-fov-100 { background-image: url( "s2r://panorama/images/custom_game/customhud/fov_100.vsvg" ); }
+.chud-ico.ico-fov-110 { background-image: url( "s2r://panorama/images/custom_game/customhud/fov_110.vsvg" ); }
+.chud-ico.ico-fov-120 { background-image: url( "s2r://panorama/images/custom_game/customhud/fov_120.vsvg" ); }
+.chud-ico.ico-fov-130 { background-image: url( "s2r://panorama/images/custom_game/customhud/fov_130.vsvg" ); }
 .chud-ico.ico-tag { background-image: url( "s2r://panorama/images/icons/ui/clantag.vsvg" ); }
 .chud-ico.ico-sound-off { background-image: url( "s2r://panorama/images/icons/ui/sound_off.vsvg" ); }
 .chud-ico.ico-flash { background-image: url( "s2r://panorama/images/icons/equipment/flashbang.vsvg" ); }

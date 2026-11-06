@@ -11,6 +11,7 @@ internal sealed class PageDraw
 {
     private readonly IntegrationHost _host;
     private readonly ILocalizer _strings;
+    private readonly IReadOnlyDictionary<string, string> _icons;
     private readonly MenuNode[] _rendered;
     private readonly MenuNode?[] _nodes;
     private readonly bool[] _redrawn;
@@ -27,10 +28,12 @@ internal sealed class PageDraw
         int pageCount,
         ILocalizer strings,
         IReadOnlySet<string> regions,
-        int mainSlots)
+        int mainSlots,
+        IReadOnlyDictionary<string, string> icons)
     {
         _host = host;
         _strings = strings;
+        _icons = icons;
         _rendered = rendered;
         _nodes = (MenuNode?[])rendered.Clone();
         _redrawn = new bool[rendered.Length];
@@ -103,6 +106,12 @@ internal sealed class PageDraw
         var value = args.Length == 0 ? _strings[key] : _strings[key, args];
         return value.EndsWith(key, StringComparison.Ordinal) ? string.Empty : Directive.Clean(value);
     }
+
+    // The layout's glyph for a label (a sidebar entry's, by its English text), or null.
+    public string? Icon(string label)
+        => _icons.TryGetValue(label.Trim(), out var token) && Directive.IsToken(token.Trim().ToLowerInvariant())
+            ? token.Trim().ToLowerInvariant()
+            : null;
 
     internal MenuNode? NodeAt(int index) => _nodes[index];
 

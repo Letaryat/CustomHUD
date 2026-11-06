@@ -92,7 +92,7 @@ public static class LockerProfiles
     // ShopCore. Today's root holds Buy and Inventory, so the categories become
     // tabs; with categories on the root they are the sidebar and their
     // sub-categories the tabs. Entries carry no ids yet, so icons also match
-    // the English labels.
+    // the English labels, and an item without art takes its category's icon.
     public static MenuLayoutProfile Shop() => With(Generic(), "shop", new()
     {
         ["shopcore.buy.items"] = "shop-grid",
@@ -105,6 +105,10 @@ public static class LockerProfiles
         ["Movement"] = "movement", ["Permissions"] = "key", ["Sounds"] = "sounds", ["VIP"] = "crown",
         ["Visuals"] = "colors", ["Weapons"] = "weapons", ["Knifes"] = "knives", ["Pistols"] = "guns",
         ["Rifles"] = "guns",
+        // The stock modules' sub-categories (Movement/Bhop, Visuals/Tracers ...).
+        ["Bhop"] = "bhop", ["Parachute"] = "parachute", ["Flags"] = "key", ["Hit Sounds"] = "sounds",
+        ["Kill Screens"] = "kill", ["Player Colors"] = "colors", ["Smoke Colors"] = "colors",
+        ["Tracers"] = "crosshair", ["Player Models"] = "agents", ["Memberships"] = "crown",
     });
 
     // MapChooser. Its vote opens on its own (no root), so the sidebar folds away
@@ -160,26 +164,28 @@ public static class LockerProfiles
         ["Help"] = "info", ["Admin commands"] = "shield",
     });
 
+    // VIPCore. Its hub is the sidebar root, the users pages are tabs of one host, and each perk's
+    // card takes its glyph from the feature key the VIP module registers.
     public static MenuLayoutProfile Vip() => With(Generic(), "vip", new()
     {
-        ["vipcore.main"] = "vip-perks",
         ["vipcore.perks"] = "vip-perks",
         ["vipcore.customize"] = "vip-options",
-        ["vipcore.fov"] = "vip-options",
         ["vipcore.gun-menu*"] = "vip-guns",
-        ["vipcore.tiers"] = "vip-tiers",
         ["vipcore.users*"] = "vip-users",
-        ["vipcore.manage.users"] = "vip-users",
         ["vipcore.grant"] = "vip-grant",
-        ["vipcore.manage.select-*"] = "vip-grant",
     }, new()
     {
         ["vipcore.perks"] = "star", ["vipcore.customize"] = "sliders", ["vipcore.gun-menu"] = "guns",
-        ["vipcore.gun-menu.primary"] = "guns", ["vipcore.gun-menu.secondary"] = "guns",
-        ["vipcore.tiers"] = "crown", ["vipcore.users"] = "player", ["vipcore.grant"] = "add-player",
-        ["vipcore.manage"] = "player",
-        ["Perks"] = "star", ["Customize"] = "sliders", ["Gun menu"] = "guns", ["Tiers"] = "crown",
+        ["vipcore.users"] = "player", ["vipcore.grant"] = "add-player",
+        ["Perks"] = "star", ["Customize"] = "sliders", ["Gun menu"] = "guns",
         ["VIP users"] = "player", ["Grant VIP"] = "add-player",
+        ["vip.health"] = "health", ["vip.armor"] = "armor", ["vip.money"] = "money", ["vip.bhop"] = "bhop",
+        ["vip.speed"] = "movement", ["vip.nofalldamage"] = "parachute", ["vip.antiflash"] = "flash",
+        ["vip.zeus"] = "zeus", ["vip.vampirism"] = "healing", ["vip.gun_menu"] = "guns", ["vip.fov"] = "fov",
+        ["vip.tag"] = "tag", ["vip.chatcolor"] = "chat", ["vip.doublejump"] = "bhop", ["vip.endurance"] = "shield",
+        ["vip.fastdefuse"] = "defuse", ["vip.fastplant"] = "bomb", ["vip.fastreload"] = "refresh",
+        ["vip.flags"] = "key", ["vip.items"] = "inventory", ["vip.killscreen"] = "kill",
+        ["vip.rainbowmodel"] = "colors", ["vip.smokecolor"] = "colors", ["vip.round_end_abilities"] = "star",
     });
 
     public static MenuLayoutProfile Admins() => With(Generic(), "admins", new()
