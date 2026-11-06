@@ -1,12 +1,14 @@
-# CustomHUD
+<div align="center">
+  <h1><strong>CustomHUD</strong></h1>
+  <p>CS2-themed Panorama menus for SwiftlyS2: menu on your server drawn as a CS2-themed Panorama HUD, without having to modify any of your plugins!</p>
+</div>
 
-[![Build](https://img.shields.io/github/actions/workflow/status/shmitzas/CustomHUD/build.yml?branch=main&style=flat&logo=github&cacheSeconds=3600)](https://github.com/shmitzas/CustomHUD/actions/workflows/build.yml)
-[![Latest Release](https://img.shields.io/github/v/release/shmitzas/CustomHUD?style=flat&logo=github&cacheSeconds=3600)](https://github.com/shmitzas/CustomHUD/releases/latest)
-[![Downloads](https://img.shields.io/github/downloads/shmitzas/CustomHUD/total?style=flat&logo=github&cacheSeconds=3600)](https://github.com/shmitzas/CustomHUD/releases)
-[![Stars](https://img.shields.io/github/stars/shmitzas/CustomHUD?style=flat&logo=github&cacheSeconds=3600)](https://github.com/shmitzas/CustomHUD)
-
-CS2-themed Panorama menus for SwiftlyS2: every `Core.Menu` menu on your server
-drawn as a real HUD, with no changes to the plugins that open them.
+<p align="center">
+  <a href="https://github.com/shmitzas/CustomHUD/actions/workflows/build-and-release.yml"><img src="https://img.shields.io/github/actions/workflow/status/shmitzas/CustomHUD/build-and-release.yml?branch=main&event=push&style=flat&logo=github&cacheSeconds=3600" alt="Build"></a>
+  <a href="https://github.com/shmitzas/CustomHUD/releases/latest"><img src="https://img.shields.io/github/v/release/shmitzas/CustomHUD?style=flat&logo=github&cacheSeconds=3600" alt="Latest Release"></a>
+  <a href="https://github.com/shmitzas/CustomHUD/releases"><img src="https://img.shields.io/github/downloads/shmitzas/CustomHUD/total?style=flat&logo=github&cacheSeconds=3600" alt="Downloads"></a>
+  <a href="https://github.com/shmitzas/CustomHUD"><img src="https://img.shields.io/github/stars/shmitzas/CustomHUD?style=flat&logo=github&cacheSeconds=3600" alt="Stars"></a>
+</p>
 
 ---
 

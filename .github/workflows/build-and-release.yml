@@ -1,0 +1,180 @@
+name: Build and Release
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  # Releases are manual only: running this workflow publishes the version in PluginMetadata
+  # (src/CustomHUD.cs). Pushes and pull requests only build.
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "10.0.x"
+
+      # The plugin's resources/exports wildcard is expanded before its ProjectReference builds,
+      # so on a clean checkout a single publish silently ships without CustomHUD.Contract.dll.
+      - name: Build contract
+        run: dotnet build CustomHUD.Contract/CustomHUD.Contract.csproj -c Release --nologo
+
+      - name: Publish plugin
+        run: dotnet publish CustomHUD.csproj -c Release --nologo
+
+      - name: Verify package
+        shell: bash
+        run: |
+          for FILE in CustomHUD.dll resources/exports/CustomHUD.Contract.dll resources/translations/en.jsonc; do
+            if [[ ! -f "build/publish/CustomHUD/${FILE}" ]]; then
+              echo "::error::${FILE} is missing from the plugin package."
+              exit 1
+            fi
+          done
+
+      - name: Upload plugin
+        uses: actions/upload-artifact@v4
+        with:
+          name: CustomHUD
+          path: build/publish/
+          if-no-files-found: error
+
+  release:
+    needs: build
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Resolve Version
+        id: version
+        shell: bash
+        run: |
+          MAIN_CS="src/CustomHUD.cs"
+          RAW=$(sed -n '/\[PluginMetadata(/,/)]/ s/^.*\bVersion[[:space:]]*=[[:space:]]*"\([^"]*\)".*$/\1/p' "${MAIN_CS}" | head -n 1)
+          RAW="${RAW#v}"
+
+          if [[ -z "${RAW}" ]]; then
+            echo "::error file=${MAIN_CS}::Could not read PluginMetadata.Version."
+            exit 1
+          fi
+
+          TAG="v${RAW}"
+
+          if [[ "${RAW}" == *"-"* ]]; then
+            PRERELEASE="true"
+          else
+            PRERELEASE="false"
+          fi
+
+          echo "Version ${RAW} -> tag ${TAG} (prerelease: ${PRERELEASE})"
+          echo "tag=${TAG}" >> "$GITHUB_OUTPUT"
+          echo "version=${RAW}" >> "$GITHUB_OUTPUT"
+          echo "prerelease=${PRERELEASE}" >> "$GITHUB_OUTPUT"
+
+      - name: Refuse to overwrite an existing release
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          TAG="${{ steps.version.outputs.tag }}"
+          if gh release view "${TAG}" --repo "${GITHUB_REPOSITORY}" >/dev/null 2>&1; then
+            echo "::error file=src/CustomHUD.cs::Release ${TAG} already exists. Bump PluginMetadata.Version to publish a new release."
+            exit 1
+          fi
+
+      - name: Ensure Tag Exists
+        shell: bash
+        run: |
+          TAG="${{ steps.version.outputs.tag }}"
+          if git rev-parse -q --verify "refs/tags/${TAG}" >/dev/null; then
+            TAG_SHA=$(git rev-parse "refs/tags/${TAG}^{commit}")
+            if [[ "${TAG_SHA}" != "${GITHUB_SHA}" ]]; then
+              echo "::error file=src/CustomHUD.cs::Tag ${TAG} already exists at ${TAG_SHA}, not at ${GITHUB_SHA}. Bump PluginMetadata.Version, or delete the unreleased tag and re-run."
+              exit 1
+            fi
+            echo "Tag ${TAG} already exists at ${GITHUB_SHA}."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git tag "${TAG}" "${GITHUB_SHA}"
+          git push origin "refs/tags/${TAG}"
+
+      - name: Download plugin
+        uses: actions/download-artifact@v4
+        with:
+          name: CustomHUD
+          path: dist
+
+      - name: Create Release Archive
+        id: archive
+        shell: bash
+        run: |
+          ARCHIVE="CustomHUD-v${{ steps.version.outputs.version }}.zip"
+          (
+            cd dist
+            zip -qr "../${ARCHIVE}" CustomHUD
+          )
+          echo "archive=${ARCHIVE}" >> "$GITHUB_OUTPUT"
+
+      - name: Generate Release Notes
+        shell: bash
+        run: |
+          TAG="${{ steps.version.outputs.tag }}"
+          VERSION="${{ steps.version.outputs.version }}"
+          PRERELEASE="${{ steps.version.outputs.prerelease }}"
+
+          if [[ "${PRERELEASE}" == "true" ]]; then
+            PREV_TAG=$(git tag --sort=-version:refname | grep -v "^${TAG}$" | head -n 1 || true)
+          else
+            PREV_TAG=$(git tag --sort=-version:refname | grep -E '^v[0-9]+\.[0-9]+\.[0-9]+$' | grep -v "^${TAG}$" | head -n 1 || true)
+          fi
+
+          {
+            echo "## Changes in v${VERSION}"
+            echo
+
+            if [[ -n "${PREV_TAG}" ]]; then
+              echo "_Compared to ${PREV_TAG}_"
+              echo
+              RANGE="${PREV_TAG}..${TAG}"
+            else
+              echo "_First release_"
+              echo
+              RANGE="${TAG}"
+            fi
+
+            COMMITS=$(git log "${RANGE}" --pretty=format:'- %s ([`%h`](https://github.com/${{ github.repository }}/commit/%H))')
+            if [[ -z "${COMMITS}" ]]; then
+              echo "- No commit details found for this range."
+            else
+              echo "${COMMITS}"
+            fi
+          } > release_notes.md
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.version.outputs.tag }}
+          name: ${{ steps.version.outputs.tag }}
+          prerelease: ${{ steps.version.outputs.prerelease == 'true' }}
+          body_path: release_notes.md
+          files: ${{ steps.archive.outputs.archive }}
