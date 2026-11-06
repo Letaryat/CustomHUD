@@ -24,7 +24,7 @@ body:
       required: true
 
   - type: input
-    id: repository fs.shmitz.xyz
+    id: repository
     attributes:
       label: Source or download link
       description: Where the plugin's code or release lives, so its menus and API can be checked.
