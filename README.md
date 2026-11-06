@@ -93,8 +93,9 @@ player's choices are remembered.
 ## Requirements
 
 - SwiftlyS2 **1.5.0** or newer
-- The CustomHUD Workshop addon on every player's game, served through
+- The [CustomHUD Workshop addon](https://steamcommunity.com/sharedfiles/filedetails/?id=3834965450) on every player's game, served through
   AddonsManager
+  - Add `3834965450` to Addons list
 - Plugins that build their menus with `Core.Menu`; the deprecated
   `Core.MenusAPI` cannot be drawn
 - Optional: [Cookies](https://github.com/SwiftlyS2-Plugins/Cookies), to remember
