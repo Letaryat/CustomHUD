@@ -145,7 +145,7 @@ game-thread diff is what keeps an unchanged frame free. The cost is one page
 render per invalidation, roughly what core spends on its own window.
 
 The page size comes from `MenuLayout.MaxVisibleLines`, which core keeps in an
-internal class. `CoreMenuLimits` reads it from the same
+internal class. `CoreMenuSettings` reads it from the same
 `configs/menus/menus.jsonc` with the same parsing (clamped `1..32`, default
 `5`), located from `Core.Configuration.BasePath`, and reloads it live.
 
@@ -583,7 +583,8 @@ it is handed over, deliberately, so a renderer cannot break a plugin's logic.
 Two files, different owners:
 
 * `configs/menus/menus.jsonc` — **core's**. Renderer selection, key binds,
-  `MaxVisibleLines`, sounds.
+  `MaxVisibleLines`, sounds, and `InputMethod`, the nav mode a player starts in
+  until they choose one.
 * `configs/plugins/CustomHUD/config.jsonc` — **ours**. Layout profiles.
 
 Every layout reference is a config value. A server owner swaps in their own

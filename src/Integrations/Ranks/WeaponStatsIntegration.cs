@@ -84,15 +84,19 @@ internal sealed class WeaponStatsIntegration(IWeaponStatsApi api, IRankChips? ch
         }
     }
 
-    private async Task<List<(short Group, long Hits, long Damage)>> Load(ulong steamId, string? weapon)
-    {
-        var rows = weapon is null
-            ? (await api.GetHitGroupsAsync(steamId).ConfigureAwait(false)).Select(r => (r.HitGroup, r.Hits, r.Damage))
-            : (await api.GetWeaponHitGroupsAsync(steamId).ConfigureAwait(false))
-                .Where(r => string.Equals(r.Weapon, weapon, StringComparison.OrdinalIgnoreCase))
-                .Select(r => (r.HitGroup, r.Hits, r.Damage));
-        return [.. rows.OrderByDescending(r => r.Hits)];
-    }
+    // Not `async`: in a Release build the state machine is a struct holding the awaiter of the module's
+    // own task type, and SwiftlyS2 loads every type of CustomHUD.dll, so it made Ranks_WeaponStats required.
+    private Task<List<(short Group, long Hits, long Damage)>> Load(ulong steamId, string? weapon)
+        => weapon is null
+            ? api.GetHitGroupsAsync(steamId).ContinueWith(
+                done => Sorted(done.GetAwaiter().GetResult().Select(r => (r.HitGroup, r.Hits, r.Damage))), TaskScheduler.Default)
+            : api.GetWeaponHitGroupsAsync(steamId).ContinueWith(
+                done => Sorted(done.GetAwaiter().GetResult()
+                    .Where(r => string.Equals(r.Weapon, weapon, StringComparison.OrdinalIgnoreCase))
+                    .Select(r => (r.HitGroup, r.Hits, r.Damage))), TaskScheduler.Default);
+
+    private static List<(short Group, long Hits, long Damage)> Sorted(IEnumerable<(short Group, long Hits, long Damage)> rows)
+        => [.. rows.OrderByDescending(r => r.Hits)];
 
     // HitGroup_t is not dense: 9 is UNUSED.
     private static string HitGroupName(PageDraw page, short group) => group switch

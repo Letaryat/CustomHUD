@@ -20,6 +20,8 @@
     // Raw nodes addressed to "customhud.panorama" are honoured even after a rename.
     "RendererId": "customhud.panorama",
     "DetailedLogging": false,
+    // For players who never ran !setnav, when "InputMethod" in configs/menus/menus.jsonc names
+    // no mode: "wasd", "buttons", "numbers" or "mouse".
     "DefaultNavMode": "buttons",
     // Footer hint overrides. The hint replaces core's footer outright (its key
     // list and the plugin's footer components are not shown) and comes from

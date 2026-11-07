@@ -94,9 +94,9 @@ public sealed class CustomHUD(ISwiftlyCore core) : BasePlugin(core)
         // Core.Localizer is the server language, the fallback until a player's is resolved.
         collection.AddSingleton(new HudTranslations(player => Core.Translation.GetPlayerLocalizer(player), Core.Localizer));
         // BasePath is {configs}/plugins/CustomHUD; core reads menus.jsonc from {configs}.
-        collection.AddSingleton(sp => new CoreMenuLimits(
+        collection.AddSingleton(sp => new CoreMenuSettings(
             Path.GetFullPath(Path.Combine(Core.Configuration.BasePath, "..", "..")),
-            sp.GetRequiredService<ILogger<CoreMenuLimits>>()));
+            sp.GetRequiredService<ILogger<CoreMenuSettings>>()));
         collection.AddSingleton(sp => new IntegrationHost(Core, sp.GetRequiredService<CustomHudConfigProvider>(),
             sp.GetRequiredService<HudTranslations>(), sp.GetRequiredService<ILogger<IntegrationHost>>()));
         collection.AddSingleton(sp => new PanoramaMenuRenderer(
@@ -107,7 +107,7 @@ public sealed class CustomHUD(ISwiftlyCore core) : BasePlugin(core)
             sp.GetRequiredService<MenuEntityHost>(),
             sp.GetRequiredService<CoreTranslations>(),
             sp.GetRequiredService<HudTranslations>(),
-            sp.GetRequiredService<CoreMenuLimits>(),
+            sp.GetRequiredService<CoreMenuSettings>(),
             sp.GetRequiredService<IntegrationHost>(),
             sp.GetRequiredService<ILogger<PanoramaMenuRenderer>>()));
         collection.AddSingleton(sp => new MenuInputBridge(

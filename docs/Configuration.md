@@ -23,6 +23,7 @@ defaults.
 |---------|------|---------|-------------|
 | `Menus.Renderer` | string | unset | `"customhud.panorama"` draws every menu with CustomHUD |
 | `Menus.<menuId>.Renderer` | string | unset | The same for one menu id; wins over the server-wide value |
+| `Menus.InputMethod` | string | unset | The navigation mode players start in until they run `!setnav`: core's `buttons` or `chat`, or CustomHUD's `wasd`, `numbers` or `mouse`, which core ignores. Wins over CustomHUD's `DefaultNavMode`. `chat` makes them `buttons` players, who type `!N` on core's Chat menus |
 | `MenuLayout.MaxVisibleLines` | int | `5` | Page size in keyboard modes, clamped to `1`-`32`. Mouse layouts ignore it |
 
 Key binds for `buttons` mode (default Shift / F / E / Tab) live in the same
@@ -35,7 +36,7 @@ file; see SwiftlyS2's
 |---------|------|---------|-------------|
 | `RendererId` | string | `"customhud.panorama"` | Id the renderer registers under, the value `menus.jsonc` names. Raw nodes addressed to `customhud.panorama` keep working after a rename |
 | `DetailedLogging` | bool | `false` | Log every compose, diff, apply and input decision with a `[CustomHUD]` prefix |
-| `DefaultNavMode` | string | `"buttons"` | Mode for players who never ran `!setnav`: `wasd`, `buttons`, `numbers` or `mouse`. Anything else means `buttons` |
+| `DefaultNavMode` | string | `"buttons"` | Mode for players who never ran `!setnav`, when `menus.jsonc` sets no `Menus.InputMethod`: `wasd`, `buttons`, `numbers` or `mouse`. Anything else means `buttons` |
 | `Hints` | object | `{}` | Footer hint overrides, see [Hints](#hints) |
 | `LayoutRoot` | string | `"panorama/layout/custom_game/customhud/"` | Prefix for every layout `File` without a `/` of its own |
 | `Default` | profile | `null` | Keyboard layout for any mode without its own profile. `null` = the list, `{}` = the classic `menu.vxml` |
@@ -87,6 +88,9 @@ CustomHUD has no admin commands.
 
 - `buttons` is core's own name for keyboard input, the word `menus.jsonc` uses
   for `"InputMethod"`. Its keys are bound there, not in CustomHUD.
+- Until a player runs `!setnav`, `Menus.InputMethod` in `menus.jsonc` picks
+  their mode, and `DefaultNavMode` only when it names none. The log says which:
+  `Players who have not run !setnav navigate in wasd mode`.
 - In `wasd` mode CustomHUD ignores any key the menu's own keymap already handles,
   so the cursor never moves twice. W and S still move the player as well: core
   has no input freeze.

@@ -7,7 +7,7 @@ namespace CustomHUD.Navigation;
 // Resolves a player's nav mode and HUD scale. Called from the renderer's
 // background thread during compose, so it reads only the preference cache and
 // config -- never engine state.
-internal sealed class NavModeResolver(CustomHudConfigProvider config, PlayerPreferences prefs)
+internal sealed class NavModeResolver(CustomHudConfigProvider config, PlayerPreferences prefs, CoreMenuSettings coreMenus)
 {
     // Numbers mode: 1-6 select, 7/8 page, 9 close -- so a page holds at most six choices.
     public const int NumberKeys = 6;
@@ -32,7 +32,7 @@ internal sealed class NavModeResolver(CustomHudConfigProvider config, PlayerPref
     {
         if (_slotModes.TryGetValue(slot, out var chosen)) return chosen;
         if (Parse(prefs.GetNavMode(steamId)) is { } stored) return stored;
-        return Parse(config.Current.DefaultNavMode) ?? NavMode.Buttons;
+        return coreMenus.DefaultNavMode ?? Parse(config.Current.DefaultNavMode) ?? NavMode.Buttons;
     }
 
     public int ResolveScale(int slot, ulong steamId, MenuLayoutProfile profile)
@@ -59,6 +59,11 @@ internal sealed class NavModeResolver(CustomHudConfigProvider config, PlayerPref
         "mouse" => NavMode.Mouse,
         _ => null,
     };
+
+    // Menus.InputMethod in menus.jsonc: core's "buttons" and "chat", or a mode of this plugin's,
+    // which core ignores. A buttons player sees a Chat menu just as core runs it, numbered for !N.
+    public static NavMode? FromInputMethod(string? value)
+        => string.Equals(value?.Trim(), "chat", StringComparison.OrdinalIgnoreCase) ? NavMode.Buttons : Parse(value?.Trim());
 
     public static string Name(NavMode mode) => mode switch
     {

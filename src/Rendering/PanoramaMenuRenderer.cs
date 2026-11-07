@@ -30,7 +30,7 @@ internal sealed class PanoramaMenuRenderer(
     MenuEntityHost entities,
     CoreTranslations translations,
     HudTranslations strings,
-    CoreMenuLimits limits,
+    CoreMenuSettings coreMenus,
     IntegrationHost integrations,
     ILogger logger) : IMenuRenderer
 {
@@ -84,7 +84,7 @@ internal sealed class PanoramaMenuRenderer(
         var focusables = mode == NavMode.Numbers ? NavModeResolver.NumberKeys : int.MaxValue;
         var budget = profile.ShowAllRows
             ? PageBudget.Rows(profile.RowSlots, focusables, mode == NavMode.Mouse && profile.PageTiles ? 2 : 0)
-            : new PageBudget(Math.Min(context.Menu.ItemsPerPage, profile.RowSlots), limits.MaxVisibleLines, focusables);
+            : new PageBudget(Math.Min(context.Menu.ItemsPerPage, profile.RowSlots), coreMenus.MaxVisibleLines, focusables);
 
         // Core resolves a Chat menu's !N against its own window, so that window is
         // what has to be drawn there.

@@ -43,6 +43,8 @@
     <Compile Remove="build/**/*.cs" />
     <Compile Remove="CustomHUD.Contract/**" />
     <None Remove="CustomHUD.Contract/**" />
+    <Compile Remove="tools/**" />
+    <None Remove="tools/**" />
   </ItemGroup>
 
   <ItemGroup>

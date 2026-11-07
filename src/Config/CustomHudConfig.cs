@@ -22,8 +22,8 @@ public sealed class CustomHudConfig
     // [CustomHUD] prefix. Off by default -- prod servers stay quiet.
     public bool DetailedLogging { get; set; } = false;
 
-    // Nav mode for players who have never chosen one. "wasd" | "buttons" |
-    // "numbers" | "mouse"; anything else falls back to "buttons".
+    // Nav mode for players who have never chosen one, when Menus.InputMethod in menus.jsonc names
+    // none. "wasd" | "buttons" | "numbers" | "mouse"; anything else falls back to "buttons".
     public string DefaultNavMode { get; set; } = "buttons";
 
     // Footer hint overrides per nav mode, plus "chat" for menus whose input method

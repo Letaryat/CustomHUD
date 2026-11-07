@@ -132,6 +132,9 @@ Check:
 
 - [ ] **Header** — `Ranks`, or MapDecals' `Editing …` — becomes the title
       above the body and stays put while the page turns
+- [ ] a plugin's root menu with no eyebrow (MapDecals, K4-Arenas) starts at
+      its title, with no empty band over it; its submenus show the path above
+      the title
 - [ ] **Footer** sits below as the legend: a keycap or two and a word for
       each thing the focused row answers to, in your nav mode's keys and your
       language (`customhud.legend.*`), never core's key list. A `Hints` entry
@@ -253,6 +256,11 @@ Each mode can use its own layout profile, so each needs its own pass.
 After each, reopen `!rank` and MapDecals' edit page. The mode applies to every
 menu you open, including ones a plugin opened with its own input method.
 
+- [ ] with `"Menus": { "InputMethod": "wasd" }` in `menus.jsonc`, the log reads
+      `Players who have not run !setnav navigate in wasd mode`, and a player
+      who never ran `!setnav` opens menus in wasd (`!setnav` with no argument
+      says `wasd`); after `!setnav buttons` they stay in buttons. With no
+      `InputMethod`, they start in `DefaultNavMode`
 - [ ] **buttons** — selection follows the keys bound in `menus.jsonc`; the
       legend's keycaps name those actual binds
 - [ ] **wasd** — W/S move the selection exactly one row per press (not two),

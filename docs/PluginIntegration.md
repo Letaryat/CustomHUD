@@ -228,6 +228,18 @@ and logs once.
 CustomHUD compiles against each plugin's contract DLL in `lib/`
 (`Private=false`, never shipped); `scripts/update-contracts.ps1` rebuilds and
 copies them. Update a plugin and CustomHUD together when a contract changes.
+
+Every provider stays optional only while each type in `CustomHUD.dll` loads
+without its contract: SwiftlyS2 finds the plugin class with
+`Assembly.GetTypes()`, so a single type that needs a missing assembly stops
+the whole plugin from loading. A type may hold a provider's interfaces and
+classes in fields, but must not implement or derive from a contract type, or
+hold a struct built over one. An `async` method that awaits a provider's task
+compiles to exactly such a struct, so integrations hand the provider's task to
+`TryLoad` or continue it with `ContinueWith`. CI runs
+`tools/SoftDependencyCheck`, which loads the published plugin with no provider
+installed and names any type that would not load.
+
 To ask for another plugin, open a
 [plugin menu support request](https://github.com/shmitzas/CustomHUD/issues/new?template=plugin-menu-support.yml).
 

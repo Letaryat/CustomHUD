@@ -78,7 +78,9 @@ WASD and numbers modes:
 ## Navigation Modes
 
 Each player picks their own with `!setnav <mode>`, and resizes menus with
-`!hudscale <percent>` (for example `!hudscale 110`).
+`!hudscale <percent>` (for example `!hudscale 110`). Until they pick, players
+start in the mode `"InputMethod"` names in SwiftlyS2's `menus.jsonc`, such as
+`"Menus": { "InputMethod": "wasd" }`, and in `buttons` when it names none.
 
 | Mode | Controls |
 |------|----------|

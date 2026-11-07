@@ -32,6 +32,11 @@ jobs:
       - name: Publish plugin
         run: dotnet publish CustomHUD.csproj -c Release --nologo
 
+      # Every provider plugin must stay optional: SwiftlyS2 refuses a plugin when any of its types
+      # needs an assembly the server lacks, so this loads CustomHUD.dll with no provider contracts.
+      - name: Check provider plugins stay optional
+        run: dotnet run --project tools/SoftDependencyCheck -c Release -- build/publish/CustomHUD/CustomHUD.dll
+
       - name: Verify package
         shell: bash
         run: |
