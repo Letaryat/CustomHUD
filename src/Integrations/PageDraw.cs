@@ -15,6 +15,8 @@ internal sealed class PageDraw
     private readonly MenuNode[] _rendered;
     private readonly MenuNode?[] _nodes;
     private readonly bool[] _redrawn;
+    private readonly MenuNode[] _providerHeader;
+    private readonly MenuNode[] _headerNodes;
     private readonly List<(int Before, MenuNode Node)> _added = [];
     private readonly List<MenuNode> _header = [];
 
@@ -24,6 +26,7 @@ internal sealed class PageDraw
         string rendererId,
         IReadOnlyList<IMenuComponent> components,
         MenuNode[] rendered,
+        IReadOnlyList<MenuNode> header,
         int pageIndex,
         int pageCount,
         ILocalizer strings,
@@ -38,6 +41,9 @@ internal sealed class PageDraw
         _rendered = rendered;
         _nodes = (MenuNode?[])rendered.Clone();
         _redrawn = new bool[rendered.Length];
+        _providerHeader = [.. header];
+        _headerNodes = [.. header];
+        HeaderLines = [.. header.Select(TextOf)];
         Session = session;
         RendererId = rendererId;
         Components = components;
@@ -68,6 +74,9 @@ internal sealed class PageDraw
 
     public object? ItemOf(int index) => CollectionItems.Of(Components[index]);
 
+    // The provider's own header lines -- its title, dividers, any text it adds -- as plain text.
+    public IReadOnlyList<string> HeaderLines { get; }
+
     // What the player chose to open this page, or an ancestor page (Openers).
     public object? Opener => _host.Openers.Of(Menu, Player.PlayerID);
 
@@ -95,6 +104,9 @@ internal sealed class PageDraw
         => _added.Add((Math.Clamp(before ?? Components.Count, 0, Components.Count), Row(text, payload)));
 
     public void AddHeader(string text, string payload) => _header.Add(Row(text, payload));
+
+    // A provider header line drawn with a payload: "chip;…" shows it as a chip instead of joining the title.
+    public void DecorateHeader(int index, string payload) => _headerNodes[index] = Append(_headerNodes[index], payload);
 
     // The page's footer line for a mouse player: what clicking does here. Empty keeps the default.
     public void Hint(string text)
@@ -126,14 +138,25 @@ internal sealed class PageDraw
 
     internal IReadOnlyList<MenuNode> Header => _header;
 
+    internal IReadOnlyList<MenuNode> ProviderHeader => _headerNodes;
+
     // A throwing integration leaves nothing half-drawn: the page falls back to the provider's own rows.
     internal void Reset()
     {
         Array.Copy(_rendered, _nodes, _rendered.Length);
         Array.Clear(_redrawn);
+        Array.Copy(_providerHeader, _headerNodes, _providerHeader.Length);
         _added.Clear();
         _header.Clear();
     }
+
+    private static string TextOf(MenuNode node) => node switch
+    {
+        MenuTextNode text => text.Text,
+        MenuLineNode line => string.Concat(line.Children.Select(TextOf)),
+        MenuStackNode stack => string.Join(' ', stack.Children.Select(TextOf)),
+        _ => string.Empty,
+    };
 
     private MenuNode Row(string text, string payload)
         => payload.Length == 0

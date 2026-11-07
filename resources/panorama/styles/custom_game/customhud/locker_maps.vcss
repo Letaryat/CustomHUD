@@ -127,18 +127,6 @@
 	border: 0px solid transparent;
 }
 
-/* The Workshop badge: a quieter label than a state's pill. */
-.lk.view-maps-board .tag2-dark .lk-tag2,
-.lk.view-maps-pool .tag2-dark .lk-tag2
-{
-	padding: 2px 7px;
-	border: 0px solid transparent;
-	border-radius: 2px;
-	font-family: chudFontMedium;
-	font-size: 9px;
-	font-weight: normal;
-}
-
 /* ---- maps-board: vote cards, three to a line ---- */
 
 /* 3 x (285 + 8) = 879 of the list's 882. */
@@ -244,6 +232,12 @@
 .lk.view-maps-board .lk-slot .lk-sub
 {
 	visibility: collapse;
+}
+
+/* The map's kind, boxed under its name (as on the rows and the pool). */
+.lk.view-maps-board .lk-badge
+{
+	margin-top: 6px;
 }
 
 .lk.view-maps-board .lk-note
@@ -527,11 +521,12 @@
 	height: 118px;
 }
 
+/* 4px higher than the design's 130px, which had no badge between the name and the players. */
 .lk.view-maps-pool .lk-slot .lk-text
 {
 	width: 188px;
 	vertical-align: top;
-	margin: 130px 0px 0px 12px;
+	margin: 126px 0px 0px 12px;
 }
 
 .lk.view-maps-pool .lk-name

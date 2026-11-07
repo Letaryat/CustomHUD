@@ -447,8 +447,9 @@ Per plugin:
 - [ ] Maps: on `!mapsvote` pick a few maps (a workshop one too, if the pool
       has one) and start the vote. Stock maps draw over their screenshot and
       logo, a workshop map as a striped card in its prefix's colour with its
-      prefix large (`awp_…` as `AWP`) and a `Workshop` badge, and Extend, when
-      offered, in orange with a glow behind its icon
+      prefix large (`awp_…` as `AWP`), and Extend, when offered, in orange
+      with a glow behind its icon. Under each map's name sits a small boxed
+      label with its kind: `Stock map`, or `Workshop map` in blue
 - [ ] each map card carries its share (`45%`), its votes and a meter; the
       leader reads `Leading` with a trophy, in gold with a gold meter, and your
       pick has an orange outline and a `Your vote` tag
@@ -750,6 +751,10 @@ waiting for the end of the map.
       last row a turnout line: `11 of 16 players voted`, a pip per player and
       `ends in 0:18` in red
 - [ ] a wasd or numbers player sees each option's share as `45%`
+- [ ] in a wasd or numbers list, each map's kind is a boxed label on the line
+      under its name, as readable on the cursor's orange row as on the
+      others; on the pool pages the player limits go under the label, and on
+      the cursor's row they turn a lighter blue
 - [ ] `!nominate` shows a chip with the time left on the map (or the rounds
       left); your nomination is outlined and tagged `Your pick`, other
       players' nominations `Nominated`
@@ -774,8 +779,9 @@ waiting for the end of the map.
 - [ ] with `maps.jsonc` naming maps for display (`"Name": "Dust II"`,
       `"Id": "de_dust2"`), the ballot, `!nominate`, `!votemap` and the admin
       change-map and set-next-map pages still show each stock map's screenshot
-      and logo; a workshop map shows a `Workshop` badge, and the pool pages show
-      each map's player limits (`Any players`, `8–20 players`)
+      and logo; every map shows its kind boxed under its name (`Stock map`,
+      `Workshop map`), and the pool pages show each map's player limits
+      (`Any players`, `8–20 players`)
 - [ ] on a server without CustomHUD the vote menu shows map names only and
       closes once you vote, as before
 

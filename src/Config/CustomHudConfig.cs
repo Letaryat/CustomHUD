@@ -400,9 +400,10 @@ public sealed class LayoutRowSpec
     // reports, so an inline entry's Button ("{PanelId}{InlineSuffix}") can sit beside it.
     public string? HitSuffix { get; set; }
     public string? InlineSuffix { get; set; }
-    // `sub=`, `unit=`, `tag=`, `tag2=` and `note=` text, and the mark an `avatar` row shows.
+    // `sub=`, `unit=`, `badge=`, `tag=`, `tag2=` and `note=` text, and the mark an `avatar` row shows.
     public string? SubVar { get; set; }
     public string? UnitVar { get; set; }
+    public string? BadgeVar { get; set; }
     public string? TagVar { get; set; }
     public string? Tag2Var { get; set; }
     public string? NoteVar { get; set; }
@@ -438,6 +439,7 @@ public sealed class LayoutRowSpec
     public string? Type(int i) => TypeVar is null ? null : string.Format(TypeVar, i);
     public string? Sub(int i) => SubVar is null ? null : string.Format(SubVar, i);
     public string? Unit(int i) => UnitVar is null ? null : string.Format(UnitVar, i);
+    public string? Badge(int i) => BadgeVar is null ? null : string.Format(BadgeVar, i);
     public string? Tag(int i) => TagVar is null ? null : string.Format(TagVar, i);
     public string? Tag2(int i) => Tag2Var is null ? null : string.Format(Tag2Var, i);
     public string? Note(int i) => NoteVar is null ? null : string.Format(NoteVar, i);

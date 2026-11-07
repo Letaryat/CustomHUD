@@ -55,6 +55,9 @@ internal sealed class RanksIntegration(IRanksApi api) : IPageIntegration, IRankC
                 page.Hint(T(page, "hint.top"));
                 DrawTop(page);
                 break;
+            case "ranks.top.sections":
+                ChipSeasonLine(page);
+                break;
             case "ranks.top.player":
                 DrawPlayer(page);
                 break;
@@ -83,6 +86,19 @@ internal sealed class RanksIntegration(IRanksApi api) : IPageIntegration, IRankC
         // A CS Rating badge is the points; an emblem needs them spelled out beside it.
         var caption = Rated(icon) ? "" : $"{Directive.Number(me.Points)} {T(page, "xp")}";
         page.AddHeader($"{Directive.Clean(tiers[index].Name)}\t{caption}", "chip;" + RankArt.For(icon, index, tiers.Count).Payload);
+    }
+
+    // Ranks 1.2 names the current season on a header line under the title. A plain header line
+    // joins the title, so it is drawn as a chip beside it instead.
+    private static void ChipSeasonLine(PageDraw page)
+    {
+        if (page.Menu.GetComponents(MenuRegion.Header).OfType<TitleComponent>().FirstOrDefault()?.Text.Trim() is not { } title) return;
+
+        for (var i = 0; i < page.HeaderLines.Count; i++)
+        {
+            var line = page.HeaderLines[i].Trim();
+            if (line != title && line.Any(char.IsLetterOrDigit)) page.DecorateHeader(i, "chip;glyph=hourglass");
+        }
     }
 
     // Ranks lists the rank, the XP and the progress as three lines and the ladder link last. The

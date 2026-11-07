@@ -100,7 +100,7 @@ internal sealed class MapChooserIntegration : IPageIntegration, IDisposable
             var share = total > 0 ? (int)Math.Round(100.0 * count / total, MidpointRounding.AwayFromZero) : 0;
 
             var parts = new List<string>(8) { $"text=\t{share};vunit=%;bar={share}" };
-            if (Art(page, map, workshopTag: !rows) is { Length: > 0 } art) parts.Add(art);
+            if (Art(map) is { Length: > 0 } art) parts.Add(art);
             if (extend)
             {
                 // What an extend adds: beside the votes on a card, under the name on a row.
@@ -110,7 +110,7 @@ internal sealed class MapChooserIntegration : IPageIntegration, IDisposable
             }
             else
             {
-                if (map is not null) parts.Add("sub=" + Kind(page, map));
+                if (map is not null) parts.Add(Badge(page, map));
                 parts.Add("note=" + Votes(page, count));
             }
             if (option == mine) parts.AddRange(["chosen", "tag=" + T(page, "your_vote"), "tagtone=accent"]);
@@ -144,8 +144,8 @@ internal sealed class MapChooserIntegration : IPageIntegration, IDisposable
             var map = _api.GetMap(name);
             if (map is null) continue;
 
-            var parts = new List<string>(6) { "sub=" + Players(page, map), "subtone=info" };
-            if (Art(page, map, workshopTag: true) is { Length: > 0 } art) parts.Add(art);
+            var parts = new List<string>(7) { "sub=" + Players(page, map), "subtone=info", Badge(page, map) };
+            if (Art(map) is { Length: > 0 } art) parts.Add(art);
             // Start a vote ticks maps: a ticked one is outlined like a pick.
             if (row is ToggleComponent toggle && toggle.GetValue(page.Session)) parts.Add("chosen");
             if (nominate)
@@ -171,18 +171,17 @@ internal sealed class MapChooserIntegration : IPageIntegration, IDisposable
     }
 
     // A stock map shows its screenshot and logo. Any other map shows its prefix (aim_redline: AIM) over
-    // stripes in that prefix's tone, and a workshop map a Workshop tag too. A workshop map's own name is
-    // not known until it loads, so its prefix comes from its pool name when that is shaped like a map's.
-    private static string? Art(PageDraw page, MapChooserMap? map, bool workshopTag)
+    // stripes in that prefix's tone. A workshop map's own name is not known until it loads, so its prefix
+    // comes from its pool name when that is shaped like a map's.
+    private static string? Art(MapChooserMap? map)
     {
         if (map is null) return null;
         var loaded = map.MapName?.Trim().ToLowerInvariant();
         if (loaded is not null && LockerProfiles.StockMaps.Contains(loaded)) return "image=map/" + loaded;
 
         var prefix = Prefix(loaded ?? map.Name.Trim().ToLowerInvariant());
-        if (map.WorkshopId is null) return prefix is null ? null : $"mark={prefix.ToUpperInvariant()};tone={prefix}";
-        var mark = prefix is null ? "mark=WS" : $"mark={prefix.ToUpperInvariant()};tone={prefix}";
-        return workshopTag ? $"{mark};tag2={T(page, "workshop")};tag2tone=dark" : mark;
+        if (prefix is not null) return $"mark={prefix.ToUpperInvariant()};tone={prefix}";
+        return map.WorkshopId is null ? null : "mark=WS";
     }
 
     private static string? Prefix(string name)
@@ -219,10 +218,11 @@ internal sealed class MapChooserIntegration : IPageIntegration, IDisposable
         return string.Join(" · ", steps.Where(s => s.Length > 0));
     }
 
-    private static string Kind(PageDraw page, MapChooserMap map)
-        => map.WorkshopId is not null ? T(page, "kind.workshop")
-            : map.MapName is { } loaded && LockerProfiles.StockMaps.Contains(loaded.Trim().ToLowerInvariant()) ? T(page, "kind.stock")
-            : T(page, "kind.custom");
+    // The map's kind, boxed under its name on every page and layout: a workshop map's in blue.
+    private static string Badge(PageDraw page, MapChooserMap map)
+        => map.WorkshopId is not null ? $"badge={T(page, "kind.workshop")};badgetone=info"
+            : map.MapName is { } loaded && LockerProfiles.StockMaps.Contains(loaded.Trim().ToLowerInvariant()) ? "badge=" + T(page, "kind.stock")
+            : "badge=" + T(page, "kind.custom");
 
     private static string Players(PageDraw page, MapChooserMap map) => (map.MinPlayers, map.MaxPlayers) switch
     {

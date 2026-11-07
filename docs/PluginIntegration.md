@@ -179,7 +179,7 @@ plugin built. Any other custom renderer can read the same API.
 
 | Plugin | Shared interface | Needs | Menus | Draws |
 |--------|------------------|-------|-------|-------|
-| Ranks | `Ranks.Api.v1` | 1.0.5 | `ranks.*` | The rank as a hero card with its road through the ladder, counters as tiles, a podium with the player's row pinned, the settings as a form |
+| Ranks | `Ranks.Api.v1` | 1.0.5 | `ranks.*` | The rank as a hero card with its road through the ladder, counters as tiles, a podium with the player's row pinned, the settings as a form, and from Ranks 1.2 the Leaderboard's season line as a chip |
 | Ranks_WeaponStats | `Ranks.WeaponStats.Api.v1` | any | `weaponstats.*` | Weapon cards with the game's renders and their meters, hit groups as tiles |
 | Ranks_CustomCombos | `Ranks.CustomCombos.Api.v1` | 1.0.2 | `customcombos.*` | Each landed combo as a tile |
 | Ranks_Prestige | `Ranks.Prestige.Api.v1` | 1.0.1 | `prestige.*` | The level and the next-level meter as tiles |
@@ -195,8 +195,10 @@ plugin built. Any other custom renderer can read the same API.
   menu id stays open until the vote ends. The pool pages show each map's player
   limits, its nominations (`Nominated`, `Your pick`) and why it can't be
   nominated now (`Played recently`, `Needs 10 players`), under a chip with the
-  map's time left. A stock map shows its screenshot and logo, another map its
-  prefix over stripes in that prefix's tone, a workshop map a `Workshop` tag.
+  map's time left. Every map carries its kind as a badge under its name
+  (`Stock map`, or `Workshop map` in blue), on every page and in the list. A
+  stock map shows its screenshot and logo, another map its prefix over stripes
+  in that prefix's tone.
   Start a vote shows the pool the same way: a ticked map is outlined and
   glows, and the start button is an action card whose line is its hint, which
   MapChooser words (what it does, or why no vote can start now).
@@ -256,7 +258,8 @@ value runs to the next one. A value that becomes part of a class name (`at=`,
 | Directive | Effect |
 |-----------|--------|
 | `sub=`, `unit=`, `tag=`, `tag2=`, `note=`, `mark=` | More text: a line under the name, a small word with it (`kills`), two pills, a note at the right, and the text in the mark square |
-| `tone=`, `subtone=`, `tagtone=`, `tag2tone=`, `notetone=`, `metertone=` | Colours, from the tone table below |
+| `badge=` | A small boxed label under the name, on its own dark ground so it reads on any row, the list's cursor row included (a map's kind). In the list it opens the second line and a `sub=` goes under it |
+| `tone=`, `subtone=`, `badgetone=`, `tagtone=`, `tag2tone=`, `notetone=`, `metertone=` | Colours, from the tone table below |
 | `glyph=<icon>` | An icon from `customhud_icons.vcss` (`ico-<icon>`) |
 | `vglyph=<icon>` | The value's own icon, such as a price's coin, so `glyph=` can be the entry's. Without it the value shows `glyph=` |
 | `tagglyph=<icon>` | An icon inside the `tag=` pill, before its words (a lock on `Played recently`) |
@@ -287,6 +290,7 @@ value runs to the next one. A value that becomes part of a class name (`at=`,
 |------|-----------|-------|
 | The value | `tone=` | `good` `bad` `gold` `info` `faint` `main` `ct` `t`; `warn` on a chip |
 | The line under the name | `subtone=` | `good` `bad` `gold` `info` `faint` |
+| The badge | `badgetone=` | `good` `bad` `gold` `info` `accent` |
 | The pills | `tagtone=`, `tag2tone=` | `good` `bad` `gold` `info` `accent` `ct` `t` `dark` `legend` |
 | The note | `notetone=` | `good` `bad` `gold` `info` `faint` `accent` |
 | The meter | `metertone=` | `good` `bad` `gold` `accent` |

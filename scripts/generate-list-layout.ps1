@@ -43,6 +43,7 @@ function New-Layout([bool] $Mouse) {
         Line ($Depth + 1) "<Label class=""lk-type"" text=""{s:${Id}_type}"" $n />"
         Line ($Depth + 1) "<Label class=""lk-name"" text=""{s:$Id}"" $n />"
         Line ($Depth + 1) "<Label class=""lk-unit"" text=""{s:${Id}_unit}"" $n />"
+        Line ($Depth + 1) "<Label class=""lk-badge"" text=""{s:${Id}_badge}"" $n />"
         Line ($Depth + 1) "<Label class=""lk-sub"" text=""{s:${Id}_sub}"" $n />"
         # A ProgressBarComponent's meter, under its label.
         if ($Meter) { Line ($Depth + 1) "<Panel class=""chud-meter ls-meter"" $n><Panel class=""chud-meter__fill"" $n /></Panel>" }

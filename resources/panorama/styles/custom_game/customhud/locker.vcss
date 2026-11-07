@@ -858,6 +858,32 @@
 	visibility: visible;
 }
 
+/* `badge=`: a small boxed label after the name (a map's kind). It brings its own dark ground,
+   so it reads alike on a card, under a share's fill and on the list's orange cursor row. */
+.lk-badge
+{
+	max-width: 100%;
+	margin-top: 4px;
+	padding: 2px 7px;
+	border: 1px solid chudSurfaceEdge;
+	border-radius: 2px;
+	background-color: chudSurfaceBase;
+	font-family: chudFontBody;
+	font-size: 10px;
+	font-weight: bold;
+	color: chudTextMuted;
+	text-transform: uppercase;
+	letter-spacing: 1.5px;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	visibility: collapse;
+}
+
+.lk-slot.has-badge .lk-badge
+{
+	visibility: visible;
+}
+
 /* `unit=`: a word after the name. Views that want it beside the name ("1 210 won")
    make lk-text right-wrap; elsewhere it is a line of its own. */
 .lk-unit
@@ -894,6 +920,12 @@
 .sub-good .lk-sub { color: chudSuccessBase; }
 .sub-bad .lk-sub { color: chudDangerStrong; }
 .sub-faint .lk-sub { color: chudTextFaint; }
+
+.badge-info .lk-badge { border: 1px solid chudInfoDim; color: chudInfoStrong; }
+.badge-gold .lk-badge { border: 1px solid chudGoldDim; color: chudGoldBase; }
+.badge-accent .lk-badge { border: 1px solid chudAccentDim; color: chudAccentStrong; }
+.badge-good .lk-badge { border: 1px solid chudSuccessDim; color: chudSuccessStrong; }
+.badge-bad .lk-badge { border: 1px solid chudDangerDim; color: chudDangerStrong; }
 
 .lk-tags
 {

@@ -64,6 +64,7 @@ function Slot([int] $Depth, [string] $Prefix, [int] $Index, [string] $Parts) {
     Line ($d + 1) "<Label class=""lk-type"" text=""{s:${id}_type}"" $n />"
     Line ($d + 1) "<Label class=""lk-name"" text=""{s:$id}"" $n />"
     Line ($d + 1) "<Label class=""lk-unit"" text=""{s:${id}_unit}"" $n />"
+    Line ($d + 1) "<Label class=""lk-badge"" text=""{s:${id}_badge}"" $n />"
     Line ($d + 1) "<Label class=""lk-sub"" text=""{s:${id}_sub}"" $n />"
     Line $d "</Panel>"
     if ($has.tags) {

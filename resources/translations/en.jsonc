@@ -185,7 +185,6 @@
   "customhud.maps.hint.change": "Click a map to change to it",
   "customhud.maps.hint.next": "Click a map to play it next",
   "customhud.maps.hint.start": "Click maps to add them to the vote",
-  "customhud.maps.workshop": "Workshop",
   // A map's player limits, from MapChooser's MinPlayers / MaxPlayers.
   "customhud.maps.players.any": "Any players",
   "customhud.maps.players.range": "{0}–{1} players",

@@ -374,6 +374,7 @@ internal sealed partial class FrameComposer
         WriteText(vars, classes, panel, spec.Type(i), entry.Type, cls.HasType);
         WriteText(vars, classes, panel, spec.Sub(i), entry.Sub, pc.HasSub);
         WriteText(vars, classes, panel, spec.Unit(i), entry.Unit, pc.HasUnit);
+        WriteText(vars, classes, panel, spec.Badge(i), entry.Badge, pc.HasBadge);
         WriteText(vars, classes, panel, spec.Tag(i), tag, pc.HasTag);
         WriteText(vars, classes, panel, spec.Tag2(i), entry.Tag2, pc.HasTag2);
         WriteText(vars, classes, panel, spec.Note(i), entry.Note, pc.HasNote);
@@ -426,6 +427,7 @@ internal sealed partial class FrameComposer
         }
         Tone(classes, panel, pc.Tone, tone);
         Tone(classes, panel, pc.SubTone, entry.SubTone);
+        Tone(classes, panel, pc.BadgeTone, entry.BadgeTone);
         Tone(classes, panel, pc.TagTone, tagTone);
         Tone(classes, panel, pc.Tag2Tone, entry.Tag2Tone);
         Tone(classes, panel, pc.NoteTone, entry.NoteTone);
@@ -925,12 +927,14 @@ internal sealed partial class FrameComposer
             case "group": if (Plain(value)) content.Group = value; break;
             case "sub": content.Sub = value; break;
             case "unit": content.Unit = value; break;
+            case "badge": content.Badge = value; break;
             case "tag": content.Tag = value; break;
             case "tag2": content.Tag2 = value; break;
             case "note": content.Note = value; break;
             case "mark": content.Mark = value; break;
             case "tone": if (Plain(value)) content.Tone = value; break;
             case "subtone": if (Plain(value)) content.SubTone = value; break;
+            case "badgetone": if (Plain(value)) content.BadgeTone = value; break;
             case "tagtone": if (Plain(value)) content.TagTone = value; break;
             case "tag2tone": if (Plain(value)) content.Tag2Tone = value; break;
             case "notetone": if (Plain(value)) content.NoteTone = value; break;

@@ -4,7 +4,7 @@
 	locker's part classes (lk-text, lk-tags, lk-mark ...), so locker.vcss styles their
 	content; this sheet lays each row out as one flowing line, the text taking whatever
 	the right side leaves. Rows are sized by what they hold: 36px, 52px with art or a
-	second line, 44px a ballot's answer or a meter, 24px a heading.
+	second line, 62px with a badge and a sub, 44px a ballot's answer or a meter, 24px a heading.
 */
 
 /* ---- the panel ---- */
@@ -22,7 +22,7 @@
 	border-left: 3px solid chudAccentBase;
 	border-radius: 0px 6px 6px 0px;
 	background-color: gradient( linear, 0% 0%, 0% 100%, from( chudSurfaceRaised ), to( chudSurfaceDeep ) );
-	box-shadow: fill chudShadowDrop 0px 16px 40px 0px;
+	box-shadow: fill chudShadowDim 0px 8px 20px 0px;
 	opacity: 1;
 	transform: translateX( 0px );
 	transition-property: opacity, transform;
@@ -182,6 +182,7 @@
 }
 
 .ls .ls-row.has-sub,
+.ls .ls-row.has-badge,
 .ls .ls-row.has-thumb,
 .ls .ls-row.has-mark
 {
@@ -434,6 +435,7 @@
 }
 
 .ls.view-compact .ls-art,
+.ls.view-compact .lk-badge,
 .ls.view-compact .lk-sub
 {
 	visibility: collapse;
@@ -510,7 +512,8 @@
 	font-size: 14px;
 }
 
-.ls .has-sub .lk-name
+.ls .has-sub .lk-name,
+.ls .has-badge .lk-name
 {
 	font-size: 15px;
 }
@@ -532,6 +535,32 @@
 	text-transform: none;
 	letter-spacing: 0px;
 }
+
+/* A badge opens the second line: the name takes the first whole. The badge is the list's pill
+   size, and a sub goes under it, since beside it a long badge would push the sub out of the row. */
+.ls .has-badge .lk-name
+{
+	width: 100%;
+}
+
+.ls .lk-badge
+{
+	padding: 2px 6px;
+	font-size: 9px;
+	letter-spacing: 1px;
+}
+
+.ls .ls-row.has-badge.has-sub
+{
+	height: 62px;
+}
+
+/* The cursor's row: its second line brightens with the name, so it reads on the orange. */
+.ls .selected .lk-sub { color: chudTextMain; }
+.ls .selected.sub-info .lk-sub { color: chudInfoStrong; }
+.ls .selected.sub-good .lk-sub { color: chudSuccessStrong; }
+.ls .selected.sub-gold .lk-sub { color: chudGoldBase; }
+.ls .selected.sub-bad .lk-sub { color: chudDangerStrong; }
 
 /* `unit=You`: a pill beside the name. */
 .ls .lk-unit

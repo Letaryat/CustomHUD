@@ -170,7 +170,7 @@ internal sealed partial class FrameComposer(CustomHudConfigProvider config, HudT
     private static string RowFingerprint(LayoutRowSpec r)
         => string.Join(',',
             r.PanelId, r.LabelVar, r.ValueVar, r.KeyVar, r.IconPanel, r.ThumbPanel, r.TypeVar,
-            r.HitSuffix, r.InlineSuffix, r.SubVar, r.UnitVar, r.TagVar, r.Tag2Var, r.NoteVar, r.MarkVar,
+            r.HitSuffix, r.InlineSuffix, r.SubVar, r.UnitVar, r.BadgeVar, r.TagVar, r.Tag2Var, r.NoteVar, r.MarkVar,
             r.GlyphPanel, r.ValueGlyphPanel, r.LogoPanel, r.TagGlyphPanel, r.ValueUnitVar, r.RatingVar, r.RatingMinorVar,
             r.DecSuffix, r.IncSuffix, r.SegmentSuffix, r.Segments);
 
@@ -186,9 +186,9 @@ internal sealed partial class FrameComposer(CustomHudConfigProvider config, HudT
             l is null ? "" : string.Join(',', l.Panel, l.Slots, l.SlotPanel, l.KeyVar, l.Key2Var, l.VerbVar,
                 l.ShownClass, l.HasKey2Class, l.Dots, l.PagesClass, l.PageClass),
             string.Join(',', c.View, c.Region, c.HasTabs, c.HasHead, c.NoSidebar, c.Mode, c.HasCrumb, c.HasEyebrow, c.Tone, c.SubTone,
-                c.TagTone, c.Tag2Tone, c.NoteTone, c.MeterTone, c.Swatch, c.Avatar, c.AvatarColors, c.Rarity, c.Kind,
+                c.BadgeTone, c.TagTone, c.Tag2Tone, c.NoteTone, c.MeterTone, c.Swatch, c.Avatar, c.AvatarColors, c.Rarity, c.Kind,
                 c.On, c.Track, c.Rating, c.Pips, c.Lit, c.Yes, c.Section, c.Group, c.Lead, c.Primary, c.HasKey, c.HasSub, c.HasUnit,
-                c.HasTag, c.HasTag2, c.HasNote, c.HasValue, c.HasGlyph, c.HasValueGlyph, c.HasTagGlyph, c.HasValueUnit, c.HasMark,
+                c.HasBadge, c.HasTag, c.HasTag2, c.HasNote, c.HasValue, c.HasGlyph, c.HasValueGlyph, c.HasTagGlyph, c.HasValueUnit, c.HasMark,
                 c.HasInline, c.HasRating, c.HasPips, c.HasCount,
                 c.Glyph, c.InlineState, c.HasBar2, c.Bar2));
     }
@@ -915,12 +915,14 @@ internal sealed partial class FrameComposer(CustomHudConfigProvider config, HudT
         public string? Group;
         public string? Sub;
         public string? Unit;
+        public string? Badge;
         public string? Tag;
         public string? Tag2;
         public string? Note;
         public string? Mark;
         public string? Tone;
         public string? SubTone;
+        public string? BadgeTone;
         public string? TagTone;
         public string? Tag2Tone;
         public string? NoteTone;

@@ -87,6 +87,7 @@
 									<Label class="lk-type" text="{s:strip_0_type}" hittest="false" />
 									<Label class="lk-name" text="{s:strip_0}" hittest="false" />
 									<Label class="lk-unit" text="{s:strip_0_unit}" hittest="false" />
+									<Label class="lk-badge" text="{s:strip_0_badge}" hittest="false" />
 									<Label class="lk-sub" text="{s:strip_0_sub}" hittest="false" />
 								</Panel>
 								<Label class="lk-note" text="{s:strip_0_note}" hittest="false" />
@@ -102,6 +103,7 @@
 									<Label class="lk-type" text="{s:strip_1_type}" hittest="false" />
 									<Label class="lk-name" text="{s:strip_1}" hittest="false" />
 									<Label class="lk-unit" text="{s:strip_1_unit}" hittest="false" />
+									<Label class="lk-badge" text="{s:strip_1_badge}" hittest="false" />
 									<Label class="lk-sub" text="{s:strip_1_sub}" hittest="false" />
 								</Panel>
 								<Label class="lk-note" text="{s:strip_1_note}" hittest="false" />
@@ -117,6 +119,7 @@
 									<Label class="lk-type" text="{s:strip_2_type}" hittest="false" />
 									<Label class="lk-name" text="{s:strip_2}" hittest="false" />
 									<Label class="lk-unit" text="{s:strip_2_unit}" hittest="false" />
+									<Label class="lk-badge" text="{s:strip_2_badge}" hittest="false" />
 									<Label class="lk-sub" text="{s:strip_2_sub}" hittest="false" />
 								</Panel>
 								<Label class="lk-note" text="{s:strip_2_note}" hittest="false" />
@@ -132,6 +135,7 @@
 									<Label class="lk-type" text="{s:strip_3_type}" hittest="false" />
 									<Label class="lk-name" text="{s:strip_3}" hittest="false" />
 									<Label class="lk-unit" text="{s:strip_3_unit}" hittest="false" />
+									<Label class="lk-badge" text="{s:strip_3_badge}" hittest="false" />
 									<Label class="lk-sub" text="{s:strip_3_sub}" hittest="false" />
 								</Panel>
 								<Label class="lk-note" text="{s:strip_3_note}" hittest="false" />
@@ -147,6 +151,7 @@
 									<Label class="lk-type" text="{s:strip_4_type}" hittest="false" />
 									<Label class="lk-name" text="{s:strip_4}" hittest="false" />
 									<Label class="lk-unit" text="{s:strip_4_unit}" hittest="false" />
+									<Label class="lk-badge" text="{s:strip_4_badge}" hittest="false" />
 									<Label class="lk-sub" text="{s:strip_4_sub}" hittest="false" />
 								</Panel>
 								<Label class="lk-note" text="{s:strip_4_note}" hittest="false" />
@@ -162,6 +167,7 @@
 									<Label class="lk-type" text="{s:strip_5_type}" hittest="false" />
 									<Label class="lk-name" text="{s:strip_5}" hittest="false" />
 									<Label class="lk-unit" text="{s:strip_5_unit}" hittest="false" />
+									<Label class="lk-badge" text="{s:strip_5_badge}" hittest="false" />
 									<Label class="lk-sub" text="{s:strip_5_sub}" hittest="false" />
 								</Panel>
 								<Label class="lk-note" text="{s:strip_5_note}" hittest="false" />
@@ -177,6 +183,7 @@
 									<Label class="lk-type" text="{s:strip_6_type}" hittest="false" />
 									<Label class="lk-name" text="{s:strip_6}" hittest="false" />
 									<Label class="lk-unit" text="{s:strip_6_unit}" hittest="false" />
+									<Label class="lk-badge" text="{s:strip_6_badge}" hittest="false" />
 									<Label class="lk-sub" text="{s:strip_6_sub}" hittest="false" />
 								</Panel>
 								<Label class="lk-note" text="{s:strip_6_note}" hittest="false" />
@@ -192,6 +199,7 @@
 									<Label class="lk-type" text="{s:strip_7_type}" hittest="false" />
 									<Label class="lk-name" text="{s:strip_7}" hittest="false" />
 									<Label class="lk-unit" text="{s:strip_7_unit}" hittest="false" />
+									<Label class="lk-badge" text="{s:strip_7_badge}" hittest="false" />
 									<Label class="lk-sub" text="{s:strip_7_sub}" hittest="false" />
 								</Panel>
 								<Label class="lk-note" text="{s:strip_7_note}" hittest="false" />
@@ -207,6 +215,7 @@
 									<Label class="lk-type" text="{s:strip_8_type}" hittest="false" />
 									<Label class="lk-name" text="{s:strip_8}" hittest="false" />
 									<Label class="lk-unit" text="{s:strip_8_unit}" hittest="false" />
+									<Label class="lk-badge" text="{s:strip_8_badge}" hittest="false" />
 									<Label class="lk-sub" text="{s:strip_8_sub}" hittest="false" />
 								</Panel>
 								<Label class="lk-note" text="{s:strip_8_note}" hittest="false" />
@@ -222,6 +231,7 @@
 									<Label class="lk-type" text="{s:strip_9_type}" hittest="false" />
 									<Label class="lk-name" text="{s:strip_9}" hittest="false" />
 									<Label class="lk-unit" text="{s:strip_9_unit}" hittest="false" />
+									<Label class="lk-badge" text="{s:strip_9_badge}" hittest="false" />
 									<Label class="lk-sub" text="{s:strip_9_sub}" hittest="false" />
 								</Panel>
 								<Label class="lk-note" text="{s:strip_9_note}" hittest="false" />
@@ -242,6 +252,7 @@
 										<Label class="lk-type" text="{s:aside_0_type}" hittest="false" />
 										<Label class="lk-name" text="{s:aside_0}" hittest="false" />
 										<Label class="lk-unit" text="{s:aside_0_unit}" hittest="false" />
+										<Label class="lk-badge" text="{s:aside_0_badge}" hittest="false" />
 										<Label class="lk-sub" text="{s:aside_0_sub}" hittest="false" />
 									</Panel>
 									<Panel class="lk-tags" hittest="false"><Label class="lk-tag" text="{s:aside_0_tag}" hittest="false" /><Label class="lk-tag2" text="{s:aside_0_tag2}" hittest="false" /></Panel>
@@ -260,6 +271,7 @@
 										<Label class="lk-type" text="{s:aside_1_type}" hittest="false" />
 										<Label class="lk-name" text="{s:aside_1}" hittest="false" />
 										<Label class="lk-unit" text="{s:aside_1_unit}" hittest="false" />
+										<Label class="lk-badge" text="{s:aside_1_badge}" hittest="false" />
 										<Label class="lk-sub" text="{s:aside_1_sub}" hittest="false" />
 									</Panel>
 									<Panel class="lk-tags" hittest="false"><Label class="lk-tag" text="{s:aside_1_tag}" hittest="false" /><Label class="lk-tag2" text="{s:aside_1_tag2}" hittest="false" /></Panel>
@@ -278,6 +290,7 @@
 										<Label class="lk-type" text="{s:aside_2_type}" hittest="false" />
 										<Label class="lk-name" text="{s:aside_2}" hittest="false" />
 										<Label class="lk-unit" text="{s:aside_2_unit}" hittest="false" />
+										<Label class="lk-badge" text="{s:aside_2_badge}" hittest="false" />
 										<Label class="lk-sub" text="{s:aside_2_sub}" hittest="false" />
 									</Panel>
 									<Panel class="lk-tags" hittest="false"><Label class="lk-tag" text="{s:aside_2_tag}" hittest="false" /><Label class="lk-tag2" text="{s:aside_2_tag2}" hittest="false" /></Panel>
@@ -296,6 +309,7 @@
 										<Label class="lk-type" text="{s:aside_3_type}" hittest="false" />
 										<Label class="lk-name" text="{s:aside_3}" hittest="false" />
 										<Label class="lk-unit" text="{s:aside_3_unit}" hittest="false" />
+										<Label class="lk-badge" text="{s:aside_3_badge}" hittest="false" />
 										<Label class="lk-sub" text="{s:aside_3_sub}" hittest="false" />
 									</Panel>
 									<Panel class="lk-tags" hittest="false"><Label class="lk-tag" text="{s:aside_3_tag}" hittest="false" /><Label class="lk-tag2" text="{s:aside_3_tag2}" hittest="false" /></Panel>
@@ -314,6 +328,7 @@
 										<Label class="lk-type" text="{s:aside_4_type}" hittest="false" />
 										<Label class="lk-name" text="{s:aside_4}" hittest="false" />
 										<Label class="lk-unit" text="{s:aside_4_unit}" hittest="false" />
+										<Label class="lk-badge" text="{s:aside_4_badge}" hittest="false" />
 										<Label class="lk-sub" text="{s:aside_4_sub}" hittest="false" />
 									</Panel>
 									<Panel class="lk-tags" hittest="false"><Label class="lk-tag" text="{s:aside_4_tag}" hittest="false" /><Label class="lk-tag2" text="{s:aside_4_tag2}" hittest="false" /></Panel>
@@ -332,6 +347,7 @@
 										<Label class="lk-type" text="{s:aside_5_type}" hittest="false" />
 										<Label class="lk-name" text="{s:aside_5}" hittest="false" />
 										<Label class="lk-unit" text="{s:aside_5_unit}" hittest="false" />
+										<Label class="lk-badge" text="{s:aside_5_badge}" hittest="false" />
 										<Label class="lk-sub" text="{s:aside_5_sub}" hittest="false" />
 									</Panel>
 									<Panel class="lk-tags" hittest="false"><Label class="lk-tag" text="{s:aside_5_tag}" hittest="false" /><Label class="lk-tag2" text="{s:aside_5_tag2}" hittest="false" /></Panel>
@@ -350,6 +366,7 @@
 										<Label class="lk-type" text="{s:aside_6_type}" hittest="false" />
 										<Label class="lk-name" text="{s:aside_6}" hittest="false" />
 										<Label class="lk-unit" text="{s:aside_6_unit}" hittest="false" />
+										<Label class="lk-badge" text="{s:aside_6_badge}" hittest="false" />
 										<Label class="lk-sub" text="{s:aside_6_sub}" hittest="false" />
 									</Panel>
 									<Panel class="lk-tags" hittest="false"><Label class="lk-tag" text="{s:aside_6_tag}" hittest="false" /><Label class="lk-tag2" text="{s:aside_6_tag2}" hittest="false" /></Panel>
@@ -368,6 +385,7 @@
 										<Label class="lk-type" text="{s:aside_7_type}" hittest="false" />
 										<Label class="lk-name" text="{s:aside_7}" hittest="false" />
 										<Label class="lk-unit" text="{s:aside_7_unit}" hittest="false" />
+										<Label class="lk-badge" text="{s:aside_7_badge}" hittest="false" />
 										<Label class="lk-sub" text="{s:aside_7_sub}" hittest="false" />
 									</Panel>
 									<Panel class="lk-tags" hittest="false"><Label class="lk-tag" text="{s:aside_7_tag}" hittest="false" /><Label class="lk-tag2" text="{s:aside_7_tag2}" hittest="false" /></Panel>
@@ -391,6 +409,7 @@
 											<Label class="lk-type" text="{s:banner_0_type}" hittest="false" />
 											<Label class="lk-name" text="{s:banner_0}" hittest="false" />
 											<Label class="lk-unit" text="{s:banner_0_unit}" hittest="false" />
+											<Label class="lk-badge" text="{s:banner_0_badge}" hittest="false" />
 											<Label class="lk-sub" text="{s:banner_0_sub}" hittest="false" />
 										</Panel>
 										<Panel class="lk-tags" hittest="false"><Label class="lk-tag" text="{s:banner_0_tag}" hittest="false" /><Label class="lk-tag2" text="{s:banner_0_tag2}" hittest="false" /></Panel>
@@ -434,6 +453,7 @@
 											<Label class="lk-type" text="{s:banner_1_type}" hittest="false" />
 											<Label class="lk-name" text="{s:banner_1}" hittest="false" />
 											<Label class="lk-unit" text="{s:banner_1_unit}" hittest="false" />
+											<Label class="lk-badge" text="{s:banner_1_badge}" hittest="false" />
 											<Label class="lk-sub" text="{s:banner_1_sub}" hittest="false" />
 										</Panel>
 										<Panel class="lk-tags" hittest="false"><Label class="lk-tag" text="{s:banner_1_tag}" hittest="false" /><Label class="lk-tag2" text="{s:banner_1_tag2}" hittest="false" /></Panel>
@@ -477,6 +497,7 @@
 											<Label class="lk-type" text="{s:banner_2_type}" hittest="false" />
 											<Label class="lk-name" text="{s:banner_2}" hittest="false" />
 											<Label class="lk-unit" text="{s:banner_2_unit}" hittest="false" />
+											<Label class="lk-badge" text="{s:banner_2_badge}" hittest="false" />
 											<Label class="lk-sub" text="{s:banner_2_sub}" hittest="false" />
 										</Panel>
 										<Panel class="lk-tags" hittest="false"><Label class="lk-tag" text="{s:banner_2_tag}" hittest="false" /><Label class="lk-tag2" text="{s:banner_2_tag2}" hittest="false" /></Panel>
@@ -520,6 +541,7 @@
 											<Label class="lk-type" text="{s:banner_3_type}" hittest="false" />
 											<Label class="lk-name" text="{s:banner_3}" hittest="false" />
 											<Label class="lk-unit" text="{s:banner_3_unit}" hittest="false" />
+											<Label class="lk-badge" text="{s:banner_3_badge}" hittest="false" />
 											<Label class="lk-sub" text="{s:banner_3_sub}" hittest="false" />
 										</Panel>
 										<Panel class="lk-tags" hittest="false"><Label class="lk-tag" text="{s:banner_3_tag}" hittest="false" /><Label class="lk-tag2" text="{s:banner_3_tag2}" hittest="false" /></Panel>
@@ -563,6 +585,7 @@
 											<Label class="lk-type" text="{s:banner_4_type}" hittest="false" />
 											<Label class="lk-name" text="{s:banner_4}" hittest="false" />
 											<Label class="lk-unit" text="{s:banner_4_unit}" hittest="false" />
+											<Label class="lk-badge" text="{s:banner_4_badge}" hittest="false" />
 											<Label class="lk-sub" text="{s:banner_4_sub}" hittest="false" />
 										</Panel>
 										<Panel class="lk-tags" hittest="false"><Label class="lk-tag" text="{s:banner_4_tag}" hittest="false" /><Label class="lk-tag2" text="{s:banner_4_tag2}" hittest="false" /></Panel>
@@ -619,6 +642,7 @@
 													<Label class="lk-type" text="{s:option_0_type}" hittest="false" />
 													<Label class="lk-name" text="{s:option_0}" hittest="false" />
 													<Label class="lk-unit" text="{s:option_0_unit}" hittest="false" />
+													<Label class="lk-badge" text="{s:option_0_badge}" hittest="false" />
 													<Label class="lk-sub" text="{s:option_0_sub}" hittest="false" />
 												</Panel>
 												<Panel class="lk-tags" hittest="false"><Panel id="option_0_tagglyph" class="chud-ico lk-tagglyph hidden" hittest="false" /><Label class="lk-tag" text="{s:option_0_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_0_tag2}" hittest="false" /></Panel>
@@ -645,6 +669,7 @@
 													<Label class="lk-type" text="{s:option_1_type}" hittest="false" />
 													<Label class="lk-name" text="{s:option_1}" hittest="false" />
 													<Label class="lk-unit" text="{s:option_1_unit}" hittest="false" />
+													<Label class="lk-badge" text="{s:option_1_badge}" hittest="false" />
 													<Label class="lk-sub" text="{s:option_1_sub}" hittest="false" />
 												</Panel>
 												<Panel class="lk-tags" hittest="false"><Panel id="option_1_tagglyph" class="chud-ico lk-tagglyph hidden" hittest="false" /><Label class="lk-tag" text="{s:option_1_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_1_tag2}" hittest="false" /></Panel>
@@ -671,6 +696,7 @@
 													<Label class="lk-type" text="{s:option_2_type}" hittest="false" />
 													<Label class="lk-name" text="{s:option_2}" hittest="false" />
 													<Label class="lk-unit" text="{s:option_2_unit}" hittest="false" />
+													<Label class="lk-badge" text="{s:option_2_badge}" hittest="false" />
 													<Label class="lk-sub" text="{s:option_2_sub}" hittest="false" />
 												</Panel>
 												<Panel class="lk-tags" hittest="false"><Panel id="option_2_tagglyph" class="chud-ico lk-tagglyph hidden" hittest="false" /><Label class="lk-tag" text="{s:option_2_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_2_tag2}" hittest="false" /></Panel>
@@ -697,6 +723,7 @@
 													<Label class="lk-type" text="{s:option_3_type}" hittest="false" />
 													<Label class="lk-name" text="{s:option_3}" hittest="false" />
 													<Label class="lk-unit" text="{s:option_3_unit}" hittest="false" />
+													<Label class="lk-badge" text="{s:option_3_badge}" hittest="false" />
 													<Label class="lk-sub" text="{s:option_3_sub}" hittest="false" />
 												</Panel>
 												<Panel class="lk-tags" hittest="false"><Panel id="option_3_tagglyph" class="chud-ico lk-tagglyph hidden" hittest="false" /><Label class="lk-tag" text="{s:option_3_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_3_tag2}" hittest="false" /></Panel>
@@ -723,6 +750,7 @@
 													<Label class="lk-type" text="{s:option_4_type}" hittest="false" />
 													<Label class="lk-name" text="{s:option_4}" hittest="false" />
 													<Label class="lk-unit" text="{s:option_4_unit}" hittest="false" />
+													<Label class="lk-badge" text="{s:option_4_badge}" hittest="false" />
 													<Label class="lk-sub" text="{s:option_4_sub}" hittest="false" />
 												</Panel>
 												<Panel class="lk-tags" hittest="false"><Panel id="option_4_tagglyph" class="chud-ico lk-tagglyph hidden" hittest="false" /><Label class="lk-tag" text="{s:option_4_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_4_tag2}" hittest="false" /></Panel>
@@ -749,6 +777,7 @@
 													<Label class="lk-type" text="{s:option_5_type}" hittest="false" />
 													<Label class="lk-name" text="{s:option_5}" hittest="false" />
 													<Label class="lk-unit" text="{s:option_5_unit}" hittest="false" />
+													<Label class="lk-badge" text="{s:option_5_badge}" hittest="false" />
 													<Label class="lk-sub" text="{s:option_5_sub}" hittest="false" />
 												</Panel>
 												<Panel class="lk-tags" hittest="false"><Panel id="option_5_tagglyph" class="chud-ico lk-tagglyph hidden" hittest="false" /><Label class="lk-tag" text="{s:option_5_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_5_tag2}" hittest="false" /></Panel>
@@ -775,6 +804,7 @@
 													<Label class="lk-type" text="{s:option_6_type}" hittest="false" />
 													<Label class="lk-name" text="{s:option_6}" hittest="false" />
 													<Label class="lk-unit" text="{s:option_6_unit}" hittest="false" />
+													<Label class="lk-badge" text="{s:option_6_badge}" hittest="false" />
 													<Label class="lk-sub" text="{s:option_6_sub}" hittest="false" />
 												</Panel>
 												<Panel class="lk-tags" hittest="false"><Panel id="option_6_tagglyph" class="chud-ico lk-tagglyph hidden" hittest="false" /><Label class="lk-tag" text="{s:option_6_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_6_tag2}" hittest="false" /></Panel>
@@ -801,6 +831,7 @@
 													<Label class="lk-type" text="{s:option_7_type}" hittest="false" />
 													<Label class="lk-name" text="{s:option_7}" hittest="false" />
 													<Label class="lk-unit" text="{s:option_7_unit}" hittest="false" />
+													<Label class="lk-badge" text="{s:option_7_badge}" hittest="false" />
 													<Label class="lk-sub" text="{s:option_7_sub}" hittest="false" />
 												</Panel>
 												<Panel class="lk-tags" hittest="false"><Panel id="option_7_tagglyph" class="chud-ico lk-tagglyph hidden" hittest="false" /><Label class="lk-tag" text="{s:option_7_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_7_tag2}" hittest="false" /></Panel>
@@ -827,6 +858,7 @@
 													<Label class="lk-type" text="{s:option_8_type}" hittest="false" />
 													<Label class="lk-name" text="{s:option_8}" hittest="false" />
 													<Label class="lk-unit" text="{s:option_8_unit}" hittest="false" />
+													<Label class="lk-badge" text="{s:option_8_badge}" hittest="false" />
 													<Label class="lk-sub" text="{s:option_8_sub}" hittest="false" />
 												</Panel>
 												<Panel class="lk-tags" hittest="false"><Panel id="option_8_tagglyph" class="chud-ico lk-tagglyph hidden" hittest="false" /><Label class="lk-tag" text="{s:option_8_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_8_tag2}" hittest="false" /></Panel>
@@ -853,6 +885,7 @@
 													<Label class="lk-type" text="{s:option_9_type}" hittest="false" />
 													<Label class="lk-name" text="{s:option_9}" hittest="false" />
 													<Label class="lk-unit" text="{s:option_9_unit}" hittest="false" />
+													<Label class="lk-badge" text="{s:option_9_badge}" hittest="false" />
 													<Label class="lk-sub" text="{s:option_9_sub}" hittest="false" />
 												</Panel>
 												<Panel class="lk-tags" hittest="false"><Panel id="option_9_tagglyph" class="chud-ico lk-tagglyph hidden" hittest="false" /><Label class="lk-tag" text="{s:option_9_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_9_tag2}" hittest="false" /></Panel>
@@ -879,6 +912,7 @@
 													<Label class="lk-type" text="{s:option_10_type}" hittest="false" />
 													<Label class="lk-name" text="{s:option_10}" hittest="false" />
 													<Label class="lk-unit" text="{s:option_10_unit}" hittest="false" />
+													<Label class="lk-badge" text="{s:option_10_badge}" hittest="false" />
 													<Label class="lk-sub" text="{s:option_10_sub}" hittest="false" />
 												</Panel>
 												<Panel class="lk-tags" hittest="false"><Panel id="option_10_tagglyph" class="chud-ico lk-tagglyph hidden" hittest="false" /><Label class="lk-tag" text="{s:option_10_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_10_tag2}" hittest="false" /></Panel>
@@ -905,6 +939,7 @@
 													<Label class="lk-type" text="{s:option_11_type}" hittest="false" />
 													<Label class="lk-name" text="{s:option_11}" hittest="false" />
 													<Label class="lk-unit" text="{s:option_11_unit}" hittest="false" />
+													<Label class="lk-badge" text="{s:option_11_badge}" hittest="false" />
 													<Label class="lk-sub" text="{s:option_11_sub}" hittest="false" />
 												</Panel>
 												<Panel class="lk-tags" hittest="false"><Panel id="option_11_tagglyph" class="chud-ico lk-tagglyph hidden" hittest="false" /><Label class="lk-tag" text="{s:option_11_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_11_tag2}" hittest="false" /></Panel>
@@ -931,6 +966,7 @@
 													<Label class="lk-type" text="{s:option_12_type}" hittest="false" />
 													<Label class="lk-name" text="{s:option_12}" hittest="false" />
 													<Label class="lk-unit" text="{s:option_12_unit}" hittest="false" />
+													<Label class="lk-badge" text="{s:option_12_badge}" hittest="false" />
 													<Label class="lk-sub" text="{s:option_12_sub}" hittest="false" />
 												</Panel>
 												<Panel class="lk-tags" hittest="false"><Panel id="option_12_tagglyph" class="chud-ico lk-tagglyph hidden" hittest="false" /><Label class="lk-tag" text="{s:option_12_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_12_tag2}" hittest="false" /></Panel>
@@ -957,6 +993,7 @@
 													<Label class="lk-type" text="{s:option_13_type}" hittest="false" />
 													<Label class="lk-name" text="{s:option_13}" hittest="false" />
 													<Label class="lk-unit" text="{s:option_13_unit}" hittest="false" />
+													<Label class="lk-badge" text="{s:option_13_badge}" hittest="false" />
 													<Label class="lk-sub" text="{s:option_13_sub}" hittest="false" />
 												</Panel>
 												<Panel class="lk-tags" hittest="false"><Panel id="option_13_tagglyph" class="chud-ico lk-tagglyph hidden" hittest="false" /><Label class="lk-tag" text="{s:option_13_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_13_tag2}" hittest="false" /></Panel>
@@ -983,6 +1020,7 @@
 													<Label class="lk-type" text="{s:option_14_type}" hittest="false" />
 													<Label class="lk-name" text="{s:option_14}" hittest="false" />
 													<Label class="lk-unit" text="{s:option_14_unit}" hittest="false" />
+													<Label class="lk-badge" text="{s:option_14_badge}" hittest="false" />
 													<Label class="lk-sub" text="{s:option_14_sub}" hittest="false" />
 												</Panel>
 												<Panel class="lk-tags" hittest="false"><Panel id="option_14_tagglyph" class="chud-ico lk-tagglyph hidden" hittest="false" /><Label class="lk-tag" text="{s:option_14_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_14_tag2}" hittest="false" /></Panel>
@@ -1009,6 +1047,7 @@
 													<Label class="lk-type" text="{s:option_15_type}" hittest="false" />
 													<Label class="lk-name" text="{s:option_15}" hittest="false" />
 													<Label class="lk-unit" text="{s:option_15_unit}" hittest="false" />
+													<Label class="lk-badge" text="{s:option_15_badge}" hittest="false" />
 													<Label class="lk-sub" text="{s:option_15_sub}" hittest="false" />
 												</Panel>
 												<Panel class="lk-tags" hittest="false"><Panel id="option_15_tagglyph" class="chud-ico lk-tagglyph hidden" hittest="false" /><Label class="lk-tag" text="{s:option_15_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_15_tag2}" hittest="false" /></Panel>
@@ -1035,6 +1074,7 @@
 													<Label class="lk-type" text="{s:option_16_type}" hittest="false" />
 													<Label class="lk-name" text="{s:option_16}" hittest="false" />
 													<Label class="lk-unit" text="{s:option_16_unit}" hittest="false" />
+													<Label class="lk-badge" text="{s:option_16_badge}" hittest="false" />
 													<Label class="lk-sub" text="{s:option_16_sub}" hittest="false" />
 												</Panel>
 												<Panel class="lk-tags" hittest="false"><Panel id="option_16_tagglyph" class="chud-ico lk-tagglyph hidden" hittest="false" /><Label class="lk-tag" text="{s:option_16_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_16_tag2}" hittest="false" /></Panel>
@@ -1061,6 +1101,7 @@
 													<Label class="lk-type" text="{s:option_17_type}" hittest="false" />
 													<Label class="lk-name" text="{s:option_17}" hittest="false" />
 													<Label class="lk-unit" text="{s:option_17_unit}" hittest="false" />
+													<Label class="lk-badge" text="{s:option_17_badge}" hittest="false" />
 													<Label class="lk-sub" text="{s:option_17_sub}" hittest="false" />
 												</Panel>
 												<Panel class="lk-tags" hittest="false"><Panel id="option_17_tagglyph" class="chud-ico lk-tagglyph hidden" hittest="false" /><Label class="lk-tag" text="{s:option_17_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_17_tag2}" hittest="false" /></Panel>
@@ -1087,6 +1128,7 @@
 													<Label class="lk-type" text="{s:option_18_type}" hittest="false" />
 													<Label class="lk-name" text="{s:option_18}" hittest="false" />
 													<Label class="lk-unit" text="{s:option_18_unit}" hittest="false" />
+													<Label class="lk-badge" text="{s:option_18_badge}" hittest="false" />
 													<Label class="lk-sub" text="{s:option_18_sub}" hittest="false" />
 												</Panel>
 												<Panel class="lk-tags" hittest="false"><Panel id="option_18_tagglyph" class="chud-ico lk-tagglyph hidden" hittest="false" /><Label class="lk-tag" text="{s:option_18_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_18_tag2}" hittest="false" /></Panel>
@@ -1113,6 +1155,7 @@
 													<Label class="lk-type" text="{s:option_19_type}" hittest="false" />
 													<Label class="lk-name" text="{s:option_19}" hittest="false" />
 													<Label class="lk-unit" text="{s:option_19_unit}" hittest="false" />
+													<Label class="lk-badge" text="{s:option_19_badge}" hittest="false" />
 													<Label class="lk-sub" text="{s:option_19_sub}" hittest="false" />
 												</Panel>
 												<Panel class="lk-tags" hittest="false"><Panel id="option_19_tagglyph" class="chud-ico lk-tagglyph hidden" hittest="false" /><Label class="lk-tag" text="{s:option_19_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_19_tag2}" hittest="false" /></Panel>
@@ -1139,6 +1182,7 @@
 													<Label class="lk-type" text="{s:option_20_type}" hittest="false" />
 													<Label class="lk-name" text="{s:option_20}" hittest="false" />
 													<Label class="lk-unit" text="{s:option_20_unit}" hittest="false" />
+													<Label class="lk-badge" text="{s:option_20_badge}" hittest="false" />
 													<Label class="lk-sub" text="{s:option_20_sub}" hittest="false" />
 												</Panel>
 												<Panel class="lk-tags" hittest="false"><Panel id="option_20_tagglyph" class="chud-ico lk-tagglyph hidden" hittest="false" /><Label class="lk-tag" text="{s:option_20_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_20_tag2}" hittest="false" /></Panel>
@@ -1165,6 +1209,7 @@
 													<Label class="lk-type" text="{s:option_21_type}" hittest="false" />
 													<Label class="lk-name" text="{s:option_21}" hittest="false" />
 													<Label class="lk-unit" text="{s:option_21_unit}" hittest="false" />
+													<Label class="lk-badge" text="{s:option_21_badge}" hittest="false" />
 													<Label class="lk-sub" text="{s:option_21_sub}" hittest="false" />
 												</Panel>
 												<Panel class="lk-tags" hittest="false"><Panel id="option_21_tagglyph" class="chud-ico lk-tagglyph hidden" hittest="false" /><Label class="lk-tag" text="{s:option_21_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_21_tag2}" hittest="false" /></Panel>
@@ -1191,6 +1236,7 @@
 													<Label class="lk-type" text="{s:option_22_type}" hittest="false" />
 													<Label class="lk-name" text="{s:option_22}" hittest="false" />
 													<Label class="lk-unit" text="{s:option_22_unit}" hittest="false" />
+													<Label class="lk-badge" text="{s:option_22_badge}" hittest="false" />
 													<Label class="lk-sub" text="{s:option_22_sub}" hittest="false" />
 												</Panel>
 												<Panel class="lk-tags" hittest="false"><Panel id="option_22_tagglyph" class="chud-ico lk-tagglyph hidden" hittest="false" /><Label class="lk-tag" text="{s:option_22_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_22_tag2}" hittest="false" /></Panel>
@@ -1217,6 +1263,7 @@
 													<Label class="lk-type" text="{s:option_23_type}" hittest="false" />
 													<Label class="lk-name" text="{s:option_23}" hittest="false" />
 													<Label class="lk-unit" text="{s:option_23_unit}" hittest="false" />
+													<Label class="lk-badge" text="{s:option_23_badge}" hittest="false" />
 													<Label class="lk-sub" text="{s:option_23_sub}" hittest="false" />
 												</Panel>
 												<Panel class="lk-tags" hittest="false"><Panel id="option_23_tagglyph" class="chud-ico lk-tagglyph hidden" hittest="false" /><Label class="lk-tag" text="{s:option_23_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_23_tag2}" hittest="false" /></Panel>
@@ -1243,6 +1290,7 @@
 													<Label class="lk-type" text="{s:option_24_type}" hittest="false" />
 													<Label class="lk-name" text="{s:option_24}" hittest="false" />
 													<Label class="lk-unit" text="{s:option_24_unit}" hittest="false" />
+													<Label class="lk-badge" text="{s:option_24_badge}" hittest="false" />
 													<Label class="lk-sub" text="{s:option_24_sub}" hittest="false" />
 												</Panel>
 												<Panel class="lk-tags" hittest="false"><Panel id="option_24_tagglyph" class="chud-ico lk-tagglyph hidden" hittest="false" /><Label class="lk-tag" text="{s:option_24_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_24_tag2}" hittest="false" /></Panel>
@@ -1269,6 +1317,7 @@
 													<Label class="lk-type" text="{s:option_25_type}" hittest="false" />
 													<Label class="lk-name" text="{s:option_25}" hittest="false" />
 													<Label class="lk-unit" text="{s:option_25_unit}" hittest="false" />
+													<Label class="lk-badge" text="{s:option_25_badge}" hittest="false" />
 													<Label class="lk-sub" text="{s:option_25_sub}" hittest="false" />
 												</Panel>
 												<Panel class="lk-tags" hittest="false"><Panel id="option_25_tagglyph" class="chud-ico lk-tagglyph hidden" hittest="false" /><Label class="lk-tag" text="{s:option_25_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_25_tag2}" hittest="false" /></Panel>
@@ -1295,6 +1344,7 @@
 													<Label class="lk-type" text="{s:option_26_type}" hittest="false" />
 													<Label class="lk-name" text="{s:option_26}" hittest="false" />
 													<Label class="lk-unit" text="{s:option_26_unit}" hittest="false" />
+													<Label class="lk-badge" text="{s:option_26_badge}" hittest="false" />
 													<Label class="lk-sub" text="{s:option_26_sub}" hittest="false" />
 												</Panel>
 												<Panel class="lk-tags" hittest="false"><Panel id="option_26_tagglyph" class="chud-ico lk-tagglyph hidden" hittest="false" /><Label class="lk-tag" text="{s:option_26_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_26_tag2}" hittest="false" /></Panel>
@@ -1321,6 +1371,7 @@
 													<Label class="lk-type" text="{s:option_27_type}" hittest="false" />
 													<Label class="lk-name" text="{s:option_27}" hittest="false" />
 													<Label class="lk-unit" text="{s:option_27_unit}" hittest="false" />
+													<Label class="lk-badge" text="{s:option_27_badge}" hittest="false" />
 													<Label class="lk-sub" text="{s:option_27_sub}" hittest="false" />
 												</Panel>
 												<Panel class="lk-tags" hittest="false"><Panel id="option_27_tagglyph" class="chud-ico lk-tagglyph hidden" hittest="false" /><Label class="lk-tag" text="{s:option_27_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_27_tag2}" hittest="false" /></Panel>
@@ -1347,6 +1398,7 @@
 													<Label class="lk-type" text="{s:option_28_type}" hittest="false" />
 													<Label class="lk-name" text="{s:option_28}" hittest="false" />
 													<Label class="lk-unit" text="{s:option_28_unit}" hittest="false" />
+													<Label class="lk-badge" text="{s:option_28_badge}" hittest="false" />
 													<Label class="lk-sub" text="{s:option_28_sub}" hittest="false" />
 												</Panel>
 												<Panel class="lk-tags" hittest="false"><Panel id="option_28_tagglyph" class="chud-ico lk-tagglyph hidden" hittest="false" /><Label class="lk-tag" text="{s:option_28_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_28_tag2}" hittest="false" /></Panel>
@@ -1373,6 +1425,7 @@
 													<Label class="lk-type" text="{s:option_29_type}" hittest="false" />
 													<Label class="lk-name" text="{s:option_29}" hittest="false" />
 													<Label class="lk-unit" text="{s:option_29_unit}" hittest="false" />
+													<Label class="lk-badge" text="{s:option_29_badge}" hittest="false" />
 													<Label class="lk-sub" text="{s:option_29_sub}" hittest="false" />
 												</Panel>
 												<Panel class="lk-tags" hittest="false"><Panel id="option_29_tagglyph" class="chud-ico lk-tagglyph hidden" hittest="false" /><Label class="lk-tag" text="{s:option_29_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_29_tag2}" hittest="false" /></Panel>
@@ -1399,6 +1452,7 @@
 													<Label class="lk-type" text="{s:option_30_type}" hittest="false" />
 													<Label class="lk-name" text="{s:option_30}" hittest="false" />
 													<Label class="lk-unit" text="{s:option_30_unit}" hittest="false" />
+													<Label class="lk-badge" text="{s:option_30_badge}" hittest="false" />
 													<Label class="lk-sub" text="{s:option_30_sub}" hittest="false" />
 												</Panel>
 												<Panel class="lk-tags" hittest="false"><Panel id="option_30_tagglyph" class="chud-ico lk-tagglyph hidden" hittest="false" /><Label class="lk-tag" text="{s:option_30_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_30_tag2}" hittest="false" /></Panel>
@@ -1425,6 +1479,7 @@
 													<Label class="lk-type" text="{s:option_31_type}" hittest="false" />
 													<Label class="lk-name" text="{s:option_31}" hittest="false" />
 													<Label class="lk-unit" text="{s:option_31_unit}" hittest="false" />
+													<Label class="lk-badge" text="{s:option_31_badge}" hittest="false" />
 													<Label class="lk-sub" text="{s:option_31_sub}" hittest="false" />
 												</Panel>
 												<Panel class="lk-tags" hittest="false"><Panel id="option_31_tagglyph" class="chud-ico lk-tagglyph hidden" hittest="false" /><Label class="lk-tag" text="{s:option_31_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_31_tag2}" hittest="false" /></Panel>
@@ -1451,6 +1506,7 @@
 													<Label class="lk-type" text="{s:option_32_type}" hittest="false" />
 													<Label class="lk-name" text="{s:option_32}" hittest="false" />
 													<Label class="lk-unit" text="{s:option_32_unit}" hittest="false" />
+													<Label class="lk-badge" text="{s:option_32_badge}" hittest="false" />
 													<Label class="lk-sub" text="{s:option_32_sub}" hittest="false" />
 												</Panel>
 												<Panel class="lk-tags" hittest="false"><Panel id="option_32_tagglyph" class="chud-ico lk-tagglyph hidden" hittest="false" /><Label class="lk-tag" text="{s:option_32_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_32_tag2}" hittest="false" /></Panel>
@@ -1477,6 +1533,7 @@
 													<Label class="lk-type" text="{s:option_33_type}" hittest="false" />
 													<Label class="lk-name" text="{s:option_33}" hittest="false" />
 													<Label class="lk-unit" text="{s:option_33_unit}" hittest="false" />
+													<Label class="lk-badge" text="{s:option_33_badge}" hittest="false" />
 													<Label class="lk-sub" text="{s:option_33_sub}" hittest="false" />
 												</Panel>
 												<Panel class="lk-tags" hittest="false"><Panel id="option_33_tagglyph" class="chud-ico lk-tagglyph hidden" hittest="false" /><Label class="lk-tag" text="{s:option_33_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_33_tag2}" hittest="false" /></Panel>
@@ -1503,6 +1560,7 @@
 													<Label class="lk-type" text="{s:option_34_type}" hittest="false" />
 													<Label class="lk-name" text="{s:option_34}" hittest="false" />
 													<Label class="lk-unit" text="{s:option_34_unit}" hittest="false" />
+													<Label class="lk-badge" text="{s:option_34_badge}" hittest="false" />
 													<Label class="lk-sub" text="{s:option_34_sub}" hittest="false" />
 												</Panel>
 												<Panel class="lk-tags" hittest="false"><Panel id="option_34_tagglyph" class="chud-ico lk-tagglyph hidden" hittest="false" /><Label class="lk-tag" text="{s:option_34_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_34_tag2}" hittest="false" /></Panel>
@@ -1529,6 +1587,7 @@
 													<Label class="lk-type" text="{s:option_35_type}" hittest="false" />
 													<Label class="lk-name" text="{s:option_35}" hittest="false" />
 													<Label class="lk-unit" text="{s:option_35_unit}" hittest="false" />
+													<Label class="lk-badge" text="{s:option_35_badge}" hittest="false" />
 													<Label class="lk-sub" text="{s:option_35_sub}" hittest="false" />
 												</Panel>
 												<Panel class="lk-tags" hittest="false"><Panel id="option_35_tagglyph" class="chud-ico lk-tagglyph hidden" hittest="false" /><Label class="lk-tag" text="{s:option_35_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_35_tag2}" hittest="false" /></Panel>
@@ -1555,6 +1614,7 @@
 													<Label class="lk-type" text="{s:option_36_type}" hittest="false" />
 													<Label class="lk-name" text="{s:option_36}" hittest="false" />
 													<Label class="lk-unit" text="{s:option_36_unit}" hittest="false" />
+													<Label class="lk-badge" text="{s:option_36_badge}" hittest="false" />
 													<Label class="lk-sub" text="{s:option_36_sub}" hittest="false" />
 												</Panel>
 												<Panel class="lk-tags" hittest="false"><Panel id="option_36_tagglyph" class="chud-ico lk-tagglyph hidden" hittest="false" /><Label class="lk-tag" text="{s:option_36_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_36_tag2}" hittest="false" /></Panel>
@@ -1581,6 +1641,7 @@
 													<Label class="lk-type" text="{s:option_37_type}" hittest="false" />
 													<Label class="lk-name" text="{s:option_37}" hittest="false" />
 													<Label class="lk-unit" text="{s:option_37_unit}" hittest="false" />
+													<Label class="lk-badge" text="{s:option_37_badge}" hittest="false" />
 													<Label class="lk-sub" text="{s:option_37_sub}" hittest="false" />
 												</Panel>
 												<Panel class="lk-tags" hittest="false"><Panel id="option_37_tagglyph" class="chud-ico lk-tagglyph hidden" hittest="false" /><Label class="lk-tag" text="{s:option_37_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_37_tag2}" hittest="false" /></Panel>
@@ -1607,6 +1668,7 @@
 													<Label class="lk-type" text="{s:option_38_type}" hittest="false" />
 													<Label class="lk-name" text="{s:option_38}" hittest="false" />
 													<Label class="lk-unit" text="{s:option_38_unit}" hittest="false" />
+													<Label class="lk-badge" text="{s:option_38_badge}" hittest="false" />
 													<Label class="lk-sub" text="{s:option_38_sub}" hittest="false" />
 												</Panel>
 												<Panel class="lk-tags" hittest="false"><Panel id="option_38_tagglyph" class="chud-ico lk-tagglyph hidden" hittest="false" /><Label class="lk-tag" text="{s:option_38_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_38_tag2}" hittest="false" /></Panel>
@@ -1633,6 +1695,7 @@
 													<Label class="lk-type" text="{s:option_39_type}" hittest="false" />
 													<Label class="lk-name" text="{s:option_39}" hittest="false" />
 													<Label class="lk-unit" text="{s:option_39_unit}" hittest="false" />
+													<Label class="lk-badge" text="{s:option_39_badge}" hittest="false" />
 													<Label class="lk-sub" text="{s:option_39_sub}" hittest="false" />
 												</Panel>
 												<Panel class="lk-tags" hittest="false"><Panel id="option_39_tagglyph" class="chud-ico lk-tagglyph hidden" hittest="false" /><Label class="lk-tag" text="{s:option_39_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_39_tag2}" hittest="false" /></Panel>
@@ -1659,6 +1722,7 @@
 													<Label class="lk-type" text="{s:option_40_type}" hittest="false" />
 													<Label class="lk-name" text="{s:option_40}" hittest="false" />
 													<Label class="lk-unit" text="{s:option_40_unit}" hittest="false" />
+													<Label class="lk-badge" text="{s:option_40_badge}" hittest="false" />
 													<Label class="lk-sub" text="{s:option_40_sub}" hittest="false" />
 												</Panel>
 												<Panel class="lk-tags" hittest="false"><Panel id="option_40_tagglyph" class="chud-ico lk-tagglyph hidden" hittest="false" /><Label class="lk-tag" text="{s:option_40_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_40_tag2}" hittest="false" /></Panel>
@@ -1685,6 +1749,7 @@
 													<Label class="lk-type" text="{s:option_41_type}" hittest="false" />
 													<Label class="lk-name" text="{s:option_41}" hittest="false" />
 													<Label class="lk-unit" text="{s:option_41_unit}" hittest="false" />
+													<Label class="lk-badge" text="{s:option_41_badge}" hittest="false" />
 													<Label class="lk-sub" text="{s:option_41_sub}" hittest="false" />
 												</Panel>
 												<Panel class="lk-tags" hittest="false"><Panel id="option_41_tagglyph" class="chud-ico lk-tagglyph hidden" hittest="false" /><Label class="lk-tag" text="{s:option_41_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_41_tag2}" hittest="false" /></Panel>
@@ -1711,6 +1776,7 @@
 													<Label class="lk-type" text="{s:option_42_type}" hittest="false" />
 													<Label class="lk-name" text="{s:option_42}" hittest="false" />
 													<Label class="lk-unit" text="{s:option_42_unit}" hittest="false" />
+													<Label class="lk-badge" text="{s:option_42_badge}" hittest="false" />
 													<Label class="lk-sub" text="{s:option_42_sub}" hittest="false" />
 												</Panel>
 												<Panel class="lk-tags" hittest="false"><Panel id="option_42_tagglyph" class="chud-ico lk-tagglyph hidden" hittest="false" /><Label class="lk-tag" text="{s:option_42_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_42_tag2}" hittest="false" /></Panel>
@@ -1737,6 +1803,7 @@
 													<Label class="lk-type" text="{s:option_43_type}" hittest="false" />
 													<Label class="lk-name" text="{s:option_43}" hittest="false" />
 													<Label class="lk-unit" text="{s:option_43_unit}" hittest="false" />
+													<Label class="lk-badge" text="{s:option_43_badge}" hittest="false" />
 													<Label class="lk-sub" text="{s:option_43_sub}" hittest="false" />
 												</Panel>
 												<Panel class="lk-tags" hittest="false"><Panel id="option_43_tagglyph" class="chud-ico lk-tagglyph hidden" hittest="false" /><Label class="lk-tag" text="{s:option_43_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_43_tag2}" hittest="false" /></Panel>
@@ -1763,6 +1830,7 @@
 													<Label class="lk-type" text="{s:option_44_type}" hittest="false" />
 													<Label class="lk-name" text="{s:option_44}" hittest="false" />
 													<Label class="lk-unit" text="{s:option_44_unit}" hittest="false" />
+													<Label class="lk-badge" text="{s:option_44_badge}" hittest="false" />
 													<Label class="lk-sub" text="{s:option_44_sub}" hittest="false" />
 												</Panel>
 												<Panel class="lk-tags" hittest="false"><Panel id="option_44_tagglyph" class="chud-ico lk-tagglyph hidden" hittest="false" /><Label class="lk-tag" text="{s:option_44_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_44_tag2}" hittest="false" /></Panel>
@@ -1789,6 +1857,7 @@
 													<Label class="lk-type" text="{s:option_45_type}" hittest="false" />
 													<Label class="lk-name" text="{s:option_45}" hittest="false" />
 													<Label class="lk-unit" text="{s:option_45_unit}" hittest="false" />
+													<Label class="lk-badge" text="{s:option_45_badge}" hittest="false" />
 													<Label class="lk-sub" text="{s:option_45_sub}" hittest="false" />
 												</Panel>
 												<Panel class="lk-tags" hittest="false"><Panel id="option_45_tagglyph" class="chud-ico lk-tagglyph hidden" hittest="false" /><Label class="lk-tag" text="{s:option_45_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_45_tag2}" hittest="false" /></Panel>
@@ -1815,6 +1884,7 @@
 													<Label class="lk-type" text="{s:option_46_type}" hittest="false" />
 													<Label class="lk-name" text="{s:option_46}" hittest="false" />
 													<Label class="lk-unit" text="{s:option_46_unit}" hittest="false" />
+													<Label class="lk-badge" text="{s:option_46_badge}" hittest="false" />
 													<Label class="lk-sub" text="{s:option_46_sub}" hittest="false" />
 												</Panel>
 												<Panel class="lk-tags" hittest="false"><Panel id="option_46_tagglyph" class="chud-ico lk-tagglyph hidden" hittest="false" /><Label class="lk-tag" text="{s:option_46_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_46_tag2}" hittest="false" /></Panel>
@@ -1841,6 +1911,7 @@
 													<Label class="lk-type" text="{s:option_47_type}" hittest="false" />
 													<Label class="lk-name" text="{s:option_47}" hittest="false" />
 													<Label class="lk-unit" text="{s:option_47_unit}" hittest="false" />
+													<Label class="lk-badge" text="{s:option_47_badge}" hittest="false" />
 													<Label class="lk-sub" text="{s:option_47_sub}" hittest="false" />
 												</Panel>
 												<Panel class="lk-tags" hittest="false"><Panel id="option_47_tagglyph" class="chud-ico lk-tagglyph hidden" hittest="false" /><Label class="lk-tag" text="{s:option_47_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_47_tag2}" hittest="false" /></Panel>
@@ -1867,6 +1938,7 @@
 											<Label class="lk-type" text="{s:foot_0_type}" hittest="false" />
 											<Label class="lk-name" text="{s:foot_0}" hittest="false" />
 											<Label class="lk-unit" text="{s:foot_0_unit}" hittest="false" />
+											<Label class="lk-badge" text="{s:foot_0_badge}" hittest="false" />
 											<Label class="lk-sub" text="{s:foot_0_sub}" hittest="false" />
 										</Panel>
 										<Panel class="lk-tags" hittest="false"><Label class="lk-tag" text="{s:foot_0_tag}" hittest="false" /><Label class="lk-tag2" text="{s:foot_0_tag2}" hittest="false" /></Panel>
@@ -1908,6 +1980,7 @@
 											<Label class="lk-type" text="{s:foot_1_type}" hittest="false" />
 											<Label class="lk-name" text="{s:foot_1}" hittest="false" />
 											<Label class="lk-unit" text="{s:foot_1_unit}" hittest="false" />
+											<Label class="lk-badge" text="{s:foot_1_badge}" hittest="false" />
 											<Label class="lk-sub" text="{s:foot_1_sub}" hittest="false" />
 										</Panel>
 										<Panel class="lk-tags" hittest="false"><Label class="lk-tag" text="{s:foot_1_tag}" hittest="false" /><Label class="lk-tag2" text="{s:foot_1_tag2}" hittest="false" /></Panel>
@@ -1949,6 +2022,7 @@
 											<Label class="lk-type" text="{s:foot_2_type}" hittest="false" />
 											<Label class="lk-name" text="{s:foot_2}" hittest="false" />
 											<Label class="lk-unit" text="{s:foot_2_unit}" hittest="false" />
+											<Label class="lk-badge" text="{s:foot_2_badge}" hittest="false" />
 											<Label class="lk-sub" text="{s:foot_2_sub}" hittest="false" />
 										</Panel>
 										<Panel class="lk-tags" hittest="false"><Label class="lk-tag" text="{s:foot_2_tag}" hittest="false" /><Label class="lk-tag2" text="{s:foot_2_tag2}" hittest="false" /></Panel>
@@ -1990,6 +2064,7 @@
 											<Label class="lk-type" text="{s:foot_3_type}" hittest="false" />
 											<Label class="lk-name" text="{s:foot_3}" hittest="false" />
 											<Label class="lk-unit" text="{s:foot_3_unit}" hittest="false" />
+											<Label class="lk-badge" text="{s:foot_3_badge}" hittest="false" />
 											<Label class="lk-sub" text="{s:foot_3_sub}" hittest="false" />
 										</Panel>
 										<Panel class="lk-tags" hittest="false"><Label class="lk-tag" text="{s:foot_3_tag}" hittest="false" /><Label class="lk-tag2" text="{s:foot_3_tag2}" hittest="false" /></Panel>
@@ -2038,6 +2113,7 @@
 													<Label class="lk-type" text="{s:detail_0_type}" hittest="false" />
 													<Label class="lk-name" text="{s:detail_0}" hittest="false" />
 													<Label class="lk-unit" text="{s:detail_0_unit}" hittest="false" />
+													<Label class="lk-badge" text="{s:detail_0_badge}" hittest="false" />
 													<Label class="lk-sub" text="{s:detail_0_sub}" hittest="false" />
 												</Panel>
 												<Panel class="lk-tags" hittest="false"><Label class="lk-tag" text="{s:detail_0_tag}" hittest="false" /><Label class="lk-tag2" text="{s:detail_0_tag2}" hittest="false" /></Panel>
@@ -2060,6 +2136,7 @@
 													<Label class="lk-type" text="{s:detail_1_type}" hittest="false" />
 													<Label class="lk-name" text="{s:detail_1}" hittest="false" />
 													<Label class="lk-unit" text="{s:detail_1_unit}" hittest="false" />
+													<Label class="lk-badge" text="{s:detail_1_badge}" hittest="false" />
 													<Label class="lk-sub" text="{s:detail_1_sub}" hittest="false" />
 												</Panel>
 												<Panel class="lk-tags" hittest="false"><Label class="lk-tag" text="{s:detail_1_tag}" hittest="false" /><Label class="lk-tag2" text="{s:detail_1_tag2}" hittest="false" /></Panel>
@@ -2082,6 +2159,7 @@
 													<Label class="lk-type" text="{s:detail_2_type}" hittest="false" />
 													<Label class="lk-name" text="{s:detail_2}" hittest="false" />
 													<Label class="lk-unit" text="{s:detail_2_unit}" hittest="false" />
+													<Label class="lk-badge" text="{s:detail_2_badge}" hittest="false" />
 													<Label class="lk-sub" text="{s:detail_2_sub}" hittest="false" />
 												</Panel>
 												<Panel class="lk-tags" hittest="false"><Label class="lk-tag" text="{s:detail_2_tag}" hittest="false" /><Label class="lk-tag2" text="{s:detail_2_tag2}" hittest="false" /></Panel>
@@ -2104,6 +2182,7 @@
 													<Label class="lk-type" text="{s:detail_3_type}" hittest="false" />
 													<Label class="lk-name" text="{s:detail_3}" hittest="false" />
 													<Label class="lk-unit" text="{s:detail_3_unit}" hittest="false" />
+													<Label class="lk-badge" text="{s:detail_3_badge}" hittest="false" />
 													<Label class="lk-sub" text="{s:detail_3_sub}" hittest="false" />
 												</Panel>
 												<Panel class="lk-tags" hittest="false"><Label class="lk-tag" text="{s:detail_3_tag}" hittest="false" /><Label class="lk-tag2" text="{s:detail_3_tag2}" hittest="false" /></Panel>
@@ -2126,6 +2205,7 @@
 													<Label class="lk-type" text="{s:detail_4_type}" hittest="false" />
 													<Label class="lk-name" text="{s:detail_4}" hittest="false" />
 													<Label class="lk-unit" text="{s:detail_4_unit}" hittest="false" />
+													<Label class="lk-badge" text="{s:detail_4_badge}" hittest="false" />
 													<Label class="lk-sub" text="{s:detail_4_sub}" hittest="false" />
 												</Panel>
 												<Panel class="lk-tags" hittest="false"><Label class="lk-tag" text="{s:detail_4_tag}" hittest="false" /><Label class="lk-tag2" text="{s:detail_4_tag2}" hittest="false" /></Panel>
@@ -2148,6 +2228,7 @@
 													<Label class="lk-type" text="{s:detail_5_type}" hittest="false" />
 													<Label class="lk-name" text="{s:detail_5}" hittest="false" />
 													<Label class="lk-unit" text="{s:detail_5_unit}" hittest="false" />
+													<Label class="lk-badge" text="{s:detail_5_badge}" hittest="false" />
 													<Label class="lk-sub" text="{s:detail_5_sub}" hittest="false" />
 												</Panel>
 												<Panel class="lk-tags" hittest="false"><Label class="lk-tag" text="{s:detail_5_tag}" hittest="false" /><Label class="lk-tag2" text="{s:detail_5_tag2}" hittest="false" /></Panel>
@@ -2170,6 +2251,7 @@
 													<Label class="lk-type" text="{s:detail_6_type}" hittest="false" />
 													<Label class="lk-name" text="{s:detail_6}" hittest="false" />
 													<Label class="lk-unit" text="{s:detail_6_unit}" hittest="false" />
+													<Label class="lk-badge" text="{s:detail_6_badge}" hittest="false" />
 													<Label class="lk-sub" text="{s:detail_6_sub}" hittest="false" />
 												</Panel>
 												<Panel class="lk-tags" hittest="false"><Label class="lk-tag" text="{s:detail_6_tag}" hittest="false" /><Label class="lk-tag2" text="{s:detail_6_tag2}" hittest="false" /></Panel>
@@ -2192,6 +2274,7 @@
 													<Label class="lk-type" text="{s:detail_7_type}" hittest="false" />
 													<Label class="lk-name" text="{s:detail_7}" hittest="false" />
 													<Label class="lk-unit" text="{s:detail_7_unit}" hittest="false" />
+													<Label class="lk-badge" text="{s:detail_7_badge}" hittest="false" />
 													<Label class="lk-sub" text="{s:detail_7_sub}" hittest="false" />
 												</Panel>
 												<Panel class="lk-tags" hittest="false"><Label class="lk-tag" text="{s:detail_7_tag}" hittest="false" /><Label class="lk-tag2" text="{s:detail_7_tag2}" hittest="false" /></Panel>
@@ -2214,6 +2297,7 @@
 													<Label class="lk-type" text="{s:detail_8_type}" hittest="false" />
 													<Label class="lk-name" text="{s:detail_8}" hittest="false" />
 													<Label class="lk-unit" text="{s:detail_8_unit}" hittest="false" />
+													<Label class="lk-badge" text="{s:detail_8_badge}" hittest="false" />
 													<Label class="lk-sub" text="{s:detail_8_sub}" hittest="false" />
 												</Panel>
 												<Panel class="lk-tags" hittest="false"><Label class="lk-tag" text="{s:detail_8_tag}" hittest="false" /><Label class="lk-tag2" text="{s:detail_8_tag2}" hittest="false" /></Panel>
@@ -2236,6 +2320,7 @@
 													<Label class="lk-type" text="{s:detail_9_type}" hittest="false" />
 													<Label class="lk-name" text="{s:detail_9}" hittest="false" />
 													<Label class="lk-unit" text="{s:detail_9_unit}" hittest="false" />
+													<Label class="lk-badge" text="{s:detail_9_badge}" hittest="false" />
 													<Label class="lk-sub" text="{s:detail_9_sub}" hittest="false" />
 												</Panel>
 												<Panel class="lk-tags" hittest="false"><Label class="lk-tag" text="{s:detail_9_tag}" hittest="false" /><Label class="lk-tag2" text="{s:detail_9_tag2}" hittest="false" /></Panel>
@@ -2258,6 +2343,7 @@
 													<Label class="lk-type" text="{s:detail_10_type}" hittest="false" />
 													<Label class="lk-name" text="{s:detail_10}" hittest="false" />
 													<Label class="lk-unit" text="{s:detail_10_unit}" hittest="false" />
+													<Label class="lk-badge" text="{s:detail_10_badge}" hittest="false" />
 													<Label class="lk-sub" text="{s:detail_10_sub}" hittest="false" />
 												</Panel>
 												<Panel class="lk-tags" hittest="false"><Label class="lk-tag" text="{s:detail_10_tag}" hittest="false" /><Label class="lk-tag2" text="{s:detail_10_tag2}" hittest="false" /></Panel>
@@ -2280,6 +2366,7 @@
 													<Label class="lk-type" text="{s:detail_11_type}" hittest="false" />
 													<Label class="lk-name" text="{s:detail_11}" hittest="false" />
 													<Label class="lk-unit" text="{s:detail_11_unit}" hittest="false" />
+													<Label class="lk-badge" text="{s:detail_11_badge}" hittest="false" />
 													<Label class="lk-sub" text="{s:detail_11_sub}" hittest="false" />
 												</Panel>
 												<Panel class="lk-tags" hittest="false"><Label class="lk-tag" text="{s:detail_11_tag}" hittest="false" /><Label class="lk-tag2" text="{s:detail_11_tag2}" hittest="false" /></Panel>
@@ -2302,6 +2389,7 @@
 													<Label class="lk-type" text="{s:detail_12_type}" hittest="false" />
 													<Label class="lk-name" text="{s:detail_12}" hittest="false" />
 													<Label class="lk-unit" text="{s:detail_12_unit}" hittest="false" />
+													<Label class="lk-badge" text="{s:detail_12_badge}" hittest="false" />
 													<Label class="lk-sub" text="{s:detail_12_sub}" hittest="false" />
 												</Panel>
 												<Panel class="lk-tags" hittest="false"><Label class="lk-tag" text="{s:detail_12_tag}" hittest="false" /><Label class="lk-tag2" text="{s:detail_12_tag2}" hittest="false" /></Panel>
@@ -2324,6 +2412,7 @@
 													<Label class="lk-type" text="{s:detail_13_type}" hittest="false" />
 													<Label class="lk-name" text="{s:detail_13}" hittest="false" />
 													<Label class="lk-unit" text="{s:detail_13_unit}" hittest="false" />
+													<Label class="lk-badge" text="{s:detail_13_badge}" hittest="false" />
 													<Label class="lk-sub" text="{s:detail_13_sub}" hittest="false" />
 												</Panel>
 												<Panel class="lk-tags" hittest="false"><Label class="lk-tag" text="{s:detail_13_tag}" hittest="false" /><Label class="lk-tag2" text="{s:detail_13_tag2}" hittest="false" /></Panel>
@@ -2346,6 +2435,7 @@
 													<Label class="lk-type" text="{s:detail_14_type}" hittest="false" />
 													<Label class="lk-name" text="{s:detail_14}" hittest="false" />
 													<Label class="lk-unit" text="{s:detail_14_unit}" hittest="false" />
+													<Label class="lk-badge" text="{s:detail_14_badge}" hittest="false" />
 													<Label class="lk-sub" text="{s:detail_14_sub}" hittest="false" />
 												</Panel>
 												<Panel class="lk-tags" hittest="false"><Label class="lk-tag" text="{s:detail_14_tag}" hittest="false" /><Label class="lk-tag2" text="{s:detail_14_tag2}" hittest="false" /></Panel>
@@ -2368,6 +2458,7 @@
 													<Label class="lk-type" text="{s:detail_15_type}" hittest="false" />
 													<Label class="lk-name" text="{s:detail_15}" hittest="false" />
 													<Label class="lk-unit" text="{s:detail_15_unit}" hittest="false" />
+													<Label class="lk-badge" text="{s:detail_15_badge}" hittest="false" />
 													<Label class="lk-sub" text="{s:detail_15_sub}" hittest="false" />
 												</Panel>
 												<Panel class="lk-tags" hittest="false"><Label class="lk-tag" text="{s:detail_15_tag}" hittest="false" /><Label class="lk-tag2" text="{s:detail_15_tag2}" hittest="false" /></Panel>
@@ -2390,6 +2481,7 @@
 													<Label class="lk-type" text="{s:detail_16_type}" hittest="false" />
 													<Label class="lk-name" text="{s:detail_16}" hittest="false" />
 													<Label class="lk-unit" text="{s:detail_16_unit}" hittest="false" />
+													<Label class="lk-badge" text="{s:detail_16_badge}" hittest="false" />
 													<Label class="lk-sub" text="{s:detail_16_sub}" hittest="false" />
 												</Panel>
 												<Panel class="lk-tags" hittest="false"><Label class="lk-tag" text="{s:detail_16_tag}" hittest="false" /><Label class="lk-tag2" text="{s:detail_16_tag2}" hittest="false" /></Panel>
@@ -2412,6 +2504,7 @@
 													<Label class="lk-type" text="{s:detail_17_type}" hittest="false" />
 													<Label class="lk-name" text="{s:detail_17}" hittest="false" />
 													<Label class="lk-unit" text="{s:detail_17_unit}" hittest="false" />
+													<Label class="lk-badge" text="{s:detail_17_badge}" hittest="false" />
 													<Label class="lk-sub" text="{s:detail_17_sub}" hittest="false" />
 												</Panel>
 												<Panel class="lk-tags" hittest="false"><Label class="lk-tag" text="{s:detail_17_tag}" hittest="false" /><Label class="lk-tag2" text="{s:detail_17_tag2}" hittest="false" /></Panel>
@@ -2434,6 +2527,7 @@
 													<Label class="lk-type" text="{s:detail_18_type}" hittest="false" />
 													<Label class="lk-name" text="{s:detail_18}" hittest="false" />
 													<Label class="lk-unit" text="{s:detail_18_unit}" hittest="false" />
+													<Label class="lk-badge" text="{s:detail_18_badge}" hittest="false" />
 													<Label class="lk-sub" text="{s:detail_18_sub}" hittest="false" />
 												</Panel>
 												<Panel class="lk-tags" hittest="false"><Label class="lk-tag" text="{s:detail_18_tag}" hittest="false" /><Label class="lk-tag2" text="{s:detail_18_tag2}" hittest="false" /></Panel>
@@ -2456,6 +2550,7 @@
 													<Label class="lk-type" text="{s:detail_19_type}" hittest="false" />
 													<Label class="lk-name" text="{s:detail_19}" hittest="false" />
 													<Label class="lk-unit" text="{s:detail_19_unit}" hittest="false" />
+													<Label class="lk-badge" text="{s:detail_19_badge}" hittest="false" />
 													<Label class="lk-sub" text="{s:detail_19_sub}" hittest="false" />
 												</Panel>
 												<Panel class="lk-tags" hittest="false"><Label class="lk-tag" text="{s:detail_19_tag}" hittest="false" /><Label class="lk-tag2" text="{s:detail_19_tag2}" hittest="false" /></Panel>
@@ -2478,6 +2573,7 @@
 													<Label class="lk-type" text="{s:detail_20_type}" hittest="false" />
 													<Label class="lk-name" text="{s:detail_20}" hittest="false" />
 													<Label class="lk-unit" text="{s:detail_20_unit}" hittest="false" />
+													<Label class="lk-badge" text="{s:detail_20_badge}" hittest="false" />
 													<Label class="lk-sub" text="{s:detail_20_sub}" hittest="false" />
 												</Panel>
 												<Panel class="lk-tags" hittest="false"><Label class="lk-tag" text="{s:detail_20_tag}" hittest="false" /><Label class="lk-tag2" text="{s:detail_20_tag2}" hittest="false" /></Panel>
@@ -2500,6 +2596,7 @@
 													<Label class="lk-type" text="{s:detail_21_type}" hittest="false" />
 													<Label class="lk-name" text="{s:detail_21}" hittest="false" />
 													<Label class="lk-unit" text="{s:detail_21_unit}" hittest="false" />
+													<Label class="lk-badge" text="{s:detail_21_badge}" hittest="false" />
 													<Label class="lk-sub" text="{s:detail_21_sub}" hittest="false" />
 												</Panel>
 												<Panel class="lk-tags" hittest="false"><Label class="lk-tag" text="{s:detail_21_tag}" hittest="false" /><Label class="lk-tag2" text="{s:detail_21_tag2}" hittest="false" /></Panel>
@@ -2522,6 +2619,7 @@
 													<Label class="lk-type" text="{s:detail_22_type}" hittest="false" />
 													<Label class="lk-name" text="{s:detail_22}" hittest="false" />
 													<Label class="lk-unit" text="{s:detail_22_unit}" hittest="false" />
+													<Label class="lk-badge" text="{s:detail_22_badge}" hittest="false" />
 													<Label class="lk-sub" text="{s:detail_22_sub}" hittest="false" />
 												</Panel>
 												<Panel class="lk-tags" hittest="false"><Label class="lk-tag" text="{s:detail_22_tag}" hittest="false" /><Label class="lk-tag2" text="{s:detail_22_tag2}" hittest="false" /></Panel>
@@ -2544,6 +2642,7 @@
 													<Label class="lk-type" text="{s:detail_23_type}" hittest="false" />
 													<Label class="lk-name" text="{s:detail_23}" hittest="false" />
 													<Label class="lk-unit" text="{s:detail_23_unit}" hittest="false" />
+													<Label class="lk-badge" text="{s:detail_23_badge}" hittest="false" />
 													<Label class="lk-sub" text="{s:detail_23_sub}" hittest="false" />
 												</Panel>
 												<Panel class="lk-tags" hittest="false"><Label class="lk-tag" text="{s:detail_23_tag}" hittest="false" /><Label class="lk-tag2" text="{s:detail_23_tag2}" hittest="false" /></Panel>
@@ -2566,6 +2665,7 @@
 													<Label class="lk-type" text="{s:detail_24_type}" hittest="false" />
 													<Label class="lk-name" text="{s:detail_24}" hittest="false" />
 													<Label class="lk-unit" text="{s:detail_24_unit}" hittest="false" />
+													<Label class="lk-badge" text="{s:detail_24_badge}" hittest="false" />
 													<Label class="lk-sub" text="{s:detail_24_sub}" hittest="false" />
 												</Panel>
 												<Panel class="lk-tags" hittest="false"><Label class="lk-tag" text="{s:detail_24_tag}" hittest="false" /><Label class="lk-tag2" text="{s:detail_24_tag2}" hittest="false" /></Panel>
@@ -2588,6 +2688,7 @@
 													<Label class="lk-type" text="{s:detail_25_type}" hittest="false" />
 													<Label class="lk-name" text="{s:detail_25}" hittest="false" />
 													<Label class="lk-unit" text="{s:detail_25_unit}" hittest="false" />
+													<Label class="lk-badge" text="{s:detail_25_badge}" hittest="false" />
 													<Label class="lk-sub" text="{s:detail_25_sub}" hittest="false" />
 												</Panel>
 												<Panel class="lk-tags" hittest="false"><Label class="lk-tag" text="{s:detail_25_tag}" hittest="false" /><Label class="lk-tag2" text="{s:detail_25_tag2}" hittest="false" /></Panel>
@@ -2610,6 +2711,7 @@
 													<Label class="lk-type" text="{s:detail_26_type}" hittest="false" />
 													<Label class="lk-name" text="{s:detail_26}" hittest="false" />
 													<Label class="lk-unit" text="{s:detail_26_unit}" hittest="false" />
+													<Label class="lk-badge" text="{s:detail_26_badge}" hittest="false" />
 													<Label class="lk-sub" text="{s:detail_26_sub}" hittest="false" />
 												</Panel>
 												<Panel class="lk-tags" hittest="false"><Label class="lk-tag" text="{s:detail_26_tag}" hittest="false" /><Label class="lk-tag2" text="{s:detail_26_tag2}" hittest="false" /></Panel>
@@ -2632,6 +2734,7 @@
 													<Label class="lk-type" text="{s:detail_27_type}" hittest="false" />
 													<Label class="lk-name" text="{s:detail_27}" hittest="false" />
 													<Label class="lk-unit" text="{s:detail_27_unit}" hittest="false" />
+													<Label class="lk-badge" text="{s:detail_27_badge}" hittest="false" />
 													<Label class="lk-sub" text="{s:detail_27_sub}" hittest="false" />
 												</Panel>
 												<Panel class="lk-tags" hittest="false"><Label class="lk-tag" text="{s:detail_27_tag}" hittest="false" /><Label class="lk-tag2" text="{s:detail_27_tag2}" hittest="false" /></Panel>
@@ -2654,6 +2757,7 @@
 											<Label class="lk-type" text="{s:detailbar_0_type}" hittest="false" />
 											<Label class="lk-name" text="{s:detailbar_0}" hittest="false" />
 											<Label class="lk-unit" text="{s:detailbar_0_unit}" hittest="false" />
+											<Label class="lk-badge" text="{s:detailbar_0_badge}" hittest="false" />
 											<Label class="lk-sub" text="{s:detailbar_0_sub}" hittest="false" />
 										</Panel>
 										<Panel class="lk-end" hittest="false"><Panel id="detailbar_0_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:detailbar_0_value}" hittest="false" /></Panel>
@@ -2666,6 +2770,7 @@
 											<Label class="lk-type" text="{s:detailbar_1_type}" hittest="false" />
 											<Label class="lk-name" text="{s:detailbar_1}" hittest="false" />
 											<Label class="lk-unit" text="{s:detailbar_1_unit}" hittest="false" />
+											<Label class="lk-badge" text="{s:detailbar_1_badge}" hittest="false" />
 											<Label class="lk-sub" text="{s:detailbar_1_sub}" hittest="false" />
 										</Panel>
 										<Panel class="lk-end" hittest="false"><Panel id="detailbar_1_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:detailbar_1_value}" hittest="false" /></Panel>
@@ -2678,6 +2783,7 @@
 											<Label class="lk-type" text="{s:detailbar_2_type}" hittest="false" />
 											<Label class="lk-name" text="{s:detailbar_2}" hittest="false" />
 											<Label class="lk-unit" text="{s:detailbar_2_unit}" hittest="false" />
+											<Label class="lk-badge" text="{s:detailbar_2_badge}" hittest="false" />
 											<Label class="lk-sub" text="{s:detailbar_2_sub}" hittest="false" />
 										</Panel>
 										<Panel class="lk-end" hittest="false"><Panel id="detailbar_2_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:detailbar_2_value}" hittest="false" /></Panel>

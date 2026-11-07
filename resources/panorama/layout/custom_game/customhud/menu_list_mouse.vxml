@@ -64,6 +64,7 @@
 								<Label class="lk-type" text="{s:option_0_type}" hittest="false" />
 								<Label class="lk-name" text="{s:option_0}" hittest="false" />
 								<Label class="lk-unit" text="{s:option_0_unit}" hittest="false" />
+								<Label class="lk-badge" text="{s:option_0_badge}" hittest="false" />
 								<Label class="lk-sub" text="{s:option_0_sub}" hittest="false" />
 								<Panel class="chud-meter ls-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
 							</Panel>
@@ -128,6 +129,7 @@
 								<Label class="lk-type" text="{s:option_1_type}" hittest="false" />
 								<Label class="lk-name" text="{s:option_1}" hittest="false" />
 								<Label class="lk-unit" text="{s:option_1_unit}" hittest="false" />
+								<Label class="lk-badge" text="{s:option_1_badge}" hittest="false" />
 								<Label class="lk-sub" text="{s:option_1_sub}" hittest="false" />
 								<Panel class="chud-meter ls-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
 							</Panel>
@@ -192,6 +194,7 @@
 								<Label class="lk-type" text="{s:option_2_type}" hittest="false" />
 								<Label class="lk-name" text="{s:option_2}" hittest="false" />
 								<Label class="lk-unit" text="{s:option_2_unit}" hittest="false" />
+								<Label class="lk-badge" text="{s:option_2_badge}" hittest="false" />
 								<Label class="lk-sub" text="{s:option_2_sub}" hittest="false" />
 								<Panel class="chud-meter ls-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
 							</Panel>
@@ -256,6 +259,7 @@
 								<Label class="lk-type" text="{s:option_3_type}" hittest="false" />
 								<Label class="lk-name" text="{s:option_3}" hittest="false" />
 								<Label class="lk-unit" text="{s:option_3_unit}" hittest="false" />
+								<Label class="lk-badge" text="{s:option_3_badge}" hittest="false" />
 								<Label class="lk-sub" text="{s:option_3_sub}" hittest="false" />
 								<Panel class="chud-meter ls-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
 							</Panel>
@@ -320,6 +324,7 @@
 								<Label class="lk-type" text="{s:option_4_type}" hittest="false" />
 								<Label class="lk-name" text="{s:option_4}" hittest="false" />
 								<Label class="lk-unit" text="{s:option_4_unit}" hittest="false" />
+								<Label class="lk-badge" text="{s:option_4_badge}" hittest="false" />
 								<Label class="lk-sub" text="{s:option_4_sub}" hittest="false" />
 								<Panel class="chud-meter ls-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
 							</Panel>
@@ -384,6 +389,7 @@
 								<Label class="lk-type" text="{s:option_5_type}" hittest="false" />
 								<Label class="lk-name" text="{s:option_5}" hittest="false" />
 								<Label class="lk-unit" text="{s:option_5_unit}" hittest="false" />
+								<Label class="lk-badge" text="{s:option_5_badge}" hittest="false" />
 								<Label class="lk-sub" text="{s:option_5_sub}" hittest="false" />
 								<Panel class="chud-meter ls-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
 							</Panel>
@@ -448,6 +454,7 @@
 								<Label class="lk-type" text="{s:option_6_type}" hittest="false" />
 								<Label class="lk-name" text="{s:option_6}" hittest="false" />
 								<Label class="lk-unit" text="{s:option_6_unit}" hittest="false" />
+								<Label class="lk-badge" text="{s:option_6_badge}" hittest="false" />
 								<Label class="lk-sub" text="{s:option_6_sub}" hittest="false" />
 								<Panel class="chud-meter ls-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
 							</Panel>
@@ -512,6 +519,7 @@
 								<Label class="lk-type" text="{s:option_7_type}" hittest="false" />
 								<Label class="lk-name" text="{s:option_7}" hittest="false" />
 								<Label class="lk-unit" text="{s:option_7_unit}" hittest="false" />
+								<Label class="lk-badge" text="{s:option_7_badge}" hittest="false" />
 								<Label class="lk-sub" text="{s:option_7_sub}" hittest="false" />
 								<Panel class="chud-meter ls-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
 							</Panel>
@@ -576,6 +584,7 @@
 								<Label class="lk-type" text="{s:option_8_type}" hittest="false" />
 								<Label class="lk-name" text="{s:option_8}" hittest="false" />
 								<Label class="lk-unit" text="{s:option_8_unit}" hittest="false" />
+								<Label class="lk-badge" text="{s:option_8_badge}" hittest="false" />
 								<Label class="lk-sub" text="{s:option_8_sub}" hittest="false" />
 								<Panel class="chud-meter ls-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
 							</Panel>
@@ -640,6 +649,7 @@
 								<Label class="lk-type" text="{s:option_9_type}" hittest="false" />
 								<Label class="lk-name" text="{s:option_9}" hittest="false" />
 								<Label class="lk-unit" text="{s:option_9_unit}" hittest="false" />
+								<Label class="lk-badge" text="{s:option_9_badge}" hittest="false" />
 								<Label class="lk-sub" text="{s:option_9_sub}" hittest="false" />
 								<Panel class="chud-meter ls-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
 							</Panel>
@@ -704,6 +714,7 @@
 								<Label class="lk-type" text="{s:option_10_type}" hittest="false" />
 								<Label class="lk-name" text="{s:option_10}" hittest="false" />
 								<Label class="lk-unit" text="{s:option_10_unit}" hittest="false" />
+								<Label class="lk-badge" text="{s:option_10_badge}" hittest="false" />
 								<Label class="lk-sub" text="{s:option_10_sub}" hittest="false" />
 								<Panel class="chud-meter ls-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
 							</Panel>
@@ -768,6 +779,7 @@
 								<Label class="lk-type" text="{s:option_11_type}" hittest="false" />
 								<Label class="lk-name" text="{s:option_11}" hittest="false" />
 								<Label class="lk-unit" text="{s:option_11_unit}" hittest="false" />
+								<Label class="lk-badge" text="{s:option_11_badge}" hittest="false" />
 								<Label class="lk-sub" text="{s:option_11_sub}" hittest="false" />
 								<Panel class="chud-meter ls-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
 							</Panel>
@@ -832,6 +844,7 @@
 								<Label class="lk-type" text="{s:option_12_type}" hittest="false" />
 								<Label class="lk-name" text="{s:option_12}" hittest="false" />
 								<Label class="lk-unit" text="{s:option_12_unit}" hittest="false" />
+								<Label class="lk-badge" text="{s:option_12_badge}" hittest="false" />
 								<Label class="lk-sub" text="{s:option_12_sub}" hittest="false" />
 								<Panel class="chud-meter ls-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
 							</Panel>
@@ -896,6 +909,7 @@
 								<Label class="lk-type" text="{s:option_13_type}" hittest="false" />
 								<Label class="lk-name" text="{s:option_13}" hittest="false" />
 								<Label class="lk-unit" text="{s:option_13_unit}" hittest="false" />
+								<Label class="lk-badge" text="{s:option_13_badge}" hittest="false" />
 								<Label class="lk-sub" text="{s:option_13_sub}" hittest="false" />
 								<Panel class="chud-meter ls-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
 							</Panel>
@@ -960,6 +974,7 @@
 								<Label class="lk-type" text="{s:option_14_type}" hittest="false" />
 								<Label class="lk-name" text="{s:option_14}" hittest="false" />
 								<Label class="lk-unit" text="{s:option_14_unit}" hittest="false" />
+								<Label class="lk-badge" text="{s:option_14_badge}" hittest="false" />
 								<Label class="lk-sub" text="{s:option_14_sub}" hittest="false" />
 								<Panel class="chud-meter ls-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
 							</Panel>
@@ -1024,6 +1039,7 @@
 								<Label class="lk-type" text="{s:option_15_type}" hittest="false" />
 								<Label class="lk-name" text="{s:option_15}" hittest="false" />
 								<Label class="lk-unit" text="{s:option_15_unit}" hittest="false" />
+								<Label class="lk-badge" text="{s:option_15_badge}" hittest="false" />
 								<Label class="lk-sub" text="{s:option_15_sub}" hittest="false" />
 								<Panel class="chud-meter ls-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
 							</Panel>
@@ -1088,6 +1104,7 @@
 								<Label class="lk-type" text="{s:option_16_type}" hittest="false" />
 								<Label class="lk-name" text="{s:option_16}" hittest="false" />
 								<Label class="lk-unit" text="{s:option_16_unit}" hittest="false" />
+								<Label class="lk-badge" text="{s:option_16_badge}" hittest="false" />
 								<Label class="lk-sub" text="{s:option_16_sub}" hittest="false" />
 								<Panel class="chud-meter ls-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
 							</Panel>
@@ -1152,6 +1169,7 @@
 								<Label class="lk-type" text="{s:option_17_type}" hittest="false" />
 								<Label class="lk-name" text="{s:option_17}" hittest="false" />
 								<Label class="lk-unit" text="{s:option_17_unit}" hittest="false" />
+								<Label class="lk-badge" text="{s:option_17_badge}" hittest="false" />
 								<Label class="lk-sub" text="{s:option_17_sub}" hittest="false" />
 								<Panel class="chud-meter ls-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
 							</Panel>
@@ -1216,6 +1234,7 @@
 								<Label class="lk-type" text="{s:option_18_type}" hittest="false" />
 								<Label class="lk-name" text="{s:option_18}" hittest="false" />
 								<Label class="lk-unit" text="{s:option_18_unit}" hittest="false" />
+								<Label class="lk-badge" text="{s:option_18_badge}" hittest="false" />
 								<Label class="lk-sub" text="{s:option_18_sub}" hittest="false" />
 								<Panel class="chud-meter ls-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
 							</Panel>
@@ -1280,6 +1299,7 @@
 								<Label class="lk-type" text="{s:option_19_type}" hittest="false" />
 								<Label class="lk-name" text="{s:option_19}" hittest="false" />
 								<Label class="lk-unit" text="{s:option_19_unit}" hittest="false" />
+								<Label class="lk-badge" text="{s:option_19_badge}" hittest="false" />
 								<Label class="lk-sub" text="{s:option_19_sub}" hittest="false" />
 								<Panel class="chud-meter ls-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
 							</Panel>
@@ -1344,6 +1364,7 @@
 								<Label class="lk-type" text="{s:option_20_type}" hittest="false" />
 								<Label class="lk-name" text="{s:option_20}" hittest="false" />
 								<Label class="lk-unit" text="{s:option_20_unit}" hittest="false" />
+								<Label class="lk-badge" text="{s:option_20_badge}" hittest="false" />
 								<Label class="lk-sub" text="{s:option_20_sub}" hittest="false" />
 								<Panel class="chud-meter ls-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
 							</Panel>
@@ -1408,6 +1429,7 @@
 								<Label class="lk-type" text="{s:option_21_type}" hittest="false" />
 								<Label class="lk-name" text="{s:option_21}" hittest="false" />
 								<Label class="lk-unit" text="{s:option_21_unit}" hittest="false" />
+								<Label class="lk-badge" text="{s:option_21_badge}" hittest="false" />
 								<Label class="lk-sub" text="{s:option_21_sub}" hittest="false" />
 								<Panel class="chud-meter ls-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
 							</Panel>
@@ -1472,6 +1494,7 @@
 								<Label class="lk-type" text="{s:option_22_type}" hittest="false" />
 								<Label class="lk-name" text="{s:option_22}" hittest="false" />
 								<Label class="lk-unit" text="{s:option_22_unit}" hittest="false" />
+								<Label class="lk-badge" text="{s:option_22_badge}" hittest="false" />
 								<Label class="lk-sub" text="{s:option_22_sub}" hittest="false" />
 								<Panel class="chud-meter ls-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
 							</Panel>
@@ -1536,6 +1559,7 @@
 								<Label class="lk-type" text="{s:option_23_type}" hittest="false" />
 								<Label class="lk-name" text="{s:option_23}" hittest="false" />
 								<Label class="lk-unit" text="{s:option_23_unit}" hittest="false" />
+								<Label class="lk-badge" text="{s:option_23_badge}" hittest="false" />
 								<Label class="lk-sub" text="{s:option_23_sub}" hittest="false" />
 								<Panel class="chud-meter ls-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
 							</Panel>
@@ -1616,6 +1640,7 @@
 							<Label class="lk-type" text="{s:foot_0_type}" hittest="false" />
 							<Label class="lk-name" text="{s:foot_0}" hittest="false" />
 							<Label class="lk-unit" text="{s:foot_0_unit}" hittest="false" />
+							<Label class="lk-badge" text="{s:foot_0_badge}" hittest="false" />
 							<Label class="lk-sub" text="{s:foot_0_sub}" hittest="false" />
 						</Panel>
 						<Panel class="lk-tags" hittest="false"><Label class="lk-tag" text="{s:foot_0_tag}" hittest="false" /><Label class="lk-tag2" text="{s:foot_0_tag2}" hittest="false" /></Panel>
@@ -1652,6 +1677,7 @@
 							<Label class="lk-type" text="{s:foot_1_type}" hittest="false" />
 							<Label class="lk-name" text="{s:foot_1}" hittest="false" />
 							<Label class="lk-unit" text="{s:foot_1_unit}" hittest="false" />
+							<Label class="lk-badge" text="{s:foot_1_badge}" hittest="false" />
 							<Label class="lk-sub" text="{s:foot_1_sub}" hittest="false" />
 						</Panel>
 						<Panel class="lk-tags" hittest="false"><Label class="lk-tag" text="{s:foot_1_tag}" hittest="false" /><Label class="lk-tag2" text="{s:foot_1_tag2}" hittest="false" /></Panel>
@@ -1688,6 +1714,7 @@
 							<Label class="lk-type" text="{s:foot_2_type}" hittest="false" />
 							<Label class="lk-name" text="{s:foot_2}" hittest="false" />
 							<Label class="lk-unit" text="{s:foot_2_unit}" hittest="false" />
+							<Label class="lk-badge" text="{s:foot_2_badge}" hittest="false" />
 							<Label class="lk-sub" text="{s:foot_2_sub}" hittest="false" />
 						</Panel>
 						<Panel class="lk-tags" hittest="false"><Label class="lk-tag" text="{s:foot_2_tag}" hittest="false" /><Label class="lk-tag2" text="{s:foot_2_tag2}" hittest="false" /></Panel>

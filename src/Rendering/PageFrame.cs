@@ -168,7 +168,7 @@ internal static class PageFrame
         PageDraw? draw = null;
         if (integration is { } owner)
         {
-            draw = new PageDraw(owner.Host, session, rendererId, components, rendered, index, Math.Max(1, reachable.Count),
+            draw = new PageDraw(owner.Host, session, rendererId, components, rendered, context.Frame.Header, index, Math.Max(1, reachable.Count),
                 owner.Strings, owner.Regions, owner.RowSlots, owner.Icons, owner.View);
             owner.Host.Draw(owner.Integration, draw);
         }
@@ -196,7 +196,7 @@ internal static class PageFrame
         }
         if (draw is not null) nodes.AddRange(draw.AddedBefore(page.Count));
 
-        var header = draw is { Header.Count: > 0 } ? [.. context.Frame.Header, .. draw.Header] : context.Frame.Header;
+        var header = draw is null ? context.Frame.Header : [.. draw.ProviderHeader, .. draw.Header];
         var frame = context.Frame with { Header = header, Body = nodes, PageOffset = page.Start, TotalItems = focusableCount };
         return (frame, new MenuPage(page.Start, page.Count, index, Math.Max(1, reachable.Count),
             page.FocusablesBefore, previous, next) { KeyedBefore = page.KeyedBefore });

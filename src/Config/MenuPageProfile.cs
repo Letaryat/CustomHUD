@@ -156,6 +156,7 @@ public sealed class PageClasses
     // On a slot, from its directives.
     public string Tone { get; set; } = "tone-{0}";
     public string SubTone { get; set; } = "sub-{0}";
+    public string BadgeTone { get; set; } = "badge-{0}";
     public string TagTone { get; set; } = "tag-{0}";
     public string Tag2Tone { get; set; } = "tag2-{0}";
     public string NoteTone { get; set; } = "note-{0}";
@@ -191,6 +192,8 @@ public sealed class PageClasses
     public string HasSub { get; set; } = "has-sub";
     // `unit=`: a word after the name ("1 210" won), flowing beside it in views that want it.
     public string HasUnit { get; set; } = "has-unit";
+    // `badge=`: a small boxed label after the name, on its own ground (a map's kind).
+    public string HasBadge { get; set; } = "has-badge";
     public string HasTag { get; set; } = "has-tag";
     public string HasTag2 { get; set; } = "has-tag2";
     public string HasNote { get; set; } = "has-note";

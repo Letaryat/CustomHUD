@@ -120,6 +120,11 @@ Images go in `images/custom_game/customhud/`. A PNG is referenced as
 - **Thin bars take no `box-shadow`.** In-game, a 6px blur round the locker's 2px
   rarity bar drew as a thick, bright halo, far stronger than a browser shows it.
   State and rarity bars stay crisp lines; the colour comes from gradients.
+- **Side menus cast a light shadow.** A shadow is drawn behind the whole panel
+  unless it is `hollow`, so it darkens through the translucent surface as well
+  as below it. The list's `0 16 40` drop in `chudShadowDrop` read as a heavy
+  smear in-game; the side shells (`.ls`, `.chud-menu`) take half their geometry
+  in `chudShadowDim`, and the centred lockers keep their full drop.
 - **One border colour per panel.** Panorama keeps each side's width but draws
   every side in one colour, the top's when the top has one. In-game the menu's
   orange left edge came out grey under a grey hairline, and the lockers' grey
@@ -185,6 +190,7 @@ lives in `menu_mouse.vcss`, which every mouse layout includes; the rest are in
 | Inset control | a control on a row or card, a step darker than its ground | `locker.vcss` |
 | Chip | a control sized to its text | `locker.vcss` |
 | Solid pill | a pill on a picture or hanging off a card's edge: the hue itself, with `chudTextInk` on it | `locker.vcss` |
+| Badge | a small boxed label under a name, on its own `chudSurfaceBase` ground so it reads on any row, the cursor's orange and a share's fill included; its tone colours the edge and the words (a map's kind) | `locker.vcss` |
 | Danger | a destructive button: a `Soft` red fill in a red edge, `Dim` on hover, red label | `locker.vcss` |
 | Primary | the page's one main action | `locker.vcss` |
 | Featured | the leader, a podium's first place, the tier on offer | `locker.vcss` |
@@ -417,14 +423,14 @@ Button beside it for an inline entry's own action (ShopCore's Sell). A region
 only declares the parts its designs use:
 
 ```text
-#<p>N.lk-slot                              has-<part> · tone- sub- tag- tag2- note- meter-<tone> · kind-<kind> · grp-<group> · section · lead · primary
+#<p>N.lk-slot                              has-<part> · tone- sub- badge- tag- tag2- note- meter-<tone> · kind-<kind> · grp-<group> · section · lead · primary
 ├─ #<p>N_hit.lk-hit
 │  ├─ #<p>N_icon.lk-rarity                 a full-size layer under everything; views draw boxes with it
 │  ├─ #<p>N_thumb.lk-thumb, #<p>N_logo.lk-logo   econ-<token>: picture, and a map's logo
 │  ├─ .lk-mark > {s:<p>N_mark}             avatar, prefix art, step number
 │  ├─ .lk-shade                            a view's overlay above the art
 │  ├─ .lk-swatch, #<p>N_glyph, .lk-rating
-│  ├─ .lk-text > {s:<p>N_type} {s:<p>N} {s:<p>N_unit} {s:<p>N_sub}
+│  ├─ .lk-text > {s:<p>N_type} {s:<p>N} {s:<p>N_unit} {s:<p>N_badge} {s:<p>N_sub}
 │  ├─ .lk-tags > #<p>N_tagglyph, {s:<p>N_tag} {s:<p>N_tag2}
 │  ├─ .lk-note, .lk-end > (#<p>N_vglyph, {s:<p>N_value}, {s:<p>N_vunit})
 │  └─ .lk-switch, .lk-chev, .lk-meter, .lk-meter2, .lk-pips > 20 pips
@@ -471,7 +477,7 @@ single line: the art, the text taking whatever is left, then the right side.
 │  ├─ .ls-key                              {s:option_N_key}: faint in Wasd/Buttons, a keycap in Numbers (keyboard only)
 │  ├─ .ls-stripe                           the compact view's rarity stripe
 │  ├─ .ls-art > icon (rarity glow), thumb, mark, glyph, rating
-│  ├─ .lk-text > type, name, unit, sub, .ls-meter (a progress bar)
+│  ├─ .lk-text > type, name, unit, badge, sub, .ls-meter (a progress bar)
 │  ├─ .lk-rating.ls-rating-end, .lk-tags
 │  ├─ .ls-track                            a slider's track (keyboard only)
 │  ├─ .ls-end > ‹ .ls-val (.lk-end value, .lk-note under it) pen › cycle
@@ -479,8 +485,10 @@ single line: the art, the text taking whatever is left, then the right side.
 └─ .ls-ctl                                 mouse only: track + 21 #option_N_segK, #option_N_dec, value, #option_N_inc
 ```
 
-Rows are sized by what they hold: 36px, 52px with art or a second line, 44px
-with a meter or as a ballot's answer, 24px a heading. A fact (a row the cursor
+Rows are sized by what they hold: 36px, 52px with art or a second line, 62px
+with a badge and a sub (three lines), 44px with a meter or as a ballot's
+answer, 24px a heading. On the cursor's row the second line brightens with the
+name, so it reads on the orange. A fact (a row the cursor
 skips, or one marked `info` that it only passes through) and a meter sit on
 the panel with no ground and no key. The right side
 is the component's control: `kind-toggle` a switch, `kind-selector` `‹ value ›`,
@@ -636,7 +644,8 @@ Valve's sources, not an observed result:
 - whether `menu_locker`'s ~3 200 panels spawn and diff without a visible
   hitch: each page writes every variable its slots declare;
 - whether `right-wrap` breaks the locker's card lines where the sheets expect,
-  given the slack they keep below an exactly full line;
+  given the slack they keep below an exactly full line, and whether the list's
+  100%-wide name puts a `badge=` row's badge on a line of its own;
 - whether `wash-color` tints a map logo and the glyphs as it does elsewhere,
   and whether a radial `gradient()` draws the rank badge's tier glow;
 - whether a click on a slot's `_inline` Button reaches it rather than the

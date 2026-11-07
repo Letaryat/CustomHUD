@@ -49,6 +49,7 @@ public static class LockerProfiles
             InlineSuffix = has.Contains("inline") ? "_inline" : null,
             SubVar = prefix + "{0}_sub",
             UnitVar = prefix + "{0}_unit",
+            BadgeVar = prefix + "{0}_badge",
             TagVar = If("tags", "{0}_tag"),
             Tag2Var = If("tags", "{0}_tag2"),
             NoteVar = If("note", "{0}_note"),
