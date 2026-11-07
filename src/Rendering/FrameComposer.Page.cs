@@ -43,12 +43,14 @@ internal sealed partial class FrameComposer
         // A plugin can put chips (and a view) in the header, which every chunk of a long list keeps.
         var chips = new List<RowContent>();
         var titleParts = new List<string>();
+        var live = new List<string>();
         string? view = null;
         string? hint = null;
         foreach (var node in frame.Header)
         {
             var piece = Flatten(node, reportUnsupported);
             view ??= piece.View;
+            if (piece.Live is { } entry) live.Add(entry);
             if (piece.Chip) chips.Add(piece);
             else if (piece.Hint) hint ??= piece.Text.Length > 0 ? piece.Text : null;
             else if (piece.Text.Length > 0) titleParts.Add(piece.Text);
@@ -211,7 +213,7 @@ internal sealed partial class FrameComposer
         };
 
         if (mode == NavMode.Mouse && profile.Sidebar is { } sidebar)
-            rows = ComposeSidebar(context, profile, sidebar, rows, vars, classes);
+            rows = ComposeSidebar(context, profile, sidebar, rows, vars, classes, live);
         if (rows.SidebarItems.IsEmpty) classes.Add(new ClassWrite(shell, pc.NoSidebar, true));
         rows = ComposeTabs(context, profile, page, rows, vars, classes);
         ComposeTitleLine(context, profile, page, vars, classes);
@@ -340,6 +342,8 @@ internal sealed partial class FrameComposer
         var label = parts[0];
         var value = entry.Kind == "slider" && entry.ValueText is { } readout ? readout
             : parts.Length > 1 ? parts[1] : string.Empty;
+        // A layout with nowhere else for the unit keeps it on the value ("45%").
+        if (value.Length > 0 && spec.ValueUnit(i) is null) value += entry.ValueUnit;
         var iconToken = entry.Icon ?? (parts.Length > 2 ? parts[2] : string.Empty);
         if (iconToken.Length == 0 && entry.Color is { } color && profile.ColorIcons.TryGetValue(color, out var colorIcon))
             iconToken = colorIcon;
@@ -354,8 +358,9 @@ internal sealed partial class FrameComposer
             ?? (entry.Color is { } toneColor && page.ColorTones.TryGetValue(toneColor, out var colorTone) ? colorTone : null)
             ?? (mapLike && PresetToken().IsMatch(Prefix(label).ToLowerInvariant()) ? Prefix(label).ToLowerInvariant() : null);
         var mark = entry.Mark ?? (entry.Avatar ? Initial(label) : mapLike ? Prefix(label) : null);
-        var (tag, tagTone) = (entry.Tag, entry.TagTone);
-        if (leadTag is { Length: > 0 } && string.IsNullOrEmpty(tag)) (tag, tagTone) = (leadTag, tagTone ?? "gold");
+        var (tag, tagTone, tagGlyph) = (entry.Tag, entry.TagTone, entry.TagGlyph);
+        if (leadTag is { Length: > 0 } && string.IsNullOrEmpty(tag))
+            (tag, tagTone, tagGlyph) = (leadTag, tagTone ?? "gold", tagGlyph ?? (page.LeadGlyph.Length > 0 ? page.LeadGlyph : null));
 
         if (spec.Value(i) is { } valueVar)
         {
@@ -373,6 +378,17 @@ internal sealed partial class FrameComposer
         WriteText(vars, classes, panel, spec.Tag2(i), entry.Tag2, pc.HasTag2);
         WriteText(vars, classes, panel, spec.Note(i), entry.Note, pc.HasNote);
         WriteText(vars, classes, panel, spec.Mark(i), mark, pc.HasMark);
+        WriteText(vars, classes, panel, spec.ValueUnit(i), value.Length > 0 ? entry.ValueUnit : null, pc.HasValueUnit);
+        if (spec.TagGlyph(i) is { } tagGlyphPanel)
+        {
+            var shown = tagGlyph is not null && !string.IsNullOrEmpty(tag);
+            if (shown)
+            {
+                classes.Add(new ClassWrite(panel, pc.HasTagGlyph, true));
+                classes.Add(new ClassWrite(tagGlyphPanel, Format(pc.Glyph, tagGlyph!), true));
+            }
+            classes.Add(new ClassWrite(tagGlyphPanel, cls.Hidden, !shown));
+        }
         if (spec.Key(i) is { } keyVar)
         {
             vars.Add(new VarWrite(panel, keyVar, key > 0 ? key.ToString(CultureInfo.InvariantCulture) : string.Empty));
@@ -921,6 +937,9 @@ internal sealed partial class FrameComposer
             case "metertone": if (Plain(value)) content.MeterTone = value; break;
             case "glyph": if (Plain(value)) content.Glyph = value; break;
             case "vglyph": if (Plain(value)) content.ValueGlyph = value; break;
+            case "tagglyph": if (Plain(value)) content.TagGlyph = value; break;
+            case "vunit": content.ValueUnit = value; break;
+            case "live": if (value is { Length: > 0 }) content.Live = value; break;
             case "swatch": if (Plain(value)) content.Swatch = value; break;
             case "rating":
                 if (int.TryParse(value, NumberStyles.None, CultureInfo.InvariantCulture, out var rating))

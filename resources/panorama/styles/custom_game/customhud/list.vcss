@@ -1032,6 +1032,14 @@
 	letter-spacing: 1px;
 }
 
+/* A foot row's parts flow left to right, so its note follows the caption: a gap before it,
+   and none of the right margin a list row's note keeps clear of the value column. */
+.ls .ls-foot-row .lk-note
+{
+	vertical-align: center;
+	margin: 0px 0px 0px 12px;
+}
+
 /* ---- the legend: the keys that work now, then the page ---- */
 
 .ls-keys .ls-bar

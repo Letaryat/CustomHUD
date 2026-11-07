@@ -185,14 +185,23 @@ plugin built. Any other custom renderer can read the same API.
 | Ranks_Prestige | `Ranks.Prestige.Api.v1` | 1.0.1 | `prestige.*` | The level and the next-level meter as tiles |
 | WeaponSkins | `WeaponSkins.API` | A build whose API has `Agents`, `MusicKits`, `GetImageKey` | `weaponskins.*` | Item art, captions and the equipped outline |
 | ShopCore | `ShopCore.API.v2` | 1.1.9 | `shopcore.*` | Prices in a value column, item art, and owned, equipped or unaffordable state |
-| MapChooser | `MapChooser.Api.v1` | 1.4.0 | `mapchooser.*` | A live vote tally, map screenshots and logos, pool limits |
+| MapChooser | `MapChooser.Api.v1` | 1.5.0 (contract 1.1.0) | `mapchooser.*` | The vote as cards or poll rows with each option's share, the vote's clock and turnout, the map menu as the sidebar, and the pool with player limits, nominations and why a map can't be nominated |
 | VIPCore | `VIPCore.Api.v1` | 1.2.0 (contract 1.1.0) | `vipcore.*` | The membership over its perk cards, choices as cards, admin pages as a table beside the selected player's grants |
 
-- **MapChooser:** the next-map vote gets each map's count as `text=\t`, its share
-  as `bar=` and `chosen` on the player's vote, so it reads as a live tally. Once
-  the player votes, a read-only tally (`mapchooser.eof-vote.tally`) stays open
-  until the vote ends. A stock map shows its screenshot and logo, another map
-  its prefix in the mark, a workshop map a `Workshop` tag.
+- **MapChooser:** the ballot gets each option's share as `text=\t45;vunit=%` and
+  `bar=`, its votes as `note=`, and `chosen` with a `Your vote` tag on the
+  player's pick; the vote's clock and turnout are chips, plus a turnout line in
+  the `maps-rows` view. Once the player votes, a read-only tally under the same
+  menu id stays open until the vote ends. The pool pages show each map's player
+  limits, its nominations (`Nominated`, `Your pick`) and why it can't be
+  nominated now (`Played recently`, `Needs 10 players`), under a chip with the
+  map's time left. A stock map shows its screenshot and logo, another map its
+  prefix over stripes in that prefix's tone, a workshop map a `Workshop` tag.
+  Start a vote shows the pool the same way: a ticked map is outlined and
+  glows, and the start button is an action card whose line is its hint, which
+  MapChooser words (what it does, or why no vote can start now).
+  MapChooser's map menu (`mapchooser.hub`, `!maps`) is the sidebar, its Vote
+  entry marked with a red dot while a vote runs.
 - **ShopCore:** prices go out as `text=\t500`, so other renderers still read
   `Neon Tracer [500]` and a long name never truncates its price. An item's
   picture is its `ShopItemDefinition.ImageKey`; any other item shows its
@@ -226,7 +235,7 @@ A page is built from the same components as any other menu. These directives, in
 a `MenuRawNode("customhud.panorama", "…")` on the entry, place it and say what
 it is; other renderers ignore them. Directives are separated by `;`, so a text
 value runs to the next one. A value that becomes part of a class name (`at=`,
-`view=`, `group=`, the tones, `glyph=`, `swatch=`) must be a plain token: up to
+`view=`, `group=`, the tones, `glyph=`, `tagglyph=`, `swatch=`) must be a plain token: up to
 24 lowercase letters, digits and `-`.
 
 **Placement:**
@@ -250,15 +259,18 @@ value runs to the next one. A value that becomes part of a class name (`at=`,
 | `tone=`, `subtone=`, `tagtone=`, `tag2tone=`, `notetone=`, `metertone=` | Colours, from the tone table below |
 | `glyph=<icon>` | An icon from `customhud_icons.vcss` (`ico-<icon>`) |
 | `vglyph=<icon>` | The value's own icon, such as a price's coin, so `glyph=` can be the entry's. Without it the value shows `glyph=` |
+| `tagglyph=<icon>` | An icon inside the `tag=` pill, before its words (a lock on `Played recently`) |
+| `vunit=<text>` | The value's unit after it, smaller and muted (`45` then `%`). A layout with no place for it appends it to the value |
 | `swatch=<colour>` | A colour dot: `red`, `blue`, `green`, `yellow`, `purple`, `orange`, `pink`, `cyan`, `white`, `black`, `team` or `random` |
 | `avatar[=text]` | The mark square with the name's initial in a colour fixed per name, or the given text |
 | `rating=N` | A CS Rating badge in its band colour |
 | `pips=K/N` | N pips, K of them lit; N up to 20 |
 | `nays=M` | With `pips=`, M more lit after the K as no votes, in red |
 | `bar2=N` | A second meter, 0-100, in the list |
-| `lead` | The leading entry: a gold `Leading` tag unless it has a tag of its own. On MapChooser's pages the single highest `bar=` leads without it |
+| `lead` | The leading entry: a gold `Leading` tag unless it has a tag of its own. On MapChooser's pages the single highest `bar=` leads without it, and on MapChooser's and MixScrims' pages the tag carries a trophy |
 | `map` | Reads a text entry's label as a map, for its art |
 | `hint` | On a header entry: its text is the page's footer line for a mouse player (`Click a map to vote`), in place of the mode's hint. Keyboard pages keep their keys |
+| `live=<menu id>` | On a header entry with no text: the sidebar entry whose `SubmenuComponent.Id` is that id gets a red dot, for a page with something running on it (MapChooser's vote) |
 
 **Behaviour:**
 
@@ -280,7 +292,8 @@ value runs to the next one. A value that becomes part of a class name (`at=`,
 | The meter | `metertone=` | `good` `bad` `gold` `accent` |
 
 Views add tones of their own and use `tone=` for a whole card: MapChooser's
-`extend`, `aim`, `awp` and `surf`, and the rank tiers below.
+`extend`, `aim`, `awp` and `surf`, `ready` for its Start a vote button when it
+can start, and the rank tiers below.
 
 On MapChooser's pages a label is read as a map on an entry to click, a `bar=`
 share or a `map` entry. A stock map (`de_mirage`) shows its screenshot and logo;

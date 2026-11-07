@@ -1,23 +1,30 @@
+using System.Globalization;
 using System.Runtime.CompilerServices;
 using CustomHUD.Config;
 using MapChooser.Contract;
 using SwiftlyS2.Shared;
 using SwiftlyS2.Shared.Menu;
+using SwiftlyS2.Shared.Menu.Components;
 
 namespace CustomHUD.Integrations.MapPages;
 
-// MapChooser's pages with each map's art, read from IMapChooserApi: every map row carries the map's
-// name as Tag, which GetMap resolves to the map the server loads. The end-of-map ballot also gets each
-// option's count, a share bar and the player's own pick. After voting, MapChooser closes the ballot;
-// CustomHUD then opens a read-only tally in its place, which closes when the vote ends.
+// MapChooser's pages with each map's art and state, read from IMapChooserApi: every map row carries the
+// map's name as Tag, which GetMap resolves. The ballot shows each option's share, votes and the player's
+// pick under the vote's clock and turnout; the pool pages show player ranges, nominations and why a map
+// can't be picked. After voting, MapChooser closes the ballot; CustomHUD then opens a read-only tally in
+// its place, under the same hub, which closes when the vote ends.
 internal sealed class MapChooserIntegration : IPageIntegration, IDisposable
 {
-    private const string TallyId = "mapchooser.eof-vote.tally";
+    private const string RowsView = "maps-rows";
+    private const int MaxPips = 20;
 
     private readonly IMapChooserApi _api;
     private readonly ISwiftlyCore _core;
     private readonly IntegrationHost _host;
     private readonly Dictionary<int, IMenu> _tallies = [];
+    // The hub each player's last ballot opened under, so the tally that replaces it keeps the sidebar.
+    private readonly Dictionary<int, IMenu?> _hubs = [];
+    private readonly CancellationTokenSource _clock;
 
     private MapChooserIntegration(IMapChooserApi api, ISwiftlyCore core, IntegrationHost host)
     {
@@ -26,6 +33,9 @@ internal sealed class MapChooserIntegration : IPageIntegration, IDisposable
         _host = host;
         _api.VoteChanged += OnVoteChanged;
         _api.PlayerVoted += OnPlayerVoted;
+        _api.NominationsChanged += OnNominationsChanged;
+        // The chips count down; MapChooser's own timer only reopens menus, it never redraws one.
+        _clock = core.Scheduler.RepeatBySeconds(1f, OnClock);
     }
 
     public string Provider => "MapChooser";
@@ -33,7 +43,7 @@ internal sealed class MapChooserIntegration : IPageIntegration, IDisposable
     [MethodImpl(MethodImplOptions.NoInlining)]
     public static IPageIntegration? TryCreate(IInterfaceManager interfaces, ISwiftlyCore core, IntegrationHost host)
     {
-        ApiProbe.Require(typeof(IMapChooserApi), "MapChooser 1.4.0", nameof(IMapChooserApi.GetMap));
+        ApiProbe.Require(typeof(IMapChooserApi), "MapChooser 1.5.0", nameof(IMapChooserApi.GetAvailability));
         return interfaces.TryGetSharedInterface<IMapChooserApi>(IMapChooserApi.InterfaceKey, out var api) && api is not null
             ? new MapChooserIntegration(api, core, host)
             : null;
@@ -45,56 +55,174 @@ internal sealed class MapChooserIntegration : IPageIntegration, IDisposable
 
     public void Draw(PageDraw page)
     {
-        var ballot = page.Menu.Id.StartsWith("mapchooser.eof-vote", StringComparison.Ordinal);
-        if (Hint(page.Menu.Id) is { } hint) page.Hint(T(page, hint));
+        var tally = IsTally(page.Menu, page.Player.Slot);
+        var ballot = tally || page.Menu.Id.StartsWith(MapChooserMenuIds.Vote, StringComparison.Ordinal);
+        if (!tally && Hint(page.Menu.Id) is { } hint) page.Hint(T(page, hint));
+        if (_api.IsVoteActive) page.AddHeader(string.Empty, "live=" + MapChooserMenuIds.Vote);
 
-        var total = _api.TotalVotes;
-        var mine = ballot ? _api.GetPlayerVote(page.Player.Slot) : null;
-        for (var k = 0; k < page.Components.Count; k++)
-        {
-            if (page.Components[k] is not MenuComponentBase { Tag: string name }) continue;
-            var parts = new List<string>(4);
-            var map = _api.GetMap(name);
-            if (Art(page, map) is { Length: > 0 } art) parts.Add(art);
-
-            if (ballot)
-            {
-                var count = _api.GetVoteCount(name);
-                var share = total > 0 ? (int)Math.Round(100.0 * count / total, MidpointRounding.AwayFromZero) : 0;
-                parts.Add($"text=\t{count};bar={share}");
-                if (name == mine) parts.Add("chosen");
-            }
-            else if (map is not null)
-            {
-                parts.Add("sub=" + Players(page, map));
-            }
-
-            if (parts.Count > 0) page.Decorate(k, string.Join(';', parts));
-        }
+        if (ballot) DrawBallot(page, tally);
+        else DrawPool(page);
     }
 
     public void Dispose()
     {
+        _clock.Cancel();
+        _clock.Dispose();
         _api.VoteChanged -= OnVoteChanged;
         _api.PlayerVoted -= OnPlayerVoted;
+        _api.NominationsChanged -= OnNominationsChanged;
         CloseTallies();
     }
 
-    // A stock map shows its screenshot and logo; another map the server has installed shows its
-    // prefix (aim_redline: AIM) in the mark, in that prefix's tone; a workshop map, whose own name
-    // is not known until it loads, shows the stand-in mark and a Workshop tag.
-    private static string? Art(PageDraw page, MapChooserMap? map)
+    private void DrawBallot(PageDraw page, bool tally)
+    {
+        var slot = page.Player.Slot;
+        // MapChooser drops the parent as it dismisses a voted ballot, so a late redraw must not clear it.
+        if (!tally && page.Menu.Parent is { } hub) _hubs[slot] = hub;
+
+        var total = _api.TotalVotes;
+        var voters = Math.Max(_api.EligibleVoters, total);
+        var clock = Clock(_api.VoteSecondsLeft);
+        if (_api.IsVoteActive)
+        {
+            page.AddHeader($"{clock}\t{T(page, "chip.vote_ends")}", "chip=warn;glyph=stopwatch");
+            page.AddHeader($"{total} / {voters}\t{T(page, "chip.voted")}", "chip;glyph=check");
+        }
+
+        var rows = page.View == RowsView;
+        var mine = _api.GetPlayerVote(slot);
+        for (var k = 0; k < page.Components.Count; k++)
+        {
+            if (page.Components[k] is not MenuComponentBase { Tag: string option }) continue;
+            var extend = option == IMapChooserApi.ExtendOption;
+            var map = extend ? null : _api.GetMap(option);
+            var count = _api.GetVoteCount(option);
+            var share = total > 0 ? (int)Math.Round(100.0 * count / total, MidpointRounding.AwayFromZero) : 0;
+
+            var parts = new List<string>(8) { $"text=\t{share};vunit=%;bar={share}" };
+            if (Art(page, map, workshopTag: !rows) is { Length: > 0 } art) parts.Add(art);
+            if (extend)
+            {
+                // What an extend adds: beside the votes on a card, under the name on a row.
+                parts.AddRange(["tone=extend", "glyph=timer"]);
+                if (rows) parts.AddRange(["sub=" + Extend(page, "long"), "note=" + Votes(page, count)]);
+                else parts.Add("note=" + string.Join(" · ", new[] { Votes(page, count), Extend(page, "short") }.Where(s => s.Length > 0)));
+            }
+            else
+            {
+                if (map is not null) parts.Add("sub=" + Kind(page, map));
+                parts.Add("note=" + Votes(page, count));
+            }
+            if (option == mine) parts.AddRange(["chosen", "tag=" + T(page, "your_vote"), "tagtone=accent"]);
+            page.Decorate(k, string.Join(';', parts));
+        }
+
+        // The poll rows' turnout line; the cards and the keyboard list carry it in the chips alone.
+        if (rows && _api.IsVoteActive && voters > 0)
+        {
+            // One pip per player, up to what the layout draws; past that each pip is a share.
+            var (lit, of) = voters <= MaxPips ? (Math.Min(total, voters), voters) : ((int)Math.Round((double)MaxPips * total / voters), MaxPips);
+            page.Add(T(page, "turnout", total, voters), $"at=foot;info;pips={lit}/{of};note={T(page, "ends_in", clock)};notetone=bad");
+        }
+    }
+
+    private void DrawPool(PageDraw page)
+    {
+        var nominate = page.Menu.Id == MapChooserMenuIds.Nominate;
+        var startVote = page.Menu.Id == MapChooserMenuIds.StartVote;
+        if (MapChip(page) is { } chip) page.AddHeader(chip.Text, chip.Payload);
+
+        var mine = nominate ? _api.GetPlayerNomination(page.Player.Slot) : null;
+        var nominated = nominate ? _api.Nominations : [];
+        for (var k = 0; k < page.Components.Count; k++)
+        {
+            if (page.Components[k] is not MenuComponentBase { Tag: string name } row)
+            {
+                if (startVote && page.Components[k] is ButtonComponent start) StartAction(page, k, start);
+                continue;
+            }
+            var map = _api.GetMap(name);
+            if (map is null) continue;
+
+            var parts = new List<string>(6) { "sub=" + Players(page, map), "subtone=info" };
+            if (Art(page, map, workshopTag: true) is { Length: > 0 } art) parts.Add(art);
+            // Start a vote ticks maps: a ticked one is outlined like a pick.
+            if (row is ToggleComponent toggle && toggle.GetValue(page.Session)) parts.Add("chosen");
+            if (nominate)
+            {
+                if (Unavailable(page, map) is { } reason) parts.Add(reason);
+                else if (string.Equals(name, mine, StringComparison.OrdinalIgnoreCase))
+                    parts.AddRange(["chosen", "tag=" + T(page, "your_pick"), "tagtone=accent"]);
+                else if (nominated.Contains(name, StringComparer.OrdinalIgnoreCase))
+                    parts.AddRange(["tag=" + T(page, "nominated"), "tagtone=info"]);
+            }
+            page.Decorate(k, string.Join(';', parts));
+        }
+    }
+
+    // Start a vote's own button, among the maps: an action card whose line is the button's hint, which
+    // says what it does or why it can't in MapChooser's words. Ready to start, it takes the accent.
+    private static void StartAction(PageDraw page, int k, ButtonComponent start)
+    {
+        var parts = new List<string>(4) { "group=start", "glyph=ticket" };
+        if (start.GetHint(page.Session, static key => key) is { Length: > 0 } hint) parts.Add("sub=" + Directive.Clean(hint));
+        if (start.IsEnabled(page.Session)) parts.Add("tone=ready");
+        page.Decorate(k, string.Join(';', parts));
+    }
+
+    // A stock map shows its screenshot and logo. Any other map shows its prefix (aim_redline: AIM) over
+    // stripes in that prefix's tone, and a workshop map a Workshop tag too. A workshop map's own name is
+    // not known until it loads, so its prefix comes from its pool name when that is shaped like a map's.
+    private static string? Art(PageDraw page, MapChooserMap? map, bool workshopTag)
     {
         if (map is null) return null;
-        if (map.MapName is { Length: > 0 } loaded)
-        {
-            var key = loaded.Trim().ToLowerInvariant();
-            if (LockerProfiles.StockMaps.Contains(key)) return "image=map/" + key;
-            var prefix = key.Split('_')[0];
-            return key.Contains('_') && Directive.IsToken(prefix) ? $"mark={prefix.ToUpperInvariant()};tone={prefix}" : null;
-        }
-        return map.WorkshopId is not null ? $"mark=WS;tag={T(page, "workshop")};tagtone=dark" : null;
+        var loaded = map.MapName?.Trim().ToLowerInvariant();
+        if (loaded is not null && LockerProfiles.StockMaps.Contains(loaded)) return "image=map/" + loaded;
+
+        var prefix = Prefix(loaded ?? map.Name.Trim().ToLowerInvariant());
+        if (map.WorkshopId is null) return prefix is null ? null : $"mark={prefix.ToUpperInvariant()};tone={prefix}";
+        var mark = prefix is null ? "mark=WS" : $"mark={prefix.ToUpperInvariant()};tone={prefix}";
+        return workshopTag ? $"{mark};tag2={T(page, "workshop")};tag2tone=dark" : mark;
     }
+
+    private static string? Prefix(string name)
+    {
+        var cut = name.IndexOf('_');
+        if (cut <= 0 || cut == name.Length - 1) return null;
+        var prefix = name[..Math.Min(cut, 6)];
+        return Directive.IsToken(prefix) ? prefix : null;
+    }
+
+    // Why a map can't be nominated, as its tag; null when it can be.
+    private string? Unavailable(PageDraw page, MapChooserMap map) => _api.GetAvailability(map.Name) switch
+    {
+        MapChooserAvailability.Cooldown => $"tag={T(page, "cooldown")};tagtone=dark;tagglyph=lock",
+        MapChooserAvailability.TooFewPlayers => $"tag={T(page, "needs", map.MinPlayers)};tagtone=dark;tagglyph=teamplayer",
+        MapChooserAvailability.TooManyPlayers => $"tag={T(page, "too_many")};tagtone=dark;tagglyph=teamplayer",
+        _ => null,
+    };
+
+    private (string Text, string Payload)? MapChip(PageDraw page)
+    {
+        if (_api.MapSecondsLeft is { } seconds) return ($"{Clock(seconds)}\t{T(page, "chip.time_left")}", "chip;glyph=clock");
+        if (_api.MapRoundsLeft is { } rounds) return ($"{rounds}\t{T(page, "chip.rounds_left")}", "chip;glyph=clock");
+        return null;
+    }
+
+    // "+15 min · 2 left" on the board, "+15 minutes · 2 extends left" on a row.
+    private string Extend(PageDraw page, string form)
+    {
+        var steps = new List<string>(3);
+        if (_api.ExtendMinutes > 0) steps.Add(T(page, $"extend.minutes.{form}", _api.ExtendMinutes));
+        if (_api.ExtendRounds > 0) steps.Add(T(page, $"extend.rounds.{form}", _api.ExtendRounds));
+        steps.Add(T(page, $"extend.left.{form}", _api.ExtendsLeft));
+        return string.Join(" · ", steps.Where(s => s.Length > 0));
+    }
+
+    private static string Kind(PageDraw page, MapChooserMap map)
+        => map.WorkshopId is not null ? T(page, "kind.workshop")
+            : map.MapName is { } loaded && LockerProfiles.StockMaps.Contains(loaded.Trim().ToLowerInvariant()) ? T(page, "kind.stock")
+            : T(page, "kind.custom");
 
     private static string Players(PageDraw page, MapChooserMap map) => (map.MinPlayers, map.MaxPlayers) switch
     {
@@ -104,17 +232,29 @@ internal sealed class MapChooserIntegration : IPageIntegration, IDisposable
         _ => T(page, "players.max", map.MaxPlayers),
     };
 
+    private static string Votes(PageDraw page, int count) => T(page, count == 1 ? "votes.one" : "votes.other", count);
+
+    private static string Clock(int seconds)
+    {
+        var time = TimeSpan.FromSeconds(Math.Max(0, seconds));
+        return time.TotalHours >= 1
+            ? time.ToString(@"h\:mm\:ss", CultureInfo.InvariantCulture)
+            : $"{(int)time.TotalMinutes}:{time.Seconds:00}";
+    }
+
     // What a click does on each page; the read-only tally and the admin pages keep the default.
     private static string? Hint(string menuId) => menuId switch
     {
-        TallyId => null,
-        _ when menuId.StartsWith("mapchooser.eof-vote", StringComparison.Ordinal) => "hint",
-        "mapchooser.votemap" => "hint",
-        "mapchooser.nominate" => "hint.nominate",
-        "mapchooser.admin-change-map" => "hint.change",
-        "mapchooser.set-next-map" => "hint.next",
+        _ when menuId.StartsWith(MapChooserMenuIds.Vote, StringComparison.Ordinal) => "hint",
+        MapChooserMenuIds.Votemap => "hint",
+        MapChooserMenuIds.Nominate => "hint.nominate",
+        MapChooserMenuIds.ChangeMap => "hint.change",
+        MapChooserMenuIds.SetNextMap => "hint.next",
+        MapChooserMenuIds.StartVote => "hint.start",
         _ => null,
     };
+
+    private bool IsTally(IMenu menu, int slot) => _tallies.TryGetValue(slot, out var tally) && ReferenceEquals(tally, menu);
 
     // A ballot's counts change with every other player's vote, so every open board redraws.
     private void OnVoteChanged()
@@ -122,11 +262,24 @@ internal sealed class MapChooserIntegration : IPageIntegration, IDisposable
         if (!_api.IsVoteActive)
         {
             CloseTallies();
-            return;
+            _hubs.Clear();
         }
+        Invalidate(_ => true);
+    }
 
+    private void OnNominationsChanged() => Invalidate(menu => menu.Id == MapChooserMenuIds.Nominate);
+
+    private void OnClock()
+    {
+        var vote = _api.IsVoteActive;
+        var map = _api.MapSecondsLeft is not null;
+        if (vote || map) Invalidate(menu => menu.Id.StartsWith(MapChooserMenuIds.Vote, StringComparison.Ordinal) ? vote : map);
+    }
+
+    private void Invalidate(Func<IMenu, bool> which)
+    {
         foreach (var player in _core.PlayerManager.GetAllPlayers())
-            if (_core.Menu.GetSession(player) is { IsOpen: true } session && session.Menu.Id.StartsWith("mapchooser.eof-vote", StringComparison.Ordinal))
+            if (_core.Menu.GetSession(player) is { IsOpen: true } session && Owns(session.Menu) && which(session.Menu))
                 session.Invalidate();
     }
 
@@ -135,7 +288,8 @@ internal sealed class MapChooserIntegration : IPageIntegration, IDisposable
     {
         if (!_api.IsVoteActive || _core.PlayerManager.GetPlayer(slot) is not { IsValid: true, IsFakeClient: false } player) return;
 
-        var builder = _core.Menu.CreateMenu(TallyId).WithTitle(_host.Text(slot, "customhud.maps.tally"));
+        // The Vote page's id, so the hub's Vote entry stays the active one; IsTally tells the two apart.
+        var builder = _core.Menu.CreateMenu(MapChooserMenuIds.Vote).WithTitle(_host.Text(slot, "customhud.maps.tally"));
         foreach (var ballot in _api.VoteOptions)
         {
             var extend = ballot == IMapChooserApi.ExtendOption;
@@ -153,6 +307,7 @@ internal sealed class MapChooserIntegration : IPageIntegration, IDisposable
 
         if (_tallies.Remove(slot, out var previous)) previous.Dispose();
         _tallies[slot] = menu;
+        menu.Parent = _hubs.GetValueOrDefault(slot);
         menu.Open(player);
     });
 

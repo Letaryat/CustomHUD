@@ -36,7 +36,7 @@ $Regions = @(
     @{ Name = 'aside';     Slots = 8;  Parts = 'icon mark glyph rating tags note value' },
     @{ Name = 'strip';     Slots = 10; Parts = 'mark glyph note value' }
 )
-$MainParts = 'icon thumb logo mark swatch glyph rating tags note value switch chev meter meter2 inline'
+$MainParts = 'icon thumb logo mark swatch glyph rating tags tagglyph note value vunit switch chev meter meter2 inline'
 
 $sb = New-Object System.Text.StringBuilder
 function Line([int] $Depth, [string] $Text) { [void] $sb.Append("`t" * $Depth).AppendLine($Text) }
@@ -66,13 +66,18 @@ function Slot([int] $Depth, [string] $Prefix, [int] $Index, [string] $Parts) {
     Line ($d + 1) "<Label class=""lk-unit"" text=""{s:${id}_unit}"" $n />"
     Line ($d + 1) "<Label class=""lk-sub"" text=""{s:${id}_sub}"" $n />"
     Line $d "</Panel>"
-    if ($has.tags) { Line $d "<Panel class=""lk-tags"" $n><Label class=""lk-tag"" text=""{s:${id}_tag}"" $n /><Label class=""lk-tag2"" text=""{s:${id}_tag2}"" $n /></Panel>" }
+    if ($has.tags) {
+        # A tag's icon sits before its label and the pill's padding makes room for it (has-tagglyph).
+        $tagGlyph = if ($has.tagglyph) { "<Panel id=""${id}_tagglyph"" class=""chud-ico lk-tagglyph hidden"" $n />" } else { '' }
+        Line $d "<Panel class=""lk-tags"" $n>$tagGlyph<Label class=""lk-tag"" text=""{s:${id}_tag}"" $n /><Label class=""lk-tag2"" text=""{s:${id}_tag2}"" $n /></Panel>"
+    }
     if ($has.note) { Line $d "<Label class=""lk-note"" text=""{s:${id}_note}"" $n />" }
     if ($has.value) {
         # The value's own group: a second glyph ahead of it (LockerProfiles.Row's ValueGlyphPanel),
         # so a currency icon stays beside a right-aligned price of any width.
         $vglyph = if ($has.glyph) { "<Panel id=""${id}_vglyph"" class=""chud-ico lk-vglyph hidden"" $n><Panel class=""chud-ico__badge"" $n /></Panel>" } else { '' }
-        Line $d "<Panel class=""lk-end"" $n>$vglyph<Label class=""lk-value"" text=""{s:${id}_value}"" $n /></Panel>"
+        $vunit = if ($has.vunit) { "<Label class=""lk-vunit"" text=""{s:${id}_vunit}"" $n />" } else { '' }
+        Line $d "<Panel class=""lk-end"" $n>$vglyph<Label class=""lk-value"" text=""{s:${id}_value}"" $n />$vunit</Panel>"
     }
     if ($has.switch) { Line $d "<Panel class=""lk-switch"" $n><Panel class=""lk-switch__knob"" $n /></Panel>" }
     if ($has.chev) { Line $d "<Label class=""lk-chev"" text=""›"" $n />" }
@@ -132,7 +137,7 @@ Line 3 "<Panel class=""lk-divider"" $n />"
 Line 3 '<Panel class="lk-content">'
 Line 4 '<Panel class="lk-side">'
 for ($i = 0; $i -lt $Sidebar; $i++) {
-    Line 5 "<Button id=""category_$i"" class=""lk-category hidden""><Panel id=""category_${i}_icon"" class=""chud-ico"" $n><Panel class=""chud-ico__badge"" $n /></Panel><Label class=""lk-category__label"" text=""{s:category}"" $n /><Label class=""lk-category__count"" text=""{s:category_count}"" $n /></Button>"
+    Line 5 "<Button id=""category_$i"" class=""lk-category hidden""><Panel id=""category_${i}_icon"" class=""chud-ico"" $n><Panel class=""chud-ico__badge"" $n /></Panel><Label class=""lk-category__label"" text=""{s:category}"" $n /><Panel class=""lk-category__live"" $n /><Label class=""lk-category__count"" text=""{s:category_count}"" $n /></Button>"
 }
 Line 4 '</Panel>'
 Line 4 '<Panel class="lk-main">'

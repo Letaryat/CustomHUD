@@ -8,7 +8,7 @@ public static class LockerProfiles
 {
     public const string File = "menu_locker.vxml_c";
     public const int MainSlots = 48;
-    public const string MainParts = "icon thumb logo mark swatch glyph rating tags note value switch chev meter meter2 inline";
+    public const string MainParts = "icon thumb logo mark swatch glyph rating tags tagglyph note value vunit switch chev meter meter2 inline";
 
     // Name, slot count, and the parts its slots carry; generate-locker-layout.ps1 holds the same table.
     public static readonly (string Name, int Slots, string Parts)[] Regions =
@@ -56,6 +56,8 @@ public static class LockerProfiles
             GlyphPanel = If("glyph", "{0}_glyph"),
             ValueGlyphPanel = has.Contains("glyph") && has.Contains("value") ? prefix + "{0}_vglyph" : null,
             LogoPanel = If("logo", "{0}_logo"),
+            TagGlyphPanel = has.Contains("tags") ? If("tagglyph", "{0}_tagglyph") : null,
+            ValueUnitVar = has.Contains("value") ? If("vunit", "{0}_vunit") : null,
             RatingVar = If("rating", "{0}_rating"),
             RatingMinorVar = If("rating", "{0}_rating_minor"),
         };
@@ -111,15 +113,15 @@ public static class LockerProfiles
         ["Tracers"] = "crosshair", ["Player Models"] = "agents", ["Memberships"] = "crown",
     });
 
-    // MapChooser. Its vote opens on its own (no root), so the sidebar folds away
-    // until a hub exists; map names become art keys, workshop maps their prefix.
+    // MapChooser. Its hub (mapchooser.hub) is the sidebar root and each page opens as its
+    // child; map names become art keys, workshop maps their prefix.
     public static MenuLayoutProfile Maps()
     {
         var profile = With(Generic(), "maps", new()
         {
             ["mapchooser.eof-vote*"] = "maps-board",
             ["mapchooser.votemap"] = "maps-board",
-            ["mapchooser.admin-maps-vote"] = "maps-board",
+            ["mapchooser.admin-maps-vote"] = "maps-pool",
             ["mapchooser.nominate"] = "maps-pool",
             ["mapchooser.pool"] = "maps-pool",
             ["mapchooser.admin-change-map"] = "maps-pool",
@@ -138,6 +140,7 @@ public static class LockerProfiles
         page.ImageLabels = [.. StockMaps];
         page.MarkFromLabel = true;
         page.AutoLead = true;
+        page.LeadGlyph = "trophy";
         page.ColorTones = new(StringComparer.OrdinalIgnoreCase) { ["#ffa500"] = "extend" };
         return profile;
     }
@@ -227,6 +230,7 @@ public static class LockerProfiles
         page.ImageFromLabel = "map/{0}";
         page.ImageLabels = [.. StockMaps];
         page.AutoLead = true;
+        page.LeadGlyph = "trophy";
         return profile;
     }
 

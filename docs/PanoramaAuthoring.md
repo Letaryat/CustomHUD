@@ -190,6 +190,12 @@ Put images in `resources/panorama/images/custom_game/customhud/`.
   The lint does not check one thing: arc flags glued to the next coordinate.
   Write `a5 5 0 0 1 10 0`, not `a5 5 0 0110 0`.
 
+  Give a colour its alpha with `fill-opacity` or `opacity`, as the game's own
+  SVGs do; none of its 1,169 writes an 8-digit `#rrggbbaa`. A tile such as
+  `stripes.svg` repeats with `background-size: 28px 28px` and
+  `background-repeat: repeat`, and draws over the panel's `background-color`,
+  which can stay a gradient.
+
 #### Game econ thumbnails
 
 Item artwork is never copied into the addon. Two generated stylesheets hold one

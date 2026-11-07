@@ -89,6 +89,27 @@
 @define chudLegendDim: #c08cff59;
 @define chudLegendSoft: #c08cff1f;
 
+/* Extend on a map vote: the orange MapChooser draws it in. Shade to Deep is its card's art. */
+@define chudExtendBase: #ffa500;
+@define chudExtendStrong: #ffc266;
+@define chudExtendHalf: #ffa50080;
+@define chudExtendDim: #ffa50059;
+@define chudExtendSoft: #ffa50038;
+@define chudExtendWash: #ffa50014;
+@define chudExtendFade: #ffa50000;
+@define chudExtendShade: #2a1c0c;
+@define chudExtendDeep: #120c06;
+
+/* A map without a picture: its prefix's ground, Base to Deep (awp_, aim_, surf_, and any other). */
+@define chudMapAwpBase: #10495a;
+@define chudMapAwpDeep: #0b141d;
+@define chudMapAimBase: #5a1a1a;
+@define chudMapAimDeep: #120b0d;
+@define chudMapSurfBase: #3a1f63;
+@define chudMapSurfDeep: #0d0b14;
+@define chudMapOtherBase: #4a3215;
+@define chudMapOtherDeep: #0e0c0a;
+
 /*
 	Surfaces: a cool near-black, so the hues carry the colour. Raised to Deep is
 	every menu shell's gradient, about 86% opaque; Base is a HUD panel at 95%.

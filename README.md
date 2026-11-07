@@ -43,7 +43,8 @@ Buy and Preview buttons.
 
 ### [MapChooser](https://github.com/SwiftlyS2-Plugins/MapChooser)
 
-Map votes over each map's screenshot, with a live tally that moves as votes land.
+Map votes over each map's screenshot, with a live tally that moves as votes land
+and one map menu for voting, nominating and the admin pages.
 
 ![MapChooser in CustomHUD](docs/media/mapchooser.webp)
 

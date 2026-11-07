@@ -65,6 +65,9 @@ public sealed class MenuPageProfile
     // own; a customhud.lead translation wins. Empty leaves the tag alone.
     public string LeadTag { get; set; } = "Leading";
 
+    // The icon in that tag's pill; empty for none.
+    public string LeadGlyph { get; set; } = "";
+
     // Whether the unique highest `bar=` leads without saying so. Right for a vote,
     // where a bar is a share; wrong where it is time left or progress.
     public bool AutoLead { get; set; }
@@ -195,6 +198,8 @@ public sealed class PageClasses
     public string HasGlyph { get; set; } = "has-glyph";
     // `vglyph=`: the value's own glyph (a currency), leaving `glyph=` for the entry's icon.
     public string HasValueGlyph { get; set; } = "has-vglyph";
+    public string HasTagGlyph { get; set; } = "has-tagglyph";
+    public string HasValueUnit { get; set; } = "has-vunit";
     public string HasMark { get; set; } = "has-mark";
     public string HasInline { get; set; } = "has-inline";
     public string HasRating { get; set; } = "has-rating";

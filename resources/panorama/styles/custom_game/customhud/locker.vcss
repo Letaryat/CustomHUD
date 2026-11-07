@@ -230,7 +230,7 @@
 	flow-children: right;
 }
 
-/* A menu that is its own root (MapChooser's vote today) has nothing to list. */
+/* A menu that is its own root (MixScrims' pages, MapChooser's locked ballot) has nothing to list. */
 .lk.no-sidebar .lk-side
 {
 	visibility: collapse;
@@ -254,6 +254,24 @@
 .lk-category.selected .lk-category__count
 {
 	color: chudAccentStrong;
+}
+
+/* A page with something running on it now (MapChooser's vote): a red dot after its name. */
+.lk-category__live
+{
+	width: 7px;
+	height: 7px;
+	vertical-align: center;
+	margin-left: 6px;
+	border-radius: 4px;
+	background-color: chudDangerBase;
+	box-shadow: fill chudDangerSoft 0px 0px 0px 3px;
+	visibility: collapse;
+}
+
+.lk-category.live .lk-category__live
+{
+	visibility: visible;
 }
 
 .lk-main
@@ -926,6 +944,41 @@
 .tag-dark .lk-tag, .tag2-dark .lk-tag2 { border: 1px solid chudSurfaceEdge; background-color: chudSurfaceDeep; color: chudTextMuted; }
 .tag-legend .lk-tag, .tag2-legend .lk-tag2 { border: 1px solid chudLegendDim; background-color: chudLegendSoft; color: chudLegendStrong; }
 
+/* `tagglyph=`: an icon inside the tag's pill, before its words. It sits in the pill's left
+   padding, which widens to fit it: margin-left is the tag's margin, edge and padding, and
+   margin-right takes that and the icon back, so the pill starts where it would without one.
+   A view that repads its pills moves both. z-index lifts it over the pill, which is drawn
+   after it. */
+.lk-tagglyph
+{
+	width: 12px;
+	height: 12px;
+	vertical-align: center;
+	margin: 0px -26px 0px 14px;
+	z-index: 1;
+	wash-color: chudTextMuted;
+	visibility: collapse;
+}
+
+.lk-slot.has-tagglyph .lk-tagglyph
+{
+	visibility: visible;
+}
+
+.lk-slot.has-tagglyph .lk-tag
+{
+	padding-left: 24px;
+}
+
+.tag-accent .lk-tagglyph { wash-color: chudAccentStrong; }
+.tag-gold .lk-tagglyph { wash-color: chudGoldBase; }
+.tag-info .lk-tagglyph { wash-color: chudInfoStrong; }
+.tag-good .lk-tagglyph { wash-color: chudSuccessStrong; }
+.tag-bad .lk-tagglyph { wash-color: chudDangerStrong; }
+.tag-ct .lk-tagglyph { wash-color: chudTeamCtStrong; }
+.tag-t .lk-tagglyph { wash-color: chudTeamTStrong; }
+.tag-legend .lk-tagglyph { wash-color: chudLegendStrong; }
+
 .lk-note
 {
 	horizontal-align: right;
@@ -988,6 +1041,25 @@
 }
 
 .lk-slot.has-value .lk-value
+{
+	visibility: visible;
+}
+
+/* `vunit=`: the value's unit after it, smaller and muted ("45" then "%"). Bottom-aligned;
+   a view whose value is large lifts it onto the value's baseline. */
+.lk-vunit
+{
+	vertical-align: bottom;
+	margin-left: 2px;
+	font-family: chudFontBody;
+	font-size: 11px;
+	font-weight: bold;
+	color: chudTextMuted;
+	white-space: nowrap;
+	visibility: collapse;
+}
+
+.lk-slot.has-vunit .lk-vunit
 {
 	visibility: visible;
 }
@@ -1478,9 +1550,11 @@
 }
 
 /* Solid pill: on a picture or hanging off a card's edge a pill needs a solid ground,
-   so it is the hue itself with dark ink. Everywhere else a pill is soft. */
+   so it is the hue itself with dark ink. Everywhere else a pill is soft. A poll row's
+   pill is solid too: it sits on the share's fill, where a soft one disappears. */
 .lk.view-maps-board .tag-info .lk-tag,
-.lk.view-maps-pool .tag-info .lk-tag
+.lk.view-maps-pool .tag-info .lk-tag,
+.lk.view-maps-rows .tag-info .lk-tag
 {
 	border: 1px solid chudInfoBase;
 	background-color: chudInfoBase;
@@ -1489,6 +1563,7 @@
 
 .lk.view-maps-board .tag-accent .lk-tag,
 .lk.view-maps-pool .tag-accent .lk-tag,
+.lk.view-maps-rows .tag-accent .lk-tag,
 .lk.view-vip-tiers .lk-banner .tag-accent .lk-tag,
 .lk.view-mix-sides .tag-accent .lk-tag
 {
@@ -1498,11 +1573,25 @@
 }
 
 .lk.view-maps-board .tag-gold .lk-tag,
-.lk.view-maps-pool .tag-gold .lk-tag
+.lk.view-maps-pool .tag-gold .lk-tag,
+.lk.view-maps-rows .tag-gold .lk-tag
 {
 	border: 1px solid chudGoldBase;
 	background-color: chudGoldBase;
 	color: chudTextInk;
+}
+
+.lk.view-maps-board .tag-info .lk-tagglyph,
+.lk.view-maps-board .tag-accent .lk-tagglyph,
+.lk.view-maps-board .tag-gold .lk-tagglyph,
+.lk.view-maps-pool .tag-info .lk-tagglyph,
+.lk.view-maps-pool .tag-accent .lk-tagglyph,
+.lk.view-maps-pool .tag-gold .lk-tagglyph,
+.lk.view-maps-rows .tag-info .lk-tagglyph,
+.lk.view-maps-rows .tag-accent .lk-tagglyph,
+.lk.view-maps-rows .tag-gold .lk-tagglyph
+{
+	wash-color: chudTextInk;
 }
 
 /* Danger: a destructive button, red at rest and a deeper red on hover. */

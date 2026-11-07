@@ -87,6 +87,7 @@
 
 /* Players and administration */
 .chud-ico.ico-player { background-image: url( "s2r://panorama/images/icons/ui/player.vsvg" ); }
+.chud-ico.ico-teamplayer { background-image: url( "s2r://panorama/images/icons/ui/teamplayer.vsvg" ); }
 .chud-ico.ico-add-player { background-image: url( "s2r://panorama/images/icons/ui/addplayer.vsvg" ); }
 .chud-ico.ico-ban { background-image: url( "s2r://panorama/images/icons/ui/ban_global.vsvg" ); }
 .chud-ico.ico-mute { background-image: url( "s2r://panorama/images/icons/ui/muted.vsvg" ); }

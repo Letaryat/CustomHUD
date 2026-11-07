@@ -188,7 +188,8 @@ internal sealed class PanoramaMenuRenderer(
                     var regions = deferred.Profile.Page?.Regions.Where(r => r.Slots > 0).Select(r => r.Name)
                         .ToHashSet(StringComparer.OrdinalIgnoreCase) ?? [];
                     hook = new PageIntegrationContext(integrations, integration, strings.For(slot), regions, deferred.Profile.RowSlots,
-                        deferred.Profile.Sidebar?.Icons ?? EmptyIcons);
+                        deferred.Profile.Sidebar?.Icons ?? EmptyIcons,
+                        deferred.Profile.Page?.ResolveView(deferred.Context.Menu.Id, null, config.Current.PageViews));
                 }
                 var (frame, page) = PageFrame.Build(deferred.Context, core.Menu.Renderers, core.PlayerManager,
                     translations.For(slot), deferred.Budget, ReportRowRenderError, hook);

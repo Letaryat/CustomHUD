@@ -152,6 +152,8 @@ family's own colour at a lower alpha.
 | Caution | `chudCautionBase #f2d43a`, between good and bad (a middling ping) |
 | Teams | `chudTeamCtBase #5aaeff` and `chudTeamTBase #f5973a`, each with `Strong`, `Dim`, `Soft`, `Fade` |
 | Legend | `chudLegendBase #c08cff`, `chudLegendStrong #d2b0ff`, `Dim`, `Soft`: the top tier |
+| Extend | `chudExtendBase #ffa500`, `chudExtendStrong #ffc266`, `Half`, `Dim`, `Soft`, `Wash`, `Fade`, and `chudExtendShade #2a1c0c` to `chudExtendDeep #120c06` for its art: MapChooser's Extend option, in the orange MapChooser draws it in |
+| Maps | `chudMapAwpBase` / `Deep`, `chudMapAimBase` / `Deep`, `chudMapSurfBase` / `Deep`, `chudMapOtherBase` / `Deep`: a map without a picture, by its prefix, under the `stripes.svg` tile |
 | Surfaces | `chudSurfaceBase #0b0e13f2` for HUD panels (95% opaque); `chudSurfaceRaised #141a24dc` and `chudSurfaceDeep #0b0e13d9`, every menu shell's gradient, top then foot (the lists and both lockers, about 86%); `chudSurfaceEdge #2a3443` for hairlines and borders, with `chudSurfaceFade` its transparent end; `chudSurfaceRow #161d27` for a row or control at rest; `chudSurfaceHover #222c3a` |
 | Tiles | `chudTileBase #1c2431` and `chudTileDeep #0f141b`, a card's gradient, top then foot; `chudTileHover #283346`; `chudTileFade` |
 | Shadow and glass | `chudShadowDrop #000000b8`, `chudShadowText #000000cc`, `chudShadowDim`, `Soft`, `Fade`: black glazes under art and text. `chudGlassDim #ffffff26`, `Soft`, `Wash`: white glazes over art and bars |
@@ -392,7 +394,7 @@ when a view has one, takes 332px of the page's right side.
 │  └─ .lk-chips > #chip_0..2               glyph, thumb, rating, {s:chip_N}, {s:chip_N_label}
 ├─ .lk-divider
 ├─ .lk-content
-│  ├─ .lk-side > #category_0..11           icon, {s:category}, {s:category_count}
+│  ├─ .lk-side > #category_0..11           icon, {s:category}, a live dot, {s:category_count} · live
 │  └─ .lk-main
 │     ├─ #tabs > #tab_0..7                 {s:tab}, {s:tab_count}
 │     ├─ .lk-strip > #strip_0..9           a row of small slots: a pick order
@@ -423,8 +425,8 @@ only declares the parts its designs use:
 │  ├─ .lk-shade                            a view's overlay above the art
 │  ├─ .lk-swatch, #<p>N_glyph, .lk-rating
 │  ├─ .lk-text > {s:<p>N_type} {s:<p>N} {s:<p>N_unit} {s:<p>N_sub}
-│  ├─ .lk-tags > {s:<p>N_tag} {s:<p>N_tag2}
-│  ├─ .lk-note, .lk-end > (#<p>N_vglyph, {s:<p>N_value})
+│  ├─ .lk-tags > #<p>N_tagglyph, {s:<p>N_tag} {s:<p>N_tag2}
+│  ├─ .lk-note, .lk-end > (#<p>N_vglyph, {s:<p>N_value}, {s:<p>N_vunit})
 │  └─ .lk-switch, .lk-chev, .lk-meter, .lk-meter2, .lk-pips > 20 pips
 └─ #<p>N_inline.lk-inline                  {s:<p>N_inline} {s:<p>N_inline_value}
 ```

@@ -53,18 +53,18 @@
 			<Panel class="lk-divider" hittest="false" />
 			<Panel class="lk-content">
 				<Panel class="lk-side">
-					<Button id="category_0" class="lk-category hidden"><Panel id="category_0_icon" class="chud-ico" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-category__label" text="{s:category}" hittest="false" /><Label class="lk-category__count" text="{s:category_count}" hittest="false" /></Button>
-					<Button id="category_1" class="lk-category hidden"><Panel id="category_1_icon" class="chud-ico" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-category__label" text="{s:category}" hittest="false" /><Label class="lk-category__count" text="{s:category_count}" hittest="false" /></Button>
-					<Button id="category_2" class="lk-category hidden"><Panel id="category_2_icon" class="chud-ico" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-category__label" text="{s:category}" hittest="false" /><Label class="lk-category__count" text="{s:category_count}" hittest="false" /></Button>
-					<Button id="category_3" class="lk-category hidden"><Panel id="category_3_icon" class="chud-ico" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-category__label" text="{s:category}" hittest="false" /><Label class="lk-category__count" text="{s:category_count}" hittest="false" /></Button>
-					<Button id="category_4" class="lk-category hidden"><Panel id="category_4_icon" class="chud-ico" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-category__label" text="{s:category}" hittest="false" /><Label class="lk-category__count" text="{s:category_count}" hittest="false" /></Button>
-					<Button id="category_5" class="lk-category hidden"><Panel id="category_5_icon" class="chud-ico" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-category__label" text="{s:category}" hittest="false" /><Label class="lk-category__count" text="{s:category_count}" hittest="false" /></Button>
-					<Button id="category_6" class="lk-category hidden"><Panel id="category_6_icon" class="chud-ico" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-category__label" text="{s:category}" hittest="false" /><Label class="lk-category__count" text="{s:category_count}" hittest="false" /></Button>
-					<Button id="category_7" class="lk-category hidden"><Panel id="category_7_icon" class="chud-ico" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-category__label" text="{s:category}" hittest="false" /><Label class="lk-category__count" text="{s:category_count}" hittest="false" /></Button>
-					<Button id="category_8" class="lk-category hidden"><Panel id="category_8_icon" class="chud-ico" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-category__label" text="{s:category}" hittest="false" /><Label class="lk-category__count" text="{s:category_count}" hittest="false" /></Button>
-					<Button id="category_9" class="lk-category hidden"><Panel id="category_9_icon" class="chud-ico" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-category__label" text="{s:category}" hittest="false" /><Label class="lk-category__count" text="{s:category_count}" hittest="false" /></Button>
-					<Button id="category_10" class="lk-category hidden"><Panel id="category_10_icon" class="chud-ico" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-category__label" text="{s:category}" hittest="false" /><Label class="lk-category__count" text="{s:category_count}" hittest="false" /></Button>
-					<Button id="category_11" class="lk-category hidden"><Panel id="category_11_icon" class="chud-ico" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-category__label" text="{s:category}" hittest="false" /><Label class="lk-category__count" text="{s:category_count}" hittest="false" /></Button>
+					<Button id="category_0" class="lk-category hidden"><Panel id="category_0_icon" class="chud-ico" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-category__label" text="{s:category}" hittest="false" /><Panel class="lk-category__live" hittest="false" /><Label class="lk-category__count" text="{s:category_count}" hittest="false" /></Button>
+					<Button id="category_1" class="lk-category hidden"><Panel id="category_1_icon" class="chud-ico" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-category__label" text="{s:category}" hittest="false" /><Panel class="lk-category__live" hittest="false" /><Label class="lk-category__count" text="{s:category_count}" hittest="false" /></Button>
+					<Button id="category_2" class="lk-category hidden"><Panel id="category_2_icon" class="chud-ico" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-category__label" text="{s:category}" hittest="false" /><Panel class="lk-category__live" hittest="false" /><Label class="lk-category__count" text="{s:category_count}" hittest="false" /></Button>
+					<Button id="category_3" class="lk-category hidden"><Panel id="category_3_icon" class="chud-ico" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-category__label" text="{s:category}" hittest="false" /><Panel class="lk-category__live" hittest="false" /><Label class="lk-category__count" text="{s:category_count}" hittest="false" /></Button>
+					<Button id="category_4" class="lk-category hidden"><Panel id="category_4_icon" class="chud-ico" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-category__label" text="{s:category}" hittest="false" /><Panel class="lk-category__live" hittest="false" /><Label class="lk-category__count" text="{s:category_count}" hittest="false" /></Button>
+					<Button id="category_5" class="lk-category hidden"><Panel id="category_5_icon" class="chud-ico" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-category__label" text="{s:category}" hittest="false" /><Panel class="lk-category__live" hittest="false" /><Label class="lk-category__count" text="{s:category_count}" hittest="false" /></Button>
+					<Button id="category_6" class="lk-category hidden"><Panel id="category_6_icon" class="chud-ico" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-category__label" text="{s:category}" hittest="false" /><Panel class="lk-category__live" hittest="false" /><Label class="lk-category__count" text="{s:category_count}" hittest="false" /></Button>
+					<Button id="category_7" class="lk-category hidden"><Panel id="category_7_icon" class="chud-ico" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-category__label" text="{s:category}" hittest="false" /><Panel class="lk-category__live" hittest="false" /><Label class="lk-category__count" text="{s:category_count}" hittest="false" /></Button>
+					<Button id="category_8" class="lk-category hidden"><Panel id="category_8_icon" class="chud-ico" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-category__label" text="{s:category}" hittest="false" /><Panel class="lk-category__live" hittest="false" /><Label class="lk-category__count" text="{s:category_count}" hittest="false" /></Button>
+					<Button id="category_9" class="lk-category hidden"><Panel id="category_9_icon" class="chud-ico" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-category__label" text="{s:category}" hittest="false" /><Panel class="lk-category__live" hittest="false" /><Label class="lk-category__count" text="{s:category_count}" hittest="false" /></Button>
+					<Button id="category_10" class="lk-category hidden"><Panel id="category_10_icon" class="chud-ico" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-category__label" text="{s:category}" hittest="false" /><Panel class="lk-category__live" hittest="false" /><Label class="lk-category__count" text="{s:category_count}" hittest="false" /></Button>
+					<Button id="category_11" class="lk-category hidden"><Panel id="category_11_icon" class="chud-ico" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-category__label" text="{s:category}" hittest="false" /><Panel class="lk-category__live" hittest="false" /><Label class="lk-category__count" text="{s:category_count}" hittest="false" /></Button>
 				</Panel>
 				<Panel class="lk-main">
 					<Panel id="tabs" class="lk-tabs hidden">
@@ -621,9 +621,9 @@
 													<Label class="lk-unit" text="{s:option_0_unit}" hittest="false" />
 													<Label class="lk-sub" text="{s:option_0_sub}" hittest="false" />
 												</Panel>
-												<Panel class="lk-tags" hittest="false"><Label class="lk-tag" text="{s:option_0_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_0_tag2}" hittest="false" /></Panel>
+												<Panel class="lk-tags" hittest="false"><Panel id="option_0_tagglyph" class="chud-ico lk-tagglyph hidden" hittest="false" /><Label class="lk-tag" text="{s:option_0_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_0_tag2}" hittest="false" /></Panel>
 												<Label class="lk-note" text="{s:option_0_note}" hittest="false" />
-												<Panel class="lk-end" hittest="false"><Panel id="option_0_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:option_0_value}" hittest="false" /></Panel>
+												<Panel class="lk-end" hittest="false"><Panel id="option_0_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:option_0_value}" hittest="false" /><Label class="lk-vunit" text="{s:option_0_vunit}" hittest="false" /></Panel>
 												<Panel class="lk-switch" hittest="false"><Panel class="lk-switch__knob" hittest="false" /></Panel>
 												<Label class="lk-chev" text="›" hittest="false" />
 												<Panel class="chud-meter lk-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
@@ -647,9 +647,9 @@
 													<Label class="lk-unit" text="{s:option_1_unit}" hittest="false" />
 													<Label class="lk-sub" text="{s:option_1_sub}" hittest="false" />
 												</Panel>
-												<Panel class="lk-tags" hittest="false"><Label class="lk-tag" text="{s:option_1_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_1_tag2}" hittest="false" /></Panel>
+												<Panel class="lk-tags" hittest="false"><Panel id="option_1_tagglyph" class="chud-ico lk-tagglyph hidden" hittest="false" /><Label class="lk-tag" text="{s:option_1_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_1_tag2}" hittest="false" /></Panel>
 												<Label class="lk-note" text="{s:option_1_note}" hittest="false" />
-												<Panel class="lk-end" hittest="false"><Panel id="option_1_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:option_1_value}" hittest="false" /></Panel>
+												<Panel class="lk-end" hittest="false"><Panel id="option_1_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:option_1_value}" hittest="false" /><Label class="lk-vunit" text="{s:option_1_vunit}" hittest="false" /></Panel>
 												<Panel class="lk-switch" hittest="false"><Panel class="lk-switch__knob" hittest="false" /></Panel>
 												<Label class="lk-chev" text="›" hittest="false" />
 												<Panel class="chud-meter lk-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
@@ -673,9 +673,9 @@
 													<Label class="lk-unit" text="{s:option_2_unit}" hittest="false" />
 													<Label class="lk-sub" text="{s:option_2_sub}" hittest="false" />
 												</Panel>
-												<Panel class="lk-tags" hittest="false"><Label class="lk-tag" text="{s:option_2_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_2_tag2}" hittest="false" /></Panel>
+												<Panel class="lk-tags" hittest="false"><Panel id="option_2_tagglyph" class="chud-ico lk-tagglyph hidden" hittest="false" /><Label class="lk-tag" text="{s:option_2_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_2_tag2}" hittest="false" /></Panel>
 												<Label class="lk-note" text="{s:option_2_note}" hittest="false" />
-												<Panel class="lk-end" hittest="false"><Panel id="option_2_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:option_2_value}" hittest="false" /></Panel>
+												<Panel class="lk-end" hittest="false"><Panel id="option_2_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:option_2_value}" hittest="false" /><Label class="lk-vunit" text="{s:option_2_vunit}" hittest="false" /></Panel>
 												<Panel class="lk-switch" hittest="false"><Panel class="lk-switch__knob" hittest="false" /></Panel>
 												<Label class="lk-chev" text="›" hittest="false" />
 												<Panel class="chud-meter lk-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
@@ -699,9 +699,9 @@
 													<Label class="lk-unit" text="{s:option_3_unit}" hittest="false" />
 													<Label class="lk-sub" text="{s:option_3_sub}" hittest="false" />
 												</Panel>
-												<Panel class="lk-tags" hittest="false"><Label class="lk-tag" text="{s:option_3_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_3_tag2}" hittest="false" /></Panel>
+												<Panel class="lk-tags" hittest="false"><Panel id="option_3_tagglyph" class="chud-ico lk-tagglyph hidden" hittest="false" /><Label class="lk-tag" text="{s:option_3_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_3_tag2}" hittest="false" /></Panel>
 												<Label class="lk-note" text="{s:option_3_note}" hittest="false" />
-												<Panel class="lk-end" hittest="false"><Panel id="option_3_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:option_3_value}" hittest="false" /></Panel>
+												<Panel class="lk-end" hittest="false"><Panel id="option_3_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:option_3_value}" hittest="false" /><Label class="lk-vunit" text="{s:option_3_vunit}" hittest="false" /></Panel>
 												<Panel class="lk-switch" hittest="false"><Panel class="lk-switch__knob" hittest="false" /></Panel>
 												<Label class="lk-chev" text="›" hittest="false" />
 												<Panel class="chud-meter lk-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
@@ -725,9 +725,9 @@
 													<Label class="lk-unit" text="{s:option_4_unit}" hittest="false" />
 													<Label class="lk-sub" text="{s:option_4_sub}" hittest="false" />
 												</Panel>
-												<Panel class="lk-tags" hittest="false"><Label class="lk-tag" text="{s:option_4_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_4_tag2}" hittest="false" /></Panel>
+												<Panel class="lk-tags" hittest="false"><Panel id="option_4_tagglyph" class="chud-ico lk-tagglyph hidden" hittest="false" /><Label class="lk-tag" text="{s:option_4_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_4_tag2}" hittest="false" /></Panel>
 												<Label class="lk-note" text="{s:option_4_note}" hittest="false" />
-												<Panel class="lk-end" hittest="false"><Panel id="option_4_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:option_4_value}" hittest="false" /></Panel>
+												<Panel class="lk-end" hittest="false"><Panel id="option_4_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:option_4_value}" hittest="false" /><Label class="lk-vunit" text="{s:option_4_vunit}" hittest="false" /></Panel>
 												<Panel class="lk-switch" hittest="false"><Panel class="lk-switch__knob" hittest="false" /></Panel>
 												<Label class="lk-chev" text="›" hittest="false" />
 												<Panel class="chud-meter lk-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
@@ -751,9 +751,9 @@
 													<Label class="lk-unit" text="{s:option_5_unit}" hittest="false" />
 													<Label class="lk-sub" text="{s:option_5_sub}" hittest="false" />
 												</Panel>
-												<Panel class="lk-tags" hittest="false"><Label class="lk-tag" text="{s:option_5_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_5_tag2}" hittest="false" /></Panel>
+												<Panel class="lk-tags" hittest="false"><Panel id="option_5_tagglyph" class="chud-ico lk-tagglyph hidden" hittest="false" /><Label class="lk-tag" text="{s:option_5_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_5_tag2}" hittest="false" /></Panel>
 												<Label class="lk-note" text="{s:option_5_note}" hittest="false" />
-												<Panel class="lk-end" hittest="false"><Panel id="option_5_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:option_5_value}" hittest="false" /></Panel>
+												<Panel class="lk-end" hittest="false"><Panel id="option_5_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:option_5_value}" hittest="false" /><Label class="lk-vunit" text="{s:option_5_vunit}" hittest="false" /></Panel>
 												<Panel class="lk-switch" hittest="false"><Panel class="lk-switch__knob" hittest="false" /></Panel>
 												<Label class="lk-chev" text="›" hittest="false" />
 												<Panel class="chud-meter lk-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
@@ -777,9 +777,9 @@
 													<Label class="lk-unit" text="{s:option_6_unit}" hittest="false" />
 													<Label class="lk-sub" text="{s:option_6_sub}" hittest="false" />
 												</Panel>
-												<Panel class="lk-tags" hittest="false"><Label class="lk-tag" text="{s:option_6_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_6_tag2}" hittest="false" /></Panel>
+												<Panel class="lk-tags" hittest="false"><Panel id="option_6_tagglyph" class="chud-ico lk-tagglyph hidden" hittest="false" /><Label class="lk-tag" text="{s:option_6_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_6_tag2}" hittest="false" /></Panel>
 												<Label class="lk-note" text="{s:option_6_note}" hittest="false" />
-												<Panel class="lk-end" hittest="false"><Panel id="option_6_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:option_6_value}" hittest="false" /></Panel>
+												<Panel class="lk-end" hittest="false"><Panel id="option_6_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:option_6_value}" hittest="false" /><Label class="lk-vunit" text="{s:option_6_vunit}" hittest="false" /></Panel>
 												<Panel class="lk-switch" hittest="false"><Panel class="lk-switch__knob" hittest="false" /></Panel>
 												<Label class="lk-chev" text="›" hittest="false" />
 												<Panel class="chud-meter lk-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
@@ -803,9 +803,9 @@
 													<Label class="lk-unit" text="{s:option_7_unit}" hittest="false" />
 													<Label class="lk-sub" text="{s:option_7_sub}" hittest="false" />
 												</Panel>
-												<Panel class="lk-tags" hittest="false"><Label class="lk-tag" text="{s:option_7_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_7_tag2}" hittest="false" /></Panel>
+												<Panel class="lk-tags" hittest="false"><Panel id="option_7_tagglyph" class="chud-ico lk-tagglyph hidden" hittest="false" /><Label class="lk-tag" text="{s:option_7_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_7_tag2}" hittest="false" /></Panel>
 												<Label class="lk-note" text="{s:option_7_note}" hittest="false" />
-												<Panel class="lk-end" hittest="false"><Panel id="option_7_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:option_7_value}" hittest="false" /></Panel>
+												<Panel class="lk-end" hittest="false"><Panel id="option_7_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:option_7_value}" hittest="false" /><Label class="lk-vunit" text="{s:option_7_vunit}" hittest="false" /></Panel>
 												<Panel class="lk-switch" hittest="false"><Panel class="lk-switch__knob" hittest="false" /></Panel>
 												<Label class="lk-chev" text="›" hittest="false" />
 												<Panel class="chud-meter lk-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
@@ -829,9 +829,9 @@
 													<Label class="lk-unit" text="{s:option_8_unit}" hittest="false" />
 													<Label class="lk-sub" text="{s:option_8_sub}" hittest="false" />
 												</Panel>
-												<Panel class="lk-tags" hittest="false"><Label class="lk-tag" text="{s:option_8_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_8_tag2}" hittest="false" /></Panel>
+												<Panel class="lk-tags" hittest="false"><Panel id="option_8_tagglyph" class="chud-ico lk-tagglyph hidden" hittest="false" /><Label class="lk-tag" text="{s:option_8_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_8_tag2}" hittest="false" /></Panel>
 												<Label class="lk-note" text="{s:option_8_note}" hittest="false" />
-												<Panel class="lk-end" hittest="false"><Panel id="option_8_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:option_8_value}" hittest="false" /></Panel>
+												<Panel class="lk-end" hittest="false"><Panel id="option_8_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:option_8_value}" hittest="false" /><Label class="lk-vunit" text="{s:option_8_vunit}" hittest="false" /></Panel>
 												<Panel class="lk-switch" hittest="false"><Panel class="lk-switch__knob" hittest="false" /></Panel>
 												<Label class="lk-chev" text="›" hittest="false" />
 												<Panel class="chud-meter lk-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
@@ -855,9 +855,9 @@
 													<Label class="lk-unit" text="{s:option_9_unit}" hittest="false" />
 													<Label class="lk-sub" text="{s:option_9_sub}" hittest="false" />
 												</Panel>
-												<Panel class="lk-tags" hittest="false"><Label class="lk-tag" text="{s:option_9_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_9_tag2}" hittest="false" /></Panel>
+												<Panel class="lk-tags" hittest="false"><Panel id="option_9_tagglyph" class="chud-ico lk-tagglyph hidden" hittest="false" /><Label class="lk-tag" text="{s:option_9_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_9_tag2}" hittest="false" /></Panel>
 												<Label class="lk-note" text="{s:option_9_note}" hittest="false" />
-												<Panel class="lk-end" hittest="false"><Panel id="option_9_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:option_9_value}" hittest="false" /></Panel>
+												<Panel class="lk-end" hittest="false"><Panel id="option_9_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:option_9_value}" hittest="false" /><Label class="lk-vunit" text="{s:option_9_vunit}" hittest="false" /></Panel>
 												<Panel class="lk-switch" hittest="false"><Panel class="lk-switch__knob" hittest="false" /></Panel>
 												<Label class="lk-chev" text="›" hittest="false" />
 												<Panel class="chud-meter lk-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
@@ -881,9 +881,9 @@
 													<Label class="lk-unit" text="{s:option_10_unit}" hittest="false" />
 													<Label class="lk-sub" text="{s:option_10_sub}" hittest="false" />
 												</Panel>
-												<Panel class="lk-tags" hittest="false"><Label class="lk-tag" text="{s:option_10_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_10_tag2}" hittest="false" /></Panel>
+												<Panel class="lk-tags" hittest="false"><Panel id="option_10_tagglyph" class="chud-ico lk-tagglyph hidden" hittest="false" /><Label class="lk-tag" text="{s:option_10_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_10_tag2}" hittest="false" /></Panel>
 												<Label class="lk-note" text="{s:option_10_note}" hittest="false" />
-												<Panel class="lk-end" hittest="false"><Panel id="option_10_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:option_10_value}" hittest="false" /></Panel>
+												<Panel class="lk-end" hittest="false"><Panel id="option_10_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:option_10_value}" hittest="false" /><Label class="lk-vunit" text="{s:option_10_vunit}" hittest="false" /></Panel>
 												<Panel class="lk-switch" hittest="false"><Panel class="lk-switch__knob" hittest="false" /></Panel>
 												<Label class="lk-chev" text="›" hittest="false" />
 												<Panel class="chud-meter lk-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
@@ -907,9 +907,9 @@
 													<Label class="lk-unit" text="{s:option_11_unit}" hittest="false" />
 													<Label class="lk-sub" text="{s:option_11_sub}" hittest="false" />
 												</Panel>
-												<Panel class="lk-tags" hittest="false"><Label class="lk-tag" text="{s:option_11_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_11_tag2}" hittest="false" /></Panel>
+												<Panel class="lk-tags" hittest="false"><Panel id="option_11_tagglyph" class="chud-ico lk-tagglyph hidden" hittest="false" /><Label class="lk-tag" text="{s:option_11_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_11_tag2}" hittest="false" /></Panel>
 												<Label class="lk-note" text="{s:option_11_note}" hittest="false" />
-												<Panel class="lk-end" hittest="false"><Panel id="option_11_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:option_11_value}" hittest="false" /></Panel>
+												<Panel class="lk-end" hittest="false"><Panel id="option_11_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:option_11_value}" hittest="false" /><Label class="lk-vunit" text="{s:option_11_vunit}" hittest="false" /></Panel>
 												<Panel class="lk-switch" hittest="false"><Panel class="lk-switch__knob" hittest="false" /></Panel>
 												<Label class="lk-chev" text="›" hittest="false" />
 												<Panel class="chud-meter lk-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
@@ -933,9 +933,9 @@
 													<Label class="lk-unit" text="{s:option_12_unit}" hittest="false" />
 													<Label class="lk-sub" text="{s:option_12_sub}" hittest="false" />
 												</Panel>
-												<Panel class="lk-tags" hittest="false"><Label class="lk-tag" text="{s:option_12_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_12_tag2}" hittest="false" /></Panel>
+												<Panel class="lk-tags" hittest="false"><Panel id="option_12_tagglyph" class="chud-ico lk-tagglyph hidden" hittest="false" /><Label class="lk-tag" text="{s:option_12_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_12_tag2}" hittest="false" /></Panel>
 												<Label class="lk-note" text="{s:option_12_note}" hittest="false" />
-												<Panel class="lk-end" hittest="false"><Panel id="option_12_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:option_12_value}" hittest="false" /></Panel>
+												<Panel class="lk-end" hittest="false"><Panel id="option_12_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:option_12_value}" hittest="false" /><Label class="lk-vunit" text="{s:option_12_vunit}" hittest="false" /></Panel>
 												<Panel class="lk-switch" hittest="false"><Panel class="lk-switch__knob" hittest="false" /></Panel>
 												<Label class="lk-chev" text="›" hittest="false" />
 												<Panel class="chud-meter lk-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
@@ -959,9 +959,9 @@
 													<Label class="lk-unit" text="{s:option_13_unit}" hittest="false" />
 													<Label class="lk-sub" text="{s:option_13_sub}" hittest="false" />
 												</Panel>
-												<Panel class="lk-tags" hittest="false"><Label class="lk-tag" text="{s:option_13_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_13_tag2}" hittest="false" /></Panel>
+												<Panel class="lk-tags" hittest="false"><Panel id="option_13_tagglyph" class="chud-ico lk-tagglyph hidden" hittest="false" /><Label class="lk-tag" text="{s:option_13_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_13_tag2}" hittest="false" /></Panel>
 												<Label class="lk-note" text="{s:option_13_note}" hittest="false" />
-												<Panel class="lk-end" hittest="false"><Panel id="option_13_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:option_13_value}" hittest="false" /></Panel>
+												<Panel class="lk-end" hittest="false"><Panel id="option_13_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:option_13_value}" hittest="false" /><Label class="lk-vunit" text="{s:option_13_vunit}" hittest="false" /></Panel>
 												<Panel class="lk-switch" hittest="false"><Panel class="lk-switch__knob" hittest="false" /></Panel>
 												<Label class="lk-chev" text="›" hittest="false" />
 												<Panel class="chud-meter lk-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
@@ -985,9 +985,9 @@
 													<Label class="lk-unit" text="{s:option_14_unit}" hittest="false" />
 													<Label class="lk-sub" text="{s:option_14_sub}" hittest="false" />
 												</Panel>
-												<Panel class="lk-tags" hittest="false"><Label class="lk-tag" text="{s:option_14_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_14_tag2}" hittest="false" /></Panel>
+												<Panel class="lk-tags" hittest="false"><Panel id="option_14_tagglyph" class="chud-ico lk-tagglyph hidden" hittest="false" /><Label class="lk-tag" text="{s:option_14_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_14_tag2}" hittest="false" /></Panel>
 												<Label class="lk-note" text="{s:option_14_note}" hittest="false" />
-												<Panel class="lk-end" hittest="false"><Panel id="option_14_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:option_14_value}" hittest="false" /></Panel>
+												<Panel class="lk-end" hittest="false"><Panel id="option_14_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:option_14_value}" hittest="false" /><Label class="lk-vunit" text="{s:option_14_vunit}" hittest="false" /></Panel>
 												<Panel class="lk-switch" hittest="false"><Panel class="lk-switch__knob" hittest="false" /></Panel>
 												<Label class="lk-chev" text="›" hittest="false" />
 												<Panel class="chud-meter lk-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
@@ -1011,9 +1011,9 @@
 													<Label class="lk-unit" text="{s:option_15_unit}" hittest="false" />
 													<Label class="lk-sub" text="{s:option_15_sub}" hittest="false" />
 												</Panel>
-												<Panel class="lk-tags" hittest="false"><Label class="lk-tag" text="{s:option_15_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_15_tag2}" hittest="false" /></Panel>
+												<Panel class="lk-tags" hittest="false"><Panel id="option_15_tagglyph" class="chud-ico lk-tagglyph hidden" hittest="false" /><Label class="lk-tag" text="{s:option_15_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_15_tag2}" hittest="false" /></Panel>
 												<Label class="lk-note" text="{s:option_15_note}" hittest="false" />
-												<Panel class="lk-end" hittest="false"><Panel id="option_15_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:option_15_value}" hittest="false" /></Panel>
+												<Panel class="lk-end" hittest="false"><Panel id="option_15_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:option_15_value}" hittest="false" /><Label class="lk-vunit" text="{s:option_15_vunit}" hittest="false" /></Panel>
 												<Panel class="lk-switch" hittest="false"><Panel class="lk-switch__knob" hittest="false" /></Panel>
 												<Label class="lk-chev" text="›" hittest="false" />
 												<Panel class="chud-meter lk-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
@@ -1037,9 +1037,9 @@
 													<Label class="lk-unit" text="{s:option_16_unit}" hittest="false" />
 													<Label class="lk-sub" text="{s:option_16_sub}" hittest="false" />
 												</Panel>
-												<Panel class="lk-tags" hittest="false"><Label class="lk-tag" text="{s:option_16_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_16_tag2}" hittest="false" /></Panel>
+												<Panel class="lk-tags" hittest="false"><Panel id="option_16_tagglyph" class="chud-ico lk-tagglyph hidden" hittest="false" /><Label class="lk-tag" text="{s:option_16_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_16_tag2}" hittest="false" /></Panel>
 												<Label class="lk-note" text="{s:option_16_note}" hittest="false" />
-												<Panel class="lk-end" hittest="false"><Panel id="option_16_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:option_16_value}" hittest="false" /></Panel>
+												<Panel class="lk-end" hittest="false"><Panel id="option_16_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:option_16_value}" hittest="false" /><Label class="lk-vunit" text="{s:option_16_vunit}" hittest="false" /></Panel>
 												<Panel class="lk-switch" hittest="false"><Panel class="lk-switch__knob" hittest="false" /></Panel>
 												<Label class="lk-chev" text="›" hittest="false" />
 												<Panel class="chud-meter lk-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
@@ -1063,9 +1063,9 @@
 													<Label class="lk-unit" text="{s:option_17_unit}" hittest="false" />
 													<Label class="lk-sub" text="{s:option_17_sub}" hittest="false" />
 												</Panel>
-												<Panel class="lk-tags" hittest="false"><Label class="lk-tag" text="{s:option_17_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_17_tag2}" hittest="false" /></Panel>
+												<Panel class="lk-tags" hittest="false"><Panel id="option_17_tagglyph" class="chud-ico lk-tagglyph hidden" hittest="false" /><Label class="lk-tag" text="{s:option_17_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_17_tag2}" hittest="false" /></Panel>
 												<Label class="lk-note" text="{s:option_17_note}" hittest="false" />
-												<Panel class="lk-end" hittest="false"><Panel id="option_17_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:option_17_value}" hittest="false" /></Panel>
+												<Panel class="lk-end" hittest="false"><Panel id="option_17_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:option_17_value}" hittest="false" /><Label class="lk-vunit" text="{s:option_17_vunit}" hittest="false" /></Panel>
 												<Panel class="lk-switch" hittest="false"><Panel class="lk-switch__knob" hittest="false" /></Panel>
 												<Label class="lk-chev" text="›" hittest="false" />
 												<Panel class="chud-meter lk-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
@@ -1089,9 +1089,9 @@
 													<Label class="lk-unit" text="{s:option_18_unit}" hittest="false" />
 													<Label class="lk-sub" text="{s:option_18_sub}" hittest="false" />
 												</Panel>
-												<Panel class="lk-tags" hittest="false"><Label class="lk-tag" text="{s:option_18_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_18_tag2}" hittest="false" /></Panel>
+												<Panel class="lk-tags" hittest="false"><Panel id="option_18_tagglyph" class="chud-ico lk-tagglyph hidden" hittest="false" /><Label class="lk-tag" text="{s:option_18_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_18_tag2}" hittest="false" /></Panel>
 												<Label class="lk-note" text="{s:option_18_note}" hittest="false" />
-												<Panel class="lk-end" hittest="false"><Panel id="option_18_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:option_18_value}" hittest="false" /></Panel>
+												<Panel class="lk-end" hittest="false"><Panel id="option_18_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:option_18_value}" hittest="false" /><Label class="lk-vunit" text="{s:option_18_vunit}" hittest="false" /></Panel>
 												<Panel class="lk-switch" hittest="false"><Panel class="lk-switch__knob" hittest="false" /></Panel>
 												<Label class="lk-chev" text="›" hittest="false" />
 												<Panel class="chud-meter lk-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
@@ -1115,9 +1115,9 @@
 													<Label class="lk-unit" text="{s:option_19_unit}" hittest="false" />
 													<Label class="lk-sub" text="{s:option_19_sub}" hittest="false" />
 												</Panel>
-												<Panel class="lk-tags" hittest="false"><Label class="lk-tag" text="{s:option_19_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_19_tag2}" hittest="false" /></Panel>
+												<Panel class="lk-tags" hittest="false"><Panel id="option_19_tagglyph" class="chud-ico lk-tagglyph hidden" hittest="false" /><Label class="lk-tag" text="{s:option_19_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_19_tag2}" hittest="false" /></Panel>
 												<Label class="lk-note" text="{s:option_19_note}" hittest="false" />
-												<Panel class="lk-end" hittest="false"><Panel id="option_19_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:option_19_value}" hittest="false" /></Panel>
+												<Panel class="lk-end" hittest="false"><Panel id="option_19_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:option_19_value}" hittest="false" /><Label class="lk-vunit" text="{s:option_19_vunit}" hittest="false" /></Panel>
 												<Panel class="lk-switch" hittest="false"><Panel class="lk-switch__knob" hittest="false" /></Panel>
 												<Label class="lk-chev" text="›" hittest="false" />
 												<Panel class="chud-meter lk-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
@@ -1141,9 +1141,9 @@
 													<Label class="lk-unit" text="{s:option_20_unit}" hittest="false" />
 													<Label class="lk-sub" text="{s:option_20_sub}" hittest="false" />
 												</Panel>
-												<Panel class="lk-tags" hittest="false"><Label class="lk-tag" text="{s:option_20_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_20_tag2}" hittest="false" /></Panel>
+												<Panel class="lk-tags" hittest="false"><Panel id="option_20_tagglyph" class="chud-ico lk-tagglyph hidden" hittest="false" /><Label class="lk-tag" text="{s:option_20_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_20_tag2}" hittest="false" /></Panel>
 												<Label class="lk-note" text="{s:option_20_note}" hittest="false" />
-												<Panel class="lk-end" hittest="false"><Panel id="option_20_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:option_20_value}" hittest="false" /></Panel>
+												<Panel class="lk-end" hittest="false"><Panel id="option_20_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:option_20_value}" hittest="false" /><Label class="lk-vunit" text="{s:option_20_vunit}" hittest="false" /></Panel>
 												<Panel class="lk-switch" hittest="false"><Panel class="lk-switch__knob" hittest="false" /></Panel>
 												<Label class="lk-chev" text="›" hittest="false" />
 												<Panel class="chud-meter lk-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
@@ -1167,9 +1167,9 @@
 													<Label class="lk-unit" text="{s:option_21_unit}" hittest="false" />
 													<Label class="lk-sub" text="{s:option_21_sub}" hittest="false" />
 												</Panel>
-												<Panel class="lk-tags" hittest="false"><Label class="lk-tag" text="{s:option_21_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_21_tag2}" hittest="false" /></Panel>
+												<Panel class="lk-tags" hittest="false"><Panel id="option_21_tagglyph" class="chud-ico lk-tagglyph hidden" hittest="false" /><Label class="lk-tag" text="{s:option_21_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_21_tag2}" hittest="false" /></Panel>
 												<Label class="lk-note" text="{s:option_21_note}" hittest="false" />
-												<Panel class="lk-end" hittest="false"><Panel id="option_21_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:option_21_value}" hittest="false" /></Panel>
+												<Panel class="lk-end" hittest="false"><Panel id="option_21_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:option_21_value}" hittest="false" /><Label class="lk-vunit" text="{s:option_21_vunit}" hittest="false" /></Panel>
 												<Panel class="lk-switch" hittest="false"><Panel class="lk-switch__knob" hittest="false" /></Panel>
 												<Label class="lk-chev" text="›" hittest="false" />
 												<Panel class="chud-meter lk-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
@@ -1193,9 +1193,9 @@
 													<Label class="lk-unit" text="{s:option_22_unit}" hittest="false" />
 													<Label class="lk-sub" text="{s:option_22_sub}" hittest="false" />
 												</Panel>
-												<Panel class="lk-tags" hittest="false"><Label class="lk-tag" text="{s:option_22_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_22_tag2}" hittest="false" /></Panel>
+												<Panel class="lk-tags" hittest="false"><Panel id="option_22_tagglyph" class="chud-ico lk-tagglyph hidden" hittest="false" /><Label class="lk-tag" text="{s:option_22_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_22_tag2}" hittest="false" /></Panel>
 												<Label class="lk-note" text="{s:option_22_note}" hittest="false" />
-												<Panel class="lk-end" hittest="false"><Panel id="option_22_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:option_22_value}" hittest="false" /></Panel>
+												<Panel class="lk-end" hittest="false"><Panel id="option_22_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:option_22_value}" hittest="false" /><Label class="lk-vunit" text="{s:option_22_vunit}" hittest="false" /></Panel>
 												<Panel class="lk-switch" hittest="false"><Panel class="lk-switch__knob" hittest="false" /></Panel>
 												<Label class="lk-chev" text="›" hittest="false" />
 												<Panel class="chud-meter lk-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
@@ -1219,9 +1219,9 @@
 													<Label class="lk-unit" text="{s:option_23_unit}" hittest="false" />
 													<Label class="lk-sub" text="{s:option_23_sub}" hittest="false" />
 												</Panel>
-												<Panel class="lk-tags" hittest="false"><Label class="lk-tag" text="{s:option_23_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_23_tag2}" hittest="false" /></Panel>
+												<Panel class="lk-tags" hittest="false"><Panel id="option_23_tagglyph" class="chud-ico lk-tagglyph hidden" hittest="false" /><Label class="lk-tag" text="{s:option_23_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_23_tag2}" hittest="false" /></Panel>
 												<Label class="lk-note" text="{s:option_23_note}" hittest="false" />
-												<Panel class="lk-end" hittest="false"><Panel id="option_23_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:option_23_value}" hittest="false" /></Panel>
+												<Panel class="lk-end" hittest="false"><Panel id="option_23_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:option_23_value}" hittest="false" /><Label class="lk-vunit" text="{s:option_23_vunit}" hittest="false" /></Panel>
 												<Panel class="lk-switch" hittest="false"><Panel class="lk-switch__knob" hittest="false" /></Panel>
 												<Label class="lk-chev" text="›" hittest="false" />
 												<Panel class="chud-meter lk-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
@@ -1245,9 +1245,9 @@
 													<Label class="lk-unit" text="{s:option_24_unit}" hittest="false" />
 													<Label class="lk-sub" text="{s:option_24_sub}" hittest="false" />
 												</Panel>
-												<Panel class="lk-tags" hittest="false"><Label class="lk-tag" text="{s:option_24_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_24_tag2}" hittest="false" /></Panel>
+												<Panel class="lk-tags" hittest="false"><Panel id="option_24_tagglyph" class="chud-ico lk-tagglyph hidden" hittest="false" /><Label class="lk-tag" text="{s:option_24_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_24_tag2}" hittest="false" /></Panel>
 												<Label class="lk-note" text="{s:option_24_note}" hittest="false" />
-												<Panel class="lk-end" hittest="false"><Panel id="option_24_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:option_24_value}" hittest="false" /></Panel>
+												<Panel class="lk-end" hittest="false"><Panel id="option_24_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:option_24_value}" hittest="false" /><Label class="lk-vunit" text="{s:option_24_vunit}" hittest="false" /></Panel>
 												<Panel class="lk-switch" hittest="false"><Panel class="lk-switch__knob" hittest="false" /></Panel>
 												<Label class="lk-chev" text="›" hittest="false" />
 												<Panel class="chud-meter lk-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
@@ -1271,9 +1271,9 @@
 													<Label class="lk-unit" text="{s:option_25_unit}" hittest="false" />
 													<Label class="lk-sub" text="{s:option_25_sub}" hittest="false" />
 												</Panel>
-												<Panel class="lk-tags" hittest="false"><Label class="lk-tag" text="{s:option_25_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_25_tag2}" hittest="false" /></Panel>
+												<Panel class="lk-tags" hittest="false"><Panel id="option_25_tagglyph" class="chud-ico lk-tagglyph hidden" hittest="false" /><Label class="lk-tag" text="{s:option_25_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_25_tag2}" hittest="false" /></Panel>
 												<Label class="lk-note" text="{s:option_25_note}" hittest="false" />
-												<Panel class="lk-end" hittest="false"><Panel id="option_25_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:option_25_value}" hittest="false" /></Panel>
+												<Panel class="lk-end" hittest="false"><Panel id="option_25_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:option_25_value}" hittest="false" /><Label class="lk-vunit" text="{s:option_25_vunit}" hittest="false" /></Panel>
 												<Panel class="lk-switch" hittest="false"><Panel class="lk-switch__knob" hittest="false" /></Panel>
 												<Label class="lk-chev" text="›" hittest="false" />
 												<Panel class="chud-meter lk-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
@@ -1297,9 +1297,9 @@
 													<Label class="lk-unit" text="{s:option_26_unit}" hittest="false" />
 													<Label class="lk-sub" text="{s:option_26_sub}" hittest="false" />
 												</Panel>
-												<Panel class="lk-tags" hittest="false"><Label class="lk-tag" text="{s:option_26_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_26_tag2}" hittest="false" /></Panel>
+												<Panel class="lk-tags" hittest="false"><Panel id="option_26_tagglyph" class="chud-ico lk-tagglyph hidden" hittest="false" /><Label class="lk-tag" text="{s:option_26_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_26_tag2}" hittest="false" /></Panel>
 												<Label class="lk-note" text="{s:option_26_note}" hittest="false" />
-												<Panel class="lk-end" hittest="false"><Panel id="option_26_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:option_26_value}" hittest="false" /></Panel>
+												<Panel class="lk-end" hittest="false"><Panel id="option_26_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:option_26_value}" hittest="false" /><Label class="lk-vunit" text="{s:option_26_vunit}" hittest="false" /></Panel>
 												<Panel class="lk-switch" hittest="false"><Panel class="lk-switch__knob" hittest="false" /></Panel>
 												<Label class="lk-chev" text="›" hittest="false" />
 												<Panel class="chud-meter lk-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
@@ -1323,9 +1323,9 @@
 													<Label class="lk-unit" text="{s:option_27_unit}" hittest="false" />
 													<Label class="lk-sub" text="{s:option_27_sub}" hittest="false" />
 												</Panel>
-												<Panel class="lk-tags" hittest="false"><Label class="lk-tag" text="{s:option_27_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_27_tag2}" hittest="false" /></Panel>
+												<Panel class="lk-tags" hittest="false"><Panel id="option_27_tagglyph" class="chud-ico lk-tagglyph hidden" hittest="false" /><Label class="lk-tag" text="{s:option_27_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_27_tag2}" hittest="false" /></Panel>
 												<Label class="lk-note" text="{s:option_27_note}" hittest="false" />
-												<Panel class="lk-end" hittest="false"><Panel id="option_27_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:option_27_value}" hittest="false" /></Panel>
+												<Panel class="lk-end" hittest="false"><Panel id="option_27_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:option_27_value}" hittest="false" /><Label class="lk-vunit" text="{s:option_27_vunit}" hittest="false" /></Panel>
 												<Panel class="lk-switch" hittest="false"><Panel class="lk-switch__knob" hittest="false" /></Panel>
 												<Label class="lk-chev" text="›" hittest="false" />
 												<Panel class="chud-meter lk-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
@@ -1349,9 +1349,9 @@
 													<Label class="lk-unit" text="{s:option_28_unit}" hittest="false" />
 													<Label class="lk-sub" text="{s:option_28_sub}" hittest="false" />
 												</Panel>
-												<Panel class="lk-tags" hittest="false"><Label class="lk-tag" text="{s:option_28_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_28_tag2}" hittest="false" /></Panel>
+												<Panel class="lk-tags" hittest="false"><Panel id="option_28_tagglyph" class="chud-ico lk-tagglyph hidden" hittest="false" /><Label class="lk-tag" text="{s:option_28_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_28_tag2}" hittest="false" /></Panel>
 												<Label class="lk-note" text="{s:option_28_note}" hittest="false" />
-												<Panel class="lk-end" hittest="false"><Panel id="option_28_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:option_28_value}" hittest="false" /></Panel>
+												<Panel class="lk-end" hittest="false"><Panel id="option_28_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:option_28_value}" hittest="false" /><Label class="lk-vunit" text="{s:option_28_vunit}" hittest="false" /></Panel>
 												<Panel class="lk-switch" hittest="false"><Panel class="lk-switch__knob" hittest="false" /></Panel>
 												<Label class="lk-chev" text="›" hittest="false" />
 												<Panel class="chud-meter lk-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
@@ -1375,9 +1375,9 @@
 													<Label class="lk-unit" text="{s:option_29_unit}" hittest="false" />
 													<Label class="lk-sub" text="{s:option_29_sub}" hittest="false" />
 												</Panel>
-												<Panel class="lk-tags" hittest="false"><Label class="lk-tag" text="{s:option_29_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_29_tag2}" hittest="false" /></Panel>
+												<Panel class="lk-tags" hittest="false"><Panel id="option_29_tagglyph" class="chud-ico lk-tagglyph hidden" hittest="false" /><Label class="lk-tag" text="{s:option_29_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_29_tag2}" hittest="false" /></Panel>
 												<Label class="lk-note" text="{s:option_29_note}" hittest="false" />
-												<Panel class="lk-end" hittest="false"><Panel id="option_29_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:option_29_value}" hittest="false" /></Panel>
+												<Panel class="lk-end" hittest="false"><Panel id="option_29_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:option_29_value}" hittest="false" /><Label class="lk-vunit" text="{s:option_29_vunit}" hittest="false" /></Panel>
 												<Panel class="lk-switch" hittest="false"><Panel class="lk-switch__knob" hittest="false" /></Panel>
 												<Label class="lk-chev" text="›" hittest="false" />
 												<Panel class="chud-meter lk-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
@@ -1401,9 +1401,9 @@
 													<Label class="lk-unit" text="{s:option_30_unit}" hittest="false" />
 													<Label class="lk-sub" text="{s:option_30_sub}" hittest="false" />
 												</Panel>
-												<Panel class="lk-tags" hittest="false"><Label class="lk-tag" text="{s:option_30_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_30_tag2}" hittest="false" /></Panel>
+												<Panel class="lk-tags" hittest="false"><Panel id="option_30_tagglyph" class="chud-ico lk-tagglyph hidden" hittest="false" /><Label class="lk-tag" text="{s:option_30_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_30_tag2}" hittest="false" /></Panel>
 												<Label class="lk-note" text="{s:option_30_note}" hittest="false" />
-												<Panel class="lk-end" hittest="false"><Panel id="option_30_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:option_30_value}" hittest="false" /></Panel>
+												<Panel class="lk-end" hittest="false"><Panel id="option_30_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:option_30_value}" hittest="false" /><Label class="lk-vunit" text="{s:option_30_vunit}" hittest="false" /></Panel>
 												<Panel class="lk-switch" hittest="false"><Panel class="lk-switch__knob" hittest="false" /></Panel>
 												<Label class="lk-chev" text="›" hittest="false" />
 												<Panel class="chud-meter lk-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
@@ -1427,9 +1427,9 @@
 													<Label class="lk-unit" text="{s:option_31_unit}" hittest="false" />
 													<Label class="lk-sub" text="{s:option_31_sub}" hittest="false" />
 												</Panel>
-												<Panel class="lk-tags" hittest="false"><Label class="lk-tag" text="{s:option_31_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_31_tag2}" hittest="false" /></Panel>
+												<Panel class="lk-tags" hittest="false"><Panel id="option_31_tagglyph" class="chud-ico lk-tagglyph hidden" hittest="false" /><Label class="lk-tag" text="{s:option_31_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_31_tag2}" hittest="false" /></Panel>
 												<Label class="lk-note" text="{s:option_31_note}" hittest="false" />
-												<Panel class="lk-end" hittest="false"><Panel id="option_31_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:option_31_value}" hittest="false" /></Panel>
+												<Panel class="lk-end" hittest="false"><Panel id="option_31_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:option_31_value}" hittest="false" /><Label class="lk-vunit" text="{s:option_31_vunit}" hittest="false" /></Panel>
 												<Panel class="lk-switch" hittest="false"><Panel class="lk-switch__knob" hittest="false" /></Panel>
 												<Label class="lk-chev" text="›" hittest="false" />
 												<Panel class="chud-meter lk-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
@@ -1453,9 +1453,9 @@
 													<Label class="lk-unit" text="{s:option_32_unit}" hittest="false" />
 													<Label class="lk-sub" text="{s:option_32_sub}" hittest="false" />
 												</Panel>
-												<Panel class="lk-tags" hittest="false"><Label class="lk-tag" text="{s:option_32_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_32_tag2}" hittest="false" /></Panel>
+												<Panel class="lk-tags" hittest="false"><Panel id="option_32_tagglyph" class="chud-ico lk-tagglyph hidden" hittest="false" /><Label class="lk-tag" text="{s:option_32_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_32_tag2}" hittest="false" /></Panel>
 												<Label class="lk-note" text="{s:option_32_note}" hittest="false" />
-												<Panel class="lk-end" hittest="false"><Panel id="option_32_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:option_32_value}" hittest="false" /></Panel>
+												<Panel class="lk-end" hittest="false"><Panel id="option_32_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:option_32_value}" hittest="false" /><Label class="lk-vunit" text="{s:option_32_vunit}" hittest="false" /></Panel>
 												<Panel class="lk-switch" hittest="false"><Panel class="lk-switch__knob" hittest="false" /></Panel>
 												<Label class="lk-chev" text="›" hittest="false" />
 												<Panel class="chud-meter lk-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
@@ -1479,9 +1479,9 @@
 													<Label class="lk-unit" text="{s:option_33_unit}" hittest="false" />
 													<Label class="lk-sub" text="{s:option_33_sub}" hittest="false" />
 												</Panel>
-												<Panel class="lk-tags" hittest="false"><Label class="lk-tag" text="{s:option_33_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_33_tag2}" hittest="false" /></Panel>
+												<Panel class="lk-tags" hittest="false"><Panel id="option_33_tagglyph" class="chud-ico lk-tagglyph hidden" hittest="false" /><Label class="lk-tag" text="{s:option_33_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_33_tag2}" hittest="false" /></Panel>
 												<Label class="lk-note" text="{s:option_33_note}" hittest="false" />
-												<Panel class="lk-end" hittest="false"><Panel id="option_33_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:option_33_value}" hittest="false" /></Panel>
+												<Panel class="lk-end" hittest="false"><Panel id="option_33_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:option_33_value}" hittest="false" /><Label class="lk-vunit" text="{s:option_33_vunit}" hittest="false" /></Panel>
 												<Panel class="lk-switch" hittest="false"><Panel class="lk-switch__knob" hittest="false" /></Panel>
 												<Label class="lk-chev" text="›" hittest="false" />
 												<Panel class="chud-meter lk-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
@@ -1505,9 +1505,9 @@
 													<Label class="lk-unit" text="{s:option_34_unit}" hittest="false" />
 													<Label class="lk-sub" text="{s:option_34_sub}" hittest="false" />
 												</Panel>
-												<Panel class="lk-tags" hittest="false"><Label class="lk-tag" text="{s:option_34_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_34_tag2}" hittest="false" /></Panel>
+												<Panel class="lk-tags" hittest="false"><Panel id="option_34_tagglyph" class="chud-ico lk-tagglyph hidden" hittest="false" /><Label class="lk-tag" text="{s:option_34_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_34_tag2}" hittest="false" /></Panel>
 												<Label class="lk-note" text="{s:option_34_note}" hittest="false" />
-												<Panel class="lk-end" hittest="false"><Panel id="option_34_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:option_34_value}" hittest="false" /></Panel>
+												<Panel class="lk-end" hittest="false"><Panel id="option_34_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:option_34_value}" hittest="false" /><Label class="lk-vunit" text="{s:option_34_vunit}" hittest="false" /></Panel>
 												<Panel class="lk-switch" hittest="false"><Panel class="lk-switch__knob" hittest="false" /></Panel>
 												<Label class="lk-chev" text="›" hittest="false" />
 												<Panel class="chud-meter lk-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
@@ -1531,9 +1531,9 @@
 													<Label class="lk-unit" text="{s:option_35_unit}" hittest="false" />
 													<Label class="lk-sub" text="{s:option_35_sub}" hittest="false" />
 												</Panel>
-												<Panel class="lk-tags" hittest="false"><Label class="lk-tag" text="{s:option_35_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_35_tag2}" hittest="false" /></Panel>
+												<Panel class="lk-tags" hittest="false"><Panel id="option_35_tagglyph" class="chud-ico lk-tagglyph hidden" hittest="false" /><Label class="lk-tag" text="{s:option_35_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_35_tag2}" hittest="false" /></Panel>
 												<Label class="lk-note" text="{s:option_35_note}" hittest="false" />
-												<Panel class="lk-end" hittest="false"><Panel id="option_35_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:option_35_value}" hittest="false" /></Panel>
+												<Panel class="lk-end" hittest="false"><Panel id="option_35_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:option_35_value}" hittest="false" /><Label class="lk-vunit" text="{s:option_35_vunit}" hittest="false" /></Panel>
 												<Panel class="lk-switch" hittest="false"><Panel class="lk-switch__knob" hittest="false" /></Panel>
 												<Label class="lk-chev" text="›" hittest="false" />
 												<Panel class="chud-meter lk-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
@@ -1557,9 +1557,9 @@
 													<Label class="lk-unit" text="{s:option_36_unit}" hittest="false" />
 													<Label class="lk-sub" text="{s:option_36_sub}" hittest="false" />
 												</Panel>
-												<Panel class="lk-tags" hittest="false"><Label class="lk-tag" text="{s:option_36_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_36_tag2}" hittest="false" /></Panel>
+												<Panel class="lk-tags" hittest="false"><Panel id="option_36_tagglyph" class="chud-ico lk-tagglyph hidden" hittest="false" /><Label class="lk-tag" text="{s:option_36_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_36_tag2}" hittest="false" /></Panel>
 												<Label class="lk-note" text="{s:option_36_note}" hittest="false" />
-												<Panel class="lk-end" hittest="false"><Panel id="option_36_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:option_36_value}" hittest="false" /></Panel>
+												<Panel class="lk-end" hittest="false"><Panel id="option_36_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:option_36_value}" hittest="false" /><Label class="lk-vunit" text="{s:option_36_vunit}" hittest="false" /></Panel>
 												<Panel class="lk-switch" hittest="false"><Panel class="lk-switch__knob" hittest="false" /></Panel>
 												<Label class="lk-chev" text="›" hittest="false" />
 												<Panel class="chud-meter lk-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
@@ -1583,9 +1583,9 @@
 													<Label class="lk-unit" text="{s:option_37_unit}" hittest="false" />
 													<Label class="lk-sub" text="{s:option_37_sub}" hittest="false" />
 												</Panel>
-												<Panel class="lk-tags" hittest="false"><Label class="lk-tag" text="{s:option_37_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_37_tag2}" hittest="false" /></Panel>
+												<Panel class="lk-tags" hittest="false"><Panel id="option_37_tagglyph" class="chud-ico lk-tagglyph hidden" hittest="false" /><Label class="lk-tag" text="{s:option_37_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_37_tag2}" hittest="false" /></Panel>
 												<Label class="lk-note" text="{s:option_37_note}" hittest="false" />
-												<Panel class="lk-end" hittest="false"><Panel id="option_37_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:option_37_value}" hittest="false" /></Panel>
+												<Panel class="lk-end" hittest="false"><Panel id="option_37_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:option_37_value}" hittest="false" /><Label class="lk-vunit" text="{s:option_37_vunit}" hittest="false" /></Panel>
 												<Panel class="lk-switch" hittest="false"><Panel class="lk-switch__knob" hittest="false" /></Panel>
 												<Label class="lk-chev" text="›" hittest="false" />
 												<Panel class="chud-meter lk-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
@@ -1609,9 +1609,9 @@
 													<Label class="lk-unit" text="{s:option_38_unit}" hittest="false" />
 													<Label class="lk-sub" text="{s:option_38_sub}" hittest="false" />
 												</Panel>
-												<Panel class="lk-tags" hittest="false"><Label class="lk-tag" text="{s:option_38_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_38_tag2}" hittest="false" /></Panel>
+												<Panel class="lk-tags" hittest="false"><Panel id="option_38_tagglyph" class="chud-ico lk-tagglyph hidden" hittest="false" /><Label class="lk-tag" text="{s:option_38_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_38_tag2}" hittest="false" /></Panel>
 												<Label class="lk-note" text="{s:option_38_note}" hittest="false" />
-												<Panel class="lk-end" hittest="false"><Panel id="option_38_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:option_38_value}" hittest="false" /></Panel>
+												<Panel class="lk-end" hittest="false"><Panel id="option_38_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:option_38_value}" hittest="false" /><Label class="lk-vunit" text="{s:option_38_vunit}" hittest="false" /></Panel>
 												<Panel class="lk-switch" hittest="false"><Panel class="lk-switch__knob" hittest="false" /></Panel>
 												<Label class="lk-chev" text="›" hittest="false" />
 												<Panel class="chud-meter lk-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
@@ -1635,9 +1635,9 @@
 													<Label class="lk-unit" text="{s:option_39_unit}" hittest="false" />
 													<Label class="lk-sub" text="{s:option_39_sub}" hittest="false" />
 												</Panel>
-												<Panel class="lk-tags" hittest="false"><Label class="lk-tag" text="{s:option_39_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_39_tag2}" hittest="false" /></Panel>
+												<Panel class="lk-tags" hittest="false"><Panel id="option_39_tagglyph" class="chud-ico lk-tagglyph hidden" hittest="false" /><Label class="lk-tag" text="{s:option_39_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_39_tag2}" hittest="false" /></Panel>
 												<Label class="lk-note" text="{s:option_39_note}" hittest="false" />
-												<Panel class="lk-end" hittest="false"><Panel id="option_39_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:option_39_value}" hittest="false" /></Panel>
+												<Panel class="lk-end" hittest="false"><Panel id="option_39_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:option_39_value}" hittest="false" /><Label class="lk-vunit" text="{s:option_39_vunit}" hittest="false" /></Panel>
 												<Panel class="lk-switch" hittest="false"><Panel class="lk-switch__knob" hittest="false" /></Panel>
 												<Label class="lk-chev" text="›" hittest="false" />
 												<Panel class="chud-meter lk-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
@@ -1661,9 +1661,9 @@
 													<Label class="lk-unit" text="{s:option_40_unit}" hittest="false" />
 													<Label class="lk-sub" text="{s:option_40_sub}" hittest="false" />
 												</Panel>
-												<Panel class="lk-tags" hittest="false"><Label class="lk-tag" text="{s:option_40_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_40_tag2}" hittest="false" /></Panel>
+												<Panel class="lk-tags" hittest="false"><Panel id="option_40_tagglyph" class="chud-ico lk-tagglyph hidden" hittest="false" /><Label class="lk-tag" text="{s:option_40_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_40_tag2}" hittest="false" /></Panel>
 												<Label class="lk-note" text="{s:option_40_note}" hittest="false" />
-												<Panel class="lk-end" hittest="false"><Panel id="option_40_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:option_40_value}" hittest="false" /></Panel>
+												<Panel class="lk-end" hittest="false"><Panel id="option_40_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:option_40_value}" hittest="false" /><Label class="lk-vunit" text="{s:option_40_vunit}" hittest="false" /></Panel>
 												<Panel class="lk-switch" hittest="false"><Panel class="lk-switch__knob" hittest="false" /></Panel>
 												<Label class="lk-chev" text="›" hittest="false" />
 												<Panel class="chud-meter lk-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
@@ -1687,9 +1687,9 @@
 													<Label class="lk-unit" text="{s:option_41_unit}" hittest="false" />
 													<Label class="lk-sub" text="{s:option_41_sub}" hittest="false" />
 												</Panel>
-												<Panel class="lk-tags" hittest="false"><Label class="lk-tag" text="{s:option_41_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_41_tag2}" hittest="false" /></Panel>
+												<Panel class="lk-tags" hittest="false"><Panel id="option_41_tagglyph" class="chud-ico lk-tagglyph hidden" hittest="false" /><Label class="lk-tag" text="{s:option_41_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_41_tag2}" hittest="false" /></Panel>
 												<Label class="lk-note" text="{s:option_41_note}" hittest="false" />
-												<Panel class="lk-end" hittest="false"><Panel id="option_41_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:option_41_value}" hittest="false" /></Panel>
+												<Panel class="lk-end" hittest="false"><Panel id="option_41_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:option_41_value}" hittest="false" /><Label class="lk-vunit" text="{s:option_41_vunit}" hittest="false" /></Panel>
 												<Panel class="lk-switch" hittest="false"><Panel class="lk-switch__knob" hittest="false" /></Panel>
 												<Label class="lk-chev" text="›" hittest="false" />
 												<Panel class="chud-meter lk-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
@@ -1713,9 +1713,9 @@
 													<Label class="lk-unit" text="{s:option_42_unit}" hittest="false" />
 													<Label class="lk-sub" text="{s:option_42_sub}" hittest="false" />
 												</Panel>
-												<Panel class="lk-tags" hittest="false"><Label class="lk-tag" text="{s:option_42_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_42_tag2}" hittest="false" /></Panel>
+												<Panel class="lk-tags" hittest="false"><Panel id="option_42_tagglyph" class="chud-ico lk-tagglyph hidden" hittest="false" /><Label class="lk-tag" text="{s:option_42_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_42_tag2}" hittest="false" /></Panel>
 												<Label class="lk-note" text="{s:option_42_note}" hittest="false" />
-												<Panel class="lk-end" hittest="false"><Panel id="option_42_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:option_42_value}" hittest="false" /></Panel>
+												<Panel class="lk-end" hittest="false"><Panel id="option_42_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:option_42_value}" hittest="false" /><Label class="lk-vunit" text="{s:option_42_vunit}" hittest="false" /></Panel>
 												<Panel class="lk-switch" hittest="false"><Panel class="lk-switch__knob" hittest="false" /></Panel>
 												<Label class="lk-chev" text="›" hittest="false" />
 												<Panel class="chud-meter lk-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
@@ -1739,9 +1739,9 @@
 													<Label class="lk-unit" text="{s:option_43_unit}" hittest="false" />
 													<Label class="lk-sub" text="{s:option_43_sub}" hittest="false" />
 												</Panel>
-												<Panel class="lk-tags" hittest="false"><Label class="lk-tag" text="{s:option_43_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_43_tag2}" hittest="false" /></Panel>
+												<Panel class="lk-tags" hittest="false"><Panel id="option_43_tagglyph" class="chud-ico lk-tagglyph hidden" hittest="false" /><Label class="lk-tag" text="{s:option_43_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_43_tag2}" hittest="false" /></Panel>
 												<Label class="lk-note" text="{s:option_43_note}" hittest="false" />
-												<Panel class="lk-end" hittest="false"><Panel id="option_43_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:option_43_value}" hittest="false" /></Panel>
+												<Panel class="lk-end" hittest="false"><Panel id="option_43_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:option_43_value}" hittest="false" /><Label class="lk-vunit" text="{s:option_43_vunit}" hittest="false" /></Panel>
 												<Panel class="lk-switch" hittest="false"><Panel class="lk-switch__knob" hittest="false" /></Panel>
 												<Label class="lk-chev" text="›" hittest="false" />
 												<Panel class="chud-meter lk-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
@@ -1765,9 +1765,9 @@
 													<Label class="lk-unit" text="{s:option_44_unit}" hittest="false" />
 													<Label class="lk-sub" text="{s:option_44_sub}" hittest="false" />
 												</Panel>
-												<Panel class="lk-tags" hittest="false"><Label class="lk-tag" text="{s:option_44_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_44_tag2}" hittest="false" /></Panel>
+												<Panel class="lk-tags" hittest="false"><Panel id="option_44_tagglyph" class="chud-ico lk-tagglyph hidden" hittest="false" /><Label class="lk-tag" text="{s:option_44_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_44_tag2}" hittest="false" /></Panel>
 												<Label class="lk-note" text="{s:option_44_note}" hittest="false" />
-												<Panel class="lk-end" hittest="false"><Panel id="option_44_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:option_44_value}" hittest="false" /></Panel>
+												<Panel class="lk-end" hittest="false"><Panel id="option_44_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:option_44_value}" hittest="false" /><Label class="lk-vunit" text="{s:option_44_vunit}" hittest="false" /></Panel>
 												<Panel class="lk-switch" hittest="false"><Panel class="lk-switch__knob" hittest="false" /></Panel>
 												<Label class="lk-chev" text="›" hittest="false" />
 												<Panel class="chud-meter lk-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
@@ -1791,9 +1791,9 @@
 													<Label class="lk-unit" text="{s:option_45_unit}" hittest="false" />
 													<Label class="lk-sub" text="{s:option_45_sub}" hittest="false" />
 												</Panel>
-												<Panel class="lk-tags" hittest="false"><Label class="lk-tag" text="{s:option_45_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_45_tag2}" hittest="false" /></Panel>
+												<Panel class="lk-tags" hittest="false"><Panel id="option_45_tagglyph" class="chud-ico lk-tagglyph hidden" hittest="false" /><Label class="lk-tag" text="{s:option_45_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_45_tag2}" hittest="false" /></Panel>
 												<Label class="lk-note" text="{s:option_45_note}" hittest="false" />
-												<Panel class="lk-end" hittest="false"><Panel id="option_45_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:option_45_value}" hittest="false" /></Panel>
+												<Panel class="lk-end" hittest="false"><Panel id="option_45_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:option_45_value}" hittest="false" /><Label class="lk-vunit" text="{s:option_45_vunit}" hittest="false" /></Panel>
 												<Panel class="lk-switch" hittest="false"><Panel class="lk-switch__knob" hittest="false" /></Panel>
 												<Label class="lk-chev" text="›" hittest="false" />
 												<Panel class="chud-meter lk-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
@@ -1817,9 +1817,9 @@
 													<Label class="lk-unit" text="{s:option_46_unit}" hittest="false" />
 													<Label class="lk-sub" text="{s:option_46_sub}" hittest="false" />
 												</Panel>
-												<Panel class="lk-tags" hittest="false"><Label class="lk-tag" text="{s:option_46_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_46_tag2}" hittest="false" /></Panel>
+												<Panel class="lk-tags" hittest="false"><Panel id="option_46_tagglyph" class="chud-ico lk-tagglyph hidden" hittest="false" /><Label class="lk-tag" text="{s:option_46_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_46_tag2}" hittest="false" /></Panel>
 												<Label class="lk-note" text="{s:option_46_note}" hittest="false" />
-												<Panel class="lk-end" hittest="false"><Panel id="option_46_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:option_46_value}" hittest="false" /></Panel>
+												<Panel class="lk-end" hittest="false"><Panel id="option_46_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:option_46_value}" hittest="false" /><Label class="lk-vunit" text="{s:option_46_vunit}" hittest="false" /></Panel>
 												<Panel class="lk-switch" hittest="false"><Panel class="lk-switch__knob" hittest="false" /></Panel>
 												<Label class="lk-chev" text="›" hittest="false" />
 												<Panel class="chud-meter lk-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>
@@ -1843,9 +1843,9 @@
 													<Label class="lk-unit" text="{s:option_47_unit}" hittest="false" />
 													<Label class="lk-sub" text="{s:option_47_sub}" hittest="false" />
 												</Panel>
-												<Panel class="lk-tags" hittest="false"><Label class="lk-tag" text="{s:option_47_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_47_tag2}" hittest="false" /></Panel>
+												<Panel class="lk-tags" hittest="false"><Panel id="option_47_tagglyph" class="chud-ico lk-tagglyph hidden" hittest="false" /><Label class="lk-tag" text="{s:option_47_tag}" hittest="false" /><Label class="lk-tag2" text="{s:option_47_tag2}" hittest="false" /></Panel>
 												<Label class="lk-note" text="{s:option_47_note}" hittest="false" />
-												<Panel class="lk-end" hittest="false"><Panel id="option_47_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:option_47_value}" hittest="false" /></Panel>
+												<Panel class="lk-end" hittest="false"><Panel id="option_47_vglyph" class="chud-ico lk-vglyph hidden" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label class="lk-value" text="{s:option_47_value}" hittest="false" /><Label class="lk-vunit" text="{s:option_47_vunit}" hittest="false" /></Panel>
 												<Panel class="lk-switch" hittest="false"><Panel class="lk-switch__knob" hittest="false" /></Panel>
 												<Label class="lk-chev" text="›" hittest="false" />
 												<Panel class="chud-meter lk-meter" hittest="false"><Panel class="chud-meter__fill" hittest="false" /></Panel>

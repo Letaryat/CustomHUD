@@ -722,6 +722,17 @@
 	font-weight: bold;
 }
 
+/* A side ahead in the vote is tagged Leading, with its trophy in the 9px padding. */
+.lk.view-mix-sides .lk-list .lk-tagglyph
+{
+	margin: 0px -28px 0px 16px;
+}
+
+.lk.view-mix-sides .lk-list .has-tagglyph .lk-tag
+{
+	padding-left: 26px;
+}
+
 /* ---- mix-ballot: a vote everyone in a team gets mid-round, docked at the side ---- */
 
 .lk.view-mix-ballot

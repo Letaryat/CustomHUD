@@ -303,6 +303,8 @@ public sealed class MenuSidebarProfile
     // and the slot gets CountClass. Empty CountVar keeps the label whole.
     public string CountVar { get; set; } = "";
     public string CountClass { get; set; } = "has-count";
+    // On the entry whose id a page's header names with `live=` (MapChooser's Vote while a vote runs).
+    public string LiveClass { get; set; } = "live";
 
     public string? Icon(int i) => IconPanel.Length == 0 ? null : string.Format(IconPanel, i);
 }
@@ -413,6 +415,10 @@ public sealed class LayoutRowSpec
     // Receives the same econ class as ThumbPanel, so a sheet can draw a second
     // picture for one key (a map's logo beside its screenshot).
     public string? LogoPanel { get; set; }
+    // `tagglyph=`: an icon inside the tag's pill (Leading's trophy).
+    public string? TagGlyphPanel { get; set; }
+    // `vunit=`: a small unit after the value ("45" and "%").
+    public string? ValueUnitVar { get; set; }
     // `rating=17450`: "17" and ",450", drawn the way CS2 draws a CS Rating.
     public string? RatingVar { get; set; }
     public string? RatingMinorVar { get; set; }
@@ -439,6 +445,8 @@ public sealed class LayoutRowSpec
     public string? Glyph(int i) => GlyphPanel is null ? null : string.Format(GlyphPanel, i);
     public string? ValueGlyph(int i) => ValueGlyphPanel is null ? null : string.Format(ValueGlyphPanel, i);
     public string? Logo(int i) => LogoPanel is null ? null : string.Format(LogoPanel, i);
+    public string? TagGlyph(int i) => TagGlyphPanel is null ? null : string.Format(TagGlyphPanel, i);
+    public string? ValueUnit(int i) => ValueUnitVar is null ? null : string.Format(ValueUnitVar, i);
     public string? Rating(int i) => RatingVar is null ? null : string.Format(RatingVar, i);
     public string? RatingMinor(int i) => RatingMinorVar is null ? null : string.Format(RatingMinorVar, i);
     public string Hit(int i) => HitSuffix is null ? Panel(i) : Panel(i) + HitSuffix;

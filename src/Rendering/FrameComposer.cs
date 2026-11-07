@@ -163,7 +163,7 @@ internal sealed partial class FrameComposer(CustomHudConfigProvider config, HudT
             string.Join(',', p.Classes.IconTokens),
             string.Join(',', p.Classes.ScaleSteps),
             string.Join(',', p.BlankOnOpen),
-            p.Sidebar?.CountVar, p.Sidebar?.CountClass,
+            p.Sidebar?.CountVar, p.Sidebar?.CountClass, p.Sidebar?.LiveClass,
             RowFingerprint(p.Row),
             p.Page is { } page ? PageFingerprint(page) : "");
 
@@ -171,7 +171,7 @@ internal sealed partial class FrameComposer(CustomHudConfigProvider config, HudT
         => string.Join(',',
             r.PanelId, r.LabelVar, r.ValueVar, r.KeyVar, r.IconPanel, r.ThumbPanel, r.TypeVar,
             r.HitSuffix, r.InlineSuffix, r.SubVar, r.UnitVar, r.TagVar, r.Tag2Var, r.NoteVar, r.MarkVar,
-            r.GlyphPanel, r.ValueGlyphPanel, r.LogoPanel, r.RatingVar, r.RatingMinorVar,
+            r.GlyphPanel, r.ValueGlyphPanel, r.LogoPanel, r.TagGlyphPanel, r.ValueUnitVar, r.RatingVar, r.RatingMinorVar,
             r.DecSuffix, r.IncSuffix, r.SegmentSuffix, r.Segments);
 
     private static string PageFingerprint(MenuPageProfile p)
@@ -188,7 +188,8 @@ internal sealed partial class FrameComposer(CustomHudConfigProvider config, HudT
             string.Join(',', c.View, c.Region, c.HasTabs, c.HasHead, c.NoSidebar, c.Mode, c.HasCrumb, c.HasEyebrow, c.Tone, c.SubTone,
                 c.TagTone, c.Tag2Tone, c.NoteTone, c.MeterTone, c.Swatch, c.Avatar, c.AvatarColors, c.Rarity, c.Kind,
                 c.On, c.Track, c.Rating, c.Pips, c.Lit, c.Yes, c.Section, c.Group, c.Lead, c.Primary, c.HasKey, c.HasSub, c.HasUnit,
-                c.HasTag, c.HasTag2, c.HasNote, c.HasValue, c.HasGlyph, c.HasValueGlyph, c.HasMark, c.HasInline, c.HasRating, c.HasPips, c.HasCount,
+                c.HasTag, c.HasTag2, c.HasNote, c.HasValue, c.HasGlyph, c.HasValueGlyph, c.HasTagGlyph, c.HasValueUnit, c.HasMark,
+                c.HasInline, c.HasRating, c.HasPips, c.HasCount,
                 c.Glyph, c.InlineState, c.HasBar2, c.Bar2));
     }
 
@@ -213,7 +214,8 @@ internal sealed partial class FrameComposer(CustomHudConfigProvider config, HudT
 
     private static RowMap ComposeSidebar(
         IMenuRenderContext context, MenuLayoutProfile profile, MenuSidebarProfile sidebar,
-        RowMap rows, ImmutableArray<VarWrite>.Builder vars, ImmutableArray<ClassWrite>.Builder classes)
+        RowMap rows, ImmutableArray<VarWrite>.Builder vars, ImmutableArray<ClassWrite>.Builder classes,
+        IReadOnlyCollection<string>? live = null)
     {
         var root = SidebarRoot(context.Menu);
         var items = SidebarEntries(root, sidebar);
@@ -242,6 +244,9 @@ internal sealed partial class FrameComposer(CustomHudConfigProvider config, HudT
                 classes.Add(new ClassWrite(panel, profile.Classes.Disabled, true));
             if (i == active)
                 classes.Add(new ClassWrite(panel, profile.Classes.Selected, true));
+            if (live is { Count: > 0 } && sidebar.LiveClass.Length > 0 && item is SubmenuComponent { Id: { Length: > 0 } entryId }
+                && live.Contains(entryId, StringComparer.OrdinalIgnoreCase))
+                classes.Add(new ClassWrite(panel, sidebar.LiveClass, true));
             if (item is TextComponent entry && sidebar.Icon(i) is { } iconPanel && SidebarIcon(sidebar, entry) is { } icon)
                 classes.Add(new ClassWrite(iconPanel, Format(sidebar.IconClass, icon), true));
         }
@@ -404,7 +409,7 @@ internal sealed partial class FrameComposer(CustomHudConfigProvider config, HudT
 
             var parts = entry.Text.Split(SegmentSeparator);
             var label = parts[0];
-            var value = parts.Length > 1 ? parts[1] : string.Empty;
+            var value = parts.Length > 1 && parts[1].Length > 0 ? parts[1] + entry.ValueUnit : string.Empty;
             // An explicit raw-node icon beats the tab convention: a plugin that
             // went to the trouble of addressing this renderer meant it.
             var iconToken = entry.Icon ?? (parts.Length > 2 ? parts[2] : string.Empty);
@@ -577,7 +582,7 @@ internal sealed partial class FrameComposer(CustomHudConfigProvider config, HudT
             var entry = entries[main[i]];
             var parts = entry.Text.Split(SegmentSeparator);
             var value = entry.Kind == "slider" && entry.ValueText is { } readout ? readout
-                : parts.Length > 1 ? parts[1] : string.Empty;
+                : parts.Length > 1 && parts[1].Length > 0 ? parts[1] + entry.ValueUnit : string.Empty;
             vars.Add(new VarWrite(panel, card.Label(i), parts[0]));
             vars.Add(new VarWrite(panel, card.Value(i), value));
             classes.Add(new ClassWrite(panel, cls.Hidden, false));
@@ -710,11 +715,12 @@ internal sealed partial class FrameComposer(CustomHudConfigProvider config, HudT
 
     // Core's DividerComponent is a run of '─' in the header, and CenterHTML-era
     // titles pad themselves ("----- Stats -----"); the layout already frames the
-    // title, so both only eat width. "{0} - Hit Stats" keeps its lone hyphen.
+    // title, so both only eat width. "{0} - Hit Stats" keeps its lone hyphen, and
+    // a prompt's trailing colon ("Vote for the next map:") goes: a heading needs none.
     private static string CleanTitle(string title)
     {
         if (title.Length == 0) return title;
-        var s = Rule().Replace(title, " ").Trim(RuleEdges);
+        var s = Rule().Replace(title, " ").Trim(RuleEdges).TrimEnd(':', '：').TrimEnd();
         return Spaces().Replace(s, " ");
     }
 
@@ -922,6 +928,8 @@ internal sealed partial class FrameComposer(CustomHudConfigProvider config, HudT
         public string? Glyph;
         // `vglyph=`: the value's glyph, where it differs from the entry's own.
         public string? ValueGlyph;
+        public string? TagGlyph;
+        public string? ValueUnit;
         public string? Swatch;
         public int? Rating;
         public int PipsLit;
@@ -939,5 +947,7 @@ internal sealed partial class FrameComposer(CustomHudConfigProvider config, HudT
         public bool Fold;
         // A header node holding the page's own footer line for a mouse player (`hint`).
         public bool Hint;
+        // A header node's `live=<entry id>`: that sidebar entry is happening now.
+        public string? Live;
     }
 }

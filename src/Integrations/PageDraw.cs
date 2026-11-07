@@ -29,7 +29,8 @@ internal sealed class PageDraw
         ILocalizer strings,
         IReadOnlySet<string> regions,
         int mainSlots,
-        IReadOnlyDictionary<string, string> icons)
+        IReadOnlyDictionary<string, string> icons,
+        string? view = null)
     {
         _host = host;
         _strings = strings;
@@ -44,6 +45,7 @@ internal sealed class PageDraw
         PageCount = pageCount;
         Regions = regions;
         MainSlots = mainSlots;
+        View = view;
     }
 
     public IMenuSession Session { get; }
@@ -60,6 +62,9 @@ internal sealed class PageDraw
 
     // What the main list holds; a row added past it is cut.
     public int MainSlots { get; }
+
+    // The view drawing the page (maps-rows), or null on a layout without views; a provider's `view=` can still override it.
+    public string? View { get; }
 
     public object? ItemOf(int index) => CollectionItems.Of(Components[index]);
 

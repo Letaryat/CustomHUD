@@ -18,7 +18,7 @@ for exercises the list (`menu_list`, and `menu_list_mouse` in mouse mode).
 | MapDecals | `rampage-plugins-MapDecals` | `!mapdecal` | no CustomHUD rule: buttons, a toggle, sliders, an input, a submenu; an alert |
 | Ranks | the fork | `!rank`, `!stats` | a header divider, a toggle, and Ranks' own pages (a hero card, the rank road, tiles, a podium) |
 | ShopCore | the fork | `!shop` | prices in the value column, disabled rows |
-| MapChooser | the fork, `feat/migrate_to_new_menu_api` | `!mapsvote`, `!nominate`, `!revote` | the live tally, a disabled row, map art |
+| MapChooser | the fork, `feat/migrate_to_new_menu_api` | `!maps`, `!mapsvote`, `!nominate`, `!revote` | the map menu as a sidebar, the live tally, disabled rows with a reason, map art |
 | VIPCore | the fork, `feat/migrate_to_new_menu_api` | `!vip` | disabled rows |
 | MixScrims | `MixScrims-SwiftlyS2` | its match flow, `!captain` | menus with no exit, Yes/No ballots, the `mix-*` pages, centre-HTML |
 | Admins | the fork | `!admin`, `!csay` | a `Core.MenusAPI` plugin; centre text |
@@ -446,10 +446,12 @@ Per plugin:
       other locker page or detail pane that overflows
 - [ ] Maps: on `!mapsvote` pick a few maps (a workshop one too, if the pool
       has one) and start the vote. Stock maps draw over their screenshot and
-      logo, a workshop map as a card for its prefix (`awp_…` as `AWP`), and
-      Extend, when offered, in its own tone
-- [ ] each map card carries its count and meter; the leader reads `Leading`
-      in gold with a gold meter, and your pick has an orange outline
+      logo, a workshop map as a striped card in its prefix's colour with its
+      prefix large (`awp_…` as `AWP`) and a `Workshop` badge, and Extend, when
+      offered, in orange with a glow behind its icon
+- [ ] each map card carries its share (`45%`), its votes and a meter; the
+      leader reads `Leading` with a trophy, in gold with a gold meter, and your
+      pick has an orange outline and a `Your vote` tag
 - [ ] `!nominate` lists the pool as map cards with the same art
 - [ ] Ranks: each page draws as designed from Ranks' API, in the art its
       `Scoreboard.RankMode` gives the scoreboard (a CS Rating badge in Premier,
@@ -711,33 +713,68 @@ navigation, focus restore on the in-hand weapon, disabled rows and text inputs
 - [ ] root close releases the cursor
 
 CustomHUD draws MapChooser's next-map vote as a live tally from
-`IMapChooserApi` (MapChooser 1.4.0). `!mapsvote` (admin) starts one without
+`IMapChooserApi` (MapChooser 1.5.0). `!mapsvote` (admin) starts one without
 waiting for the end of the map.
 
-- [ ] each map row shows its vote count at the right and its share of all
-      votes as a fill behind its name; before anyone votes every count is `0`
-      and no row is filled
-- [ ] a vote raises its map's count and widens its fill; every other fill
-      slides to its new share on the same tick
-- [ ] the leader's fill turns gold, and the row under the cursor keeps its
-      fill visible through the orange glow, right to the fill's edge
+- [ ] `!maps` opens the map menu on its first page; the sidebar lists Vote
+      (while a vote runs and you may vote), Nominate, a divider and the admin
+      pages your permissions allow, and the open page's entry is filled
+- [ ] while a vote runs, the sidebar's Vote entry carries a red dot on every
+      MapChooser page, and the dot goes when the vote ends
+- [ ] the ballot opens as cards, three to a line; above it a red chip counts
+      the vote down each second and a second chip reads `voted` with the
+      turnout (`3 / 16`)
+- [ ] each card shows its share as `45%`, its votes under the name and a meter;
+      before anyone votes every share is `0%` and no meter is filled
+- [ ] a vote raises its map's share and widens its meter; every other card
+      moves to its new share on the same tick
+- [ ] the leader's share and meter turn gold and it gets a `Leading` tag with
+      a trophy
 - [ ] before you vote, another player's vote updates your open menu within a
       tick, without reopening it or moving your cursor
-- [ ] the Extend option carries a count and a fill like the maps
+- [ ] the Extend card is orange, with what an extend adds beside its votes
+      (`1 vote · +15 min · 2 left`)
 - [ ] after you vote, MapChooser closes the ballot and CustomHUD opens the
-      tally in its place, still live, with your map in orange; it has no
-      cursor and no key numbers, and walking with Shift or using E in game
-      never changes your vote
+      tally in its place, still live, with your card outlined in orange and
+      tagged `Your vote`; the sidebar stays, it has no cursor and no key
+      numbers, and walking with Shift or using E in game never changes your
+      vote
 - [ ] the tally closes with Tab (or R in wasd mode, `9` in numbers mode, `×`
       in mouse mode, whose footer says `Click × to close`), even with
       `DisableVoteMenuExit` on, and closes itself when the vote ends
-- [ ] `!revote` reopens the vote with the current counts and your current vote
+- [ ] `!revote` reopens the vote with the current shares and your current vote
       in orange; picking another map moves your vote, and the tally returns
 - [ ] the ballot's mouse footer says `Click a map to vote`
+- [ ] with `"PageViews": { "mapchooser.eof-vote*": "maps-rows" }` the ballot
+      is one poll row per option, its share filling the row, and under the
+      last row a turnout line: `11 of 16 players voted`, a pip per player and
+      `ends in 0:18` in red
+- [ ] a wasd or numbers player sees each option's share as `45%`
+- [ ] `!nominate` shows a chip with the time left on the map (or the rounds
+      left); your nomination is outlined and tagged `Your pick`, other
+      players' nominations `Nominated`
+- [ ] a map played recently, or outside its player limits, shows greyed out
+      but stays in the list, with `Played recently` (a lock) or
+      `Needs 10 players` on its picture in full strength; clicking it does
+      nothing
+- [ ] `!mapsvote` (Start a vote) shows the pool as map cards behind a
+      `START VOTE` card reading `Select maps to include in a vote`, dimmed;
+      the footer says `Click maps to add them to the vote`
+- [ ] scroll down and click a map: it gets an orange glowing outline, the
+      page stays where it was, and `START VOTE (1)` lights up in orange;
+      clicking it again clears it
+- [ ] `START VOTE` closes the page and counts down five seconds in chat
+      before the vote opens on the ticked maps
+- [ ] during that countdown and while the vote runs, `!mapsvote` shows
+      `START VOTE` dimmed with `A vote is about to start` or
+      `A map vote is already running`, and clicking it starts nothing
+- [ ] a map change during the countdown cancels it
+- [ ] on a server without CustomHUD the page lists each map with ✔ or ✘ and
+      no brackets
 - [ ] with `maps.jsonc` naming maps for display (`"Name": "Dust II"`,
       `"Id": "de_dust2"`), the ballot, `!nominate`, `!votemap` and the admin
       change-map and set-next-map pages still show each stock map's screenshot
-      and logo; a workshop map shows a `Workshop` tag, and the pool pages show
+      and logo; a workshop map shows a `Workshop` badge, and the pool pages show
       each map's player limits (`Any players`, `8–20 players`)
 - [ ] on a server without CustomHUD the vote menu shows map names only and
       closes once you vote, as before
@@ -809,7 +846,7 @@ open yet (`mixscrims.control…`).
 | `!mapdecal` | MapDecals: the list, toggle, sliders, input, submenu, an alert |
 | `!ws` | WeaponSkins: long lists, inputs, the WeaponSkins locker |
 | `!shop` | ShopCore: prices, disabled rows, shop pages |
-| `!mapsvote` / `!nominate` / `!revote` | MapChooser: the live tally, map pages |
+| `!maps` / `!mapsvote` / `!nominate` / `!revote` | MapChooser: the map menu, the live tally, map pages |
 | `!vip` | VIPCore: disabled rows, VIP pages |
 | `!timeout` / `!surrender` / `!votekick` | MixScrims: Yes/No ballots |
 | `!captain <t/ct>` | MixScrims: the captains page (admin) |

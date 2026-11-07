@@ -37,25 +37,28 @@
 	margin: 0px;
 	border-radius: 0px;
 	overflow: clip clip;
-	background-color: gradient( linear, 0% 0%, 100% 100%, from( chudGoldDim ), to( chudTileDeep ) );
+	background-image: url( "s2r://panorama/images/custom_game/customhud/stripes.vsvg" );
+	background-size: 28px 28px;
+	background-repeat: repeat;
+	background-color: gradient( linear, 0% 0%, 100% 100%, from( chudMapOtherBase ), to( chudMapOtherDeep ) );
 }
 
 .lk.view-maps-board .tone-awp .lk-mark, .lk.view-maps-rows .tone-awp .lk-mark,
 .lk.view-maps-pool .tone-awp .lk-mark, .lk.view-maps-rtv .tone-awp .lk-mark
 {
-	background-color: gradient( linear, 0% 0%, 100% 100%, from( chudInfoDim ), to( chudTileDeep ) );
+	background-color: gradient( linear, 0% 0%, 100% 100%, from( chudMapAwpBase ), to( chudMapAwpDeep ) );
 }
 
 .lk.view-maps-board .tone-aim .lk-mark, .lk.view-maps-rows .tone-aim .lk-mark,
 .lk.view-maps-pool .tone-aim .lk-mark, .lk.view-maps-rtv .tone-aim .lk-mark
 {
-	background-color: gradient( linear, 0% 0%, 100% 100%, from( chudDangerDim ), to( chudTileDeep ) );
+	background-color: gradient( linear, 0% 0%, 100% 100%, from( chudMapAimBase ), to( chudMapAimDeep ) );
 }
 
 .lk.view-maps-board .tone-surf .lk-mark, .lk.view-maps-rows .tone-surf .lk-mark,
 .lk.view-maps-pool .tone-surf .lk-mark, .lk.view-maps-rtv .tone-surf .lk-mark
 {
-	background-color: gradient( linear, 0% 0%, 100% 100%, from( chudLegendDim ), to( chudTileDeep ) );
+	background-color: gradient( linear, 0% 0%, 100% 100%, from( chudMapSurfBase ), to( chudMapSurfDeep ) );
 }
 
 /* The prefix, huge and faint, cut off by the art's lower edge. */
@@ -82,11 +85,12 @@
 	margin: 10px 10px 0px 0px;
 }
 
+/* The tags' own 6px left margin brings the first one to 10px from the corner. */
 .lk.view-maps-board .has-mark .lk-tags,
 .lk.view-maps-pool .has-mark .lk-tags
 {
 	horizontal-align: left;
-	margin: 10px 0px 0px 10px;
+	margin: 10px 0px 0px 4px;
 }
 
 .lk.view-maps-board .lk-tag,
@@ -100,12 +104,47 @@
 	font-weight: bold;
 }
 
+/* The maps' pills pad 8px, not 7px; the glyph's offsets follow (see .lk-tagglyph). */
+.lk.view-maps-board .lk-tagglyph,
+.lk.view-maps-rows .lk-tagglyph,
+.lk.view-maps-pool .lk-tagglyph
+{
+	margin: 0px -26px 0px 14px;
+}
+
+.lk.view-maps-board .has-tagglyph .lk-tag,
+.lk.view-maps-rows .has-tagglyph .lk-tag,
+.lk.view-maps-pool .has-tagglyph .lk-tag
+{
+	padding-left: 25px;
+}
+
+/* A solid pill's size is all padding; its edge would add 2px the design doesn't have. */
+.lk.view-maps-board .tag-gold .lk-tag, .lk.view-maps-board .tag-accent .lk-tag, .lk.view-maps-board .tag-info .lk-tag,
+.lk.view-maps-rows .tag-gold .lk-tag, .lk.view-maps-rows .tag-accent .lk-tag, .lk.view-maps-rows .tag-info .lk-tag,
+.lk.view-maps-pool .tag-gold .lk-tag, .lk.view-maps-pool .tag-accent .lk-tag, .lk.view-maps-pool .tag-info .lk-tag
+{
+	border: 0px solid transparent;
+}
+
+/* The Workshop badge: a quieter label than a state's pill. */
+.lk.view-maps-board .tag2-dark .lk-tag2,
+.lk.view-maps-pool .tag2-dark .lk-tag2
+{
+	padding: 2px 7px;
+	border: 0px solid transparent;
+	border-radius: 2px;
+	font-family: chudFontMedium;
+	font-size: 9px;
+	font-weight: normal;
+}
+
 /* ---- maps-board: vote cards, three to a line ---- */
 
-/* 3 x (282 + 8) = 870 of the list's 882. */
+/* 3 x (285 + 8) = 879 of the list's 882. */
 .lk.view-maps-board .lk-slot
 {
-	width: 282px;
+	width: 285px;
 	height: 276px;
 	margin: 0px 8px 8px 0px;
 }
@@ -119,9 +158,17 @@
 	background-color: chudTileDeep;
 }
 
+/* Extend has no map: its art is dark amber under a glow behind its icon, faded like a shot.
+   The card's top 158px (0.572 of 276) is the amber, the mark the glow, the shade the fade. */
+.lk.view-maps-board .lk-list .lk-slot.tone-extend .lk-hit,
+.lk.view-maps-board .lk-list .lk-slot.tone-extend .lk-hit:hover
+{
+	background-color: gradient( linear, 0% 0%, 0% 100%, from( chudExtendShade ), color-stop( 0.572, chudExtendDeep ), color-stop( 0.572, chudTileDeep ), to( chudTileDeep ) );
+}
+
 .lk.view-maps-board .tone-extend .lk-hit
 {
-	border: 1px solid chudAccentDim;
+	border: 1px solid chudExtendDim;
 }
 
 .lk.view-maps-board .lk-thumb
@@ -148,10 +195,11 @@
 	visibility: visible;
 }
 
-/* Extend has no map: its art is a glow behind its icon. */
-.lk.view-maps-board .tone-extend .lk-shade
+.lk.view-maps-board .tone-extend .lk-mark
 {
-	background-color: gradient( radial, 50% 60%, 0% 0%, 65% 65%, from( chudAccentDim ), to( chudTileDeep ) );
+	visibility: visible;
+	background-image: none;
+	background-color: gradient( radial, 50% 60%, 0% 0%, 58% 47%, from( chudExtendSoft ), to( chudExtendFade ) );
 }
 
 .lk.view-maps-board .lk-glyph
@@ -160,15 +208,22 @@
 	height: 54px;
 	horizontal-align: center;
 	vertical-align: top;
-	margin: 50px 0px 0px 0px;
+	margin: 52px 0px 0px 0px;
 	wash-color: chudAccentBase;
+}
+
+.lk.view-maps-board .tone-extend .lk-glyph,
+.lk.view-maps-rows .tone-extend .lk-glyph
+{
+	wash-color: chudExtendBase;
+	opacity: 0.85;
 }
 
 .lk.view-maps-board .lk-slot .lk-text
 {
-	width: 254px;
+	width: 257px;
 	vertical-align: top;
-	margin: 122px 0px 0px 14px;
+	margin: 124px 0px 0px 14px;
 }
 
 .lk.view-maps-board .lk-name
@@ -183,7 +238,7 @@
 
 .lk.view-maps-board .tone-extend .lk-name
 {
-	color: chudAccentStrong;
+	color: chudExtendStrong;
 }
 
 .lk.view-maps-board .lk-slot .lk-sub
@@ -195,14 +250,14 @@
 {
 	horizontal-align: left;
 	vertical-align: top;
-	margin: 196px 0px 0px 14px;
+	margin: 194px 0px 0px 14px;
 	font-size: 12px;
 }
 
 .lk.view-maps-board .lk-end
 {
 	vertical-align: top;
-	margin: 172px 14px 0px 0px;
+	margin: 171px 14px 0px 0px;
 }
 
 .lk.view-maps-board .lk-value
@@ -216,9 +271,16 @@
 	color: chudGoldBase;
 }
 
+/* The unit sits on the value's baseline: the bigger font's taller descent, lifted out. */
+.lk.view-maps-board .lk-vunit
+{
+	margin: 0px 0px 5px 2px;
+	font-size: 18px;
+}
+
 .lk.view-maps-board .lk-meter
 {
-	width: 254px;
+	width: 257px;
 	height: 6px;
 	horizontal-align: left;
 	vertical-align: bottom;
@@ -232,6 +294,11 @@
 	border-radius: 3px;
 }
 
+.lk.view-maps-board .tone-extend .chud-meter__fill
+{
+	background-color: chudExtendBase;
+}
+
 /* Two lines of cards fill the page; the turnout is in the header's chips. */
 .lk.view-maps-board .lk-foot
 {
@@ -240,8 +307,10 @@
 
 /* ---- maps-rows: one poll row per map, its share filling the row ---- */
 
+/* 880 of the list's 882, as wide as the turnout under the rows. */
 .lk.view-maps-rows .lk-slot
 {
+	width: 880px;
 	height: 74px;
 	margin-bottom: 8px;
 }
@@ -269,15 +338,22 @@
 
 .lk.view-maps-rows .lk-mark__text
 {
-	margin: 0px 8px -8px 0px;
+	margin: 0px 10px -8px 0px;
 	font-size: 44px;
+}
+
+.lk.view-maps-rows .tone-extend .lk-mark
+{
+	visibility: visible;
+	background-image: none;
+	background-color: gradient( linear, 0% 0%, 0% 100%, from( chudExtendShade ), to( chudExtendDeep ) );
 }
 
 .lk.view-maps-rows .tone-extend .lk-shade
 {
 	width: 132px;
 	horizontal-align: left;
-	background-color: gradient( radial, 50% 60%, 0% 0%, 65% 65%, from( chudAccentDim ), to( chudTileDeep ) );
+	background-color: gradient( radial, 50% 60%, 0% 0%, 58% 47%, from( chudExtendSoft ), to( chudExtendFade ) );
 	visibility: visible;
 }
 
@@ -292,7 +368,7 @@
 /* The share: a fill behind the row from the art's edge, with a bright leading edge. */
 .lk.view-maps-rows .lk-meter
 {
-	width: 748px;
+	width: 746px;
 	height: 100%;
 	horizontal-align: right;
 	vertical-align: top;
@@ -327,7 +403,7 @@
 
 .lk.view-maps-rows .tone-extend .lk-name
 {
-	color: chudAccentStrong;
+	color: chudExtendStrong;
 }
 
 .lk.view-maps-rows .lk-sub
@@ -337,7 +413,7 @@
 
 .lk.view-maps-rows .lk-tags
 {
-	margin-right: 152px;
+	margin-right: 150px;
 }
 
 .lk.view-maps-rows .lk-tag,
@@ -351,7 +427,7 @@
 .lk.view-maps-rows .lk-end
 {
 	vertical-align: top;
-	margin: 12px 18px 0px 0px;
+	margin: 7px 18px 0px 0px;
 }
 
 .lk.view-maps-rows .lk-value
@@ -365,17 +441,39 @@
 	color: chudGoldBase;
 }
 
+.lk.view-maps-rows .lk-vunit
+{
+	margin: 0px 0px 4px 2px;
+	font-size: 15px;
+}
+
+/* Extend's share fills its row in its own orange. */
+.lk.view-maps-rows .tone-extend .chud-meter__fill
+{
+	border-right: 2px solid chudExtendHalf;
+	background-color: gradient( linear, 0% 0%, 100% 0%, from( chudExtendWash ), to( chudExtendSoft ) );
+}
+
 .lk.view-maps-rows .lk-note
 {
 	vertical-align: top;
-	margin: 50px 18px 0px 0px;
+	margin: 48px 18px 0px 0px;
 }
 
-/* The turnout under the rows: a caption, a pip per player, the time left. */
+/* The turnout under the rows: a caption, a pip per player, the time left. The list is as tall
+   as its rows, so the turnout follows the last one; past 542px (the column less the turnout's
+   34px) the list scrolls. */
+.lk.view-maps-rows .lk-listbox,
+.lk.view-maps-rows .lk-list
+{
+	height: fit-children;
+	max-height: 542px;
+}
+
 .lk.view-maps-rows .lk-foot .lk-slot
 {
 	height: 34px;
-	margin: 2px 0px 0px 0px;
+	margin: 0px;
 }
 
 .lk.view-maps-rows .lk-foot .lk-slot .lk-text
@@ -386,11 +484,11 @@
 
 .lk.view-maps-rows .lk-foot .lk-pips
 {
-	width: 617px;
+	width: 622px;
 	height: 8px;
 	horizontal-align: left;
 	vertical-align: center;
-	margin-left: 164px;
+	margin-left: 163px;
 }
 
 .lk.view-maps-rows .lk-foot .lk-pip
@@ -405,13 +503,13 @@
 	font-size: 11px;
 }
 
-/* ---- maps-pool: every map as a card, four to a line, 4 x (212 + 6) = 872 of 882 ---- */
+/* ---- maps-pool: every map as a card, four to a line, 4 x (212 + 8) = 880 of 882 ---- */
 
 .lk.view-maps-pool .lk-slot
 {
 	width: 212px;
 	height: 196px;
-	margin: 0px 6px 8px 0px;
+	margin: 0px 8px 8px 0px;
 }
 
 .lk.view-maps-pool .lk-thumb
@@ -429,16 +527,11 @@
 	height: 118px;
 }
 
-.lk.view-maps-pool .lk-mark__text
-{
-	font-size: 64px;
-}
-
 .lk.view-maps-pool .lk-slot .lk-text
 {
 	width: 188px;
 	vertical-align: top;
-	margin: 128px 0px 0px 12px;
+	margin: 130px 0px 0px 12px;
 }
 
 .lk.view-maps-pool .lk-name
@@ -455,11 +548,95 @@
 	margin-top: 5px;
 }
 
-/* Why a map cannot be picked, on its shot just above its name. */
+/* A map that can't be picked dims its art and words; the tag saying why stays clear, on its shot
+   just above its name. */
+.lk.view-maps-pool .lk-slot.disabled
+{
+	opacity: 1.0;
+}
+
+.lk.view-maps-pool .lk-slot.disabled .lk-thumb,
+.lk.view-maps-pool .lk-slot.disabled .lk-logo,
+.lk.view-maps-pool .lk-slot.disabled .lk-mark,
+.lk.view-maps-pool .lk-slot.disabled .lk-text
+{
+	opacity: 0.35;
+}
+
 .lk.view-maps-pool .lk-slot.disabled .lk-tags
 {
 	horizontal-align: left;
-	margin: 88px 0px 0px 8px;
+	margin: 88px 0px 0px 3px;
+}
+
+/* Start a vote ticks maps: a ticked map is outlined like a pick and glows, lifted over its
+   neighbours so the glow shows on every side. A card has no room for a toggle's switch. */
+.lk.view-maps-board .kind-toggle .lk-switch,
+.lk.view-maps-pool .kind-toggle .lk-switch
+{
+	visibility: collapse;
+}
+
+.lk.view-maps-pool .lk-list .lk-slot.chosen.kind-toggle
+{
+	z-index: 1;
+}
+
+.lk.view-maps-pool .lk-list .lk-slot.chosen.kind-toggle .lk-hit
+{
+	box-shadow: fill chudAccentDim 0px 0px 12px 0px;
+}
+
+/* Its start button, among the maps: an icon where a shot would be, and under its name what it
+   does or why it can't. Until it can start, its icon and name dim but that line stays clear;
+   ready (tone-ready), it takes an accent edge and a wash from the top over the tile's ground. */
+.lk.view-maps-pool .grp-start .lk-glyph
+{
+	width: 48px;
+	height: 48px;
+	horizontal-align: center;
+	vertical-align: top;
+	margin: 35px 0px 0px 0px;
+	wash-color: chudTextMuted;
+}
+
+.lk.view-maps-pool .lk-list .grp-start.tone-ready .lk-hit
+{
+	border: 1px solid chudAccentBase;
+}
+
+.lk.view-maps-pool .grp-start.tone-ready .lk-shade
+{
+	border-radius: 3px;
+	background-color: gradient( linear, 0% 0%, 0% 100%, from( chudAccentSoft ), to( chudAccentFade ) );
+	visibility: visible;
+}
+
+.lk.view-maps-pool .grp-start.tone-ready .lk-glyph
+{
+	wash-color: chudAccentBase;
+}
+
+.lk.view-maps-pool .grp-start.tone-ready .lk-name
+{
+	color: chudAccentStrong;
+}
+
+.lk.view-maps-pool .grp-start .lk-sub
+{
+	white-space: normal;
+	text-overflow: clip;
+}
+
+.lk.view-maps-pool .lk-slot.disabled.grp-start .lk-text
+{
+	opacity: 1.0;
+}
+
+.lk.view-maps-pool .lk-slot.disabled.grp-start .lk-glyph,
+.lk.view-maps-pool .lk-slot.disabled.grp-start .lk-name
+{
+	opacity: 0.35;
 }
 
 /* ---- maps-rtv: the vote's progress in one panel, the nominations beside it ---- */
