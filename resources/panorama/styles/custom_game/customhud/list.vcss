@@ -158,6 +158,16 @@
 	letter-spacing: 1.5px;
 }
 
+/* Three classes, so the row picture's size and tile further down never reach a chip. */
+.ls .lk-chip .lk-chip__thumb
+{
+	width: 40px;
+	height: 16px;
+	margin: 0px 6px 0px 0px;
+	border-radius: 0px;
+	background-color: transparent;
+}
+
 .ls-divider
 {
 	width: 100%;
@@ -371,6 +381,15 @@
 .ls .has-thumb.rarity-4 .lk-thumb, .ls .has-thumb.rarity-5 .lk-thumb, .ls .has-thumb.rarity-6 .lk-thumb,
 .ls .has-thumb.rarity-7 .lk-thumb, .ls .has-thumb.rarity-8 .lk-thumb, .ls .has-thumb.rarity-9 .lk-thumb,
 .ls .has-thumb.rarity-10 .lk-thumb
+{
+	background-color: transparent;
+}
+
+/* A rank emblem has its own outline; the tile is for renders. Every rank image comes with a tier tone. */
+.ls .has-thumb.tone-r1 .lk-thumb, .ls .has-thumb.tone-r2 .lk-thumb, .ls .has-thumb.tone-r3 .lk-thumb,
+.ls .has-thumb.tone-r4 .lk-thumb, .ls .has-thumb.tone-r5 .lk-thumb, .ls .has-thumb.tone-r6 .lk-thumb,
+.ls .has-thumb.tone-r7 .lk-thumb, .ls .has-thumb.tone-l1 .lk-thumb, .ls .has-thumb.tone-l2 .lk-thumb,
+.ls .has-thumb.tone-l4 .lk-thumb, .ls .has-thumb.tone-l8 .lk-thumb, .ls .has-thumb.tone-l10 .lk-thumb
 {
 	background-color: transparent;
 }

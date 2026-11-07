@@ -169,7 +169,7 @@ internal static class PageFrame
         if (integration is { } owner)
         {
             draw = new PageDraw(owner.Host, session, rendererId, components, rendered, context.Frame.Header, index, Math.Max(1, reachable.Count),
-                owner.Strings, owner.Regions, owner.RowSlots, owner.Icons, owner.View);
+                page.Start, body.Count, owner.Strings, owner.Regions, owner.RowSlots, owner.Icons, owner.View);
             owner.Host.Draw(owner.Integration, draw);
         }
 

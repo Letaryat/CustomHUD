@@ -475,6 +475,16 @@ Per plugin:
       (`ranks-stats`): nine tiles, meters only where there is a share.
       Settings: the `XP messages` switch and the reset fenced off in red. The
       rank chip beside every title, module pages included
+- [ ] Ranks in `Custom` mode with the wiki's example (`"RankMode": 4`,
+      `CustomRankBase` `26283401`, `CustomRankMax` `100`, a 100-rank ladder,
+      Workshop `3340561607` in AddonsManager): the chip, the hero card and the
+      road show the same numbered badges as the scoreboard. `Show all ranks`
+      pages the road (`100 ranks · 49–96 shown`) with every node's badge, in
+      mouse mode and in the keyboard list
+- [ ] with `CustomRankBase` set to a number CustomHUD has no class for, ranks
+      keep their colour and show no icon, never an empty frame
+- [ ] in the keyboard list, rank badges sit on the row with no dark tile
+      behind them, and the chip's badge fits inside the chip
 - [ ] Ranks' sidebar ends in `Help`, and `Admin commands` for an admin; each
       lists its commands in chat and closes the menu
 - [ ] each Ranks page's footer says what it is for (`Your progress to the next

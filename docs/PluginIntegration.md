@@ -325,6 +325,22 @@ mark square.
 | Wingman | `image=rank/wingmanN` (0-18) | `r1`-`r7` |
 | Custom ladder | `image=rank/levelN` (1-10) | `l1`, `l2`, `l4`, `l8`, `l10` for levels 1, 2-3, 4-7, 8-9 and 10 |
 
+Send the tier tone with the image: besides the colour, it tells the side list
+to draw the emblem on the row rather than on the dark tile a render sits on.
+
+Ranks' own `Custom` mode writes an icon number from `Scoreboard.CustomRank*`, and
+the scoreboard loads `skillgroup<number>` from the player's icon addon. CustomHUD
+loads the same file, but it can show an image only through a class its Workshop
+addon defines, since the HUD entity carries text and classes, never an image
+path. It has one for `0`-`18` and for the set Ranks' wiki uses as its example,
+`skillgroup26283401`-`26283500` (Workshop `3340561607`, 100 ranks). A number
+outside them shows the rank's colour and no icon; another set is a line in
+`$CustomIconSets` in `scripts/generate-locker-art.ps1` and in
+`RankArt.CustomIconSets`, then a republished addon.
+
+A ladder longer than one page draws as the rank road page by page, its heading
+saying which ranks are shown (`100 ranks · 49–96 shown`).
+
 ## Richer Rows (Optional, No Dependency)
 
 A component can address this renderer directly and still degrade cleanly

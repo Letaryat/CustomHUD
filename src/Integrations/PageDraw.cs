@@ -29,6 +29,8 @@ internal sealed class PageDraw
         IReadOnlyList<MenuNode> header,
         int pageIndex,
         int pageCount,
+        int firstRow,
+        int rowCount,
         ILocalizer strings,
         IReadOnlySet<string> regions,
         int mainSlots,
@@ -49,6 +51,8 @@ internal sealed class PageDraw
         Components = components;
         PageIndex = pageIndex;
         PageCount = pageCount;
+        FirstRow = firstRow;
+        RowCount = rowCount;
         Regions = regions;
         MainSlots = mainSlots;
         View = view;
@@ -62,6 +66,11 @@ internal sealed class PageDraw
     public int PageIndex { get; }
     public int PageCount { get; }
     public bool LastPage => PageIndex >= PageCount - 1;
+
+    // Where this page starts among the menu's visible rows, and how many there are: a page past
+    // the first maps its rows onto a provider's list by position.
+    public int FirstRow { get; }
+    public int RowCount { get; }
 
     // Regions the layout draws (menu_locker's banner, foot ...): a row sent to one takes no main-list slot.
     public IReadOnlySet<string> Regions { get; }

@@ -9,7 +9,8 @@
 
         map/<name>         a stock map: its 360p screenshot on a slot's thumb
                            panel (.lk-thumb) and its logo on the logo panel (.lk-logo)
-        rank/skillgroupN   CS2's competitive emblem, N = 0..18
+        rank/skillgroupN   CS2's competitive emblem, N = 0..18, and every number
+                           of each replacement set in $CustomIconSets
         rank/wingmanN      the wingman emblem, N = 0..18
         rank/levelN        the 1..10 level badges this addon ships
 
@@ -71,6 +72,14 @@ if ($maps.Count -eq 0) { throw "No map art found in '$Listing'." }
 if ($groups.Count -eq 0) { throw "No skill-group emblems found in '$Listing'." }
 $levels = @(1..10 | Where-Object { Test-Path (Join-Path $images "faceit_lvl$_.svg") })
 
+# Replacement rank icon sets for Ranks' Custom mode: another Workshop addon ships each as
+# panorama/images/icons/skillgroups/skillgroup<number>, which the player's game draws for that
+# number. A class per number is all CustomHUD adds. RankArt.CustomIconSets holds the same table.
+$CustomIconSets = @(
+    # The set Ranks' and K4-LevelRanks' docs use as their example: 100 badges (Workshop 3340561607).
+    @{ First = 26283401; Last = 26283500 }
+)
+
 $owners = @{}
 function Get-Token([string] $Key) {
     $lower = $Key.ToLowerInvariant()
@@ -98,6 +107,13 @@ foreach ($group in $groups) {
     $token = Get-Token "rank/$group"
     [void] $sb.Append('.econ-').Append($token).Append(' { background-image: url( "s2r://panorama/images/icons/skillgroups/').Append($group).AppendLine('.vsvg" ); }')
 }
+[void] $sb.AppendLine("/* replacement rank icons: $(($CustomIconSets | ForEach-Object { "$($_.First)-$($_.Last)" }) -join ' ') */")
+foreach ($set in $CustomIconSets) {
+    for ($number = $set.First; $number -le $set.Last; $number++) {
+        $token = Get-Token "rank/skillgroup$number"
+        [void] $sb.Append('.econ-').Append($token).Append(' { background-image: url( "s2r://panorama/images/icons/skillgroups/skillgroup').Append($number).AppendLine('.vsvg" ); }')
+    }
+}
 foreach ($level in $levels) {
     $token = Get-Token "rank/level$level"
     [void] $sb.Append('.econ-').Append($token).Append(' { background-image: url( "s2r://panorama/images/custom_game/customhud/faceit_lvl').Append($level).AppendLine('.vsvg" ); }')
@@ -105,4 +121,5 @@ foreach ($level in $levels) {
 
 New-Item -ItemType Directory -Force -Path (Split-Path $Output -Parent) | Out-Null
 [IO.File]::WriteAllText($Output, $sb.ToString(), (New-Object System.Text.UTF8Encoding $false))
-Write-Host ("{0} maps, {1} emblems, {2} levels -> {3}" -f $maps.Count, $groups.Count, $levels.Count, $Output)
+Write-Host ("{0} maps, {1} emblems, {2} replacement icons, {3} levels -> {4}" -f $maps.Count, $groups.Count,
+    ($CustomIconSets | ForEach-Object { $_.Last - $_.First + 1 } | Measure-Object -Sum).Sum, $levels.Count, $Output)

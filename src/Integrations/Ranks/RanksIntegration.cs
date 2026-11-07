@@ -182,16 +182,18 @@ internal sealed class RanksIntegration(IRanksApi api) : IPageIntegration, IRankC
             page.Add(Directive.Clean(tiers[i].Name), RoadNode(page, tiers, i, index), before);
     }
 
-    // One line per tier, in ladder order: each becomes a node of the full road.
+    // One line per tier, in ladder order: each becomes a node of the full road, a page of them at a time.
     private void DrawLadder(PageDraw page)
     {
         var tiers = api.GetLadder();
-        if (tiers.Count == 0 || page.Components.Count != tiers.Count) return;
+        if (tiers.Count == 0 || page.RowCount != tiers.Count || page.FirstRow + page.Components.Count > tiers.Count) return;
 
         var index = api.GetSnapshot(page.Player.SteamID) is { } me ? IndexFor(tiers, me.Points) : -1;
-        page.Add($"{T(page, "road")}\t{T(page, "road_count", tiers.Count)}", "section", 0);
-        for (var k = 0; k < tiers.Count; k++)
-            page.Draw(k, Directive.Clean(tiers[k].Name), RoadNode(page, tiers, k, index));
+        var count = T(page, "road_count", tiers.Count);
+        if (page.Components.Count < tiers.Count) count += " · " + T(page, "road_shown", page.FirstRow + 1, page.FirstRow + page.Components.Count);
+        page.Add($"{T(page, "road")}\t{count}", "section", 0);
+        for (var k = 0; k < page.Components.Count; k++)
+            page.Draw(k, Directive.Clean(tiers[page.FirstRow + k].Name), RoadNode(page, tiers, page.FirstRow + k, index));
     }
 
     // Reached, current or still locked; with no standing (-1) nothing is marked.

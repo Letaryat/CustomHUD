@@ -76,7 +76,7 @@ Rampage addon styles are not reused either.
 | `layout/custom_game/customhud/menu_skins_mouse.vxml` + `.vcss` | `panorama/layout/custom_game/customhud/menu_skins_mouse.vxml_c` | built-in `weaponskins.*` mouse rule (`MouseLayouts` overrides it) |
 | `layout/custom_game/customhud/menu_locker.vxml` (generated) + `locker.vcss` | `panorama/layout/custom_game/customhud/menu_locker.vxml_c` | built-in `shopcore.*`, `mapchooser.*`, `ranks.*` (with Ranks' `weaponstats.*`, `customcombos.*`, `prestige.*`), `vipcore.*`, `admins.*`, `mixscrims.*` mouse rules (`LockerProfiles`); the view per menu from `PageViews` |
 | `styles/custom_game/customhud/locker_shop.vcss`, `locker_maps.vcss`, `locker_ranks.vcss`, `locker_vip.vcss`, `locker_admins.vcss`, `locker_mix.vcss` | `s2r://panorama/styles/custom_game/customhud/locker_<plugin>.vcss_c` | one plugin's views, each scoped by `view-<name>` on the shell |
-| `styles/custom_game/customhud/locker_art.vcss` (generated) | `s2r://panorama/styles/custom_game/customhud/locker_art.vcss_c` | map screenshots and logos, rank emblems and level badges as `econ-<token>` classes |
+| `styles/custom_game/customhud/locker_art.vcss` (generated) | `s2r://panorama/styles/custom_game/customhud/locker_art.vcss_c` | map screenshots and logos, rank emblems, replacement rank icon sets and level badges as `econ-<token>` classes |
 | `layout/custom_game/customhud/panel_versus.vxml` + `.vcss` | `panorama/layout/custom_game/customhud/panel_versus.vxml_c` | `Panels.versus`: vars `team1 team2 score1 score2 status detail`, class `live` |
 | `layout/custom_game/customhud/panel_ready.vxml` + `.vcss` | `panorama/layout/custom_game/customhud/panel_ready.vxml_c` | `Panels.ready`: vars `title count state hint`, classes `is-ready` / `not-ready` |
 | `layout/custom_game/customhud/panel_timeout.vxml` + `.vcss` | `panorama/layout/custom_game/customhud/panel_timeout.vxml_c` | `Panels.timeout`: vars `title team timer detail`, classes `team-ct` / `team-t` |
@@ -497,7 +497,9 @@ is the component's control: `kind-toggle` a switch, `kind-selector` `‹ value �
 `kind-choice` the value and a cycle mark, `kind-slider` the track (`bar-N`
 sizes it, `track-wear` bands it), `kind-input` a field with a pen,
 `kind-submenu` a `›`. A row with art or an avatar reads as the thing itself:
-its value is gold and it draws no `›`.
+its value is gold and it draws no `›`. A picture sits on a dark tile, as the
+inventory frames a render; a rank emblem (a row with a tier tone) and a chip's
+picture keep their own outline and sit on the row.
 
 ### `hud_text` and `hud_alert` (captured native text)
 

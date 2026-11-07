@@ -7,9 +7,11 @@ namespace CustomHUD.Integrations.RankPages;
 // Rating, the skill-group emblem, or in Custom the slot a replacement icon set fills.
 internal readonly record struct RankArt(string Directive, string Tone)
 {
-    // CustomHUD ships art for the stock emblems only: a replacement set indexed past them keeps
-    // its tone but draws no icon rather than the wrong one.
     private const int MaxStockIcon = 18;
+
+    // The replacement sets the Workshop addon has a class for; generate-locker-art.ps1 holds the same
+    // table. Any other number keeps its tone and draws no icon, rather than an empty frame.
+    private static readonly (int First, int Last)[] CustomIconSets = [(26283401, 26283500)];
 
     public string Payload => Directive.Length == 0 ? "tone=" + Tone : Directive + ";tone=" + Tone;
 
@@ -20,9 +22,12 @@ internal readonly record struct RankArt(string Directive, string Tone)
         RanksDisplayModes.Premier => new($"rating={Math.Max(0, icon.Value)}", $"csr{Math.Clamp(icon.Value / 5000, 0, 6)}"),
         RanksDisplayModes.Competitive => new($"image=rank/skillgroup{icon.Value}", SkillGroupTone(icon.Value)),
         RanksDisplayModes.Wingman => new($"image=rank/wingman{icon.Value}", SkillGroupTone(icon.Value)),
-        RanksDisplayModes.Custom => new(icon.Value <= MaxStockIcon ? $"image=rank/skillgroup{icon.Value}" : "", LadderTone(tierCount, tierIndex)),
+        RanksDisplayModes.Custom => new(HasArt(icon.Value) ? $"image=rank/skillgroup{icon.Value}" : "", LadderTone(tierCount, tierIndex)),
         _ => new("", LadderTone(tierCount, tierIndex)),
     };
+
+    private static bool HasArt(int icon)
+        => icon <= MaxStockIcon || Array.Exists(CustomIconSets, set => icon >= set.First && icon <= set.Last);
 
     private static string SkillGroupTone(int icon) => icon switch
     {
