@@ -394,6 +394,31 @@
 	background-color: transparent;
 }
 
+/* Rasterized at the size drawn, as in locker.vcss; a chip's rules come last, since it matches the row's too. */
+.ls .has-thumb.tone-r1 .lk-thumb, .ls .has-thumb.tone-r2 .lk-thumb, .ls .has-thumb.tone-r3 .lk-thumb, .ls .has-thumb.tone-r4 .lk-thumb,
+.ls .has-thumb.tone-r5 .lk-thumb, .ls .has-thumb.tone-r6 .lk-thumb, .ls .has-thumb.tone-r7 .lk-thumb
+{
+	background-texture-size: 60px 24px;
+}
+
+.ls .has-thumb.tone-l1 .lk-thumb, .ls .has-thumb.tone-l2 .lk-thumb, .ls .has-thumb.tone-l4 .lk-thumb,
+.ls .has-thumb.tone-l8 .lk-thumb, .ls .has-thumb.tone-l10 .lk-thumb
+{
+	background-texture-size: 40px 40px;
+}
+
+.ls .lk-chip.tone-r1 .lk-chip__thumb, .ls .lk-chip.tone-r2 .lk-chip__thumb, .ls .lk-chip.tone-r3 .lk-chip__thumb, .ls .lk-chip.tone-r4 .lk-chip__thumb,
+.ls .lk-chip.tone-r5 .lk-chip__thumb, .ls .lk-chip.tone-r6 .lk-chip__thumb, .ls .lk-chip.tone-r7 .lk-chip__thumb
+{
+	background-texture-size: 39px 16px;
+}
+
+.ls .lk-chip.tone-l1 .lk-chip__thumb, .ls .lk-chip.tone-l2 .lk-chip__thumb, .ls .lk-chip.tone-l4 .lk-chip__thumb,
+.ls .lk-chip.tone-l8 .lk-chip__thumb, .ls .lk-chip.tone-l10 .lk-chip__thumb
+{
+	background-texture-size: 16px 16px;
+}
+
 /* tint=spray-N: the game ships graffiti art untinted and washes it in the chosen colour. */
 .ls .lk-thumb.tint-spray-1 { wash-color: chudSprayTint01; }
 .ls .lk-thumb.tint-spray-2 { wash-color: chudSprayTint02; }

@@ -164,6 +164,19 @@
 	margin: 0px 10px 0px 0px;
 }
 
+/* An SVG rasterizes at its declared size (an emblem's is 32x13) unless given the size drawn; a level badge is square. */
+.lk-chip.tone-r1 .lk-chip__thumb, .lk-chip.tone-r2 .lk-chip__thumb, .lk-chip.tone-r3 .lk-chip__thumb, .lk-chip.tone-r4 .lk-chip__thumb,
+.lk-chip.tone-r5 .lk-chip__thumb, .lk-chip.tone-r6 .lk-chip__thumb, .lk-chip.tone-r7 .lk-chip__thumb
+{
+	background-texture-size: 52px 21px;
+}
+
+.lk-chip.tone-l1 .lk-chip__thumb, .lk-chip.tone-l2 .lk-chip__thumb, .lk-chip.tone-l4 .lk-chip__thumb,
+.lk-chip.tone-l8 .lk-chip__thumb, .lk-chip.tone-l10 .lk-chip__thumb
+{
+	background-texture-size: 22px 22px;
+}
+
 .lk-chip__value
 {
 	vertical-align: center;

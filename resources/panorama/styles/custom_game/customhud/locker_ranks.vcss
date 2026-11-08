@@ -36,6 +36,8 @@
 	width: 270px;
 	height: 184px;
 	margin-left: 45px;
+	/* An SVG rasterizes at its declared size, 32x13 for an emblem: these views draw only emblems, so each gives the size drawn. */
+	background-texture-size: 270px 110px;
 }
 
 .lk.view-ranks-rank .lk-banner .lk-slot .lk-text
@@ -234,6 +236,7 @@
 	horizontal-align: center;
 	vertical-align: top;
 	margin: 22px 0px 0px 0px;
+	background-texture-size: 96px 39px;
 }
 
 .lk.view-ranks-rank .lk-list .lk-slot .lk-text
@@ -663,6 +666,7 @@
 	horizontal-align: center;
 	vertical-align: top;
 	margin: 50px 0px 0px 0px;
+	background-texture-size: 104px 42px;
 }
 
 .lk.view-ranks-board .lk-banner .lk-slot .lk-text
@@ -764,6 +768,7 @@
 	width: 52px;
 	height: 21px;
 	margin-left: 80px;
+	background-texture-size: 52px 21px;
 }
 
 .lk.view-ranks-board .lk-list .lk-slot .lk-text

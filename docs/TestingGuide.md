@@ -485,6 +485,9 @@ Per plugin:
       keep their colour and show no icon, never an empty frame
 - [ ] in the keyboard list, rank badges sit on the row with no dark tile
       behind them, and the chip's badge fits inside the chip
+- [ ] rank badges are as sharp as the text around them at every size: the My
+      rank hero card, the road, the podium, the board's rows and the chips, in
+      Competitive and with a custom set
 - [ ] Ranks' sidebar ends in `Help`, and `Admin commands` for an admin; each
       lists its commands in chat and closes the menu
 - [ ] each Ranks page's footer says what it is for (`Your progress to the next

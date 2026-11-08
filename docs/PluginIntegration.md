@@ -331,8 +331,10 @@ mark square.
 | Wingman | `image=rank/wingmanN` (0-18) | `r1`-`r7` |
 | Custom ladder | `image=rank/levelN` (1-10) | `l1`, `l2`, `l4`, `l8`, `l10` for levels 1, 2-3, 4-7, 8-9 and 10 |
 
-Send the tier tone with the image: besides the colour, it tells the side list
-to draw the emblem on the row rather than on the dark tile a render sits on.
+Send the tier tone with the image. It is how a chip and the side list know the
+picture is an emblem: they draw it on the row rather than on the dark tile a
+render sits on, and rasterize it at the size shown rather than at the 32×13 its
+file declares.
 
 Ranks' own `Custom` mode writes an icon number from `Scoreboard.CustomRank*`, and
 the scoreboard loads `skillgroup<number>` from the player's icon addon. CustomHUD
