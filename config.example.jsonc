@@ -42,7 +42,8 @@
     // selector ›, a slider's track, a field, › for a page) and its footer the
     // keys that work on the focused row. ShopCore, MapChooser, Ranks, VIPCore,
     // Admins and MixScrims menus get the list with their eyebrow (and
-    // MapChooser's map art). Nothing of these built-ins is written here, so a
+    // MapChooser's map art), and WeaponSkins' menu_list_skins.vxml, which adds
+    // sticker art. Nothing of these built-ins is written here, so a
     // release that improves them reaches every server.
     //
     // A config written before the list shipped pinned the classic layouts in

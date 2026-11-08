@@ -9,6 +9,8 @@ public static class ListProfiles
 {
     public const string KeysFile = "menu_list.vxml_c";
     public const string MouseFile = "menu_list_mouse.vxml_c";
+    // The keyboard list plus econ_stickers.vcss, which no other list loads: sticker art is most of all econ classes.
+    public const string SkinsFile = "menu_list_skins.vxml_c";
 
     // A keyboard page never holds more (core caps MaxVisibleLines at 32, numbers mode
     // at six keys); the mouse list scrolls through a chunk this long and pages past it.
@@ -82,7 +84,15 @@ public static class ListProfiles
         ["vipcore.*"] = Keys("vip"),
         ["admins.*"] = Keys("admins"),
         ["mixscrims.*"] = Mix(),
+        ["weaponskins.*"] = Skins(),
     };
+
+    public static MenuLayoutProfile Skins()
+    {
+        var profile = Keys();
+        profile.File = SkinsFile;
+        return profile;
+    }
 
     // Ranks' pages caption meters only its mouse page draws (the hero's two thresholds, a
     // weapon card's shares); its list view drops the captions and reads units as words.

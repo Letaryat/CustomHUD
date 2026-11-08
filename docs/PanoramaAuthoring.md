@@ -406,10 +406,11 @@ A view is a block of rules in its plugin's `locker_<plugin>.vcss`:
 ### List layouts
 
 `menu_list.vxml` (Wasd, Buttons, Numbers) and `menu_list_mouse.vxml` (Mouse)
-are generated too: `scripts/generate-list-layout.ps1` writes them from
-`ListProfiles.KeySlots`, `MouseSlots` and `Segments` and the row anatomy that
-`ListProfiles.Row` names part by part. As with the locker, a part one side
-draws and the other doesn't name either never fills or shows its
+are generated too, with `menu_list_skins.vxml`: the keyboard file plus
+`econ_stickers.vcss`, for WeaponSkins. `scripts/generate-list-layout.ps1`
+writes them from `ListProfiles.KeySlots`, `MouseSlots` and `Segments` and the
+row anatomy that `ListProfiles.Row` names part by part. As with the locker, a
+part one side draws and the other doesn't name either never fills or shows its
 placeholder, so rerun the generator after changing either.
 
 * The rows reuse the locker's part classes and load `locker.vcss` before

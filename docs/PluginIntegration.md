@@ -168,6 +168,8 @@ scrolling grid of cards. WeaponSkins keeps using ordinary `Core.Menu`.
   item's picture, rarity and name, then one field per entry (name tag, wear,
   seed, StatTrak™, Souvenir, Stickers, Charms; gloves take only the wear). A
   click on the wear bar sets wear in 0.02 steps. Keyboard modes keep their list.
+- In the keyboard modes WeaponSkins' menus draw in `menu_list_skins`: the list
+  with the same art, sticker art included.
 
 ## Provider Integrations
 

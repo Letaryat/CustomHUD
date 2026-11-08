@@ -68,6 +68,7 @@ Rampage addon styles are not reused either.
 | `layout/custom_game/customhud/menu_mouse.vxml` + `styles/custom_game/customhud/menu_mouse.vcss` | `panorama/layout/custom_game/customhud/menu_mouse.vxml_c` | the tile grid: `MenuLayoutProfile.MouseGrid()` as `Mouse` (the sheet also holds the mouse layouts' shared chrome) |
 | `layout/custom_game/customhud/menu_list.vxml` (generated) + `styles/custom_game/customhud/list.vcss` | `panorama/layout/custom_game/customhud/menu_list.vxml_c` | the keyboard list every menu gets while `Default` and the mode profiles are unset (`ListProfiles.Keys()`, a plugin's flavour from `ListProfiles.Plugins()`) |
 | `layout/custom_game/customhud/menu_list_mouse.vxml` (generated) + `list.vcss` | `panorama/layout/custom_game/customhud/menu_list_mouse.vxml_c` | the mouse list, while `Mouse` is unset and no mouse rule matches (`ListProfiles.Mouse()`) |
+| `layout/custom_game/customhud/menu_list_skins.vxml` (generated) + `list.vcss` | `panorama/layout/custom_game/customhud/menu_list_skins.vxml_c` | WeaponSkins' keyboard list: `menu_list` plus `econ_stickers.vcss` (`ListProfiles.Skins()`) |
 | `layout/custom_game/customhud/hud_text.vxml` + `styles/custom_game/customhud/hud_text.vcss` | `panorama/layout/custom_game/customhud/hud_text.vxml_c` | `NativeText` Default and Center |
 | `layout/custom_game/customhud/hud_alert.vxml` + `styles/custom_game/customhud/hud_alert.vcss` | `panorama/layout/custom_game/customhud/hud_alert.vxml_c` | `NativeText` Alert |
 | `layout/custom_game/customhud/menu_teampick.vxml` + `.vcss` | `panorama/layout/custom_game/customhud/menu_teampick.vxml_c` | `Overrides["<pick menu id>"]` |
@@ -81,7 +82,7 @@ Rampage addon styles are not reused either.
 | `layout/custom_game/customhud/panel_ready.vxml` + `.vcss` | `panorama/layout/custom_game/customhud/panel_ready.vxml_c` | `Panels.ready`: vars `title count state hint`, classes `is-ready` / `not-ready` |
 | `layout/custom_game/customhud/panel_timeout.vxml` + `.vcss` | `panorama/layout/custom_game/customhud/panel_timeout.vxml_c` | `Panels.timeout`: vars `title team timer detail`, classes `team-ct` / `team-t` |
 | `styles/custom_game/customhud/econ_thumbs.vcss` (generated) | `s2r://panorama/styles/custom_game/customhud/econ_thumbs.vcss_c` | `econ-<token>` classes (hashed keys) for `image=`, pointing at base-game textures |
-| `styles/custom_game/customhud/econ_stickers.vcss` (generated) | `s2r://panorama/styles/custom_game/customhud/econ_stickers.vcss_c` | the same for sticker art; only `menu_skins_mouse` includes it |
+| `styles/custom_game/customhud/econ_stickers.vcss` (generated) | `s2r://panorama/styles/custom_game/customhud/econ_stickers.vcss_c` | the same for sticker art; only `menu_skins_mouse` and `menu_list_skins` include it |
 | `images/custom_game/customhud/faceit_lvl1..10.svg` | `panorama/images/custom_game/customhud/faceit_lvlN.vsvg_c` | badges for `icon=N` rows in `menu_teampick` |
 
 The menu variants share `menu.vxml`'s variable vocabulary (`title`, `footer`,
@@ -455,7 +456,8 @@ chips on one line over a 20px title. That line collapses when it holds neither,
 as on a general plugin's root menu, so the title starts at the panel's top. The
 rows reuse the locker's part classes, so `locker.vcss` styles what is in them
 and `list.vcss` lays each one out as a single line: the art, the text taking
-whatever is left, then the right side.
+whatever is left, then the right side. WeaponSkins' keyboard list is
+`menu_list_skins`, the same file with `econ_stickers.vcss` for its sticker art.
 
 ```text
 #shell.ls.ls-keys | .ls-mouse              mode-<mode> · view-<name> · has-<region> · has-chips · hk-scale-N · hidden

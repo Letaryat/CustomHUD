@@ -725,6 +725,9 @@ navigation, focus restore on the in-hand weapon, disabled rows and text inputs
       stale row; wait for the parent's frame before the next navigation
 - [ ] switch to buttons/WASD: the list and key navigation return; the
       navigation buttons disappear, and the legend names the keys
+- [ ] in that list a sticker slot, a capsule and a capsule's stickers show
+      their pictures, as in the locker. An empty tile on a sticker row means
+      the client's `menu_list_skins.vxml_c` or `econ_stickers.vcss_c` is stale
 - [ ] repeat in numbers mode, then switch back to mouse without reopening
 - [ ] repeat on ordinary mouse menus (the mouse list), each classic list
       variant selected through `Overrides`, and the tile grid as `Mouse`;
