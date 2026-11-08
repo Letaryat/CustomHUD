@@ -168,6 +168,7 @@ family's own colour at a lower alpha.
 | Wear | `chudWearFnBase #3fdc5a`, `chudWearMwBase #a6dfa6`, `chudWearFtBase #f2d43a`, `chudWearWwBase #f5973a`, `chudWearBsBase #ff7a72`, each with a `Dim` at alpha `59` for the unfilled part of the bar |
 | Ranks | `chudRating0Base`…`chudRating6Base` for CS Rating's bands and `chudLevel1Base`, `2`, `4`, `8`, `10` for the level bands, each with a `Glow` at alpha `5c` |
 | Swatches | `chudSwatchRed`, `Blue`, `Green`, `Yellow`, `Purple`, `Orange`, `Pink`, `Cyan`, `White`, `Black`: the colours `swatch=<colour>` names |
+| Graffiti | `chudSprayTint01`…`chudSprayTint19`: the game's graffiti tints by id, which `tint=spray-N` washes spray art in. Game data, not part of the palette |
 
 The rarity ladder follows the `lvl-N` icon classes: grey, light blue, blue,
 purple, pink, red, gold, orange, yellow, green.
@@ -316,7 +317,7 @@ navigation as short submenus open. Labels and values are real menu data.
 Button#option_N.chud-tile.ws-card       has-thumb · has-type · page-tile · chosen · inside #options > .ws-grid__items > .ws-line
 ├─ #icon_N.chud-tile__rarity            lvl-1…10 → glow rising from the foot
 │  └─ .ws-card__bar                     rarity bar under the image (has-thumb only)
-├─ #thumb_N.ws-card__thumb              econ-<token> class, 152×104
+├─ #thumb_N.ws-card__thumb              econ-<token> class, 152×104 · tint-spray-1…19 washes a graffiti in its colour
 ├─ .ws-card__type                       {s:option_N_type}
 ├─ .ws-card__name                       {s:option_N}
 └─ .ws-card__value                      {s:option_N_right}
@@ -534,7 +535,7 @@ child sets `hittest="false"` so the Button receives the click.
 
 An empty slot receives `hidden` and nothing else; the diff drops every class
 its last occupant had (`selected`, `disabled`, `danger`, `marquee`, `has-*`,
-`lvl-*`, `econ-*`, `bar-*`, `chosen`).
+`lvl-*`, `econ-*`, `tint-*`, `bar-*`, `chosen`).
 
 ## Nav modes
 
@@ -555,6 +556,7 @@ A plugin can target CustomHUD directly through
 |---|---|
 | `icon=N` | rarity dot or tile tint `lvl-N` |
 | `image=key` | econ thumbnail on `thumb_N` in `menu_skins_mouse`; ignored elsewhere |
+| `tint=token` | `tint-<token>` beside the thumbnail; `menu_skins_mouse` and the list wash `spray-1`…`19` in `chudSprayTint01`…`19` |
 | `type=label` | caption above the name plus `has-type` in `menu_skins_mouse`; ignored elsewhere |
 | `danger` | red bar and label, or red tile name |
 | `disabled` | 40% opacity |

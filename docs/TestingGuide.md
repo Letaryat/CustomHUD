@@ -621,13 +621,14 @@ navigation, focus restore on the in-hand weapon, disabled rows and text inputs
       WeaponSkins page lists five entries even with `MaxVisibleLines 20`
 - [ ] `!setnav mouse`: every `weaponskins.*` menu uses the wide locker. `!ws`
       opens straight on the weapon grid; the sidebar reads Weapon Skins,
-      Knifes, Gloves, Agents, Music Kits, a rule, Weapon / Knife / Glove
-      Properties, and Weapon Skins is active
+      Knifes, Gloves, Agents, Music Kits, Graffiti, then Weapon / Knife /
+      Glove / Agent Properties, and Weapon Skins is active
 - [ ] each sidebar entry has its icon: a pistol, a knife, gloves, an agent, a
-      music note, then the pistol, knife and gloves again, each with a small
-      gear at its lower right. Icons are grey at rest, white on hover and
-      orange on the active entry, and the rule has none. A blank space where
-      an icon should be means the client's `customhud_icons.vcss_c` is stale
+      music note, the default tiles for Graffiti, then the pistol, knife,
+      gloves and agent again, each with a small gear at its lower right. Icons
+      are grey at rest, white on hover and orange on the active entry. A blank
+      space where an icon should be means the client's `customhud_icons.vcss_c`
+      is stale
 - [ ] the active entry follows you down: inside AK-47 finishes, Weapon Skins
       stays active
 - [ ] the active entry is a dim orange fill under a bright orange edge, its
@@ -693,6 +694,17 @@ navigation, focus restore on the in-hand weapon, disabled rows and text inputs
       2025 Highlight and Budapest 2025 Highlight; each collection opens its
       charms with their pictures, rarest first. Budapest 2025 is a plain card:
       the game ships no picture for it
+- [ ] Graffiti lists Reset, the tournaments with their logos, then every
+      graffiti with its picture; a colourable one opens its colours, each card
+      showing the graffiti in that colour. A pick is named in chat, and the
+      picked graffiti is outlined in orange, in the colour picked
+- [ ] `!spray` aimed at a wall or the floor close by paints the picked
+      graffiti in its colour; with a graffiti equipped in your Steam inventory,
+      the game's own graffiti key paints the one picked in `!ws` instead
+- [ ] Agent Properties lists Reset and Patch 1 to 5; a slot opens the patch
+      packs with their pictures, then the patches no pack holds. A picked patch
+      shows on its slot card, is outlined on that slot's lists, and is on your
+      agent at once and after a respawn; Stickers lists no patch pack
 - [ ] unavailable categories are not exposed as active sidebar shortcuts;
       without the `Stickers` / `Keychains` permission a weapon's Stickers /
       Charms card is shown disabled

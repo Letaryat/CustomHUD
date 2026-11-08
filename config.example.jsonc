@@ -99,7 +99,7 @@
     //     // missing from Icons keeps the layout's default. Tokens are the
     //     // ico-* classes in customhud_icons.vcss: weapons, knives, gloves,
     //     // agents, music-kits, stickers, weapon-props, knife-props,
-    //     // glove-props, shop, inventory, credits, gift, crown, star, key,
+    //     // glove-props, agent-props, shop, inventory, credits, gift, crown, star, key,
     //     // colors, sounds, movement, healing, guns, vote, add, map-vote, maps,
     //     // refresh, clock, ticket, timer, rank, stats, trophy, player,
     //     // add-player, ban, mute, chat, server, staff, shield, tiles, settings,
@@ -117,7 +117,8 @@
     //                             "weaponskins.musickits": "music-kits",
     //                             "weaponskins.weaponproperties": "weapon-props",
     //                             "weaponskins.knifeproperties": "knife-props",
-    //                             "weaponskins.gloveproperties": "glove-props" } },
+    //                             "weaponskins.gloveproperties": "glove-props",
+    //                             "weaponskins.agentproperties": "agent-props" } },
     //     // A page whose first row carries `hero` draws as an inspect card in
     //     // place of the grid: one field per row, an `inline` row joining the
     //     // field above it. {} keeps the ids menu_skins_mouse declares.

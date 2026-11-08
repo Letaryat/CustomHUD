@@ -473,6 +473,8 @@ internal sealed partial class FrameComposer
         {
             if (picture is null) continue;
             if (token is not null) classes.Add(new ClassWrite(picture, Format(cls.Thumb, token), true));
+            if (token is not null && entry.Tint is { } tint && cls.Tint.Length > 0)
+                classes.Add(new ClassWrite(picture, Format(cls.Tint, tint), true));
             classes.Add(new ClassWrite(picture, cls.Hidden, token is null));
         }
 

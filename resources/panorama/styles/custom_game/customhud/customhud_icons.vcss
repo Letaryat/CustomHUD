@@ -40,10 +40,12 @@
 .chud-ico.ico-weapon-props { background-image: url( "s2r://panorama/images/icons/equipment/deagle.vsvg" ); }
 .chud-ico.ico-knife-props { background-image: url( "s2r://panorama/images/icons/equipment/melee.vsvg" ); }
 .chud-ico.ico-glove-props { background-image: url( "s2r://panorama/images/icons/equipment/clothing_hands.vsvg" ); }
+.chud-ico.ico-agent-props { background-image: url( "s2r://panorama/images/icons/ui/ct_silhouette.vsvg" ); }
 
 .chud-ico.ico-weapon-props,
 .chud-ico.ico-knife-props,
-.chud-ico.ico-glove-props
+.chud-ico.ico-glove-props,
+.chud-ico.ico-agent-props
 {
 	background-size: 15px auto;
 	background-position: 0% 0%;
@@ -51,7 +53,8 @@
 
 .chud-ico.ico-weapon-props .chud-ico__badge,
 .chud-ico.ico-knife-props .chud-ico__badge,
-.chud-ico.ico-glove-props .chud-ico__badge
+.chud-ico.ico-glove-props .chud-ico__badge,
+.chud-ico.ico-agent-props .chud-ico__badge
 {
 	visibility: visible;
 }

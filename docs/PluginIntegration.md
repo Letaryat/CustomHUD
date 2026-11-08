@@ -160,7 +160,11 @@ scrolling grid of cards. WeaponSkins keeps using ordinary `Core.Menu`.
   glow from its `MenuTextStyle.Color`. An item the game ships no art for is a
   plain card.
 - The item the player has on (a finish, a knife or glove type, an agent, a music
-  kit) gets a 2px orange outline, read from WeaponSkins' API.
+  kit, a graffiti, a patch) gets a 2px orange outline, read from WeaponSkins' API.
+- Graffiti show in their colour: the chosen one in the colour picked, and each
+  card on a graffiti's colour page in that colour. Agent Properties shows the
+  patch on each slot. Both need a WeaponSkins build with graffiti and patches in
+  its API; with an older one those pages stay plain and the rest is unchanged.
 - With `Sidebar.AutoOpen`, opening the menu lands on its first entry (Weapon
   Skins) and backing out of that level closes it. The root's buttons, such as
   Ranks' `Help`, join the sidebar.
@@ -357,6 +361,7 @@ new MenuRawNode("customhud.panorama", "icon=7;danger")
 | `text=` | Text only CustomHUD shows, at the raw node's place in the row. A component drawing `de_mirage` that appends `text=\t7` gets `7` in the value column here, while every other renderer still shows `de_mirage` |
 | `icon=N` | A rarity dot or tile tint, `lvl-N` |
 | `image=<key>` | A CS2 econ image, see below |
+| `tint=<token>` | With `image=`: adds `tint-<token>` to the image's panel, for art the game colours at runtime. The WeaponSkins layouts wash `spray-1` to `spray-19` in the graffiti tints |
 | `type=<label>` | A short category label (`type=Rifle`) written to the profile's `Row.TypeVar`, adding `has-type`; layouts without a `TypeVar` ignore it |
 | `bar=N` | A share, 0-100: the list fills the row behind its text, the classic lists and the mouse grid draw a thin meter, the WeaponSkins locker none |
 | `chosen` | The player's own pick, such as their vote, in the accent. The mouse layouts also outline a chosen tile or card in a 2px accent edge |

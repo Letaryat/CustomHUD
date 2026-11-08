@@ -248,6 +248,7 @@ public sealed class MenuLayoutProfile
                 ["weaponskins.weaponproperties"] = "weapon-props",
                 ["weaponskins.knifeproperties"] = "knife-props",
                 ["weaponskins.gloveproperties"] = "glove-props",
+                ["weaponskins.agentproperties"] = "agent-props",
             },
         },
         Card = new(),
@@ -493,6 +494,9 @@ public sealed class LayoutClasses
     // Econ thumbnail on the thumb panel, `{0}` = the first 12 hex digits of
     // the image key's SHA-256. Must match scripts/generate-econ-thumbs.ps1.
     public string Thumb { get; set; } = "econ-{0}";
+    // `tint=<token>` beside an image, on the same panel: a wash for art the game colours at
+    // runtime, such as graffiti. `{0}` = the token.
+    public string Tint { get; set; } = "tint-{0}";
     // On the row panel while its thumb panel shows an image.
     public string HasThumb { get; set; } = "has-thumb";
     // On the row panel while its type label is non-empty, so a layout can move

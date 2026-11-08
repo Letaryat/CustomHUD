@@ -155,6 +155,27 @@
 	visibility: collapse;
 }
 
+/* tint=spray-N: the game ships graffiti art untinted and washes it in the chosen colour. */
+.ws-card__thumb.tint-spray-1 { wash-color: chudSprayTint01; }
+.ws-card__thumb.tint-spray-2 { wash-color: chudSprayTint02; }
+.ws-card__thumb.tint-spray-3 { wash-color: chudSprayTint03; }
+.ws-card__thumb.tint-spray-4 { wash-color: chudSprayTint04; }
+.ws-card__thumb.tint-spray-5 { wash-color: chudSprayTint05; }
+.ws-card__thumb.tint-spray-6 { wash-color: chudSprayTint06; }
+.ws-card__thumb.tint-spray-7 { wash-color: chudSprayTint07; }
+.ws-card__thumb.tint-spray-8 { wash-color: chudSprayTint08; }
+.ws-card__thumb.tint-spray-9 { wash-color: chudSprayTint09; }
+.ws-card__thumb.tint-spray-10 { wash-color: chudSprayTint10; }
+.ws-card__thumb.tint-spray-11 { wash-color: chudSprayTint11; }
+.ws-card__thumb.tint-spray-12 { wash-color: chudSprayTint12; }
+.ws-card__thumb.tint-spray-13 { wash-color: chudSprayTint13; }
+.ws-card__thumb.tint-spray-14 { wash-color: chudSprayTint14; }
+.ws-card__thumb.tint-spray-15 { wash-color: chudSprayTint15; }
+.ws-card__thumb.tint-spray-16 { wash-color: chudSprayTint16; }
+.ws-card__thumb.tint-spray-17 { wash-color: chudSprayTint17; }
+.ws-card__thumb.tint-spray-18 { wash-color: chudSprayTint18; }
+.ws-card__thumb.tint-spray-19 { wash-color: chudSprayTint19; }
+
 .ws-card__type
 {
 	width: 154px;
