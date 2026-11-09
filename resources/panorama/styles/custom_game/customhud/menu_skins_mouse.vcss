@@ -51,7 +51,7 @@
 .ws-grid
 {
 	width: 896px;
-	height: 100%;
+	height: fill-parent-flow( 1.0 );
 	overflow: clip scroll;
 }
 
@@ -975,3 +975,90 @@
 .ws-field.fill-98 .ws-track__fill { width: 98%; }
 .ws-field.fill-99 .ws-track__fill { width: 99%; }
 .ws-field.fill-100 .ws-track__fill { width: 100%; }
+
+/* ===== Weapon groups: the second level of Weapon Skins (Rifles, Pistols, SMGs ...) as a strip =====
+   CustomHUD fills group_0..group_7 from the tabs rule (Tabs on this layout's profile): the static
+   submenus of the sidebar entry's page, shown on the pages directly under it. The strip is .hidden
+   elsewhere and takes no room; .has-tabs on the shell makes room for it. */
+.ws-main
+{
+	width: 896px;
+	height: 100%;
+	flow-children: down;
+}
+
+.ws-groups
+{
+	width: 100%;
+	height: fit-children;
+	flow-children: right;
+}
+
+.ws-groups.hidden
+{
+	visibility: collapse;
+}
+
+.ws-group
+{
+	height: 32px;
+	margin: 0px 6px 8px 0px;
+	padding: 0px 14px 0px 14px;
+	background-color: chudSurfaceRow;
+	border: 1px solid chudSurfaceEdge;
+	border-radius: 3px;
+	transition-property: background-color, border;
+	transition-duration: 0.12s;
+	transition-timing-function: ease-in-out;
+}
+
+.ws-group.hidden
+{
+	visibility: collapse;
+}
+
+.ws-group Label
+{
+	vertical-align: center;
+	font-family: chudFontMedium;
+	font-size: 12px;
+	color: chudTextMuted;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	white-space: nowrap;
+}
+
+.ws-group:hover
+{
+	background-color: chudSurfaceHover;
+	border: 1px solid chudAccentBase;
+}
+
+.ws-group:hover Label
+{
+	color: chudTextMain;
+}
+
+.ws-group.selected,
+.ws-group.selected:hover
+{
+	background-color: chudAccentSoft;
+	border: 1px solid chudAccentBase;
+}
+
+.ws-group.selected Label
+{
+	color: chudAccentBase;
+}
+
+/* The strip's 40px (32px button + 8px gap) added to the three card rows. */
+.ws-locker.has-tabs .ws-content
+{
+	height: 616px;
+}
+
+/* Card mode shows one item's inspector instead of the list, so the strip goes with the grid. */
+.ws-locker.card-mode .ws-main
+{
+	visibility: collapse;
+}

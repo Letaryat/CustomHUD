@@ -30,6 +30,17 @@
 					<Button id="category_10" class="ws-category hidden"><Panel id="category_10_icon" class="chud-ico" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label text="{s:category}" hittest="false" /></Button>
 					<Button id="category_11" class="ws-category hidden"><Panel id="category_11_icon" class="chud-ico" hittest="false"><Panel class="chud-ico__badge" hittest="false" /></Panel><Label text="{s:category}" hittest="false" /></Button>
 				</Panel>
+				<Panel class="ws-main">
+				<Panel id="groups" class="ws-groups hidden">
+						<Button id="group_0" class="ws-group hidden"><Label text="{s:group}" hittest="false" /></Button>
+						<Button id="group_1" class="ws-group hidden"><Label text="{s:group}" hittest="false" /></Button>
+						<Button id="group_2" class="ws-group hidden"><Label text="{s:group}" hittest="false" /></Button>
+						<Button id="group_3" class="ws-group hidden"><Label text="{s:group}" hittest="false" /></Button>
+						<Button id="group_4" class="ws-group hidden"><Label text="{s:group}" hittest="false" /></Button>
+						<Button id="group_5" class="ws-group hidden"><Label text="{s:group}" hittest="false" /></Button>
+						<Button id="group_6" class="ws-group hidden"><Label text="{s:group}" hittest="false" /></Button>
+						<Button id="group_7" class="ws-group hidden"><Label text="{s:group}" hittest="false" /></Button>
+				</Panel>
 				<Panel id="options" class="ws-grid chud-scroll">
 					<Panel class="ws-grid__items">
 						<Panel class="ws-line">
@@ -981,6 +992,7 @@
 							</Button>
 						</Panel>
 					</Panel>
+				</Panel>
 				</Panel>
 				<Panel id="card" class="ws-cardview">
 					<Panel class="ws-inspect">

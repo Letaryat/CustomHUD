@@ -34,6 +34,9 @@ public sealed class MenuPageProfile
     public string TabLabelVar { get; set; } = "tab";
     public string TabCountVar { get; set; } = "tab_count";
     public int TabAutoOpen { get; set; } = 0;
+    // When set, only submenus carrying this component id are tabs; a page of any other submenus is
+    // an ordinary list. A plugin that makes its second level tabs says so with the id.
+    public string TabId { get; set; } = "";
 
     // One view class on the shell: a `view=` directive, else the longest
     // matching Views pattern (exact id, then trailing *), else DefaultView.

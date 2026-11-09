@@ -198,6 +198,9 @@ public sealed class MenuLayoutProfile
     public MenuCardProfile? Card { get; set; }
     // Chips, crumb, tabs, regions and views (menu_locker). Null for row layouts.
     public MenuPageProfile? Page { get; set; }
+    // Tabs on a row layout: only the Tab* fields of this profile are read, from the same rule as a
+    // page's tabs (the static submenus of the sidebar entry's page). Null for layouts without a strip.
+    public MenuPageProfile? Tabs { get; set; }
     public Dictionary<string, string> ColorIcons { get; set; } = new(StringComparer.OrdinalIgnoreCase);
 
     // Variables the layout declares but the renderer has no value for. Panorama
@@ -252,6 +255,14 @@ public sealed class MenuLayoutProfile
             },
         },
         Card = new(),
+        // Weapon Skins' second level (Rifles, Pistols ...) is the strip over the grid. The first tab
+        // opens in place of the page, so a player lands on Rifles.
+        Tabs = new()
+        {
+            TabSlots = 8, TabsPanel = "groups", TabPrefix = "group_",
+            TabLabelVar = "group", TabCountVar = "group_count", TabAutoOpen = 0,
+            TabId = "weaponskins.weapons.group",
+        },
         ColorIcons = new(StringComparer.OrdinalIgnoreCase)
         {
             ["#b0c3d9"] = "1", ["#5e98d9"] = "2", ["#4b69ff"] = "3",

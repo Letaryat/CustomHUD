@@ -165,6 +165,13 @@ scrolling grid of cards. WeaponSkins keeps using ordinary `Core.Menu`.
   card on a graffiti's colour page in that colour. Agent Properties shows the
   patch on each slot. Both need a WeaponSkins build with graffiti and patches in
   its API; with an older one those pages stay plain and the rest is unchanged.
+- Weapon Skins' weapon types are grouped (Rifles, Pistols, SMGs, Shotguns, Snipers, Heavy) as a
+  strip of buttons over the grid, `group_0` to `group_7` (`{s:group}`, `selected` on the open one).
+  It is the tabs rule on a row layout (`MenuLayoutProfile.Tabs`): the static submenus of the
+  sidebar entry's page, shown on the pages directly under it, with the first one opened in place
+  of the page. It needs a WeaponSkins build whose Weapon Skins page lists group pages (submenus
+  with the component id `weaponskins.weapons.group`); with an older build the page keeps its
+  weapons and the strip stays hidden.
 - With `Sidebar.AutoOpen`, opening the menu lands on its first entry (Weapon
   Skins) and backing out of that level closes it. The root's buttons, such as
   Ranks' `Help`, join the sidebar.

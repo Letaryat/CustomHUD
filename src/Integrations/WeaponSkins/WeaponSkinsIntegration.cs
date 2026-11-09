@@ -9,7 +9,7 @@ namespace CustomHUD.Integrations.SkinPages;
 
 // WeaponSkins' locker: each row's render, its caption and an outline on what the player has on,
 // all read from IWeaponSkinAPI. A row says what it stands for through its Tag: a weapon type's
-// definition index (ushort), a finish's paint kit index (int), an agent / music kit / sticker /
+// definition index (ushort; under a group page such as Rifles), a finish's paint kit index (int), an agent / music kit / sticker /
 // capsule / charm / graffiti / tint / patch / patch pack definition, a charm collection's name, a
 // graffiti tournament's event id or a sticker or patch slot (int). A page under a weapon (its
 // finishes, its properties, its stickers) gets that weapon from the row it was opened from (Openers).
@@ -47,6 +47,10 @@ internal sealed class WeaponSkinsIntegration(IWeaponSkinAPI api) : IPageIntegrat
             case "weaponskins.knifes":
             case "weaponskins.gloves":
                 DrawTypes(page, id);
+                return;
+            // A weapon group (Rifles, Pistols ...): the weapon types of one tab.
+            case "weaponskins.weapons.group":
+                DrawTypes(page, "weaponskins.weapons");
                 return;
             case "weaponskins.weapons.paintkits":
             case "weaponskins.knifes.paintkits":

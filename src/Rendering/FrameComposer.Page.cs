@@ -772,7 +772,7 @@ internal sealed partial class FrameComposer
         var cls = profile.Classes;
         var slots = Math.Clamp(page.TabSlots, 0, MaxTabSlots);
         var host = slots == 0 ? null : TabHostOf(context.Menu, SidebarRoot(context.Menu));
-        var items = host is null ? [] : TabEntries(host, slots);
+        var items = host is null ? [] : TabEntries(host, slots, page.TabId);
         var onHost = items.Length > 0 && ReferenceEquals(host, context.Menu);
         // The host's own frame is about to open a tab in its place; drawing its tabs would only flash.
         // A page below a tab (a product, a player) is a detail of that tab, and drops the strip.
@@ -819,7 +819,7 @@ internal sealed partial class FrameComposer
 
     // A page made only of plain submenus (and dividers), two or more: a choice
     // of views onto one thing, which is what a tab strip shows.
-    internal static SubmenuComponent[] TabEntries(IMenu host, int slots)
+    internal static SubmenuComponent[] TabEntries(IMenu host, int slots, string tabId = "")
     {
         var tabs = new List<SubmenuComponent>();
         foreach (var component in host.GetComponents(MenuRegion.Body))
@@ -828,7 +828,8 @@ internal sealed partial class FrameComposer
             {
                 case DividerComponent:
                     continue;
-                case SubmenuComponent { Visible: true, VisibleWhen: null, EnabledWhen: null, TextProvider: null } tab:
+                case SubmenuComponent { Visible: true, VisibleWhen: null, EnabledWhen: null, TextProvider: null } tab
+                    when tabId.Length == 0 || string.Equals(tab.Id, tabId, StringComparison.OrdinalIgnoreCase):
                     tabs.Add(tab);
                     continue;
                 default:

@@ -100,6 +100,8 @@ internal sealed partial class FrameComposer(CustomHudConfigProvider config, HudT
         };
         if (mode == NavMode.Mouse && profile.Sidebar is { } sidebar)
             rows = ComposeSidebar(context, profile, sidebar, rows, vars, classes);
+        if (mode == NavMode.Mouse && profile.Tabs is { } tabs)
+            rows = ComposeTabs(context, profile, tabs, rows, vars, classes);
 
         // Without a Close button, Back stays visible on a root menu too: core's
         // Close() exits there, and it is a mouse player's only way out because
@@ -165,7 +167,9 @@ internal sealed partial class FrameComposer(CustomHudConfigProvider config, HudT
             string.Join(',', p.BlankOnOpen),
             p.Sidebar?.CountVar, p.Sidebar?.CountClass, p.Sidebar?.LiveClass,
             RowFingerprint(p.Row),
-            p.Page is { } page ? PageFingerprint(page) : "");
+            p.Page is { } page ? PageFingerprint(page) : "",
+            p.Tabs is { } tabs ? string.Join(',', tabs.TabSlots, tabs.TabsPanel, tabs.TabPrefix, tabs.TabLabelVar, tabs.TabCountVar,
+                tabs.TabAutoOpen, tabs.TabId, tabs.Classes.HasTabs, tabs.Classes.HasCount) : "");
 
     private static string RowFingerprint(LayoutRowSpec r)
         => string.Join(',',
@@ -180,7 +184,7 @@ internal sealed partial class FrameComposer(CustomHudConfigProvider config, HudT
         var l = p.Legend;
         return string.Join('|',
             p.EyebrowVar, p.CrumbVar, p.ChipSlots, RowFingerprint(p.ChipRow),
-            p.TabSlots, p.TabsPanel, p.TabPrefix, p.TabLabelVar, p.TabCountVar,
+            p.TabSlots, p.TabsPanel, p.TabPrefix, p.TabLabelVar, p.TabCountVar, p.TabId,
             p.HeadPanel, p.HeadVar, p.HeadSlots,
             string.Join(';', p.Regions.Select(r => r.Name + ':' + r.Slots + ':' + RowFingerprint(r.Row))),
             l is null ? "" : string.Join(',', l.Panel, l.Slots, l.SlotPanel, l.KeyVar, l.Key2Var, l.VerbVar,
@@ -346,7 +350,9 @@ internal sealed partial class FrameComposer(CustomHudConfigProvider config, HudT
     // A skipped root is no destination: Back from its children would only reopen
     // the entry the root skips to.
     private static bool HasBackTarget(IMenu menu, RowMap rows)
-        => menu.Parent is { } parent && !(rows.SkipsRoot && ReferenceEquals(parent, rows.RootMenu));
+        => menu.Parent is { } parent
+           && !(rows.SkipsRoot && ReferenceEquals(parent, rows.RootMenu))
+           && !(rows.SkipsTabHost && ReferenceEquals(parent, rows.TabHost));
 
     private int ComposeRows(
         MenuFrame frame,
